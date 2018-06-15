@@ -8,12 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		BEF3C2C120D356FD00ED9A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */; };
-		BEF3C2C320D356FD00ED9A97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C220D356FD00ED9A97 /* ViewController.swift */; };
 		BEF3C2C620D356FD00ED9A97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2C420D356FD00ED9A97 /* Main.storyboard */; };
 		BEF3C2C920D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C720D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld */; };
 		BEF3C2CB20D356FE00ED9A97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */; };
 		BEF3C2CE20D356FE00ED9A97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2CC20D356FE00ED9A97 /* LaunchScreen.storyboard */; };
 		BEF3C2D920D356FF00ED9A97 /* EcoDatumAmazonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2D820D356FF00ED9A97 /* EcoDatumAmazonTests.swift */; };
+		BEF3C2E820D3581800ED9A97 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2E720D3581800ED9A97 /* MainTabBarController.swift */; };
+		BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */; };
+		BEF3C2EC20D35AB700ED9A97 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2EB20D35AB700ED9A97 /* MainNavigationController.swift */; };
+		BEF3C2EE20D35B3B00ED9A97 /* MainSiteTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2ED20D35B3B00ED9A97 /* MainSiteTableController.swift */; };
+		BEF3C2F020D35C1C00ED9A97 /* MainDataCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2EF20D35C1C00ED9A97 /* MainDataCollectionController.swift */; };
+		BEF3C2F220D35D2800ED9A97 /* MainMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2F120D35D2800ED9A97 /* MainMapController.swift */; };
+		BEF3C2F520D35DE200ED9A97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF3C2F420D35DE200ED9A97 /* MapKit.framework */; };
+		BEF3C2F920D3712100ED9A97 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2F820D3712100ED9A97 /* BaseController.swift */; };
+		BEF3C2FC20D3736300ED9A97 /* AbioticFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2FB20D3736300ED9A97 /* AbioticFactor.swift */; };
+		BEF3C2FE20D3742300ED9A97 /* AirDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2FD20D3742300ED9A97 /* AirDataType.swift */; };
+		BEF3C30020D3744500ED9A97 /* SoilDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2FF20D3744500ED9A97 /* SoilDataType.swift */; };
+		BEF3C30220D3745B00ED9A97 /* WaterDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30120D3745B00ED9A97 /* WaterDataType.swift */; };
+		BEF3C30420D374AA00ED9A97 /* AbioticDataUnitChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30320D374AA00ED9A97 /* AbioticDataUnitChoice.swift */; };
+		BEF3C30620D3750800ED9A97 /* AbioticDataTypeChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30520D3750800ED9A97 /* AbioticDataTypeChoice.swift */; };
+		BEF3C30820D3759C00ED9A97 /* DataValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30720D3759C00ED9A97 /* DataValue.swift */; };
+		BEF3C30A20D375C500ED9A97 /* DecimalDataValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30920D375C500ED9A97 /* DecimalDataValue.swift */; };
+		BEF3C30C20D3760000ED9A97 /* NumberSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30B20D3760000ED9A97 /* NumberSign.swift */; };
+		BEF3C30E20D3764C00ED9A97 /* AirOzoneScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30D20D3764C00ED9A97 /* AirOzoneScale.swift */; };
+		BEF3C31020D3768900ED9A97 /* SoilPotassiumScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30F20D3768900ED9A97 /* SoilPotassiumScale.swift */; };
+		BEF3C31220D376AC00ED9A97 /* SoilTextureScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C31120D376AC00ED9A97 /* SoilTextureScale.swift */; };
+		BEF3C31420D376E700ED9A97 /* WaterOdorScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C31320D376E700ED9A97 /* WaterOdorScale.swift */; };
+		BEF3C31620D3771300ED9A97 /* WaterTurbidityScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C31520D3771300ED9A97 /* WaterTurbidityScale.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +50,6 @@
 /* Begin PBXFileReference section */
 		BEF3C2BD20D356FD00ED9A97 /* EcoDatumAmazon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoDatumAmazon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BEF3C2C220D356FD00ED9A97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BEF3C2C520D356FD00ED9A97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEF3C2C820D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EcoDatumAmazon.xcdatamodel; sourceTree = "<group>"; };
 		BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +58,28 @@
 		BEF3C2D420D356FF00ED9A97 /* EcoDatumAmazonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcoDatumAmazonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF3C2D820D356FF00ED9A97 /* EcoDatumAmazonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoDatumAmazonTests.swift; sourceTree = "<group>"; };
 		BEF3C2DA20D356FF00ED9A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEF3C2E720D3581800ED9A97 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		BEF3C2EB20D35AB700ED9A97 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		BEF3C2ED20D35B3B00ED9A97 /* MainSiteTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSiteTableController.swift; sourceTree = "<group>"; };
+		BEF3C2EF20D35C1C00ED9A97 /* MainDataCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataCollectionController.swift; sourceTree = "<group>"; };
+		BEF3C2F120D35D2800ED9A97 /* MainMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapController.swift; sourceTree = "<group>"; };
+		BEF3C2F420D35DE200ED9A97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BEF3C2F820D3712100ED9A97 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		BEF3C2FB20D3736300ED9A97 /* AbioticFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticFactor.swift; sourceTree = "<group>"; };
+		BEF3C2FD20D3742300ED9A97 /* AirDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDataType.swift; sourceTree = "<group>"; };
+		BEF3C2FF20D3744500ED9A97 /* SoilDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilDataType.swift; sourceTree = "<group>"; };
+		BEF3C30120D3745B00ED9A97 /* WaterDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDataType.swift; sourceTree = "<group>"; };
+		BEF3C30320D374AA00ED9A97 /* AbioticDataUnitChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataUnitChoice.swift; sourceTree = "<group>"; };
+		BEF3C30520D3750800ED9A97 /* AbioticDataTypeChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataTypeChoice.swift; sourceTree = "<group>"; };
+		BEF3C30720D3759C00ED9A97 /* DataValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValue.swift; sourceTree = "<group>"; };
+		BEF3C30920D375C500ED9A97 /* DecimalDataValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDataValue.swift; sourceTree = "<group>"; };
+		BEF3C30B20D3760000ED9A97 /* NumberSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSign.swift; sourceTree = "<group>"; };
+		BEF3C30D20D3764C00ED9A97 /* AirOzoneScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirOzoneScale.swift; sourceTree = "<group>"; };
+		BEF3C30F20D3768900ED9A97 /* SoilPotassiumScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilPotassiumScale.swift; sourceTree = "<group>"; };
+		BEF3C31120D376AC00ED9A97 /* SoilTextureScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilTextureScale.swift; sourceTree = "<group>"; };
+		BEF3C31320D376E700ED9A97 /* WaterOdorScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterOdorScale.swift; sourceTree = "<group>"; };
+		BEF3C31520D3771300ED9A97 /* WaterTurbidityScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTurbidityScale.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEF3C2F520D35DE200ED9A97 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +107,7 @@
 				BEF3C2BF20D356FD00ED9A97 /* EcoDatumAmazon */,
 				BEF3C2D720D356FF00ED9A97 /* EcoDatumAmazonTests */,
 				BEF3C2BE20D356FD00ED9A97 /* Products */,
+				BEF3C2F320D35DE200ED9A97 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +123,13 @@
 		BEF3C2BF20D356FD00ED9A97 /* EcoDatumAmazon */ = {
 			isa = PBXGroup;
 			children = (
+				BEF3C2FA20D3734900ED9A97 /* Models */,
+				BEF3C2E620D3576B00ED9A97 /* Extensions */,
+				BEF3C2E520D3574F00ED9A97 /* Controllers */,
+				BEF3C2E420D3572D00ED9A97 /* Resources */,
+				BEF3C2E320D3572400ED9A97 /* Data */,
 				BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */,
-				BEF3C2C220D356FD00ED9A97 /* ViewController.swift */,
-				BEF3C2C420D356FD00ED9A97 /* Main.storyboard */,
-				BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */,
-				BEF3C2CC20D356FE00ED9A97 /* LaunchScreen.storyboard */,
 				BEF3C2CF20D356FE00ED9A97 /* Info.plist */,
-				BEF3C2C720D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld */,
 			);
 			path = EcoDatumAmazon;
 			sourceTree = "<group>";
@@ -97,6 +141,74 @@
 				BEF3C2DA20D356FF00ED9A97 /* Info.plist */,
 			);
 			path = EcoDatumAmazonTests;
+			sourceTree = "<group>";
+		};
+		BEF3C2E320D3572400ED9A97 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BEF3C2E420D3572D00ED9A97 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BEF3C2C420D356FD00ED9A97 /* Main.storyboard */,
+				BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */,
+				BEF3C2CC20D356FE00ED9A97 /* LaunchScreen.storyboard */,
+				BEF3C2C720D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BEF3C2E520D3574F00ED9A97 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BEF3C2E720D3581800ED9A97 /* MainTabBarController.swift */,
+				BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */,
+				BEF3C2EB20D35AB700ED9A97 /* MainNavigationController.swift */,
+				BEF3C2ED20D35B3B00ED9A97 /* MainSiteTableController.swift */,
+				BEF3C2EF20D35C1C00ED9A97 /* MainDataCollectionController.swift */,
+				BEF3C2F120D35D2800ED9A97 /* MainMapController.swift */,
+				BEF3C2F820D3712100ED9A97 /* BaseController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BEF3C2E620D3576B00ED9A97 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BEF3C2F320D35DE200ED9A97 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BEF3C2F420D35DE200ED9A97 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEF3C2FA20D3734900ED9A97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BEF3C2FB20D3736300ED9A97 /* AbioticFactor.swift */,
+				BEF3C2FD20D3742300ED9A97 /* AirDataType.swift */,
+				BEF3C2FF20D3744500ED9A97 /* SoilDataType.swift */,
+				BEF3C30120D3745B00ED9A97 /* WaterDataType.swift */,
+				BEF3C30320D374AA00ED9A97 /* AbioticDataUnitChoice.swift */,
+				BEF3C30520D3750800ED9A97 /* AbioticDataTypeChoice.swift */,
+				BEF3C30720D3759C00ED9A97 /* DataValue.swift */,
+				BEF3C30920D375C500ED9A97 /* DecimalDataValue.swift */,
+				BEF3C30B20D3760000ED9A97 /* NumberSign.swift */,
+				BEF3C30D20D3764C00ED9A97 /* AirOzoneScale.swift */,
+				BEF3C30F20D3768900ED9A97 /* SoilPotassiumScale.swift */,
+				BEF3C31120D376AC00ED9A97 /* SoilTextureScale.swift */,
+				BEF3C31320D376E700ED9A97 /* WaterOdorScale.swift */,
+				BEF3C31520D3771300ED9A97 /* WaterTurbidityScale.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +261,11 @@
 				TargetAttributes = {
 					BEF3C2BC20D356FD00ED9A97 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					BEF3C2D320D356FF00ED9A97 = {
 						CreatedOnToolsVersion = 9.4;
@@ -200,7 +317,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF3C2C320D356FD00ED9A97 /* ViewController.swift in Sources */,
+				BEF3C31420D376E700ED9A97 /* WaterOdorScale.swift in Sources */,
+				BEF3C31620D3771300ED9A97 /* WaterTurbidityScale.swift in Sources */,
+				BEF3C2F020D35C1C00ED9A97 /* MainDataCollectionController.swift in Sources */,
+				BEF3C30A20D375C500ED9A97 /* DecimalDataValue.swift in Sources */,
+				BEF3C30820D3759C00ED9A97 /* DataValue.swift in Sources */,
+				BEF3C31020D3768900ED9A97 /* SoilPotassiumScale.swift in Sources */,
+				BEF3C30220D3745B00ED9A97 /* WaterDataType.swift in Sources */,
+				BEF3C30420D374AA00ED9A97 /* AbioticDataUnitChoice.swift in Sources */,
+				BEF3C2FC20D3736300ED9A97 /* AbioticFactor.swift in Sources */,
+				BEF3C2F220D35D2800ED9A97 /* MainMapController.swift in Sources */,
+				BEF3C30620D3750800ED9A97 /* AbioticDataTypeChoice.swift in Sources */,
+				BEF3C2F920D3712100ED9A97 /* BaseController.swift in Sources */,
+				BEF3C2EC20D35AB700ED9A97 /* MainNavigationController.swift in Sources */,
+				BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */,
+				BEF3C30C20D3760000ED9A97 /* NumberSign.swift in Sources */,
+				BEF3C2EE20D35B3B00ED9A97 /* MainSiteTableController.swift in Sources */,
+				BEF3C31220D376AC00ED9A97 /* SoilTextureScale.swift in Sources */,
+				BEF3C2FE20D3742300ED9A97 /* AirDataType.swift in Sources */,
+				BEF3C30020D3744500ED9A97 /* SoilDataType.swift in Sources */,
+				BEF3C2E820D3581800ED9A97 /* MainTabBarController.swift in Sources */,
+				BEF3C30E20D3764C00ED9A97 /* AirOzoneScale.swift in Sources */,
 				BEF3C2C920D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld in Sources */,
 				BEF3C2C120D356FD00ED9A97 /* AppDelegate.swift in Sources */,
 			);

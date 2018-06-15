@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kfF-bf-RCX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map-->
+        <scene sceneID="XX8-oR-N6Z">
+            <objects>
+                <viewController id="rax-pX-oHW" customClass="MainMapController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="by6-Dr-fbB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LN8-1c-xtP">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hlU-Rl-if2" firstAttribute="bottom" secondItem="LN8-1c-xtP" secondAttribute="bottom" id="3Fq-Xs-M5C"/>
+                            <constraint firstItem="LN8-1c-xtP" firstAttribute="top" secondItem="hlU-Rl-if2" secondAttribute="top" id="UV3-gR-0MN"/>
+                            <constraint firstItem="LN8-1c-xtP" firstAttribute="leading" secondItem="hlU-Rl-if2" secondAttribute="leading" id="t0K-Wh-dwc"/>
+                            <constraint firstItem="hlU-Rl-if2" firstAttribute="trailing" secondItem="LN8-1c-xtP" secondAttribute="trailing" id="uGm-zD-Qfb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hlU-Rl-if2"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="gg7-AR-ioU"/>
+                    <connections>
+                        <outlet property="mapView" destination="LN8-1c-xtP" id="Iib-MT-w30"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSs-U3-1vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="270"/>
+        </scene>
+        <!--Main Data Collection Controller-->
+        <scene sceneID="leG-im-gK3">
+            <objects>
+                <viewController id="5jb-PF-isX" customClass="MainDataCollectionController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T1N-GS-T4c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Btp-SG-8n4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QHm-Ps-r2K">
+                                    <size key="itemSize" width="147" height="141"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Cdi-EC-lCk">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="141"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="147" height="141"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ppn-3C-sOd" firstAttribute="trailing" secondItem="Btp-SG-8n4" secondAttribute="trailing" id="36g-uK-lFt"/>
+                            <constraint firstItem="ppn-3C-sOd" firstAttribute="bottom" secondItem="Btp-SG-8n4" secondAttribute="bottom" id="ZI8-uX-FvQ"/>
+                            <constraint firstItem="Btp-SG-8n4" firstAttribute="leading" secondItem="ppn-3C-sOd" secondAttribute="leading" id="y5k-mI-SkD"/>
+                            <constraint firstItem="Btp-SG-8n4" firstAttribute="top" secondItem="ppn-3C-sOd" secondAttribute="top" id="z4P-cb-hSj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ppn-3C-sOd"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Btp-SG-8n4" id="bCP-GN-MVa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xcb-Qz-ATm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="-198.35082458770617"/>
+        </scene>
+        <!--Sites-->
+        <scene sceneID="FjA-m7-9RR">
+            <objects>
+                <viewController id="Jf5-p7-8XM" customClass="MainSiteTableController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nPJ-0C-n7C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oxq-8A-YJs">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Oxq-8A-YJs" firstAttribute="top" secondItem="1yv-kx-4Lf" secondAttribute="top" id="Bid-jY-U9h"/>
+                            <constraint firstItem="Oxq-8A-YJs" firstAttribute="leading" secondItem="1yv-kx-4Lf" secondAttribute="leading" id="LTr-KV-aoA"/>
+                            <constraint firstItem="1yv-kx-4Lf" firstAttribute="bottom" secondItem="Oxq-8A-YJs" secondAttribute="bottom" id="PnH-0H-qQT"/>
+                            <constraint firstItem="1yv-kx-4Lf" firstAttribute="trailing" secondItem="Oxq-8A-YJs" secondAttribute="trailing" id="vMg-eQ-x49"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1yv-kx-4Lf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sites" id="bBC-xv-urv"/>
+                    <connections>
+                        <outlet property="tableView" destination="Oxq-8A-YJs" id="vBf-7h-zU8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="si7-LX-kWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2798" y="-898"/>
+        </scene>
+        <!--Main Navigation Controller-->
+        <scene sceneID="8XY-da-G6u">
+            <objects>
+                <navigationController id="qrb-MM-Ltd" customClass="MainNavigationController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W3h-af-Hjb">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Jf5-p7-8XM" kind="relationship" relationship="rootViewController" id="eW8-mn-DjB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qm-sS-ZwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="-898"/>
+        </scene>
+        <!--Data-->
+        <scene sceneID="1Dk-hl-ZfR">
+            <objects>
+                <splitViewController id="LhW-ZL-FXd" customClass="MainSplitViewController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Data" id="rzD-eY-znu"/>
+                    <connections>
+                        <segue destination="qrb-MM-Ltd" kind="relationship" relationship="masterViewController" id="OVi-tO-2Sv"/>
+                        <segue destination="5jb-PF-isX" kind="relationship" relationship="detailViewController" id="ysc-dn-81T"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="asz-yK-P1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="-681"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="MeE-6c-thv">
+            <objects>
+                <tabBarController id="kfF-bf-RCX" customClass="MainTabBarController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bAX-BU-xfV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="LhW-ZL-FXd" kind="relationship" relationship="viewControllers" id="XOG-ff-pV9"/>
+                        <segue destination="rax-pX-oHW" kind="relationship" relationship="viewControllers" id="eyY-57-jGs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dbe-GY-NMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-481" y="-107"/>
+        </scene>
+    </scenes>
+</document>
