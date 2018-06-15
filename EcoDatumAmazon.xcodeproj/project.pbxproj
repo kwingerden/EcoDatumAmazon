@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BEF3C2C120D356FD00ED9A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */; };
+		BEF3C2C320D356FD00ED9A97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C220D356FD00ED9A97 /* ViewController.swift */; };
+		BEF3C2C620D356FD00ED9A97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2C420D356FD00ED9A97 /* Main.storyboard */; };
+		BEF3C2C920D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C720D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld */; };
+		BEF3C2CB20D356FE00ED9A97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */; };
+		BEF3C2CE20D356FE00ED9A97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2CC20D356FE00ED9A97 /* LaunchScreen.storyboard */; };
+		BEF3C2D920D356FF00ED9A97 /* EcoDatumAmazonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2D820D356FF00ED9A97 /* EcoDatumAmazonTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEF3C2D520D356FF00ED9A97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEF3C2B520D356FD00ED9A97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEF3C2BC20D356FD00ED9A97;
+			remoteInfo = EcoDatumAmazon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BEF3C2BD20D356FD00ED9A97 /* EcoDatumAmazon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoDatumAmazon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BEF3C2C220D356FD00ED9A97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BEF3C2C520D356FD00ED9A97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEF3C2C820D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EcoDatumAmazon.xcdatamodel; sourceTree = "<group>"; };
+		BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEF3C2CD20D356FE00ED9A97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BEF3C2CF20D356FE00ED9A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEF3C2D420D356FF00ED9A97 /* EcoDatumAmazonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcoDatumAmazonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEF3C2D820D356FF00ED9A97 /* EcoDatumAmazonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoDatumAmazonTests.swift; sourceTree = "<group>"; };
+		BEF3C2DA20D356FF00ED9A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEF3C2BA20D356FD00ED9A97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEF3C2D120D356FF00ED9A97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BEF3C2B420D356FD00ED9A97 = {
+			isa = PBXGroup;
+			children = (
+				BEF3C2BF20D356FD00ED9A97 /* EcoDatumAmazon */,
+				BEF3C2D720D356FF00ED9A97 /* EcoDatumAmazonTests */,
+				BEF3C2BE20D356FD00ED9A97 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BEF3C2BE20D356FD00ED9A97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEF3C2BD20D356FD00ED9A97 /* EcoDatumAmazon.app */,
+				BEF3C2D420D356FF00ED9A97 /* EcoDatumAmazonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEF3C2BF20D356FD00ED9A97 /* EcoDatumAmazon */ = {
+			isa = PBXGroup;
+			children = (
+				BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */,
+				BEF3C2C220D356FD00ED9A97 /* ViewController.swift */,
+				BEF3C2C420D356FD00ED9A97 /* Main.storyboard */,
+				BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */,
+				BEF3C2CC20D356FE00ED9A97 /* LaunchScreen.storyboard */,
+				BEF3C2CF20D356FE00ED9A97 /* Info.plist */,
+				BEF3C2C720D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld */,
+			);
+			path = EcoDatumAmazon;
+			sourceTree = "<group>";
+		};
+		BEF3C2D720D356FF00ED9A97 /* EcoDatumAmazonTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEF3C2D820D356FF00ED9A97 /* EcoDatumAmazonTests.swift */,
+				BEF3C2DA20D356FF00ED9A97 /* Info.plist */,
+			);
+			path = EcoDatumAmazonTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEF3C2BC20D356FD00ED9A97 /* EcoDatumAmazon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEF3C2DD20D356FF00ED9A97 /* Build configuration list for PBXNativeTarget "EcoDatumAmazon" */;
+			buildPhases = (
+				BEF3C2B920D356FD00ED9A97 /* Sources */,
+				BEF3C2BA20D356FD00ED9A97 /* Frameworks */,
+				BEF3C2BB20D356FD00ED9A97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EcoDatumAmazon;
+			productName = EcoDatumAmazon;
+			productReference = BEF3C2BD20D356FD00ED9A97 /* EcoDatumAmazon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEF3C2D320D356FF00ED9A97 /* EcoDatumAmazonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEF3C2E020D356FF00ED9A97 /* Build configuration list for PBXNativeTarget "EcoDatumAmazonTests" */;
+			buildPhases = (
+				BEF3C2D020D356FF00ED9A97 /* Sources */,
+				BEF3C2D120D356FF00ED9A97 /* Frameworks */,
+				BEF3C2D220D356FF00ED9A97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEF3C2D620D356FF00ED9A97 /* PBXTargetDependency */,
+			);
+			name = EcoDatumAmazonTests;
+			productName = EcoDatumAmazonTests;
+			productReference = BEF3C2D420D356FF00ED9A97 /* EcoDatumAmazonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEF3C2B520D356FD00ED9A97 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Kenneth Wingerden";
+				TargetAttributes = {
+					BEF3C2BC20D356FD00ED9A97 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					BEF3C2D320D356FF00ED9A97 = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = BEF3C2BC20D356FD00ED9A97;
+					};
+				};
+			};
+			buildConfigurationList = BEF3C2B820D356FD00ED9A97 /* Build configuration list for PBXProject "EcoDatumAmazon" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEF3C2B420D356FD00ED9A97;
+			productRefGroup = BEF3C2BE20D356FD00ED9A97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEF3C2BC20D356FD00ED9A97 /* EcoDatumAmazon */,
+				BEF3C2D320D356FF00ED9A97 /* EcoDatumAmazonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEF3C2BB20D356FD00ED9A97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF3C2CE20D356FE00ED9A97 /* LaunchScreen.storyboard in Resources */,
+				BEF3C2CB20D356FE00ED9A97 /* Assets.xcassets in Resources */,
+				BEF3C2C620D356FD00ED9A97 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEF3C2D220D356FF00ED9A97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEF3C2B920D356FD00ED9A97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF3C2C320D356FD00ED9A97 /* ViewController.swift in Sources */,
+				BEF3C2C920D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld in Sources */,
+				BEF3C2C120D356FD00ED9A97 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEF3C2D020D356FF00ED9A97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF3C2D920D356FF00ED9A97 /* EcoDatumAmazonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEF3C2D620D356FF00ED9A97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEF3C2BC20D356FD00ED9A97 /* EcoDatumAmazon */;
+			targetProxy = BEF3C2D520D356FF00ED9A97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BEF3C2C420D356FD00ED9A97 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF3C2C520D356FD00ED9A97 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BEF3C2CC20D356FE00ED9A97 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF3C2CD20D356FE00ED9A97 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BEF3C2DB20D356FF00ED9A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BEF3C2DC20D356FF00ED9A97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEF3C2DE20D356FF00ED9A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9424XMB56D;
+				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BEF3C2DF20D356FF00ED9A97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9424XMB56D;
+				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BEF3C2E120D356FF00ED9A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9424XMB56D;
+				INFOPLIST_FILE = EcoDatumAmazonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcoDatumAmazon.app/EcoDatumAmazon";
+			};
+			name = Debug;
+		};
+		BEF3C2E220D356FF00ED9A97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9424XMB56D;
+				INFOPLIST_FILE = EcoDatumAmazonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcoDatumAmazon.app/EcoDatumAmazon";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEF3C2B820D356FD00ED9A97 /* Build configuration list for PBXProject "EcoDatumAmazon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF3C2DB20D356FF00ED9A97 /* Debug */,
+				BEF3C2DC20D356FF00ED9A97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEF3C2DD20D356FF00ED9A97 /* Build configuration list for PBXNativeTarget "EcoDatumAmazon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF3C2DE20D356FF00ED9A97 /* Debug */,
+				BEF3C2DF20D356FF00ED9A97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEF3C2E020D356FF00ED9A97 /* Build configuration list for PBXNativeTarget "EcoDatumAmazonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF3C2E120D356FF00ED9A97 /* Debug */,
+				BEF3C2E220D356FF00ED9A97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BEF3C2C720D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BEF3C2C820D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodel */,
+			);
+			currentVersion = BEF3C2C820D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodel */;
+			path = EcoDatumAmazon.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BEF3C2B520D356FD00ED9A97 /* Project object */;
+}
