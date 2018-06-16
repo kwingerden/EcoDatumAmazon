@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
-class MainNavigationController: BaseController {
+class SiteNavigationController: UINavigationController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
   
 }

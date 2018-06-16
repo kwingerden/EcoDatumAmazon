@@ -1,17 +1,15 @@
 //
-//  SiteDataController.swift
+//  DataNavigationController.swift
 //  EcoDatumAmazon
 //
-//  Created by Kenneth Wingerden on 6/14/18.
+//  Created by Kenneth Wingerden on 6/15/18.
 //  Copyright © 2018 Kenneth Wingerden. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class MainSiteTableController: BaseController {
-  
-  @IBOutlet weak var tableView: UITableView!
+class DataNavigationController: UINavigationController {
   
   override func viewDidLoad() {
     super.viewDidLoad()

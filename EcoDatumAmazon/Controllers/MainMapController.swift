@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import UIKit
 
-class MainMapController: BaseController {
+class MainMapController: UIViewController {
   
   @IBOutlet weak var mapView: MKMapView!
   

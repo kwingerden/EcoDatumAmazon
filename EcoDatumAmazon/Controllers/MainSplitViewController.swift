@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainSplitViewController: BaseController {
+class MainSplitViewController: UISplitViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()

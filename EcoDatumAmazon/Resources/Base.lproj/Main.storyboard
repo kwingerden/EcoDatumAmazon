@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="575" y="270"/>
         </scene>
-        <!--Main Data Collection Controller-->
+        <!--Data Collection Controller-->
         <scene sceneID="leG-im-gK3">
             <objects>
-                <viewController id="5jb-PF-isX" customClass="MainDataCollectionController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5jb-PF-isX" customClass="DataCollectionController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T1N-GS-T4c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,24 +78,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ppn-3C-sOd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nfA-Gd-9mz"/>
                     <connections>
                         <outlet property="collectionView" destination="Btp-SG-8n4" id="bCP-GN-MVa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcb-Qz-ATm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="-198.35082458770617"/>
+            <point key="canvasLocation" x="2970" y="-107"/>
         </scene>
         <!--Sites-->
         <scene sceneID="FjA-m7-9RR">
             <objects>
-                <viewController id="Jf5-p7-8XM" customClass="MainSiteTableController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jf5-p7-8XM" customClass="SiteTableController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nPJ-0C-n7C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oxq-8A-YJs">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -108,8 +109,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1yv-kx-4Lf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sites" id="bBC-xv-urv"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Sites" id="mjc-uh-dFx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lsw-2r-aCZ">
+                            <connections>
+                                <action selector="touchUpInside:" destination="Jf5-p7-8XM" id="MwB-Ic-IxZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addBarButton" destination="lsw-2r-aCZ" id="CPx-uv-sHk"/>
                         <outlet property="tableView" destination="Oxq-8A-YJs" id="vBf-7h-zU8"/>
                     </connections>
                 </viewController>
@@ -117,14 +127,18 @@
             </objects>
             <point key="canvasLocation" x="2798" y="-898"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Site Navigation Controller-->
         <scene sceneID="8XY-da-G6u">
             <objects>
-                <navigationController id="qrb-MM-Ltd" customClass="MainNavigationController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="qrb-MM-Ltd" customClass="SiteNavigationController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W3h-af-Hjb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MDf-ab-yKA">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Jf5-p7-8XM" kind="relationship" relationship="rootViewController" id="eW8-mn-DjB"/>
                     </connections>
@@ -140,7 +154,7 @@
                     <tabBarItem key="tabBarItem" title="Data" id="rzD-eY-znu"/>
                     <connections>
                         <segue destination="qrb-MM-Ltd" kind="relationship" relationship="masterViewController" id="OVi-tO-2Sv"/>
-                        <segue destination="5jb-PF-isX" kind="relationship" relationship="detailViewController" id="ysc-dn-81T"/>
+                        <segue destination="fwF-qc-y7D" kind="relationship" relationship="detailViewController" id="ysc-dn-81T"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asz-yK-P1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,6 +178,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbe-GY-NMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-481" y="-107"/>
+        </scene>
+        <!--Data Navigation Controller-->
+        <scene sceneID="5xw-5S-Kcs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fwF-qc-y7D" customClass="DataNavigationController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bqP-8K-C9b">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5jb-PF-isX" kind="relationship" relationship="rootViewController" id="8Bq-U2-ncX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="upB-r1-7Lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2053.5999999999999" y="-107.49625187406298"/>
         </scene>
     </scenes>
 </document>

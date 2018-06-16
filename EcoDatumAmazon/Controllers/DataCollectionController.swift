@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainDataCollectionController: BaseController {
+class DataCollectionController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
@@ -19,15 +19,17 @@ class MainDataCollectionController: BaseController {
     collectionView.delegate = self
     collectionView.dataSource = self
     
+    title = "Site #2"
+    
   }
   
 }
 
-extension MainDataCollectionController: UICollectionViewDelegate {
+extension DataCollectionController: UICollectionViewDelegate {
   
 }
 
-extension MainDataCollectionController: UICollectionViewDataSource {
+extension DataCollectionController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int {
