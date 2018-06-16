@@ -12,11 +12,13 @@ import UIKit
 
 class SiteDetailController: UIViewController {
   
-  @IBOutlet weak var siteName: UITextField!
+  @IBOutlet weak var siteNameTextField: UITextField!
   
-  @IBOutlet weak var latitude: UITextField!
+  @IBOutlet weak var notesTextView: UITextView!
   
-  @IBOutlet weak var longitude: UITextField!
+  @IBOutlet weak var latitudeTextField: UITextField!
+  
+  @IBOutlet weak var longitudeTextField: UITextField!
   
   @IBOutlet weak var saveButton: UIButton!
   
@@ -25,14 +27,20 @@ class SiteDetailController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    siteName.delegate = self
-    latitude.delegate = self
-    longitude.delegate = self
+    siteNameTextField.delegate = self
+    notesTextView.delegate = self
+    notesTextView.roundedAndLightBordered()
+    notesTextView.allowsEditingTextAttributes = true
+    latitudeTextField.delegate = self
+    longitudeTextField.delegate = self
     
     stackView.isHidden = true
     
-    let viewContext = ViewContext.shared
-    viewContext.addObserver(self, forKeyPath: "selectedSite", options: .new, context: nil)
+    ViewContext.shared.addObserver(
+      self,
+      forKeyPath: ViewContext.selectedSiteKeyPath,
+      options: [.initial, .new],
+      context: nil)
     
   }
   
@@ -40,20 +48,32 @@ class SiteDetailController: UIViewController {
                              of object: Any?,
                              change: [NSKeyValueChangeKey : Any]?,
                              context: UnsafeMutableRawPointer?) {
-    if let keyPath = keyPath, keyPath == "selectedSite" {
-      if let selectedSite = ViewContext.shared.selectedSite {
-        siteName.text = selectedSite.name
+    if let keyPath = keyPath, keyPath == ViewContext.selectedSiteKeyPath {
+      if let selectedSite = change?[NSKeyValueChangeKey.newKey] as? Site {
+        
+        title = selectedSite.name
+        siteNameTextField.text = selectedSite.name
+        
+        if let notes = selectedSite.notes as? NSAttributedString {
+          notesTextView.attributedText = notes
+        } else {
+          notesTextView.attributedText = nil
+        }
+        
         if let selectedLatitude = selectedSite.latitude {
-          latitude.text = selectedLatitude.stringValue
+          latitudeTextField.text = selectedLatitude.stringValue
         } else {
-          latitude.text = nil
+          latitudeTextField.text = nil
         }
+        
         if let selectedLongitude = selectedSite.longitude {
-          longitude.text = selectedLongitude.stringValue
+          longitudeTextField.text = selectedLongitude.stringValue
         } else {
-          longitude.text = nil
+          longitudeTextField.text = nil
         }
+        
         stackView.isHidden = false
+      
       } else {
         stackView.isHidden = true
       }
@@ -64,11 +84,12 @@ class SiteDetailController: UIViewController {
 
     if sender == saveButton, let selectedSite = ViewContext.shared.selectedSite {
       do {
-        selectedSite.name = siteName.text
-        selectedSite.notes = nil
-        selectedSite.latitude = 3.4
-        selectedSite.longitude = 4.533
+        selectedSite.name = siteNameTextField.text
+        selectedSite.notes = notesTextView.attributedText
+        selectedSite.latitude = NSDecimalNumber(string: latitudeTextField.text)
+        selectedSite.longitude = NSDecimalNumber(string: latitudeTextField.text)
         try selectedSite.save()
+        ViewContext.shared.refreshSiteTable = NSObject()
       } catch let error {
         print(error)
       }
@@ -80,5 +101,8 @@ class SiteDetailController: UIViewController {
 
 extension SiteDetailController: UITextFieldDelegate {
   
+}
+
+extension SiteDetailController: UITextViewDelegate {
   
 }

@@ -12,7 +12,7 @@ import Foundation
 extension Site {
   
   static func new(name: String? = nil,
-                  notes: String? = nil,
+                  notes: NSAttributedString? = nil,
                   latitude: NSDecimalNumber? = 0.0,
                   longitude: NSDecimalNumber? = 0.0) throws -> Site {
     let entity = NSEntityDescription.entity(

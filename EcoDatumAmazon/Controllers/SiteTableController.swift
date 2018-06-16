@@ -27,7 +27,12 @@ class SiteTableController: UIViewController {
     tableView.dataSource = self
     tableView.tableFooterView = UIView()
     
-    refresh()
+    ViewContext.shared.addObserver(
+      self,
+      forKeyPath: ViewContext.refreshSiteTableKeyPath,
+      options: [.initial, .new],
+      context: nil)
+
   }
   
   @IBAction func touchUpInside(_ sender: UIBarButtonItem) {
@@ -49,25 +54,54 @@ class SiteTableController: UIViewController {
     
   }
   
+  override func observeValue(forKeyPath keyPath: String?,
+                             of object: Any?,
+                             change: [NSKeyValueChangeKey : Any]?,
+                             context: UnsafeMutableRawPointer?) {
+    if let keyPath = keyPath, keyPath == ViewContext.refreshSiteTableKeyPath {
+      refresh()
+    }
+  }
+  
   private func refresh() {
+    
     do {
       try fetchedResultsController = Site.fetch()
     } catch let error as NSError {
       print("Failed to fetch sites: \(error), \(error.userInfo)")
     }
+  
     tableView.reloadData()
+  
+    if let count = fetchedResultsController?.fetchedObjects?.count,
+      count == 0 {
+      ViewContext.shared.selectedSite = nil
+    } else if let sites = fetchedResultsController?.fetchedObjects {
+      var row = 0
+      if let selectedSite = ViewContext.shared.selectedSite,
+        let index = sites.index(of: selectedSite) {
+        row = index
+      } else {
+        ViewContext.shared.selectedSite = sites[0]
+      }
+      tableView.selectRow(
+        at: IndexPath(row: row, section: 0),
+        animated: true,
+        scrollPosition: .none)
+    }
+    
   }
   
 }
 
 extension SiteTableController: UITableViewDelegate {
   
-  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let site = fetchedResultsController?.object(at: indexPath) {
       ViewContext.shared.selectedSite = site
     }
   }
-  
+    
   func tableView(_ tableView: UITableView,
                  commit editingStyle: UITableViewCellEditingStyle,
                  forRowAt indexPath: IndexPath) {
@@ -92,7 +126,10 @@ extension SiteTableController: UITableViewDelegate {
         title: "Cancel",
         style: .cancel) {
           (action) in
-          // do nothing
+          self.tableView.selectRow(
+            at: indexPath,
+            animated: true,
+            scrollPosition: .none)
       }
 
       let alertController = UIAlertController(

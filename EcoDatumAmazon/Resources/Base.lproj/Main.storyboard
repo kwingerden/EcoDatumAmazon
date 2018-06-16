@@ -57,18 +57,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tL-aE-dLP">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7E8-7N-tIK">
                                         <rect key="frame" x="0.0" y="40" width="343" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Notes">
+                                            <fragment>
+                                                <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <attributes>
-                                                    <font key="NSFont" size="14" name="Helvetica"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <font key="NSFont" metaFont="system" size="14"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzA-Wy-r7J">
                                         <rect key="frame" x="0.0" y="178" width="343" height="30"/>
@@ -105,17 +105,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="bb7-7O-5gr"/>
                     <connections>
-                        <outlet property="latitude" destination="zzA-Wy-r7J" id="D1G-W7-MTK"/>
-                        <outlet property="longitude" destination="u8w-xQ-pO2" id="cDK-DP-BgJ"/>
+                        <outlet property="latitudeTextField" destination="zzA-Wy-r7J" id="aK1-Zr-Gan"/>
+                        <outlet property="longitudeTextField" destination="u8w-xQ-pO2" id="5nO-e6-XPd"/>
+                        <outlet property="notesTextView" destination="7E8-7N-tIK" id="frF-OK-rzi"/>
                         <outlet property="saveButton" destination="HOe-5B-Se6" id="3c3-Yf-pNu"/>
-                        <outlet property="siteName" destination="25x-HD-2Oy" id="6L0-Hh-l8T"/>
+                        <outlet property="siteNameTextField" destination="25x-HD-2Oy" id="wF7-Bu-jZg"/>
                         <outlet property="stackView" destination="VtV-bO-xD6" id="FYy-ms-Lth"/>
                         <segue destination="5jb-PF-isX" kind="show" id="dtM-vr-zpI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDZ-9n-kIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920.8000000000002" y="-125.4872563718141"/>
+            <point key="canvasLocation" x="3030" y="-167"/>
         </scene>
         <!--Data Collection Controller-->
         <scene sceneID="leG-im-gK3">

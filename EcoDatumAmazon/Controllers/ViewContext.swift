@@ -12,6 +12,10 @@ import Foundation
   
   static let shared: ViewContext = ViewContext()
   
+  static let selectedSiteKeyPath = "selectedSite"
   dynamic var selectedSite: Site?
-    
+  
+  static let refreshSiteTableKeyPath = "refreshSiteTable"
+  dynamic var refreshSiteTable: NSObject?
+  
 }
