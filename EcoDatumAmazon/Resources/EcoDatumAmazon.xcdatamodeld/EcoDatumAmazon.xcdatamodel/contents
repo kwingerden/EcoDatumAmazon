@@ -7,26 +7,27 @@
         <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="BioticData" representedClassName=".BioticData" parentEntity="EcoData" syncable="YES" codeGenerationType="class">
-        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="notes" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
     </entity>
     <entity name="EcoData" representedClassName=".EcoData" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="dateTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="ecoFactor" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="site" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Site" inverseName="ecoData" inverseEntity="Site" syncable="YES"/>
+        <relationship name="site" maxCount="1" deletionRule="Nullify" destinationEntity="Site" inverseName="ecoData" inverseEntity="Site" syncable="YES"/>
     </entity>
     <entity name="Site" representedClassName=".Site" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="ecoData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EcoData" inverseName="site" inverseEntity="EcoData" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="&lt;site&gt;" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ecoData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EcoData" inverseName="site" inverseEntity="EcoData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AbioticData" positionX="-18" positionY="54" width="128" height="105"/>
-        <element name="BioticData" positionX="0" positionY="63" width="128" height="75"/>
-        <element name="EcoData" positionX="18" positionY="72" width="128" height="105"/>
-        <element name="Site" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="AbioticData" positionX="-27" positionY="147" width="128" height="105"/>
+        <element name="BioticData" positionX="169" positionY="126" width="128" height="73"/>
+        <element name="EcoData" positionX="124" positionY="-99" width="128" height="103"/>
+        <element name="Site" positionX="-119" positionY="-102" width="128" height="133"/>
     </elements>
 </model>

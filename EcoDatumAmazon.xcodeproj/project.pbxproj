@@ -11,6 +11,8 @@
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
 		BE210A8020D48E8D002203E5 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A7F20D48E8D002203E5 /* Site.swift */; };
+		BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */; };
+		BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877120D4DC830083F349 /* ViewContext.swift */; };
 		BEF3C2C120D356FD00ED9A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */; };
 		BEF3C2C620D356FD00ED9A97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2C420D356FD00ED9A97 /* Main.storyboard */; };
 		BEF3C2C920D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C720D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld */; };
@@ -54,6 +56,8 @@
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
 		BE210A7F20D48E8D002203E5 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
+		BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailController.swift; sourceTree = "<group>"; };
+		BE7B877120D4DC830083F349 /* ViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContext.swift; sourceTree = "<group>"; };
 		BEF3C2BD20D356FD00ED9A97 /* EcoDatumAmazon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoDatumAmazon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEF3C2C520D356FD00ED9A97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				BEF3C2EF20D35C1C00ED9A97 /* DataCollectionController.swift */,
 				BEF3C2F120D35D2800ED9A97 /* MainMapController.swift */,
 				BE210A6820D45124002203E5 /* DataNavigationController.swift */,
+				BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */,
+				BE7B877120D4DC830083F349 /* ViewContext.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 				BEF3C30820D3759C00ED9A97 /* DataValue.swift in Sources */,
 				BEF3C31020D3768900ED9A97 /* SoilPotassiumScale.swift in Sources */,
 				BEF3C30220D3745B00ED9A97 /* WaterDataType.swift in Sources */,
+				BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */,
 				BEF3C30420D374AA00ED9A97 /* AbioticDataUnitChoice.swift in Sources */,
 				BEF3C2FC20D3736300ED9A97 /* AbioticFactor.swift in Sources */,
 				BEF3C2F220D35D2800ED9A97 /* MainMapController.swift in Sources */,
@@ -333,6 +340,7 @@
 				BEF3C31220D376AC00ED9A97 /* SoilTextureScale.swift in Sources */,
 				BEF3C2FE20D3742300ED9A97 /* AirDataType.swift in Sources */,
 				BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */,
+				BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */,
 				BEF3C30020D3744500ED9A97 /* SoilDataType.swift in Sources */,
 				BEF3C2E820D3581800ED9A97 /* MainTabBarController.swift in Sources */,
 				BEF3C30E20D3764C00ED9A97 /* AirOzoneScale.swift in Sources */,

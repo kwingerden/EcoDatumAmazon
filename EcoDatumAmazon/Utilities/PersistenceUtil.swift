@@ -28,16 +28,15 @@ class PersistenceUtil {
     self.container = container
   }
   
-  func saveContext() {
+  func saveContext() throws {
     let context = container.viewContext
     if context.hasChanges {
-      do {
-        try context.save()
-      } catch {
-        let error = error as NSError
-        fatalError("Unresolved error \(error), \(error.userInfo)")
-      }
+      try context.save()
     }
+  }
+  
+  func delete(_ object: NSManagedObject) {
+    container.viewContext.delete(object)
   }
   
 }

@@ -33,7 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    PersistenceUtil.shared.saveContext()
+    do {
+      try PersistenceUtil.shared.saveContext()
+    } catch let error as NSError {
+      print("\(error)")
+    }
   }
   
 }
