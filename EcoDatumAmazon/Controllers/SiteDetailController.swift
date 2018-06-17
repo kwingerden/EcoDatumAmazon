@@ -208,7 +208,7 @@ class SiteDetailController: UIViewController {
         currrentlySelectedSite.name = siteName
         currrentlySelectedSite.notes = notesTextView.attributedText
         currrentlySelectedSite.latitude = NSDecimalNumber(string: latitudeTextField.text)
-        currrentlySelectedSite.longitude = NSDecimalNumber(string: latitudeTextField.text)
+        currrentlySelectedSite.longitude = NSDecimalNumber(string: longitudeTextField.text)
         let _ = try currrentlySelectedSite.save()
         if siteNameChanged {
           ViewContext.shared.refreshSiteTable = NSObject()
