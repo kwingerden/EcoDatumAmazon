@@ -9,9 +9,11 @@
 import CoreData
 import Foundation
 
+let SITE_NAME_PLACEHOLDER = "<Site Name>"
+
 extension Site {
   
-  static func new(name: String? = nil,
+  static func new(name: String? = SITE_NAME_PLACEHOLDER,
                   notes: NSAttributedString? = nil,
                   latitude: NSDecimalNumber? = 0.0,
                   longitude: NSDecimalNumber? = 0.0) throws -> Site {
@@ -44,12 +46,13 @@ extension Site {
     return fetchedResultsController
   }
   
-  func save() throws {
+  func save() throws -> Site {
     try PersistenceUtil.shared.saveContext()
+    return self
   }
   
   func delete() throws {
-    PersistenceUtil.shared.delete(self)
+    try PersistenceUtil.shared.delete(self)
   }
   
 }

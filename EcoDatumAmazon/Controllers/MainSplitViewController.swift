@@ -12,7 +12,7 @@ import UIKit
 class MainSplitViewController: UISplitViewController {
   
   override func viewDidLoad() {
-    super.viewDidLoad()
+    super.viewDidLoad()    
   }
   
 }

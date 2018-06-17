@@ -35,8 +35,9 @@ class PersistenceUtil {
     }
   }
   
-  func delete(_ object: NSManagedObject) {
+  func delete(_ object: NSManagedObject) throws {
     container.viewContext.delete(object)
+    try saveContext()
   }
   
 }

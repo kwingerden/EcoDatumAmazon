@@ -18,8 +18,6 @@ class SiteTableController: UIViewController {
   
   private var fetchedResultsController: NSFetchedResultsController<Site>?
   
-  private let SITE_NAME_PLACEHOLDER = "<Site Name>"
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -32,7 +30,6 @@ class SiteTableController: UIViewController {
       forKeyPath: ViewContext.refreshSiteTableKeyPath,
       options: [.initial, .new],
       context: nil)
-
   }
   
   @IBAction func touchUpInside(_ sender: UIBarButtonItem) {
@@ -41,7 +38,7 @@ class SiteTableController: UIViewController {
       
     case addBarButton:
       do {
-        try Site.new().save()
+        ViewContext.shared.selectedSite = try Site.new().save()
       } catch let error as NSError {
         print("Failed to save site: \(error), \(error.userInfo)")
       }
@@ -99,6 +96,7 @@ extension SiteTableController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let site = fetchedResultsController?.object(at: indexPath) {
       ViewContext.shared.selectedSite = site
+      //performSegue(withIdentifier: "showDetail", sender: nil)
     }
   }
     
