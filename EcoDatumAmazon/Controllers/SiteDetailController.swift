@@ -27,7 +27,9 @@ class SiteDetailController: UIViewController {
   
   @IBOutlet weak var stackView: UIStackView!
   
-  @IBOutlet weak var gpsButtonItem: UIBarButtonItem!
+  @IBOutlet weak var gpsButton: UIButton!
+  
+  @IBOutlet weak var deleteButtonItem: UIBarButtonItem!
   
   private var gpsTimer: Timer?
   
@@ -56,7 +58,7 @@ class SiteDetailController: UIViewController {
     longitudeTextField.delegate = self
     
     stackView.isHidden = true
-    gpsButtonItem.isEnabled = false
+    deleteButtonItem.isEnabled = false
   
     ViewContext.shared.addObserver(
       self,
@@ -69,13 +71,45 @@ class SiteDetailController: UIViewController {
     doStopUpdatingLocation()
   }
   
-  @IBAction func touchUpInside(_ sender: UIBarButtonItem) {
-    if sender == gpsButtonItem {
-      if gpsButtonItem.image == startGPSImage {
+  @IBAction func touchUpInsideButton(_ sender: UIButton) {
+    if sender == gpsButton {
+      if gpsButton.image(for: .normal) == startGPSImage  {
         startUpdatingLocation()
       } else {
         stopUpdatingLocation()
       }
+    }
+  }
+  
+  @IBAction func touchUpInsideBarButton(_ sender: UIBarButtonItem) {
+    if sender == deleteButtonItem,
+      let site = currrentlySelectedSite {
+      let okAction = UIAlertAction(
+        title: "OK",
+        style: .default) {
+          (action) in
+          do {
+            try site.delete()
+            ViewContext.shared.refreshSiteTable = NSObject()
+          } catch let error as NSError {
+            print(error)
+          }
+      }
+      let cancelAction = UIAlertAction(
+        title: "Cancel",
+        style: .cancel) {
+          (action) in
+          // do nothing
+      }
+      
+      let alertController = UIAlertController(
+        title: "Delete \(site.name ?? SITE_NAME_PLACEHOLDER)?",
+        message: "Are you sure you want to delete \(site.name ?? SITE_NAME_PLACEHOLDER)?",
+        preferredStyle: .alert)
+      alertController.addAction(okAction)
+      alertController.addAction(cancelAction)
+      
+      present(alertController, animated: true, completion: nil)
     }
   }
   
@@ -87,7 +121,7 @@ class SiteDetailController: UIViewController {
       
       if let newlySelectedSite = change?[NSKeyValueChangeKey.newKey] as? Site {
         
-        doStopUpdatingLocation()
+        stopUpdatingLocation()
         
         title = newlySelectedSite.name
         siteNameTextField.text = newlySelectedSite.name
@@ -112,14 +146,14 @@ class SiteDetailController: UIViewController {
         
         currrentlySelectedSite = newlySelectedSite
         stackView.isHidden = false
-        gpsButtonItem.isEnabled = true
+        deleteButtonItem.isEnabled = true
       
       } else {
       
         title = nil
         currrentlySelectedSite = nil
         stackView.isHidden = true
-        gpsButtonItem.isEnabled = false
+        deleteButtonItem.isEnabled = false
       
       }
     }
@@ -127,7 +161,7 @@ class SiteDetailController: UIViewController {
   
   private func startUpdatingLocation() {
     doStartUpdatingLocation()
-    gpsButtonItem.image = stopGPSImage
+    gpsButton.setImage(stopGPSImage, for: .normal)
     latitudeActivityIndicator.startAnimating()
     longitudeActivityIndicator.startAnimating()
     gpsTimer = Timer.scheduledTimer(
@@ -140,7 +174,7 @@ class SiteDetailController: UIViewController {
   
   @objc private func stopUpdatingLocation() {
     doStopUpdatingLocation()
-    gpsButtonItem.image = startGPSImage
+    gpsButton.setImage(startGPSImage, for: .normal)
     latitudeActivityIndicator.stopAnimating()
     longitudeActivityIndicator.stopAnimating()
     if let gpsTimer = gpsTimer {
