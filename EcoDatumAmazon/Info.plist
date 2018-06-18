@@ -39,6 +39,10 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>EcoDatum Amazon needs location information to accurately pin-point Sites on a map.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>EcoDatum Amazon needs access to the camera in order to take photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>EcoDatum Amazon needs access to the photo library so that a photo can be chosen.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

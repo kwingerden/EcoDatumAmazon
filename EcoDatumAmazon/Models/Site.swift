@@ -16,7 +16,11 @@ extension Site {
   static func new(name: String? = SITE_NAME_PLACEHOLDER,
                   notes: NSAttributedString? = nil,
                   latitude: NSDecimalNumber? = 0.0,
-                  longitude: NSDecimalNumber? = 0.0) throws -> Site {
+                  longitude: NSDecimalNumber? = 0.0,
+                  coordinateAccuracy: NSDecimalNumber? = 0.0,
+                  altitude: NSDecimalNumber? = 0.0,
+                  altitudeAccuracy: NSDecimalNumber? = 0.0,
+                  photo: Data? = nil) throws -> Site {
     let entity = NSEntityDescription.entity(
       forEntityName: "Site",
       in: PersistenceUtil.shared.container.viewContext)!
@@ -28,6 +32,10 @@ extension Site {
     site.notes = notes
     site.latitude = latitude
     site.longitude = longitude
+    site.coordinateAccuracy = coordinateAccuracy
+    site.altitude = altitude
+    site.altitudeAccuracy = altitudeAccuracy
+    site.photo = photo
     site.ecoData = []
     return site
   }

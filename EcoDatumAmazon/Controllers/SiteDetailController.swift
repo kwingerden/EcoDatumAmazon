@@ -15,8 +15,6 @@ class SiteDetailController: UIViewController {
   
   @IBOutlet weak var siteNameTextField: UITextField!
   
-  @IBOutlet weak var notesTextView: UITextView!
-  
   @IBOutlet weak var latitudeTextField: UITextField!
   
   @IBOutlet weak var latitudeActivityIndicator: UIActivityIndicatorView!
@@ -25,17 +23,31 @@ class SiteDetailController: UIViewController {
   
   @IBOutlet weak var longitudeActivityIndicator: UIActivityIndicatorView!
   
+  @IBOutlet weak var coordinateAccuracyTextField: UITextField!
+  
+  @IBOutlet weak var coordinateAccuracyActivityIndicator: UIActivityIndicatorView!
+
+  @IBOutlet weak var altitudeTextField: UITextField!
+  
+  @IBOutlet weak var altitudeActivityIndicator: UIActivityIndicatorView!
+  
+  @IBOutlet weak var altitudeAccuracyTextField: UITextField!
+  
+  @IBOutlet weak var altitudeAccuracyActivityIndicator: UIActivityIndicatorView!
+  
   @IBOutlet weak var stackView: UIStackView!
   
   @IBOutlet weak var gpsButton: UIButton!
   
-  @IBOutlet weak var deleteButtonItem: UIBarButtonItem!
-  
   private var gpsTimer: Timer?
   
+  private let gpsTimeInterval: Double = 20
+  
+  private let gpsAcceptableHorizontalAccuracy: Double = 10
+
   private var currrentlySelectedSite: Site?
   
-  private let locationManager = CLLocationManager()
+  private var locationManager: CLLocationManager?
   
   private let startGPSImage = UIImage(named: "ios-near-glyph")
   
@@ -50,21 +62,28 @@ class SiteDetailController: UIViewController {
       action: #selector(textFieldDidChange(_:)),
       for: .editingChanged)
     
-    notesTextView.delegate = self
-    notesTextView.roundedAndLightBordered()
-    notesTextView.allowsEditingTextAttributes = true
-    
     latitudeTextField.delegate = self
     longitudeTextField.delegate = self
+    coordinateAccuracyTextField.delegate = self
+    altitudeTextField.delegate = self
+    altitudeAccuracyTextField.delegate = self
     
     stackView.isHidden = true
-    deleteButtonItem.isEnabled = false
   
     ViewContext.shared.addObserver(
       self,
       forKeyPath: ViewContext.selectedSiteKeyPath,
       options: [.initial, .new],
       context: nil)
+    
+    locationManager = CLLocationManager()
+    locationManager?.activityType = .other
+    locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager?.delegate = self
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    navigationController?.navigationBar.isHidden = true
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -81,79 +100,55 @@ class SiteDetailController: UIViewController {
     }
   }
   
-  @IBAction func touchUpInsideBarButton(_ sender: UIBarButtonItem) {
-    if sender == deleteButtonItem,
-      let site = currrentlySelectedSite {
-      let okAction = UIAlertAction(
-        title: "OK",
-        style: .default) {
-          (action) in
-          do {
-            try site.delete()
-            ViewContext.shared.refreshSiteTable = NSObject()
-          } catch let error as NSError {
-            print(error)
-          }
-      }
-      let cancelAction = UIAlertAction(
-        title: "Cancel",
-        style: .cancel) {
-          (action) in
-          // do nothing
-      }
-      
-      let alertController = UIAlertController(
-        title: "Delete \(site.name ?? SITE_NAME_PLACEHOLDER)?",
-        message: "Are you sure you want to delete \(site.name ?? SITE_NAME_PLACEHOLDER)?",
-        preferredStyle: .alert)
-      alertController.addAction(okAction)
-      alertController.addAction(cancelAction)
-      
-      present(alertController, animated: true, completion: nil)
-    }
-  }
-  
   override func observeValue(forKeyPath keyPath: String?,
                              of object: Any?,
                              change: [NSKeyValueChangeKey : Any]?,
                              context: UnsafeMutableRawPointer?) {
     if let keyPath = keyPath, keyPath == ViewContext.selectedSiteKeyPath {
       
-      if let newlySelectedSite = change?[NSKeyValueChangeKey.newKey] as? Site {
+      if let site = change?[NSKeyValueChangeKey.newKey] as? Site {
         
         stopUpdatingLocation()
         
-        title = newlySelectedSite.name
-        siteNameTextField.text = newlySelectedSite.name
+        siteNameTextField.text = site.name
         
-        if let notes = newlySelectedSite.notes as? NSAttributedString {
-          notesTextView.attributedText = notes
-        } else {
-          notesTextView.attributedText = nil
-        }
-        
-        if let selectedLatitude = newlySelectedSite.latitude {
+        if let selectedLatitude = site.latitude {
           latitudeTextField.text = selectedLatitude.stringValue
         } else {
           latitudeTextField.text = nil
         }
         
-        if let selectedLongitude = newlySelectedSite.longitude {
+        if let selectedLongitude = site.longitude {
           longitudeTextField.text = selectedLongitude.stringValue
         } else {
           longitudeTextField.text = nil
         }
         
-        currrentlySelectedSite = newlySelectedSite
+        if let selectedCoordinateAccuracy = site.coordinateAccuracy {
+          coordinateAccuracyTextField.text = selectedCoordinateAccuracy.stringValue
+        } else {
+          coordinateAccuracyTextField.text = nil
+        }
+        
+        if let selectedAltitude = site.altitude {
+          altitudeTextField.text = selectedAltitude.stringValue
+        } else {
+          altitudeTextField.text = nil
+        }
+        
+        if let selectedAltitudeAccuracy = site.altitudeAccuracy {
+          altitudeAccuracyTextField.text = selectedAltitudeAccuracy.stringValue
+        } else {
+          altitudeAccuracyTextField.text = nil
+        }
+        
+        currrentlySelectedSite = site
         stackView.isHidden = false
-        deleteButtonItem.isEnabled = true
       
       } else {
       
-        title = nil
         currrentlySelectedSite = nil
         stackView.isHidden = true
-        deleteButtonItem.isEnabled = false
       
       }
     }
@@ -162,10 +157,15 @@ class SiteDetailController: UIViewController {
   private func startUpdatingLocation() {
     doStartUpdatingLocation()
     gpsButton.setImage(stopGPSImage, for: .normal)
+    
     latitudeActivityIndicator.startAnimating()
     longitudeActivityIndicator.startAnimating()
+    coordinateAccuracyActivityIndicator.startAnimating()
+    altitudeActivityIndicator.startAnimating()
+    altitudeAccuracyActivityIndicator.startAnimating()
+    
     gpsTimer = Timer.scheduledTimer(
-      timeInterval: 10,
+      timeInterval: gpsTimeInterval,
       target: self,
       selector: #selector(stopUpdatingLocation),
       userInfo: nil,
@@ -175,8 +175,13 @@ class SiteDetailController: UIViewController {
   @objc private func stopUpdatingLocation() {
     doStopUpdatingLocation()
     gpsButton.setImage(startGPSImage, for: .normal)
+    
     latitudeActivityIndicator.stopAnimating()
     longitudeActivityIndicator.stopAnimating()
+    coordinateAccuracyActivityIndicator.stopAnimating()
+    altitudeActivityIndicator.stopAnimating()
+    altitudeAccuracyActivityIndicator.stopAnimating()
+    
     if let gpsTimer = gpsTimer {
       gpsTimer.invalidate()
       self.gpsTimer = nil
@@ -184,32 +189,41 @@ class SiteDetailController: UIViewController {
   }
   
   private func doStartUpdatingLocation() {
+    guard let locationManager = locationManager else {
+      let okAction = UIAlertAction(title: "OK", style: .default)
+      let alertController = UIAlertController(
+        title: "Location Failure",
+        message: "Failed to obtain location manager. Location is not available.",
+        preferredStyle: .alert)
+      alertController.addAction(okAction)
+      present(alertController, animated: true, completion: nil)
+      return
+    }
     locationManager.requestWhenInUseAuthorization()
     if CLLocationManager.locationServicesEnabled() {
-      locationManager.delegate = self
-      locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
       locationManager.startUpdatingLocation()
     }
   }
   
   private func doStopUpdatingLocation() {
-    locationManager.stopUpdatingLocation()
+    locationManager?.stopUpdatingLocation()
   }
   
   private func save() {
-    if let currrentlySelectedSite = currrentlySelectedSite {
+    if let site = currrentlySelectedSite {
       do {
-        let siteNameChanged = currrentlySelectedSite.name != siteNameTextField.text
+        let siteNameChanged = site.name != siteNameTextField.text
         var siteName = siteNameTextField.text
         if siteName == nil || siteName!.isEmpty {
           siteName = SITE_NAME_PLACEHOLDER
         }
-        title = siteName
-        currrentlySelectedSite.name = siteName
-        currrentlySelectedSite.notes = notesTextView.attributedText
-        currrentlySelectedSite.latitude = NSDecimalNumber(string: latitudeTextField.text)
-        currrentlySelectedSite.longitude = NSDecimalNumber(string: longitudeTextField.text)
-        let _ = try currrentlySelectedSite.save()
+        site.name = siteName
+        site.latitude = NSDecimalNumber(string: latitudeTextField.text)
+        site.longitude = NSDecimalNumber(string: longitudeTextField.text)
+        site.coordinateAccuracy = NSDecimalNumber(string: coordinateAccuracyTextField.text)
+        site.altitude = NSDecimalNumber(string: altitudeTextField.text)
+        site.altitudeAccuracy = NSDecimalNumber(string: altitudeAccuracyTextField.text)
+        let _ = try site.save()
         if siteNameChanged {
           ViewContext.shared.refreshSiteTable = NSObject()
         }
@@ -239,26 +253,29 @@ extension SiteDetailController: UITextFieldDelegate {
   
 }
 
-extension SiteDetailController: UITextViewDelegate {
-  
-  func textViewDidChange(_ textView: UITextView) {
-    save()
-  }
-  
-  func textViewDidEndEditing(_ textView: UITextView) {
-    save()
-  }
-  
-}
-
 extension SiteDetailController: CLLocationManagerDelegate {
- 
+  
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    let okAction = UIAlertAction(title: "OK", style: .default)
+    let alertController = UIAlertController(
+      title: "Location Failure",
+      message: "Failed to obtain location: \(error.localizedDescription)",
+      preferredStyle: .alert)
+    alertController.addAction(okAction)
+    present(alertController, animated: true, completion: nil)
+  
+    stopUpdatingLocation()
+  }
+  
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if let location = locations.last {
       latitudeTextField.text = String(location.coordinate.latitude)
       longitudeTextField.text = String(location.coordinate.longitude)
+      coordinateAccuracyTextField.text = String(location.horizontalAccuracy)
+      altitudeTextField.text = String(location.altitude)
+      altitudeAccuracyTextField.text = String(location.verticalAccuracy)
       save()
-      if location.horizontalAccuracy < 10 {
+      if location.horizontalAccuracy <= gpsAcceptableHorizontalAccuracy {
         stopUpdatingLocation()
       }
     }

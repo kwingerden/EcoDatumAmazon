@@ -11,20 +11,20 @@
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
 		BE210A8020D48E8D002203E5 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A7F20D48E8D002203E5 /* Site.swift */; };
+		BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */; };
+		BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0A20D771150069513E /* SiteNotesController.swift */; };
 		BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */; };
 		BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877120D4DC830083F349 /* ViewContext.swift */; };
 		BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */; };
+		BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877520D729D50083F349 /* SiteMapController.swift */; };
 		BEF3C2C120D356FD00ED9A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */; };
 		BEF3C2C620D356FD00ED9A97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2C420D356FD00ED9A97 /* Main.storyboard */; };
 		BEF3C2C920D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C720D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld */; };
 		BEF3C2CB20D356FE00ED9A97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */; };
 		BEF3C2CE20D356FE00ED9A97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2CC20D356FE00ED9A97 /* LaunchScreen.storyboard */; };
 		BEF3C2D920D356FF00ED9A97 /* EcoDatumAmazonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2D820D356FF00ED9A97 /* EcoDatumAmazonTests.swift */; };
-		BEF3C2E820D3581800ED9A97 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2E720D3581800ED9A97 /* MainTabBarController.swift */; };
 		BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */; };
 		BEF3C2EE20D35B3B00ED9A97 /* SiteTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2ED20D35B3B00ED9A97 /* SiteTableController.swift */; };
-		BEF3C2F020D35C1C00ED9A97 /* DataCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2EF20D35C1C00ED9A97 /* DataCollectionController.swift */; };
-		BEF3C2F220D35D2800ED9A97 /* MainMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2F120D35D2800ED9A97 /* MainMapController.swift */; };
 		BEF3C2F520D35DE200ED9A97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF3C2F420D35DE200ED9A97 /* MapKit.framework */; };
 		BEF3C2FC20D3736300ED9A97 /* AbioticFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2FB20D3736300ED9A97 /* AbioticFactor.swift */; };
 		BEF3C2FE20D3742300ED9A97 /* AirDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2FD20D3742300ED9A97 /* AirDataType.swift */; };
@@ -57,9 +57,12 @@
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
 		BE210A7F20D48E8D002203E5 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
+		BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotoController.swift; sourceTree = "<group>"; };
+		BE4B9B0A20D771150069513E /* SiteNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteNotesController.swift; sourceTree = "<group>"; };
 		BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailController.swift; sourceTree = "<group>"; };
 		BE7B877120D4DC830083F349 /* ViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContext.swift; sourceTree = "<group>"; };
 		BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		BE7B877520D729D50083F349 /* SiteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteMapController.swift; sourceTree = "<group>"; };
 		BEF3C2BD20D356FD00ED9A97 /* EcoDatumAmazon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoDatumAmazon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEF3C2C520D356FD00ED9A97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,11 +73,8 @@
 		BEF3C2D420D356FF00ED9A97 /* EcoDatumAmazonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcoDatumAmazonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF3C2D820D356FF00ED9A97 /* EcoDatumAmazonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoDatumAmazonTests.swift; sourceTree = "<group>"; };
 		BEF3C2DA20D356FF00ED9A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEF3C2E720D3581800ED9A97 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		BEF3C2ED20D35B3B00ED9A97 /* SiteTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTableController.swift; sourceTree = "<group>"; };
-		BEF3C2EF20D35C1C00ED9A97 /* DataCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionController.swift; sourceTree = "<group>"; };
-		BEF3C2F120D35D2800ED9A97 /* MainMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapController.swift; sourceTree = "<group>"; };
 		BEF3C2F420D35DE200ED9A97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BEF3C2FB20D3736300ED9A97 /* AbioticFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticFactor.swift; sourceTree = "<group>"; };
 		BEF3C2FD20D3742300ED9A97 /* AirDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDataType.swift; sourceTree = "<group>"; };
@@ -175,15 +175,15 @@
 		BEF3C2E520D3574F00ED9A97 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B877520D729D50083F349 /* SiteMapController.swift */,
 				BE210A6620D450B4002203E5 /* SiteNavigationController.swift */,
-				BEF3C2E720D3581800ED9A97 /* MainTabBarController.swift */,
 				BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */,
 				BEF3C2ED20D35B3B00ED9A97 /* SiteTableController.swift */,
-				BEF3C2EF20D35C1C00ED9A97 /* DataCollectionController.swift */,
-				BEF3C2F120D35D2800ED9A97 /* MainMapController.swift */,
 				BE210A6820D45124002203E5 /* DataNavigationController.swift */,
 				BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */,
 				BE7B877120D4DC830083F349 /* ViewContext.swift */,
+				BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */,
+				BE4B9B0A20D771150069513E /* SiteNotesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -326,26 +326,26 @@
 			files = (
 				BEF3C31420D376E700ED9A97 /* WaterOdorScale.swift in Sources */,
 				BEF3C31620D3771300ED9A97 /* WaterTurbidityScale.swift in Sources */,
-				BEF3C2F020D35C1C00ED9A97 /* DataCollectionController.swift in Sources */,
 				BEF3C30A20D375C500ED9A97 /* DecimalDataValue.swift in Sources */,
 				BEF3C30820D3759C00ED9A97 /* DataValue.swift in Sources */,
+				BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */,
 				BEF3C31020D3768900ED9A97 /* SoilPotassiumScale.swift in Sources */,
 				BEF3C30220D3745B00ED9A97 /* WaterDataType.swift in Sources */,
 				BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */,
 				BEF3C30420D374AA00ED9A97 /* AbioticDataUnitChoice.swift in Sources */,
 				BEF3C2FC20D3736300ED9A97 /* AbioticFactor.swift in Sources */,
-				BEF3C2F220D35D2800ED9A97 /* MainMapController.swift in Sources */,
 				BEF3C30620D3750800ED9A97 /* AbioticDataTypeChoice.swift in Sources */,
 				BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */,
 				BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */,
+				BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */,
 				BEF3C30C20D3760000ED9A97 /* NumberSign.swift in Sources */,
 				BEF3C2EE20D35B3B00ED9A97 /* SiteTableController.swift in Sources */,
 				BEF3C31220D376AC00ED9A97 /* SoilTextureScale.swift in Sources */,
 				BEF3C2FE20D3742300ED9A97 /* AirDataType.swift in Sources */,
+				BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */,
 				BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */,
 				BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */,
 				BEF3C30020D3744500ED9A97 /* SoilDataType.swift in Sources */,
-				BEF3C2E820D3581800ED9A97 /* MainTabBarController.swift in Sources */,
 				BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */,
 				BEF3C30E20D3764C00ED9A97 /* AirOzoneScale.swift in Sources */,
 				BE210A8020D48E8D002203E5 /* Site.swift in Sources */,
