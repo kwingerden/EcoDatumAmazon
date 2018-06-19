@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C6EB6D2A49DC0BEA6E4E28F /* Pods_EcoDatumAmazonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */; };
+		855F43E7C86C72F8CDB7F7BD /* Pods_EcoDatumAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */; };
 		BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6420D4449B002203E5 /* PersistenceUtil.swift */; };
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
@@ -54,6 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23B35AE3844A8F421BF5BE1F /* Pods-EcoDatumAmazonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazonTests/Pods-EcoDatumAmazonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoDatumAmazonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A8CCA2762E6C5CC5495994F /* Pods-EcoDatumAmazon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazon.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon.release.xcconfig"; sourceTree = "<group>"; };
+		428B4B510A287C49471D3AF1 /* Pods-EcoDatumAmazon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon.debug.xcconfig"; sourceTree = "<group>"; };
+		B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoDatumAmazon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE210A6420D4449B002203E5 /* PersistenceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceUtil.swift; sourceTree = "<group>"; };
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
@@ -92,6 +99,7 @@
 		BEF3C31120D376AC00ED9A97 /* SoilTextureScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilTextureScale.swift; sourceTree = "<group>"; };
 		BEF3C31320D376E700ED9A97 /* WaterOdorScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterOdorScale.swift; sourceTree = "<group>"; };
 		BEF3C31520D3771300ED9A97 /* WaterTurbidityScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTurbidityScale.swift; sourceTree = "<group>"; };
+		D2F6901DCF01AC8EF3708488 /* Pods-EcoDatumAmazonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazonTests/Pods-EcoDatumAmazonTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF3C2F520D35DE200ED9A97 /* MapKit.framework in Frameworks */,
+				855F43E7C86C72F8CDB7F7BD /* Pods_EcoDatumAmazon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,12 +116,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C6EB6D2A49DC0BEA6E4E28F /* Pods_EcoDatumAmazonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1202164EF4E9AF08E9C45A5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				428B4B510A287C49471D3AF1 /* Pods-EcoDatumAmazon.debug.xcconfig */,
+				3A8CCA2762E6C5CC5495994F /* Pods-EcoDatumAmazon.release.xcconfig */,
+				23B35AE3844A8F421BF5BE1F /* Pods-EcoDatumAmazonTests.debug.xcconfig */,
+				D2F6901DCF01AC8EF3708488 /* Pods-EcoDatumAmazonTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BEF3C2B420D356FD00ED9A97 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +141,7 @@
 				BEF3C2D720D356FF00ED9A97 /* EcoDatumAmazonTests */,
 				BEF3C2BE20D356FD00ED9A97 /* Products */,
 				BEF3C2F320D35DE200ED9A97 /* Frameworks */,
+				1202164EF4E9AF08E9C45A5E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				BEF3C2F420D35DE200ED9A97 /* MapKit.framework */,
+				B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */,
+				265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,9 +252,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEF3C2DD20D356FF00ED9A97 /* Build configuration list for PBXNativeTarget "EcoDatumAmazon" */;
 			buildPhases = (
+				9807E82CBEA9FC416119C2F6 /* [CP] Check Pods Manifest.lock */,
 				BEF3C2B920D356FD00ED9A97 /* Sources */,
 				BEF3C2BA20D356FD00ED9A97 /* Frameworks */,
 				BEF3C2BB20D356FD00ED9A97 /* Resources */,
+				6E6D0E024DFACA5E29D54780 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,6 +271,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEF3C2E020D356FF00ED9A97 /* Build configuration list for PBXNativeTarget "EcoDatumAmazonTests" */;
 			buildPhases = (
+				0C0C3280BCA9939FF3EF8BB3 /* [CP] Check Pods Manifest.lock */,
 				BEF3C2D020D356FF00ED9A97 /* Sources */,
 				BEF3C2D120D356FF00ED9A97 /* Frameworks */,
 				BEF3C2D220D356FF00ED9A97 /* Resources */,
@@ -321,6 +348,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C0C3280BCA9939FF3EF8BB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EcoDatumAmazonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E6D0E024DFACA5E29D54780 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9807E82CBEA9FC416119C2F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EcoDatumAmazon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BEF3C2B920D356FD00ED9A97 /* Sources */ = {
@@ -513,15 +597,13 @@
 		};
 		BEF3C2DE20D356FF00ED9A97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 428B4B510A287C49471D3AF1 /* Pods-EcoDatumAmazon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9424XMB56D;
 				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -531,15 +613,13 @@
 		};
 		BEF3C2DF20D356FF00ED9A97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A8CCA2762E6C5CC5495994F /* Pods-EcoDatumAmazon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9424XMB56D;
 				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -549,17 +629,14 @@
 		};
 		BEF3C2E120D356FF00ED9A97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23B35AE3844A8F421BF5BE1F /* Pods-EcoDatumAmazonTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9424XMB56D;
 				INFOPLIST_FILE = EcoDatumAmazonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -570,17 +647,14 @@
 		};
 		BEF3C2E220D356FF00ED9A97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2F6901DCF01AC8EF3708488 /* Pods-EcoDatumAmazonTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9424XMB56D;
 				INFOPLIST_FILE = EcoDatumAmazonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
