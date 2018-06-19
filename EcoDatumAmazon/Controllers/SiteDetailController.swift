@@ -269,8 +269,8 @@ class SiteDetailController: UIViewController {
         if siteNameChanged {
           ViewContext.shared.refreshSiteTable = NSObject()
         }
-      } catch let error {
-        print(error)
+      } catch let error as NSError {
+        LOG.error("\(error), \(error.userInfo)")
       }
     }
   }

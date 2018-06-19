@@ -70,7 +70,7 @@ class SiteMapController: UIViewController {
     do {
       try fetchedResultsController = Site.fetch()
     } catch let error as NSError {
-      print("Failed to fetch sites: \(error), \(error.userInfo)")
+      LOG.error("\(error), \(error.userInfo)")
     }
   
     if let sites = fetchedResultsController?.fetchedObjects {

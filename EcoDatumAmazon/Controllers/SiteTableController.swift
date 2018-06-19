@@ -51,12 +51,12 @@ class SiteTableController: UIViewController {
       do {
         ViewContext.shared.selectedSite = try Site.new().save()
       } catch let error as NSError {
-        print("Failed to save site: \(error), \(error.userInfo)")
+        LOG.error("\(error), \(error.userInfo)")
       }
       refresh()
       
     default:
-      print("Unrecognized button")
+      LOG.error("Unrecognized button \(sender)")
       
     }
     
@@ -76,7 +76,7 @@ class SiteTableController: UIViewController {
     do {
       try fetchedResultsController = Site.fetch()
     } catch let error as NSError {
-      print("Failed to fetch sites: \(error), \(error.userInfo)")
+      LOG.error("\(error), \(error.userInfo)")
     }
   
     tableView.reloadData()
@@ -127,7 +127,7 @@ extension SiteTableController: UITableViewDelegate {
           do {
             try site.delete()
           } catch let error as NSError {
-            print(error)
+            LOG.error("\(error), \(error.userInfo)")
           }
           self.refresh()
       }

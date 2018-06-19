@@ -1,16 +1,20 @@
 PODS:
   - IQKeyboardManagerSwift (6.0.4)
+  - SwiftyBeaver (1.6.0)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift (= 6.0.4)
+  - SwiftyBeaver (= 1.6.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - IQKeyboardManagerSwift
+    - SwiftyBeaver
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
+  SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
 
-PODFILE CHECKSUM: 1eb18dfcf56fec9a9bfa929629bf4fd3c7bab261
+PODFILE CHECKSUM: fe02ec32aaac6f0d9e078fc9b5119ae680927b2a
 
 COCOAPODS: 1.5.0

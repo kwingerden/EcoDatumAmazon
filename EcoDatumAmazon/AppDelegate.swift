@@ -8,7 +8,10 @@
 
 import CoreData
 import IQKeyboardManagerSwift
+import SwiftyBeaver
 import UIKit
+
+let LOG = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
   
     IQKeyboardManager.shared.enable = true
+    
+    let console = ConsoleDestination()
+    LOG.addDestination(console)
+    
     return true
   
   }
@@ -40,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     do {
       try PersistenceUtil.shared.saveContext()
     } catch let error as NSError {
-      print("\(error)")
+      LOG.error("\(error), \(error.userInfo)")
     }
   }
   

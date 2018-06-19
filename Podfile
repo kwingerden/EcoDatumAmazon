@@ -6,7 +6,8 @@ target 'EcoDatumAmazon' do
 
   # Pods for EcoDatumAmazon
   pod 'IQKeyboardManagerSwift', '6.0.4'
-
+  pod 'SwiftyBeaver', '1.6.0'
+  
   target 'EcoDatumAmazonTests' do
     inherit! :search_paths
     # Pods for testing
