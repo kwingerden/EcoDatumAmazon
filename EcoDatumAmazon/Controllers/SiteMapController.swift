@@ -19,24 +19,35 @@ class SiteMapController: UIViewController {
   
   private let regionRadius: CLLocationDistance = 1000
   
+  private var isObservingSelectedSiteKeyPath: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     mapView.delegate = self
-    
+  
     ViewContext.shared.addObserver(
       self,
       forKeyPath: ViewContext.selectedSiteKeyPath,
       options: [.initial, .new],
       context: nil)
+    isObservingSelectedSiteKeyPath = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.navigationBar.isHidden = true
+    
     loadAnnotations()
     if let site = ViewContext.shared.selectedSite {
       setRegion(site)
+    }
+  }
+  
+  deinit {
+    if isObservingSelectedSiteKeyPath {
+      ViewContext.shared.removeObserver(
+        self,
+        forKeyPath: ViewContext.selectedSiteKeyPath)
     }
   }
   

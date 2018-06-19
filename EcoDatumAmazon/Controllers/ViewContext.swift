@@ -18,4 +18,6 @@ import Foundation
   static let refreshSiteTableKeyPath = "refreshSiteTable"
   dynamic var refreshSiteTable: NSObject?
   
+  var selectedTabIndex: Int = 0
+  
 }

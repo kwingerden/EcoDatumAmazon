@@ -133,10 +133,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxr-x3-DPC">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="579"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VtV-bO-xD6">
-                                        <rect key="frame" x="20" y="20" width="374" height="452.33333333333331"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="470.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfv-Hq-Sxa">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20.333333333333332"/>
@@ -144,14 +144,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Site Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="25x-HD-2Oy">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Site Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="25x-HD-2Oy">
                                                 <rect key="frame" x="0.0" y="30.333333333333329" width="374" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="7dT-Xr-cdC"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWH-Wq-IOz">
                                                 <rect key="frame" x="0.0" y="70.333333333333343" width="374" height="20"/>
@@ -167,14 +167,14 @@
                                                     </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzA-Wy-r7J">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Latitude" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zzA-Wy-r7J">
                                                 <rect key="frame" x="0.0" y="100.33333333333334" width="374" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="1RF-zY-gOH"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eqq-T7-MqP">
                                                 <rect key="frame" x="0.0" y="140.33333333333334" width="374" height="20"/>
@@ -190,14 +190,14 @@
                                                     </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8w-xQ-pO2">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Longitude" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u8w-xQ-pO2">
                                                 <rect key="frame" x="0.0" y="170.33333333333334" width="374" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Mnt-Yc-zmk"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-fG-T9d">
                                                 <rect key="frame" x="0.0" y="210.33333333333331" width="374" height="20"/>
@@ -213,7 +213,7 @@
                                                     </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Accuracy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nr2-kZ-rcz">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Accuracy" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Nr2-kZ-rcz">
                                                 <rect key="frame" x="0.0" y="240.33333333333331" width="374" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="FBh-J7-OIn"/>
@@ -236,14 +236,14 @@
                                                     </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Altitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yK0-RC-nzo">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Altitude" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yK0-RC-nzo">
                                                 <rect key="frame" x="0.0" y="310.33333333333331" width="374" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="C57-oK-pYW"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEM-0S-nja">
                                                 <rect key="frame" x="0.0" y="350.33333333333331" width="374" height="20"/>
@@ -259,23 +259,43 @@
                                                     </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Altitude Accuracy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fHn-5d-tTe">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Altitude Accuracy" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fHn-5d-tTe">
                                                 <rect key="frame" x="0.0" y="380.33333333333331" width="374" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="viC-wv-x3l"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK5-rd-CmH">
-                                                <rect key="frame" x="0.0" y="420.33333333333331" width="374" height="32"/>
-                                                <state key="normal" image="ios-near-glyph"/>
-                                                <connections>
-                                                    <action selector="touchUpInsideButton:" destination="6BC-F8-c17" eventType="touchUpInside" id="FKD-vb-7QH"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-Ub-hbL">
+                                                <rect key="frame" x="0.0" y="420.33333333333331" width="374" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK5-rd-CmH">
+                                                        <rect key="frame" x="324" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="3qI-T8-kad"/>
+                                                            <constraint firstAttribute="height" constant="50" id="pRx-it-0uc"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ios-near-glyph"/>
+                                                        <connections>
+                                                            <action selector="touchUpInsideButton:" destination="6BC-F8-c17" eventType="touchUpInside" id="FKD-vb-7QH"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="DK5-rd-CmH" secondAttribute="bottom" id="Kvc-dZ-ifE"/>
+                                                    <constraint firstAttribute="height" constant="50" id="MyV-R0-m7Q"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DK5-rd-CmH" secondAttribute="trailing" id="cfd-e1-cbD"/>
+                                                    <constraint firstItem="DK5-rd-CmH" firstAttribute="top" secondItem="5JE-Ub-hbL" secondAttribute="top" id="vXb-pX-peV"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="5JE-Ub-hbL" secondAttribute="trailing" id="DXG-pG-Efn"/>
+                                            <constraint firstItem="5JE-Ub-hbL" firstAttribute="leading" secondItem="VtV-bO-xD6" secondAttribute="leading" id="IZT-rs-OUW"/>
+                                            <constraint firstAttribute="bottom" secondItem="5JE-Ub-hbL" secondAttribute="bottom" id="aNg-tN-5Td"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -299,6 +319,7 @@
                     <tabBarItem key="tabBarItem" title="Site" image="loc-search-location-glyph" id="XMX-XD-a10"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Site" id="bb7-7O-5gr"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="altitudeAccuracyActivityIndicator" destination="Zhj-R9-Afh" id="xvr-5v-Tcb"/>
                         <outlet property="altitudeAccuracyTextField" destination="fHn-5d-tTe" id="nlo-Oe-ZAp"/>
@@ -317,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDZ-9n-kIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3761" y="-41"/>
+            <point key="canvasLocation" x="3404" y="-42"/>
         </scene>
         <!--Photo-->
         <scene sceneID="eQQ-KJ-MZ0">
@@ -397,10 +418,10 @@
             </objects>
             <point key="canvasLocation" x="4889.8550724637689" y="-69.293478260869577"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="qeh-k9-N3i">
             <objects>
-                <tabBarController id="Okf-3B-dxZ" sceneMemberID="viewController">
+                <tabBarController id="Okf-3B-dxZ" customClass="MainTabBarController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="j5S-2c-LYn"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mdc-GK-bDk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -431,11 +452,11 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="PMO-jP-YH0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="PMO-jP-YH0">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PMO-jP-YH0" id="DKb-li-pWE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -462,6 +483,7 @@
                     <connections>
                         <outlet property="addBarButton" destination="lsw-2r-aCZ" id="CPx-uv-sHk"/>
                         <outlet property="tableView" destination="Oxq-8A-YJs" id="vBf-7h-zU8"/>
+                        <segue destination="fwF-qc-y7D" kind="showDetail" identifier="showDetail" id="4pL-74-pp5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="si7-LX-kWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -486,7 +508,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Qm-sS-ZwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="-898"/>
+            <point key="canvasLocation" x="1022" y="-961"/>
         </scene>
         <!--Main Split View Controller-->
         <scene sceneID="1Dk-hl-ZfR">
@@ -532,4 +554,7 @@
         <image name="loc-point-map-glyph" width="32" height="32"/>
         <image name="loc-search-location-glyph" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4pL-74-pp5"/>
+    </inferredMetricsTieBreakers>
 </document>

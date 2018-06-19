@@ -12,7 +12,24 @@ import UIKit
 class MainSplitViewController: UISplitViewController {
   
   override func viewDidLoad() {
-    super.viewDidLoad()    
+    super.viewDidLoad()
+    
+    delegate = self
+    if UIDevice.current.userInterfaceIdiom == .pad {
+      preferredDisplayMode = .primaryOverlay
+    }
   }
   
+}
+
+extension MainSplitViewController: UISplitViewControllerDelegate {
+
+  func splitViewController(
+    _ splitViewController: UISplitViewController,
+    collapseSecondary secondaryViewController: UIViewController,
+    onto primaryViewController: UIViewController) -> Bool {
+    // Return true to prevent UIKit from applying its default behavior
+    return true
+  }
+
 }

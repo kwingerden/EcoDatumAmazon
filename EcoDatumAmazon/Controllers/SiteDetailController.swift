@@ -53,6 +53,8 @@ class SiteDetailController: UIViewController {
   
   private let stopGPSImage = UIImage(named: "mus-stop-glyph")
   
+  private var isObservingSelectedSiteKeyPath: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -63,30 +65,61 @@ class SiteDetailController: UIViewController {
       for: .editingChanged)
     
     latitudeTextField.delegate = self
+    latitudeTextField.addTarget(
+      self,
+      action: #selector(textFieldDidChange(_:)),
+      for: .editingChanged)
+    
     longitudeTextField.delegate = self
+    longitudeTextField.addTarget(
+      self,
+      action: #selector(textFieldDidChange(_:)),
+      for: .editingChanged)
+    
     coordinateAccuracyTextField.delegate = self
+    coordinateAccuracyTextField.addTarget(
+      self,
+      action: #selector(textFieldDidChange(_:)),
+      for: .editingChanged)
+    
     altitudeTextField.delegate = self
+    altitudeTextField.addTarget(
+      self,
+      action: #selector(textFieldDidChange(_:)),
+      for: .editingChanged)
+    
     altitudeAccuracyTextField.delegate = self
+    altitudeAccuracyTextField.addTarget(
+      self,
+      action: #selector(textFieldDidChange(_:)),
+      for: .editingChanged)
     
     stackView.isHidden = true
-  
-    ViewContext.shared.addObserver(
-      self,
-      forKeyPath: ViewContext.selectedSiteKeyPath,
-      options: [.initial, .new],
-      context: nil)
     
     locationManager = CLLocationManager()
     locationManager?.activityType = .other
     locationManager?.desiredAccuracy = kCLLocationAccuracyBest
     locationManager?.delegate = self
+    
+    ViewContext.shared.addObserver(
+      self,
+      forKeyPath: ViewContext.selectedSiteKeyPath,
+      options: [.initial, .new],
+      context: nil)
+    isObservingSelectedSiteKeyPath = true
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    navigationController?.navigationBar.isHidden = true
+  deinit {
+    if isObservingSelectedSiteKeyPath {
+      ViewContext.shared.removeObserver(
+        self,
+        forKeyPath: ViewContext.selectedSiteKeyPath)
+    }
   }
   
   override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
     doStopUpdatingLocation()
   }
   
@@ -110,6 +143,9 @@ class SiteDetailController: UIViewController {
         
         stopUpdatingLocation()
         
+        if let parent = parent {
+          parent.title = site.name
+        }
         siteNameTextField.text = site.name
         
         if let selectedLatitude = site.latitude {
@@ -147,6 +183,9 @@ class SiteDetailController: UIViewController {
       
       } else {
       
+        if let parent = parent {
+          parent.title = nil
+        }
         currrentlySelectedSite = nil
         stackView.isHidden = true
       
@@ -217,6 +256,9 @@ class SiteDetailController: UIViewController {
         if siteName == nil || siteName!.isEmpty {
           siteName = SITE_NAME_PLACEHOLDER
         }
+        if let parent = parent {
+          parent.title = siteName
+        }
         site.name = siteName
         site.latitude = NSDecimalNumber(string: latitudeTextField.text)
         site.longitude = NSDecimalNumber(string: longitudeTextField.text)
@@ -282,5 +324,3 @@ extension SiteDetailController: CLLocationManagerDelegate {
   }
   
 }
-
-

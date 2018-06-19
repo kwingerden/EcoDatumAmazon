@@ -19,6 +19,8 @@ class SiteNotesController: UIViewController {
   
   private var currrentlySelectedSite: Site?
   
+  private var isObservingSelectedSiteKeyPath: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -33,13 +35,17 @@ class SiteNotesController: UIViewController {
       forKeyPath: ViewContext.selectedSiteKeyPath,
       options: [.initial, .new],
       context: nil)
+    isObservingSelectedSiteKeyPath = true
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    navigationController?.navigationBar.isHidden = true
+  deinit {
+    if isObservingSelectedSiteKeyPath {
+      ViewContext.shared.removeObserver(
+        self,
+        forKeyPath: ViewContext.selectedSiteKeyPath)
+    }
   }
-  
+      
   override func observeValue(forKeyPath keyPath: String?,
                              of object: Any?,
                              change: [NSKeyValueChangeKey : Any]?,

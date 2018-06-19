@@ -18,6 +18,8 @@ class SiteTableController: UIViewController {
   
   private var fetchedResultsController: NSFetchedResultsController<Site>?
   
+  private var isObservingRefreshSiteTableKeyPath: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -30,6 +32,15 @@ class SiteTableController: UIViewController {
       forKeyPath: ViewContext.refreshSiteTableKeyPath,
       options: [.initial, .new],
       context: nil)
+    isObservingRefreshSiteTableKeyPath = true
+  }
+  
+  deinit {
+    if isObservingRefreshSiteTableKeyPath {
+      ViewContext.shared.removeObserver(
+        self,
+        forKeyPath: ViewContext.refreshSiteTableKeyPath)
+    }
   }
   
   @IBAction func touchUpInside(_ sender: UIBarButtonItem) {
@@ -96,7 +107,7 @@ extension SiteTableController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let site = fetchedResultsController?.object(at: indexPath) {
       ViewContext.shared.selectedSite = site
-      //performSegue(withIdentifier: "showDetail", sender: nil)
+      performSegue(withIdentifier: "showDetail", sender: nil)
     }
   }
     
@@ -158,3 +169,4 @@ extension SiteTableController: UITableViewDataSource {
   }
   
 }
+
