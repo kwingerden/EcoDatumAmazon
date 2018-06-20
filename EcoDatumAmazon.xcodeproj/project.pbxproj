@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C6EB6D2A49DC0BEA6E4E28F /* Pods_EcoDatumAmazonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */; };
 		855F43E7C86C72F8CDB7F7BD /* Pods_EcoDatumAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */; };
+		BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */; };
 		BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6420D4449B002203E5 /* PersistenceUtil.swift */; };
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
@@ -61,6 +62,7 @@
 		3A8CCA2762E6C5CC5495994F /* Pods-EcoDatumAmazon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazon.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon.release.xcconfig"; sourceTree = "<group>"; };
 		428B4B510A287C49471D3AF1 /* Pods-EcoDatumAmazon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon.debug.xcconfig"; sourceTree = "<group>"; };
 		B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoDatumAmazon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePlaceController.swift; sourceTree = "<group>"; };
 		BE210A6420D4449B002203E5 /* PersistenceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceUtil.swift; sourceTree = "<group>"; };
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */,
 				BE4B9B0A20D771150069513E /* SiteNotesController.swift */,
 				BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */,
+				BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				BEF3C30420D374AA00ED9A97 /* AbioticDataUnitChoice.swift in Sources */,
 				BEF3C2FC20D3736300ED9A97 /* AbioticFactor.swift in Sources */,
 				BEF3C30620D3750800ED9A97 /* AbioticDataTypeChoice.swift in Sources */,
+				BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */,
 				BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */,
 				BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */,
 				BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */,
@@ -605,7 +609,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9424XMB56D;
 				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -621,7 +628,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9424XMB56D;
 				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -638,7 +648,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9424XMB56D;
 				INFOPLIST_FILE = EcoDatumAmazonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -656,7 +670,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9424XMB56D;
 				INFOPLIST_FILE = EcoDatumAmazonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
