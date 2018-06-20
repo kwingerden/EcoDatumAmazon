@@ -16,10 +16,6 @@
 				<string>EcoDatumIcon_64x64.png</string>
 				<string>EcoDatumIcon_320x320.png</string>
 			</array>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string></string>
-			</array>
 			<key>CFBundleTypeName</key>
 			<string>EcoDatum Site</string>
 			<key>CFBundleTypeRole</key>

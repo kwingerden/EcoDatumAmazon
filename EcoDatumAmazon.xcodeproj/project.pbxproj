@@ -18,6 +18,7 @@
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
 		BE210A8020D48E8D002203E5 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A7F20D48E8D002203E5 /* Site.swift */; };
+		BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26543320DAF7F500844E4F /* Base64Encoded.swift */; };
 		BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */; };
 		BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0A20D771150069513E /* SiteNotesController.swift */; };
 		BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */; };
@@ -75,6 +76,7 @@
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
 		BE210A7F20D48E8D002203E5 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
+		BE26543320DAF7F500844E4F /* Base64Encoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Encoded.swift; sourceTree = "<group>"; };
 		BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotoController.swift; sourceTree = "<group>"; };
 		BE4B9B0A20D771150069513E /* SiteNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteNotesController.swift; sourceTree = "<group>"; };
 		BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				BEF3C31320D376E700ED9A97 /* WaterOdorScale.swift */,
 				BEF3C31520D3771300ED9A97 /* WaterTurbidityScale.swift */,
 				BE210A7F20D48E8D002203E5 /* Site.swift */,
+				BE26543320DAF7F500844E4F /* Base64Encoded.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			files = (
 				BEE57DCA20D8BDE700A1ECB6 /* MainTabBarController.swift in Sources */,
 				BEF3C31420D376E700ED9A97 /* WaterOdorScale.swift in Sources */,
+				BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */,
 				BEF3C31620D3771300ED9A97 /* WaterTurbidityScale.swift in Sources */,
 				BEF3C30A20D375C500ED9A97 /* DecimalDataValue.swift in Sources */,
 				BEF3C30820D3759C00ED9A97 /* DataValue.swift in Sources */,

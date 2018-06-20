@@ -252,7 +252,8 @@ class SiteDetailController: UIViewController {
     if let site = currrentlySelectedSite {
       do {
         let siteNameChanged = site.name != siteNameTextField.text
-        var siteName = siteNameTextField.text
+        var siteName = siteNameTextField.text?.trimmingCharacters(
+          in: .whitespacesAndNewlines)
         if siteName == nil || siteName!.isEmpty {
           siteName = SITE_NAME_PLACEHOLDER
         }

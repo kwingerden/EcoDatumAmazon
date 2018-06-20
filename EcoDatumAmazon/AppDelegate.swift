@@ -54,11 +54,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ app: UIApplication,
                    open url: URL,
                    options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-    if url.pathExtension == "site" {
-      return true
-    } else {
+    guard url.pathExtension.lowercased() == "site" else {
       return false
     }
+    
+    do {
+      var site = try Site.load(url)
+      site = try site.save()
+      ViewContext.shared.selectedSite = site
+    } catch {
+      LOG.error("Failed to load site file: \(error)")
+    }
+    
+    do {
+      try FileManager.default.removeItem(at: url)
+    } catch {
+      LOG.warning("Failed to delete site file: \(url), \(error)")
+    }
+      
+    return true
   }
   
 }

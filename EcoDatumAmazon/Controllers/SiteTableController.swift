@@ -20,6 +20,8 @@ class SiteTableController: UIViewController {
   
   private var isObservingRefreshSiteTableKeyPath: Bool = false
   
+  private var isObservingSelectedSiteTableKeyPath: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -33,6 +35,13 @@ class SiteTableController: UIViewController {
       options: [.initial, .new],
       context: nil)
     isObservingRefreshSiteTableKeyPath = true
+    
+    ViewContext.shared.addObserver(
+      self,
+      forKeyPath: ViewContext.selectedSiteKeyPath,
+      options: [.initial, .new],
+      context: nil)
+    isObservingSelectedSiteTableKeyPath = true
   }
   
   deinit {
@@ -40,6 +49,11 @@ class SiteTableController: UIViewController {
       ViewContext.shared.removeObserver(
         self,
         forKeyPath: ViewContext.refreshSiteTableKeyPath)
+    }
+    if isObservingSelectedSiteTableKeyPath {
+      ViewContext.shared.removeObserver(
+        self,
+        forKeyPath: ViewContext.selectedSiteKeyPath)
     }
   }
   
@@ -66,7 +80,11 @@ class SiteTableController: UIViewController {
                              of object: Any?,
                              change: [NSKeyValueChangeKey : Any]?,
                              context: UnsafeMutableRawPointer?) {
-    if let keyPath = keyPath, keyPath == ViewContext.refreshSiteTableKeyPath {
+    guard let keyPath = keyPath else {
+      return
+    }
+    if keyPath == ViewContext.refreshSiteTableKeyPath ||
+      keyPath == ViewContext.selectedSiteKeyPath {
       refresh()
     }
   }

@@ -200,12 +200,18 @@ class SitePlaceController: UIViewController {
   private func save() {
     if let site = currrentlySelectedSite {
       do {
-        site.place = placeNameTextField.text
-        site.street = streetAddressTextField.text
-        site.city = cityTextField.text
-        site.state = stateTextField.text
-        site.postalCode = postalCodeTextField.text
-        site.country = countryTextField.text
+        site.place = placeNameTextField.text?.trimmingCharacters(
+          in: .whitespacesAndNewlines)
+        site.street = streetAddressTextField.text?.trimmingCharacters(
+          in: .whitespacesAndNewlines)
+        site.city = cityTextField.text?.trimmingCharacters(
+          in: .whitespacesAndNewlines)
+        site.state = stateTextField.text?.trimmingCharacters(
+          in: .whitespacesAndNewlines)
+        site.postalCode = postalCodeTextField.text?.trimmingCharacters(
+          in: .whitespacesAndNewlines)
+        site.country = countryTextField.text?.trimmingCharacters(
+          in: .whitespacesAndNewlines)
         let _ = try site.save()
       } catch let error as NSError {
         LOG.error("\(error), \(error.userInfo)")
