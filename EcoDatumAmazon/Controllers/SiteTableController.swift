@@ -49,7 +49,7 @@ class SiteTableController: UIViewController {
       
     case addBarButton:
       do {
-        ViewContext.shared.selectedSite = try Site.new().save()
+        ViewContext.shared.selectedSite = try Site.create().save()
       } catch let error as NSError {
         LOG.error("\(error), \(error.userInfo)")
       }

@@ -9,12 +9,55 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>EcoDatumIcon_22x29.png</string>
+				<string>EcoDatumIcon_44x58.png</string>
+				<string>EcoDatumIcon_64x64.png</string>
+				<string>EcoDatumIcon_320x320.png</string>
+			</array>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string></string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>EcoDatum Site</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>org.ecodatum.EcoDatum.site</string>
+			</array>
+		</dict>
+		<dict>
 			<key>CFBundleTypeName</key>
 			<string>MKDirectionsRequest</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.apple.maps.directionsrequest</string>
 			</array>
+		</dict>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>org.ecodatum.EcoDatum.site</string>
+			<key>UTTypeDescription</key>
+			<string>EcoDatum Site</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.mime-type</key>
+				<string>application/ecodatum-site</string>
+				<key>public.filename-extension</key>
+				<string>site</string>
+			</dict>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

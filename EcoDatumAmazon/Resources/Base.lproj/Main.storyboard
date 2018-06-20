@@ -133,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxr-x3-DPC">
-                                <rect key="frame" x="0.0" y="64" width="414" height="579"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VtV-bO-xD6">
                                         <rect key="frame" x="20" y="20" width="374" height="470.33333333333331"/>
@@ -319,7 +319,6 @@
                     <tabBarItem key="tabBarItem" title="Site" image="ios-near-glyph" id="XMX-XD-a10"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Site" id="bb7-7O-5gr"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="altitudeAccuracyActivityIndicator" destination="Zhj-R9-Afh" id="xvr-5v-Tcb"/>
                         <outlet property="altitudeAccuracyTextField" destination="fHn-5d-tTe" id="nlo-Oe-ZAp"/>
@@ -644,13 +643,20 @@
         <scene sceneID="qeh-k9-N3i">
             <objects>
                 <tabBarController id="Okf-3B-dxZ" customClass="MainTabBarController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="j5S-2c-LYn"/>
+                    <navigationItem key="navigationItem" id="j5S-2c-LYn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Ufg-v3-gEG">
+                            <connections>
+                                <action selector="touchUpInside:" destination="Okf-3B-dxZ" id="ZuR-yQ-Dsa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mdc-GK-bDk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="actionBarButton" destination="Ufg-v3-gEG" id="BRN-GZ-Ixs"/>
                         <segue destination="6BC-F8-c17" kind="relationship" relationship="viewControllers" id="yAY-y7-gGg"/>
                         <segue destination="g2R-Oj-eXU" kind="relationship" relationship="viewControllers" id="taV-K0-p9H"/>
                         <segue destination="kwl-um-Quy" kind="relationship" relationship="viewControllers" id="Dq6-GI-c7a"/>
@@ -661,7 +667,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiM-4r-7OV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3007" y="858"/>
+            <point key="canvasLocation" x="2626" y="838"/>
         </scene>
         <!--Sites-->
         <scene sceneID="FjA-m7-9RR">
@@ -672,7 +678,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oxq-8A-YJs">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="PMO-jP-YH0">
@@ -697,7 +703,6 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b0C-0L-sDh"/>
-                        <barButtonItem title="Item" id="Ufg-v3-gEG"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Sites" id="mjc-uh-dFx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lsw-2r-aCZ">
@@ -706,7 +711,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addBarButton" destination="lsw-2r-aCZ" id="CPx-uv-sHk"/>
                         <outlet property="tableView" destination="Oxq-8A-YJs" id="vBf-7h-zU8"/>
@@ -720,14 +724,13 @@
         <!--Site Navigation Controller-->
         <scene sceneID="8XY-da-G6u">
             <objects>
-                <navigationController toolbarHidden="NO" id="qrb-MM-Ltd" customClass="SiteNavigationController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="qrb-MM-Ltd" customClass="SiteNavigationController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W3h-af-Hjb">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MDf-ab-yKA">
-                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>

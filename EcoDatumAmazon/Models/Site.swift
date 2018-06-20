@@ -13,30 +13,28 @@ let SITE_NAME_PLACEHOLDER = "<Site Name>"
 
 extension Site {
   
-  static func new(name: String? = SITE_NAME_PLACEHOLDER,
-                  notes: NSAttributedString? = nil,
-                  latitude: NSDecimalNumber? = 0.0,
-                  longitude: NSDecimalNumber? = 0.0,
-                  coordinateAccuracy: NSDecimalNumber? = 0.0,
-                  altitude: NSDecimalNumber? = 0.0,
-                  altitudeAccuracy: NSDecimalNumber? = 0.0,
-                  photo: Data? = nil) throws -> Site {
+  static func create(id: UUID? = nil,
+                     name: String? = nil) throws -> Site {
     let entity = NSEntityDescription.entity(
       forEntityName: "Site",
       in: PersistenceUtil.shared.container.viewContext)!
+    
     let site = Site(
       entity: entity,
       insertInto: PersistenceUtil.shared.container.viewContext)
-    site.id = UUID()
-    site.name = name
-    site.notes = notes
-    site.latitude = latitude
-    site.longitude = longitude
-    site.coordinateAccuracy = coordinateAccuracy
-    site.altitude = altitude
-    site.altitudeAccuracy = altitudeAccuracy
-    site.photo = photo
-    site.ecoData = []
+    
+    if let id = id {
+      site.id = id
+    } else {
+      site.id = UUID()
+    }
+    
+    if let name = name {
+      site.name = name
+    } else {
+      site.name = SITE_NAME_PLACEHOLDER
+    }
+  
     return site
   }
   
@@ -61,6 +59,50 @@ extension Site {
   
   func delete() throws {
     try PersistenceUtil.shared.delete(self)
+  }
+  
+  func encode() throws -> Data {
+    return try JSONEncoder().encode(SiteCodable(site: self))
+  }
+  
+  static func decode(_ data: Data) throws -> Site {
+    return try JSONDecoder().decode(SiteCodable.self, from: data).site
+  }
+  
+}
+
+fileprivate class SiteCodable: Codable {
+  
+  enum CodingKeys: String, CodingKey {
+    case id
+    case name
+  }
+  
+  var id: UUID? {
+    return site.id
+  }
+  
+  var name: String? {
+    return site.name
+  }
+  
+  let site: Site
+  
+  init(site: Site) {
+    self.site = site
+  }
+  
+  required init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let id = try container.decodeIfPresent(UUID.self, forKey: CodingKeys.id)
+    let name = try container.decodeIfPresent(String.self, forKey: CodingKeys.name)
+    site = try Site.create(id: id, name: name)
+  }
+  
+  func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encodeIfPresent(site.id, forKey: CodingKeys.id)
+    try container.encodeIfPresent(site.name, forKey: CodingKeys.name)
   }
   
 }

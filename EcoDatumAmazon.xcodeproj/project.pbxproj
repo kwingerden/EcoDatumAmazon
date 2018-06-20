@@ -10,6 +10,10 @@
 		7C6EB6D2A49DC0BEA6E4E28F /* Pods_EcoDatumAmazonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */; };
 		855F43E7C86C72F8CDB7F7BD /* Pods_EcoDatumAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */; };
 		BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */; };
+		BE1868D920DA1C93007E3EE8 /* EcoDatumIcon_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1868D520DA1C92007E3EE8 /* EcoDatumIcon_64x64.png */; };
+		BE1868DA20DA1C93007E3EE8 /* EcoDatumIcon_22x29.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1868D620DA1C92007E3EE8 /* EcoDatumIcon_22x29.png */; };
+		BE1868DB20DA1C93007E3EE8 /* EcoDatumIcon_44x58.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1868D720DA1C93007E3EE8 /* EcoDatumIcon_44x58.png */; };
+		BE1868DC20DA1C93007E3EE8 /* EcoDatumIcon_320x320.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1868D820DA1C93007E3EE8 /* EcoDatumIcon_320x320.png */; };
 		BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6420D4449B002203E5 /* PersistenceUtil.swift */; };
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
@@ -63,6 +67,10 @@
 		428B4B510A287C49471D3AF1 /* Pods-EcoDatumAmazon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon.debug.xcconfig"; sourceTree = "<group>"; };
 		B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoDatumAmazon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePlaceController.swift; sourceTree = "<group>"; };
+		BE1868D520DA1C92007E3EE8 /* EcoDatumIcon_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EcoDatumIcon_64x64.png; sourceTree = "<group>"; };
+		BE1868D620DA1C92007E3EE8 /* EcoDatumIcon_22x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EcoDatumIcon_22x29.png; sourceTree = "<group>"; };
+		BE1868D720DA1C93007E3EE8 /* EcoDatumIcon_44x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EcoDatumIcon_44x58.png; sourceTree = "<group>"; };
+		BE1868D820DA1C93007E3EE8 /* EcoDatumIcon_320x320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EcoDatumIcon_320x320.png; sourceTree = "<group>"; };
 		BE210A6420D4449B002203E5 /* PersistenceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceUtil.swift; sourceTree = "<group>"; };
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
@@ -190,6 +198,10 @@
 		BEF3C2E420D3572D00ED9A97 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BE1868D620DA1C92007E3EE8 /* EcoDatumIcon_22x29.png */,
+				BE1868D720DA1C93007E3EE8 /* EcoDatumIcon_44x58.png */,
+				BE1868D520DA1C92007E3EE8 /* EcoDatumIcon_64x64.png */,
+				BE1868D820DA1C93007E3EE8 /* EcoDatumIcon_320x320.png */,
 				BEF3C2C420D356FD00ED9A97 /* Main.storyboard */,
 				BEF3C2CA20D356FE00ED9A97 /* Assets.xcassets */,
 				BEF3C2CC20D356FE00ED9A97 /* LaunchScreen.storyboard */,
@@ -337,9 +349,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1868DB20DA1C93007E3EE8 /* EcoDatumIcon_44x58.png in Resources */,
 				BEF3C2CE20D356FE00ED9A97 /* LaunchScreen.storyboard in Resources */,
 				BEF3C2CB20D356FE00ED9A97 /* Assets.xcassets in Resources */,
+				BE1868DA20DA1C93007E3EE8 /* EcoDatumIcon_22x29.png in Resources */,
 				BEF3C2C620D356FD00ED9A97 /* Main.storyboard in Resources */,
+				BE1868D920DA1C93007E3EE8 /* EcoDatumIcon_64x64.png in Resources */,
+				BE1868DC20DA1C93007E3EE8 /* EcoDatumIcon_320x320.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
