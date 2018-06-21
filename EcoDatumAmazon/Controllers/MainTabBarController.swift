@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class MainTabBarController: UITabBarController {
-  
+    
   private var isObservingSelectedSiteKeyPath: Bool = false
   
   override func viewDidLoad() {
