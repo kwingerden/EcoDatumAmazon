@@ -11,8 +11,6 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
   
-  @IBOutlet weak var actionBarButton: UIBarButtonItem!
-  
   private var isObservingSelectedSiteKeyPath: Bool = false
   
   override func viewDidLoad() {
@@ -29,41 +27,6 @@ class MainTabBarController: UITabBarController {
       options: [.initial, .new],
       context: nil)
     isObservingSelectedSiteKeyPath = true
-  }
-  
-  @IBAction func touchUpInside(_ sender: UIBarButtonItem) {
-    
-    switch sender {
-      
-    case actionBarButton:
-      guard let site = ViewContext.shared.selectedSite else {
-        return
-      }
-      guard let siteName = site.name else {
-        LOG.warning("Site needs to have a name")
-        return
-      }
-      guard let siteData = try? site.encode() else {
-        LOG.warning("Failed to encode site \(site)")
-        return
-      }
-      guard let siteDataFileUrl = try? saveToFile(siteName, siteData) else {
-        LOG.warning("Failed to save site \(site)")
-        return
-      }
-      
-      let activityController = UIActivityViewController(
-        activityItems: [siteDataFileUrl],
-        applicationActivities: nil)
-      activityController.popoverPresentationController?.barButtonItem = actionBarButton
-          
-      present(activityController, animated: true, completion: nil)
-      
-    default:
-      LOG.error("Unrecognized button \(sender)")
-      
-    }
-    
   }
   
   deinit {
@@ -93,16 +56,4 @@ class MainTabBarController: UITabBarController {
     }
   }
     
-  private func saveToFile(_ name: String, _ data: Data) throws -> URL {
-    let fileManager = FileManager.default
-    let documentDirectory = try fileManager.url(
-      for: .documentDirectory,
-      in: .userDomainMask,
-      appropriateFor:nil,
-      create:false)
-    let fileURL = documentDirectory.appendingPathComponent("\(name).site")
-    try data.write(to: fileURL)
-    return fileURL
-  }
-  
 }

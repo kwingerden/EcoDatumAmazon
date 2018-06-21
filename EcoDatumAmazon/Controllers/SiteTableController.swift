@@ -12,7 +12,9 @@ import UIKit
 
 class SiteTableController: UIViewController {
   
-  @IBOutlet weak var addBarButton: UIBarButtonItem!
+  @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
+  
+  @IBOutlet weak var actionBarButtonItem: UIBarButtonItem!
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -28,6 +30,8 @@ class SiteTableController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.tableFooterView = UIView()
+    
+    navigationItem.leftBarButtonItem = editButtonItem
     
     ViewContext.shared.addObserver(
       self,
@@ -57,11 +61,40 @@ class SiteTableController: UIViewController {
     }
   }
   
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: true)
+    tableView.setEditing(editing, animated: true)
+  }
+  
   @IBAction func touchUpInside(_ sender: UIBarButtonItem) {
     
     switch sender {
       
-    case addBarButton:
+    case actionBarButtonItem:
+      guard let site = ViewContext.shared.selectedSite else {
+        return
+      }
+      guard let siteName = site.name else {
+        LOG.warning("Site needs to have a name")
+        return
+      }
+      guard let siteData = try? site.encode() else {
+        LOG.warning("Failed to encode site \(site)")
+        return
+      }
+      guard let siteDataFileUrl = try? saveToFile(siteName, siteData) else {
+        LOG.warning("Failed to save site \(site)")
+        return
+      }
+      
+      let activityController = UIActivityViewController(
+        activityItems: [siteDataFileUrl],
+        applicationActivities: nil)
+      activityController.popoverPresentationController?.barButtonItem = actionBarButtonItem
+      
+      present(activityController, animated: true, completion: nil)
+      
+    case addBarButtonItem:
       do {
         ViewContext.shared.selectedSite = try Site.create().save()
       } catch let error as NSError {
@@ -87,6 +120,18 @@ class SiteTableController: UIViewController {
       keyPath == ViewContext.selectedSiteKeyPath {
       refresh()
     }
+  }
+  
+  private func saveToFile(_ name: String, _ data: Data) throws -> URL {
+    let fileManager = FileManager.default
+    let documentDirectory = try fileManager.url(
+      for: .documentDirectory,
+      in: .userDomainMask,
+      appropriateFor:nil,
+      create:false)
+    let fileURL = documentDirectory.appendingPathComponent("\(name).site")
+    try data.write(to: fileURL)
+    return fileURL
   }
   
   private func refresh() {

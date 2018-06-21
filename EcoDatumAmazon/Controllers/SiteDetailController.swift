@@ -250,28 +250,51 @@ class SiteDetailController: UIViewController {
   
   private func save() {
     if let site = currrentlySelectedSite {
+      
+      let siteNameChanged = site.name != siteNameTextField.text
+      var siteName = siteNameTextField.text?.trimmingCharacters(
+        in: .whitespacesAndNewlines)
+      if siteName == nil || siteName!.isEmpty {
+        siteName = SITE_NAME_PLACEHOLDER
+      }
+      if let parent = parent {
+        parent.title = siteName
+      }
+      site.name = siteName
+      
+      if let latitudeText = latitudeTextField.text,
+        let latitude = Decimal(string: latitudeText) {
+        site.latitude = NSDecimalNumber(decimal: latitude)
+      }
+      
+      if let longitudeText = longitudeTextField.text,
+        let longitude = Decimal(string: longitudeText) {
+        site.longitude = NSDecimalNumber(decimal: longitude)
+      }
+      
+      if let coordinateAccuracyText = coordinateAccuracyTextField.text,
+        let coordinateAccuracy = Decimal(string: coordinateAccuracyText) {
+        site.coordinateAccuracy = NSDecimalNumber(decimal: coordinateAccuracy)
+      }
+      
+      if let altitudeText = altitudeTextField.text,
+        let altitude = Decimal(string: altitudeText) {
+        site.altitude = NSDecimalNumber(decimal: altitude)
+      }
+      
+      if let altitudeAccuracyText = altitudeAccuracyTextField.text,
+        let altitudeAccuracy = Decimal(string: altitudeAccuracyText) {
+        site.altitudeAccuracy = NSDecimalNumber(decimal: altitudeAccuracy)
+      }
+      
       do {
-        let siteNameChanged = site.name != siteNameTextField.text
-        var siteName = siteNameTextField.text?.trimmingCharacters(
-          in: .whitespacesAndNewlines)
-        if siteName == nil || siteName!.isEmpty {
-          siteName = SITE_NAME_PLACEHOLDER
-        }
-        if let parent = parent {
-          parent.title = siteName
-        }
-        site.name = siteName
-        site.latitude = NSDecimalNumber(string: latitudeTextField.text)
-        site.longitude = NSDecimalNumber(string: longitudeTextField.text)
-        site.coordinateAccuracy = NSDecimalNumber(string: coordinateAccuracyTextField.text)
-        site.altitude = NSDecimalNumber(string: altitudeTextField.text)
-        site.altitudeAccuracy = NSDecimalNumber(string: altitudeAccuracyTextField.text)
         let _ = try site.save()
-        if siteNameChanged {
-          ViewContext.shared.refreshSiteTable = NSObject()
-        }
       } catch let error as NSError {
         LOG.error("\(error), \(error.userInfo)")
+      }
+      
+      if siteNameChanged {
+        ViewContext.shared.refreshSiteTable = NSObject()
       }
     }
   }

@@ -21,6 +21,7 @@
 		BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26543320DAF7F500844E4F /* Base64Encoded.swift */; };
 		BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */; };
 		BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0A20D771150069513E /* SiteNotesController.swift */; };
+		BE66905420DB194A00EA1492 /* SiteDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66905320DB194A00EA1492 /* SiteDataController.swift */; };
 		BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */; };
 		BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877120D4DC830083F349 /* ViewContext.swift */; };
 		BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */; };
@@ -79,6 +80,7 @@
 		BE26543320DAF7F500844E4F /* Base64Encoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Encoded.swift; sourceTree = "<group>"; };
 		BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotoController.swift; sourceTree = "<group>"; };
 		BE4B9B0A20D771150069513E /* SiteNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteNotesController.swift; sourceTree = "<group>"; };
+		BE66905320DB194A00EA1492 /* SiteDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDataController.swift; sourceTree = "<group>"; };
 		BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailController.swift; sourceTree = "<group>"; };
 		BE7B877120D4DC830083F349 /* ViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContext.swift; sourceTree = "<group>"; };
 		BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				BE4B9B0A20D771150069513E /* SiteNotesController.swift */,
 				BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */,
 				BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */,
+				BE66905320DB194A00EA1492 /* SiteDataController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				BEF3C31620D3771300ED9A97 /* WaterTurbidityScale.swift in Sources */,
 				BEF3C30A20D375C500ED9A97 /* DecimalDataValue.swift in Sources */,
 				BEF3C30820D3759C00ED9A97 /* DataValue.swift in Sources */,
+				BE66905420DB194A00EA1492 /* SiteDataController.swift in Sources */,
 				BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */,
 				BEF3C31020D3768900ED9A97 /* SoilPotassiumScale.swift in Sources */,
 				BEF3C30220D3745B00ED9A97 /* WaterDataType.swift in Sources */,
