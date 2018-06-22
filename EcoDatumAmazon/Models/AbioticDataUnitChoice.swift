@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AbioticDataUnitChoice: String {
+enum AbioticDataUnitChoice: String, Codable {
   
   // Latex Editor: http://www.hostmath.com
   

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AirDataType: String {
+enum AirDataType: String, Codable {
   
   case Velocity
   case CarbonDioxide = "Carbon Dioxide"

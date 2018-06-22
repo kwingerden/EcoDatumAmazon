@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum WaterDataType: String {
+enum WaterDataType: String, Codable {
   
   case Conductivity
   case DissolvedOxygen = "Dissolved Oxygen"

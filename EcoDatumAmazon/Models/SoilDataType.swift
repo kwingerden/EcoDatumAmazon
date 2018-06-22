@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SoilDataType: String {
+enum SoilDataType: String, Codable {
   
   case Nitrogen
   case Phosphorus

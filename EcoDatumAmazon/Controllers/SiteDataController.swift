@@ -18,7 +18,20 @@ class SiteDataController: UIViewController {
   
   private var selectedAbioticData: AbioticData?
   
-  private var waterLogoImage: UIImage? = UIImage(named: "WaterLogo")
+  static private let airLogo: UIImage? = UIImage(named: "AirLogo")
+  
+  static private let bioticLogo: UIImage? = UIImage(named: "BioticLogo")
+  
+  static private let soilLogo: UIImage? = UIImage(named: "SoilLogo")
+  
+  static private let waterLogo: UIImage? = UIImage(named: "WaterLogo")
+  
+  private let logos: [UIImage?] = [
+    airLogo,
+    bioticLogo,
+    soilLogo,
+    waterLogo
+  ]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -72,15 +85,8 @@ class SiteDataController: UIViewController {
   }
   
   @objc func addButtonPressed() {
-    if let site = ViewContext.shared.selectedSite {
-      do {
-        selectedAbioticData = try AbioticData.create()
-        site.addToEcoData(selectedAbioticData!)
-        let _ = try site.save()
-        performSegue(withIdentifier: "dataDetail", sender: nil)
-      } catch {
-        LOG.error("Failed to create and save new Abiotic Data: \(error)")
-      }
+    if let _ = ViewContext.shared.selectedSite {
+      performSegue(withIdentifier: "ecoFactorChoice", sender: nil)
     }
   }
   
@@ -109,9 +115,9 @@ extension SiteDataController: UICollectionViewDataSource {
       withReuseIdentifier: "siteDataCell",
       for: indexPath) as! SiteDataCell
     siteDataCell.dateLabel.text = abioticData[indexPath.row].collectionDate?.description ?? "??"
-    siteDataCell.backgroundView = UIImageView(image: waterLogoImage)
-    siteDataCell.backgroundView?.alpha = 0.2
-    siteDataCell.roundedAndLightBordered()
+    let index = Int(arc4random_uniform(4))
+    siteDataCell.backgroundView = UIImageView(image: logos[index])
+    siteDataCell.roundedAndDarkBordered()
     return siteDataCell
   }
   

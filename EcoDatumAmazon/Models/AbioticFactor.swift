@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AbioticFactor: String {
+enum AbioticFactor: String, Codable {
   
   case Air
   case Soil

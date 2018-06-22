@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SoilTextureScale {
+struct SoilTextureScale: Codable {
   
   let percentSand: Int
   let percentSilt: Int
