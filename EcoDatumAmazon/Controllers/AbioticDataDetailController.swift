@@ -9,17 +9,14 @@
 import Foundation
 import UIKit
 
-class DataTypeChoiceController: UIViewController {
+class AbioticDataDetailController: UIViewController {
   
-  var abioticFactor: AbioticFactor!
+  var abioticData: AbioticData!
   
   @IBOutlet weak var tableView: UITableView!
   
-  var selectedAbioticDataType: AbioticDataType!
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "\(abioticFactor.rawValue) Data Type Choice"
     
     tableView.delegate = self
     tableView.dataSource = self
@@ -43,10 +40,10 @@ class DataTypeChoiceController: UIViewController {
       navigationController?.popToViewController(mainTabBarController, animated: true)
     }
   }
-
+  
 }
 
-extension DataTypeChoiceController: UITableViewDelegate {
+extension AbioticDataDetailController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
@@ -54,32 +51,21 @@ extension DataTypeChoiceController: UITableViewDelegate {
   
 }
 
-extension DataTypeChoiceController: UITableViewDataSource {
+extension AbioticDataDetailController: UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 80
+  }
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    switch abioticFactor! {
-    case .Air:
-      return AirDataType.all.count
-    case .Soil:
-      return SoilDataType.all.count
-    case .Water:
-      return WaterDataType.all.count
-    }
+    return 0
   }
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    switch abioticFactor! {
-    case .Air:
-      cell.textLabel?.text = AirDataType.all[indexPath.row].rawValue
-    case .Soil:
-      cell.textLabel?.text = SoilDataType.all[indexPath.row].rawValue
-    case .Water:
-      cell.textLabel?.text = WaterDataType.all[indexPath.row].rawValue
-    }
-    return cell
+    return UITableViewCell()
   }
   
 }
+

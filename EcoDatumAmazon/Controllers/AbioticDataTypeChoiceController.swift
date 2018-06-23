@@ -9,23 +9,17 @@
 import Foundation
 import UIKit
 
-class AbioticFactorChoiceController: UIViewController {
-
-  var ecoFactor: EcoFactor!
+class AbioticDataTypeChoiceController: UIViewController {
+  
+  var abioticFactor: AbioticFactor!
   
   @IBOutlet weak var tableView: UITableView!
   
-  private var selectedAbioticFactor: AbioticFactor!
+  var selectedAbioticDataTypeChoice: AbioticDataTypeChoice!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    switch ecoFactor! {
-    case .Abiotic:
-      title = "Abiotic Factor Choice"
-    default:
-      LOG.error("Unexpected EcoFactor: \(ecoFactor)")
-    }
+    title = "\(abioticFactor.rawValue) Data Type Choice"
     
     tableView.delegate = self
     tableView.dataSource = self
@@ -39,8 +33,9 @@ class AbioticFactorChoiceController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
-    case is AbioticDataTypeChoiceController:
-      (segue.destination as! AbioticDataTypeChoiceController).abioticFactor = selectedAbioticFactor
+    case is AbitoicDataUnitChoiceController:
+      (segue.destination as! AbitoicDataUnitChoiceController).abioticDataTypeChoice =
+      selectedAbioticDataTypeChoice
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }
@@ -54,29 +49,50 @@ class AbioticFactorChoiceController: UIViewController {
       navigationController?.popToViewController(mainTabBarController, animated: true)
     }
   }
-  
+
 }
 
-extension AbioticFactorChoiceController: UITableViewDelegate {
+extension AbioticDataTypeChoiceController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    selectedAbioticFactor = AbioticFactor.all[indexPath.row]
-    performSegue(withIdentifier: "dataTypeChoice", sender: nil)
+    switch abioticFactor! {
+    case .Air:
+      selectedAbioticDataTypeChoice = .Air(AirDataType.all[indexPath.row])
+    case .Soil:
+      selectedAbioticDataTypeChoice = .Soil(SoilDataType.all[indexPath.row])
+    case .Water:
+      selectedAbioticDataTypeChoice = .Water(WaterDataType.all[indexPath.row])
+    }
+    performSegue(withIdentifier: "dataUnitChoice", sender: nil)
   }
   
 }
 
-extension AbioticFactorChoiceController: UITableViewDataSource {
+extension AbioticDataTypeChoiceController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    return AbioticFactor.all.count
+    switch abioticFactor! {
+    case .Air:
+      return AirDataType.all.count
+    case .Soil:
+      return SoilDataType.all.count
+    case .Water:
+      return WaterDataType.all.count
+    }
   }
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    cell.textLabel?.text = AbioticFactor.all[indexPath.row].rawValue
+    switch abioticFactor! {
+    case .Air:
+      cell.textLabel?.text = AirDataType.all[indexPath.row].rawValue
+    case .Soil:
+      cell.textLabel?.text = SoilDataType.all[indexPath.row].rawValue
+    case .Water:
+      cell.textLabel?.text = WaterDataType.all[indexPath.row].rawValue
+    }
     return cell
   }
   

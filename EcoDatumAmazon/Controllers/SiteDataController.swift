@@ -20,7 +20,11 @@ class SiteDataController: UIViewController {
   
   static private let airLogo: UIImage? = UIImage(named: "AirLogo")
   
+  static private let animalLogo: UIImage? = UIImage(named: "AnimalLogo")
+  
   static private let bioticLogo: UIImage? = UIImage(named: "BioticLogo")
+  
+  static private let fungiLogo: UIImage? = UIImage(named: "FungiLogo")
   
   static private let soilLogo: UIImage? = UIImage(named: "SoilLogo")
   
@@ -28,7 +32,9 @@ class SiteDataController: UIViewController {
   
   private let logos: [UIImage?] = [
     airLogo,
+    animalLogo,
     bioticLogo,
+    fungiLogo,
     soilLogo,
     waterLogo
   ]
@@ -78,15 +84,23 @@ class SiteDataController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
     
-    if let siteDataDetailController = segue.destination as? SiteDataDetailController,
-      let selectedAbioticData = selectedAbioticData {
-      siteDataDetailController.abioticData = selectedAbioticData
+    switch segue.destination {
+    case is EcoFactorChoiceController:
+      break // do nothing
+    case is AbioticDataDetailController:
+      if let selectedAbioticData = selectedAbioticData {
+        (segue.destination as! AbioticDataDetailController).abioticData = selectedAbioticData
+      } else {
+        LOG.error("Seleted Abiotic Data was not set")
+      }
+    default:
+      LOG.error("Unexpected segue destination: \(segue.destination)")
     }
   }
   
   @objc func addButtonPressed() {
     if let _ = ViewContext.shared.selectedSite {
-      performSegue(withIdentifier: "ecoFactorChoice", sender: nil)
+      performSegue(withIdentifier: "newEcoFactor", sender: nil)
     }
   }
   
@@ -97,7 +111,7 @@ extension SiteDataController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView,
                       didSelectItemAt indexPath: IndexPath) {
     selectedAbioticData = abioticData[indexPath.row]
-    performSegue(withIdentifier: "dataDetail", sender: nil)
+    performSegue(withIdentifier: "abioticDataDetail", sender: nil)
   }
   
 }
@@ -115,7 +129,7 @@ extension SiteDataController: UICollectionViewDataSource {
       withReuseIdentifier: "siteDataCell",
       for: indexPath) as! SiteDataCell
     siteDataCell.dateLabel.text = abioticData[indexPath.row].collectionDate?.description ?? "??"
-    let index = Int(arc4random_uniform(4))
+    let index = Int(arc4random_uniform(UInt32(logos.count)))
     siteDataCell.backgroundView = UIImageView(image: logos[index])
     siteDataCell.roundedAndDarkBordered()
     return siteDataCell

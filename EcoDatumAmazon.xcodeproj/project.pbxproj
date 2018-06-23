@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		7C6EB6D2A49DC0BEA6E4E28F /* Pods_EcoDatumAmazonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */; };
 		855F43E7C86C72F8CDB7F7BD /* Pods_EcoDatumAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */; };
+		BE03920A20DE0DDA0075B3CB /* AbioticDataDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE03920920DE0DDA0075B3CB /* AbioticDataDetailController.swift */; };
 		BE10E85520DC9DE1006C680A /* EcoFactorChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10E85420DC9DE1006C680A /* EcoFactorChoiceController.swift */; };
 		BE10E85720DC9E3A006C680A /* AbioticFactorChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10E85620DC9E3A006C680A /* AbioticFactorChoiceController.swift */; };
-		BE10E85920DCA2BD006C680A /* DataTypeChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10E85820DCA2BD006C680A /* DataTypeChoiceController.swift */; };
 		BE10E85D20DCA47A006C680A /* AbioticEcoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10E85C20DCA47A006C680A /* AbioticEcoData.swift */; };
 		BE10E86120DCA5D7006C680A /* BioticEcoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10E86020DCA5D7006C680A /* BioticEcoData.swift */; };
 		BE10E86520DCA709006C680A /* AbioticDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10E86420DCA709006C680A /* AbioticDataType.swift */; };
@@ -29,12 +29,14 @@
 		BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */; };
 		BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0A20D771150069513E /* SiteNotesController.swift */; };
 		BE66905420DB194A00EA1492 /* SiteDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66905320DB194A00EA1492 /* SiteDataController.swift */; };
-		BE66905620DB501500EA1492 /* SiteDataDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66905520DB501500EA1492 /* SiteDataDetailController.swift */; };
 		BE66905820DB592B00EA1492 /* AbioticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66905720DB592B00EA1492 /* AbioticData.swift */; };
 		BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */; };
 		BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877120D4DC830083F349 /* ViewContext.swift */; };
 		BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */; };
 		BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877520D729D50083F349 /* SiteMapController.swift */; };
+		BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */; };
+		BE9BC92F20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */; };
+		BE9BC93120DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC93020DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift */; };
 		BEE57DCA20D8BDE700A1ECB6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */; };
 		BEF3C2C120D356FD00ED9A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */; };
 		BEF3C2C620D356FD00ED9A97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF3C2C420D356FD00ED9A97 /* Main.storyboard */; };
@@ -77,9 +79,9 @@
 		3A8CCA2762E6C5CC5495994F /* Pods-EcoDatumAmazon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazon.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon.release.xcconfig"; sourceTree = "<group>"; };
 		428B4B510A287C49471D3AF1 /* Pods-EcoDatumAmazon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon.debug.xcconfig"; sourceTree = "<group>"; };
 		B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoDatumAmazon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE03920920DE0DDA0075B3CB /* AbioticDataDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataDetailController.swift; sourceTree = "<group>"; };
 		BE10E85420DC9DE1006C680A /* EcoFactorChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoFactorChoiceController.swift; sourceTree = "<group>"; };
 		BE10E85620DC9E3A006C680A /* AbioticFactorChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticFactorChoiceController.swift; sourceTree = "<group>"; };
-		BE10E85820DCA2BD006C680A /* DataTypeChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeChoiceController.swift; sourceTree = "<group>"; };
 		BE10E85C20DCA47A006C680A /* AbioticEcoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticEcoData.swift; sourceTree = "<group>"; };
 		BE10E86020DCA5D7006C680A /* BioticEcoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioticEcoData.swift; sourceTree = "<group>"; };
 		BE10E86420DCA709006C680A /* AbioticDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataType.swift; sourceTree = "<group>"; };
@@ -97,12 +99,14 @@
 		BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotoController.swift; sourceTree = "<group>"; };
 		BE4B9B0A20D771150069513E /* SiteNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteNotesController.swift; sourceTree = "<group>"; };
 		BE66905320DB194A00EA1492 /* SiteDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDataController.swift; sourceTree = "<group>"; };
-		BE66905520DB501500EA1492 /* SiteDataDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDataDetailController.swift; sourceTree = "<group>"; };
 		BE66905720DB592B00EA1492 /* AbioticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticData.swift; sourceTree = "<group>"; };
 		BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailController.swift; sourceTree = "<group>"; };
 		BE7B877120D4DC830083F349 /* ViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContext.swift; sourceTree = "<group>"; };
 		BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		BE7B877520D729D50083F349 /* SiteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteMapController.swift; sourceTree = "<group>"; };
+		BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbitoicDataUnitChoiceController.swift; sourceTree = "<group>"; };
+		BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataValueChoiceController.swift; sourceTree = "<group>"; };
+		BE9BC93020DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbioticDataTypeChoiceController.swift; sourceTree = "<group>"; };
 		BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		BEF3C2BD20D356FD00ED9A97 /* EcoDatumAmazon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoDatumAmazon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF3C2C020D356FD00ED9A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 		BEF3C2E520D3574F00ED9A97 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BE9BC93020DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift */,
 				BE7B877520D729D50083F349 /* SiteMapController.swift */,
 				BE210A6620D450B4002203E5 /* SiteNavigationController.swift */,
 				BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */,
@@ -247,10 +252,11 @@
 				BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */,
 				BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */,
 				BE66905320DB194A00EA1492 /* SiteDataController.swift */,
-				BE66905520DB501500EA1492 /* SiteDataDetailController.swift */,
 				BE10E85420DC9DE1006C680A /* EcoFactorChoiceController.swift */,
 				BE10E85620DC9E3A006C680A /* AbioticFactorChoiceController.swift */,
-				BE10E85820DCA2BD006C680A /* DataTypeChoiceController.swift */,
+				BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */,
+				BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */,
+				BE03920920DE0DDA0075B3CB /* AbioticDataDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -429,11 +435,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/iosMath/iosMath.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iosMath.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -476,20 +484,23 @@
 				BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */,
 				BEF3C31020D3768900ED9A97 /* SoilPotassiumScale.swift in Sources */,
 				BE10E85D20DCA47A006C680A /* AbioticEcoData.swift in Sources */,
-				BE10E85920DCA2BD006C680A /* DataTypeChoiceController.swift in Sources */,
 				BEF3C30220D3745B00ED9A97 /* WaterDataType.swift in Sources */,
 				BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */,
+				BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */,
 				BEF3C30420D374AA00ED9A97 /* AbioticDataUnitChoice.swift in Sources */,
 				BEF3C2FC20D3736300ED9A97 /* AbioticFactor.swift in Sources */,
 				BEF3C30620D3750800ED9A97 /* AbioticDataTypeChoice.swift in Sources */,
 				BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */,
 				BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */,
+				BE9BC93120DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift in Sources */,
 				BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */,
 				BE10E86520DCA709006C680A /* AbioticDataType.swift in Sources */,
 				BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */,
 				BEF3C30C20D3760000ED9A97 /* NumberSign.swift in Sources */,
+				BE03920A20DE0DDA0075B3CB /* AbioticDataDetailController.swift in Sources */,
 				BE66905820DB592B00EA1492 /* AbioticData.swift in Sources */,
 				BEF3C2EE20D35B3B00ED9A97 /* SiteTableController.swift in Sources */,
+				BE9BC92F20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift in Sources */,
 				BEF3C31220D376AC00ED9A97 /* SoilTextureScale.swift in Sources */,
 				BEF3C2FE20D3742300ED9A97 /* AirDataType.swift in Sources */,
 				BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */,
@@ -497,7 +508,6 @@
 				BE10E85520DC9DE1006C680A /* EcoFactorChoiceController.swift in Sources */,
 				BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */,
 				BE10E85720DC9E3A006C680A /* AbioticFactorChoiceController.swift in Sources */,
-				BE66905620DB501500EA1492 /* SiteDataDetailController.swift in Sources */,
 				BEF3C30020D3744500ED9A97 /* SoilDataType.swift in Sources */,
 				BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */,
 				BE10E86120DCA5D7006C680A /* BioticEcoData.swift in Sources */,

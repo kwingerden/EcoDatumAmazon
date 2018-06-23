@@ -5,6 +5,7 @@ target 'EcoDatumAmazon' do
   use_frameworks!
 
   # Pods for EcoDatumAmazon
+  pod 'iosMath' , '0.9.4'
   pod 'IQKeyboardManagerSwift', '6.0.4'
   pod 'SwiftyBeaver', '1.6.0'
   

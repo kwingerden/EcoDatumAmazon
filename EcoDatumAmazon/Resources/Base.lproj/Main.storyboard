@@ -99,40 +99,43 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="collectionView" destination="EnB-vX-nXJ" id="Pcj-Dr-8q9"/>
-                        <segue destination="ote-HH-kig" kind="show" identifier="dataDetail" id="7ut-4V-UiD"/>
-                        <segue destination="56f-Ne-oTZ" kind="show" identifier="ecoFactorChoice" id="JUP-cA-izV"/>
+                        <segue destination="ote-HH-kig" kind="show" identifier="abioticDataDetail" id="7ut-4V-UiD"/>
+                        <segue destination="56f-Ne-oTZ" kind="show" identifier="newEcoFactor" id="JUP-cA-izV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCu-si-dfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4535" y="723"/>
         </scene>
-        <!--Site Data Detail Controller-->
+        <!--Abiotic Data Detail Controller-->
         <scene sceneID="Kpj-sy-5pE">
             <objects>
-                <viewController id="ote-HH-kig" customClass="SiteDataDetailController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ote-HH-kig" customClass="AbioticDataDetailController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pt7-TM-T7o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcI-ll-xRq">
-                                <rect key="frame" x="20" y="320" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5tn-WI-Pav">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Wsk-A8-gov" firstAttribute="trailing" secondItem="5tn-WI-Pav" secondAttribute="trailing" id="bZq-Zk-n8M"/>
+                            <constraint firstItem="5tn-WI-Pav" firstAttribute="leading" secondItem="Wsk-A8-gov" secondAttribute="leading" id="eM7-9a-P2s"/>
+                            <constraint firstItem="5tn-WI-Pav" firstAttribute="top" secondItem="Wsk-A8-gov" secondAttribute="top" id="kHa-LM-hdT"/>
+                            <constraint firstItem="Wsk-A8-gov" firstAttribute="bottom" secondItem="5tn-WI-Pav" secondAttribute="bottom" id="tc7-yM-mVu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Wsk-A8-gov"/>
                     </view>
                     <connections>
-                        <outlet property="testLabel" destination="GcI-ll-xRq" id="Y0H-QQ-cDL"/>
+                        <outlet property="tableView" destination="5tn-WI-Pav" id="4fo-3l-98L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMC-3v-1Hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5415.9420289855079" y="721.46739130434787"/>
+            <point key="canvasLocation" x="5416" y="722"/>
         </scene>
         <!--Eco Factor Choice Controller-->
         <scene sceneID="mX4-z3-dgy">
@@ -182,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIB-fw-kr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4589.8550724637689" y="1548.913043478261"/>
+            <point key="canvasLocation" x="4535" y="1529"/>
         </scene>
         <!--Abiotic Factor Choice Controller-->
         <scene sceneID="lzH-Zp-MTq">
@@ -234,10 +237,10 @@
             </objects>
             <point key="canvasLocation" x="5416" y="1548"/>
         </scene>
-        <!--Data Type Choice Controller-->
+        <!--Abiotic Data Type Choice Controller-->
         <scene sceneID="yfe-ud-r5J">
             <objects>
-                <viewController id="31o-dz-TPW" customClass="DataTypeChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="31o-dz-TPW" customClass="AbioticDataTypeChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Od-zU-odZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,11 +280,109 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="VhV-5p-6Z0" id="A5m-mv-YqT"/>
+                        <segue destination="jup-Hq-Wei" kind="show" identifier="dataUnitChoice" id="G6b-wu-8B3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tg3-1l-WOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6233" y="1547"/>
+        </scene>
+        <!--Abitoic Data Unit Choice Controller-->
+        <scene sceneID="3xE-Oz-Tnl">
+            <objects>
+                <viewController id="jup-Hq-Wei" customClass="AbitoicDataUnitChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0VH-Ai-zyB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aJQ-Z4-HMU">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="VF5-8y-Myv" customClass="DataUnitChoiceTableViewCell" customModule="EcoDatumAmazon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VF5-8y-Myv" id="KeU-D7-4w3">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="79.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsg-Kr-xTx">
+                                                    <rect key="frame" x="15" y="0.0" width="361" height="79.666666666666671"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="xsg-Kr-xTx" secondAttribute="trailing" id="6gd-zX-WQz"/>
+                                                <constraint firstItem="xsg-Kr-xTx" firstAttribute="leading" secondItem="KeU-D7-4w3" secondAttribute="leading" constant="15" id="HjL-vZ-ONg"/>
+                                                <constraint firstAttribute="bottom" secondItem="xsg-Kr-xTx" secondAttribute="bottom" id="WW8-yL-YHv"/>
+                                                <constraint firstItem="xsg-Kr-xTx" firstAttribute="top" secondItem="KeU-D7-4w3" secondAttribute="top" id="mgn-41-3c0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dataUnitView" destination="xsg-Kr-xTx" id="W2N-92-pNO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mgq-Q0-sAh" firstAttribute="bottom" secondItem="aJQ-Z4-HMU" secondAttribute="bottom" id="LCm-Ls-FpM"/>
+                            <constraint firstItem="aJQ-Z4-HMU" firstAttribute="trailing" secondItem="Mgq-Q0-sAh" secondAttribute="trailing" id="P0l-f0-0YG"/>
+                            <constraint firstItem="aJQ-Z4-HMU" firstAttribute="top" secondItem="Mgq-Q0-sAh" secondAttribute="top" id="SZH-4P-3qT"/>
+                            <constraint firstItem="aJQ-Z4-HMU" firstAttribute="leading" secondItem="Mgq-Q0-sAh" secondAttribute="leading" id="wMe-0p-PuS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mgq-Q0-sAh"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="aJQ-Z4-HMU" id="1d2-jp-7UB"/>
+                        <segue destination="ug8-mB-4nf" kind="show" identifier="dataValueChoice" id="PMH-fX-LCZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrf-Th-oFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7091" y="1549"/>
+        </scene>
+        <!--Abiotic Data Value Choice Controller-->
+        <scene sceneID="CX3-d9-pJf">
+            <objects>
+                <viewController id="ug8-mB-4nf" customClass="AbioticDataValueChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cIW-ws-8YU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09n-xk-Ec9">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zIK-9i-Z0K">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zIK-9i-Z0K" id="SBN-hO-pSm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vg4-JX-PcK" firstAttribute="trailing" secondItem="09n-xk-Ec9" secondAttribute="trailing" id="BYs-Go-TER"/>
+                            <constraint firstItem="09n-xk-Ec9" firstAttribute="leading" secondItem="Vg4-JX-PcK" secondAttribute="leading" id="Hxa-ig-OSL"/>
+                            <constraint firstItem="09n-xk-Ec9" firstAttribute="top" secondItem="Vg4-JX-PcK" secondAttribute="top" id="KYK-fC-lFG"/>
+                            <constraint firstItem="Vg4-JX-PcK" firstAttribute="bottom" secondItem="09n-xk-Ec9" secondAttribute="bottom" id="Rds-tA-aap"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vg4-JX-PcK"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="09n-xk-Ec9" id="aec-jV-GS4"/>
+                        <segue destination="ote-HH-kig" kind="show" identifier="abioticDataDetail" id="XUc-lV-PYy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vhv-7B-7ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7919" y="1552"/>
         </scene>
         <!--Notes-->
         <scene sceneID="Sdv-sX-dGx">
@@ -1014,5 +1115,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pL-74-pp5"/>
+        <segue reference="7ut-4V-UiD"/>
     </inferredMetricsTieBreakers>
 </document>
