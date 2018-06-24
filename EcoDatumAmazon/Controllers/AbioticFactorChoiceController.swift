@@ -61,7 +61,7 @@ extension AbioticFactorChoiceController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     selectedAbioticFactor = AbioticFactor.all[indexPath.row]
-    performSegue(withIdentifier: "dataTypeChoice", sender: nil)
+    performSegue(withIdentifier: "abioticDataTypeChoice", sender: nil)
   }
   
 }

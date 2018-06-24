@@ -11,14 +11,14 @@ import Foundation
 struct AbioticEcoData: Codable {
   
   let abioticFactor: AbioticFactor?
-  let dataType: AbioticDataTypeChoice?
-  let dataUnit: AbioticDataUnitChoice?
-  let dataValue: DataValue?
+  let dataType: AbioticDataType?
+  let dataUnit: AbioticDataUnit?
+  let dataValue: AbioticDataValue?
   
   init(abioticFactor: AbioticFactor? = nil,
-       dataType: AbioticDataTypeChoice? = nil,
-       dataUnit: AbioticDataUnitChoice? = nil,
-       dataValue: DataValue? = nil) {
+       dataType: AbioticDataType? = nil,
+       dataUnit: AbioticDataUnit? = nil,
+       dataValue: AbioticDataValue? = nil) {
     self.abioticFactor = abioticFactor
     self.dataType = dataType
     self.dataUnit = dataUnit
@@ -32,131 +32,131 @@ struct AbioticEcoData: Codable {
     
     switch abioticFactor {
     case .Air?:
-      dataType = AbioticDataTypeChoice.Air(
+      dataType = AbioticDataType.Air(
         try container.decode(AirDataType.self, forKey: .dataType))
     case .Soil?:
-      dataType = AbioticDataTypeChoice.Soil(
+      dataType = AbioticDataType.Soil(
         try container.decode(SoilDataType.self, forKey: .dataType))
     case .Water?:
-      dataType = AbioticDataTypeChoice.Water(
+      dataType = AbioticDataType.Water(
         try container.decode(WaterDataType.self, forKey: .dataType))
     default: fatalError()
     }
     
-    dataUnit = try container.decode(AbioticDataUnitChoice.self, forKey: .dataUnit)
+    dataUnit = try container.decode(AbioticDataUnit.self, forKey: .dataUnit)
     
     switch dataUnit {
       
     case ._Air_Ozone_Scale_?:
-      var tempDataValue: DataValue?
+      var tempDataValue: AbioticDataValue?
       let dataValueString = try container.decode(String.self, forKey: .dataValue)
       AirOzoneScale.all.forEach {
         switch $0 {
         case .LessThan90(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.AirOzoneScale($0)
+            tempDataValue = AbioticDataValue.AirOzoneScale($0)
           }
         case .Between90And150(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.AirOzoneScale($0)
+            tempDataValue = AbioticDataValue.AirOzoneScale($0)
           }
         case .GreaterThan150To210(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.AirOzoneScale($0)
+            tempDataValue = AbioticDataValue.AirOzoneScale($0)
           }
         case .GreaterThan210(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.AirOzoneScale($0)
+            tempDataValue = AbioticDataValue.AirOzoneScale($0)
           }
         }
       }
       dataValue = tempDataValue
       
     case ._Soil_Potassium_Scale_?:
-      var tempDataValue: DataValue?
+      var tempDataValue: AbioticDataValue?
       let dataValueString = try container.decode(String.self, forKey: .dataValue)
       SoilPotassiumScale.all.forEach {
         switch $0 {
         case .Low(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.SoilPotassiumScale($0)
+            tempDataValue = AbioticDataValue.SoilPotassiumScale($0)
           }
         case .Medium(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.SoilPotassiumScale($0)
+            tempDataValue = AbioticDataValue.SoilPotassiumScale($0)
           }
         case .High(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.SoilPotassiumScale($0)
+            tempDataValue = AbioticDataValue.SoilPotassiumScale($0)
           }
         }
       }
       dataValue = tempDataValue
       
     case ._Water_Odor_Scale_?:
-      var tempDataValue: DataValue?
+      var tempDataValue: AbioticDataValue?
       let dataValueString = try container.decode(String.self, forKey: .dataValue)
       WaterOdorScale.all.forEach {
         switch $0 {
         case .NoOdor(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterOdorScale($0)
+            tempDataValue = AbioticDataValue.WaterOdorScale($0)
           }
         case .SlightOdor(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterOdorScale($0)
+            tempDataValue = AbioticDataValue.WaterOdorScale($0)
           }
         case .Smelly(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterOdorScale($0)
+            tempDataValue = AbioticDataValue.WaterOdorScale($0)
           }
         case .VerySmelly(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterOdorScale($0)
+            tempDataValue = AbioticDataValue.WaterOdorScale($0)
           }
         case .Devastating(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterOdorScale($0)
+            tempDataValue = AbioticDataValue.WaterOdorScale($0)
           }
         }
       }
       dataValue = tempDataValue
       
     case ._Water_Turbidity_Scale_?:
-      var tempDataValue: DataValue?
+      var tempDataValue: AbioticDataValue?
       let dataValueString = try container.decode(String.self, forKey: .dataValue)
       WaterTurbidityScale.all.forEach {
         switch $0 {
         case .CrystalClear(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterTurbidityScale($0)
+            tempDataValue = AbioticDataValue.WaterTurbidityScale($0)
           }
         case .SlightlyCloudy(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterTurbidityScale($0)
+            tempDataValue = AbioticDataValue.WaterTurbidityScale($0)
           }
         case .ModeratelyCloudy(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterTurbidityScale($0)
+            tempDataValue = AbioticDataValue.WaterTurbidityScale($0)
           }
         case .VeryCloudy(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterTurbidityScale($0)
+            tempDataValue = AbioticDataValue.WaterTurbidityScale($0)
           }
         case .BlackishOrBrownish(_, let label):
           if dataValueString == label {
-            tempDataValue = DataValue.WaterTurbidityScale($0)
+            tempDataValue = AbioticDataValue.WaterTurbidityScale($0)
           }
         }
       }
       dataValue = tempDataValue
       
     case ._Soil_Texture_Scale_?:
-      dataValue = DataValue.SoilTextureScale(
+      dataValue = AbioticDataValue.SoilTextureScale(
         try container.decode(SoilTextureScale.self, forKey: .dataValue))
       
     default:
-      dataValue = DataValue.DecimalDataValue(
+      dataValue = AbioticDataValue.DecimalDataValue(
         try container.decode(DecimalDataValue.self, forKey: .dataValue))
       
     }
@@ -258,7 +258,7 @@ struct AbioticEcoData: Codable {
       dataValue: nil)
   }
   
-  func new(dataType: AbioticDataTypeChoice) -> AbioticEcoData {
+  func new(dataType: AbioticDataType) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
       dataType: dataType,
@@ -266,7 +266,7 @@ struct AbioticEcoData: Codable {
       dataValue: nil)
   }
   
-  func new(dataUnit: AbioticDataUnitChoice) -> AbioticEcoData {
+  func new(dataUnit: AbioticDataUnit) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
       dataType: dataType,
@@ -274,7 +274,7 @@ struct AbioticEcoData: Codable {
       dataValue: nil)
   }
   
-  func new(dataValue: DataValue?) -> AbioticEcoData {
+  func new(dataValue: AbioticDataValue?) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
       dataType: dataType,

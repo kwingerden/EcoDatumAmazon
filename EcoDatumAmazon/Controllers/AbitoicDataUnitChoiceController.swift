@@ -12,16 +12,16 @@ import UIKit
 
 class AbitoicDataUnitChoiceController: UIViewController {
   
-  var abioticDataTypeChoice: AbioticDataTypeChoice!
+  var abioticDataType: AbioticDataType!
   
   @IBOutlet weak var tableView: UITableView!
   
-  var selectedAbioticDataUnitChoice: AbioticDataUnitChoice!
+  var selectedAbioticDataUnit: AbioticDataUnit!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    switch abioticDataTypeChoice! {
+    switch abioticDataType! {
     case .Air(let airDataType):
       title = "\(airDataType.rawValue) Data Unit Choice"
     case .Soil(let soilDataType):
@@ -43,8 +43,8 @@ class AbitoicDataUnitChoiceController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
     case is AbioticDataValueChoiceController:
-      (segue.destination as! AbioticDataValueChoiceController).abioticDataUnitChoice =
-      selectedAbioticDataUnitChoice
+      (segue.destination as! AbioticDataValueChoiceController).abioticDataUnit =
+      selectedAbioticDataUnit
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }
@@ -64,13 +64,13 @@ class AbitoicDataUnitChoiceController: UIViewController {
 extension AbitoicDataUnitChoiceController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    switch abioticDataTypeChoice! {
+    switch abioticDataType! {
     case .Air(let airDataType):
-      selectedAbioticDataUnitChoice = AbioticDataUnitChoice.units(.Air(airDataType))[indexPath.row]
+      selectedAbioticDataUnit = AbioticDataUnit.units(.Air(airDataType))[indexPath.row]
     case .Soil(let soilDataType):
-      selectedAbioticDataUnitChoice = AbioticDataUnitChoice.units(.Soil(soilDataType))[indexPath.row]
+      selectedAbioticDataUnit = AbioticDataUnit.units(.Soil(soilDataType))[indexPath.row]
     case .Water(let waterDataType):
-      selectedAbioticDataUnitChoice = AbioticDataUnitChoice.units(.Water(waterDataType))[indexPath.row]
+      selectedAbioticDataUnit = AbioticDataUnit.units(.Water(waterDataType))[indexPath.row]
     }
     performSegue(withIdentifier: "dataValueChoice", sender: nil)
   }
@@ -85,13 +85,13 @@ extension AbitoicDataUnitChoiceController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    switch abioticDataTypeChoice! {
+    switch abioticDataType! {
     case .Air(let airDataType):
-      return AbioticDataUnitChoice.units(.Air(airDataType)).count
+      return AbioticDataUnit.units(.Air(airDataType)).count
     case .Soil(let soilDataType):
-      return AbioticDataUnitChoice.units(.Soil(soilDataType)).count
+      return AbioticDataUnit.units(.Soil(soilDataType)).count
     case .Water(let waterDataType):
-      return AbioticDataUnitChoice.units(.Water(waterDataType)).count
+      return AbioticDataUnit.units(.Water(waterDataType)).count
     }
   }
   
@@ -100,7 +100,7 @@ extension AbitoicDataUnitChoiceController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(
       withIdentifier: "cell",
       for: indexPath) as! DataUnitChoiceTableViewCell
-    switch abioticDataTypeChoice! {
+    switch abioticDataType! {
     case .Air(let airDataType):
       cell.dataUnitLabel.latex = dataUnitValue(dataUnits(airDataType), indexPath)
     case .Soil(let soilDataType):
@@ -111,19 +111,19 @@ extension AbitoicDataUnitChoiceController: UITableViewDataSource {
     return cell
   }
   
-  private func dataUnits(_ airDataType: AirDataType) -> [AbioticDataUnitChoice] {
-    return AbioticDataUnitChoice.units(.Air(airDataType))
+  private func dataUnits(_ airDataType: AirDataType) -> [AbioticDataUnit] {
+    return AbioticDataUnit.units(.Air(airDataType))
   }
   
-  private func dataUnits(_ soilDataType: SoilDataType) -> [AbioticDataUnitChoice] {
-    return AbioticDataUnitChoice.units(.Soil(soilDataType))
+  private func dataUnits(_ soilDataType: SoilDataType) -> [AbioticDataUnit] {
+    return AbioticDataUnit.units(.Soil(soilDataType))
   }
   
-  private func dataUnits(_ waterDataType: WaterDataType) -> [AbioticDataUnitChoice] {
-    return AbioticDataUnitChoice.units(.Water(waterDataType))
+  private func dataUnits(_ waterDataType: WaterDataType) -> [AbioticDataUnit] {
+    return AbioticDataUnit.units(.Water(waterDataType))
   }
   
-  private func dataUnitValue(_ dataUnitChoices: [AbioticDataUnitChoice],
+  private func dataUnitValue(_ dataUnitChoices: [AbioticDataUnit],
                              _ indexPath: IndexPath) -> String {
     return dataUnitChoices[indexPath.row].rawValue
   }

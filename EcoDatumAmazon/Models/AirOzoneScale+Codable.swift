@@ -8,13 +8,27 @@
 
 import Foundation
 
-enum AirOzoneScale {
+enum AirOzoneScale: Codable {
   
   case LessThan90(index: Int, label: String)
   case Between90And150(index: Int, label: String)
   case GreaterThan150To210(index: Int, label: String)
   case GreaterThan210(index: Int, label: String)
-    
+  
+  enum CodingKeys: String, CodingKey {
+    case airOzoneScale
+  }
+  
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    self = try container.decode(AirOzoneScale.self, forKey: .airOzoneScale)
+  }
+  
+  func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(self, forKey: .airOzoneScale)
+  }
+  
   static func ==(_ lhs: AirOzoneScale, _ rhs: AirOzoneScale) -> Bool {
     
     var lhsIndex = 0

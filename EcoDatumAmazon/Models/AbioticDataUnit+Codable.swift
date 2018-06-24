@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AbioticDataUnitChoice: String, Codable {
+enum AbioticDataUnit: String, Codable {
   
   // Latex Editor: http://www.hostmath.com
   
@@ -36,7 +36,7 @@ enum AbioticDataUnitChoice: String, Codable {
   case _Water_pH_Scale_ = "Water \\ pH \\ Scale"
   case _Water_Turbidity_Scale_ = "Water \\ Turbidity \\ Scale"
   
-  static func units(_ dataType: AbioticDataTypeChoice) -> [AbioticDataUnitChoice] {
+  static func units(_ dataType: AbioticDataType) -> [AbioticDataUnit] {
     
     switch dataType {
       

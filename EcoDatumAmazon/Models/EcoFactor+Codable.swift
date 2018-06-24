@@ -14,22 +14,17 @@ enum EcoFactor: Codable {
   case Biotic(BioticEcoData)
   
   enum CodingKeys: String, CodingKey {
-    case abiotic
-    case biotic
+    case ecoFactor
   }
   
   init(from decoder: Decoder) throws {
-    self = .Abiotic(AbioticEcoData())
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    self = try container.decode(EcoFactor.self, forKey: .ecoFactor)
   }
   
   func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
-    switch self {
-    case .Abiotic(let abioticEcoData):
-      try container.encode(abioticEcoData, forKey: .abiotic)
-    case .Biotic(let bioticEcoData):
-      try container.encode(bioticEcoData, forKey: .biotic)
-    }
+    try container.encode(self, forKey: .ecoFactor)
   }
   
   static let all: [EcoFactor] = [

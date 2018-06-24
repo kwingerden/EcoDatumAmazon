@@ -8,13 +8,27 @@
 
 import Foundation
 
-enum WaterTurbidityScale {
+enum WaterTurbidityScale: Codable, ScaleDataType {
   
   case CrystalClear(index: Int, label: String)
   case SlightlyCloudy(index: Int, label: String)
   case ModeratelyCloudy(index: Int, label: String)
   case VeryCloudy(index: Int, label: String)
   case BlackishOrBrownish(index: Int, label: String)
+  
+  enum CodingKeys: String, CodingKey {
+    case waterTurbidityScale
+  }
+  
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    self = try container.decode(WaterTurbidityScale.self, forKey: .waterTurbidityScale)
+  }
+  
+  func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(self, forKey: .waterTurbidityScale)
+  }
   
   static func ==(_ lhs: WaterTurbidityScale, _ rhs: WaterTurbidityScale) -> Bool {
     

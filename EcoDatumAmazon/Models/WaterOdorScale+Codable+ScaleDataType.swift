@@ -8,14 +8,28 @@
 
 import Foundation
 
-enum WaterOdorScale {
+enum WaterOdorScale: Codable, ScaleDataType {
   
   case NoOdor(index: Int, label: String)
   case SlightOdor(index: Int, label: String)
   case Smelly(index: Int, label: String)
   case VerySmelly(index: Int, label: String)
   case Devastating(index: Int, label: String)
-    
+  
+  enum CodingKeys: String, CodingKey {
+    case waterOdorScale
+  }
+  
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    self = try container.decode(WaterOdorScale.self, forKey: .waterOdorScale)
+  }
+  
+  func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(self, forKey: .waterOdorScale)
+  }
+  
   static func ==(_ lhs: WaterOdorScale, _ rhs: WaterOdorScale) -> Bool {
     
     var lhsIndex = 0

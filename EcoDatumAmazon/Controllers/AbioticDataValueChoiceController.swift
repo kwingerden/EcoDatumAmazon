@@ -11,7 +11,7 @@ import UIKit
 
 class AbioticDataValueChoiceController: UIViewController {
   
-  var abioticDataUnitChoice: AbioticDataUnitChoice!
+  var abioticDataUnit: AbioticDataUnit!
   
   @IBOutlet weak var tableView: UITableView!
   

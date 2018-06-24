@@ -230,7 +230,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Txu-Iu-NBh" id="LX2-2b-aoz"/>
-                        <segue destination="31o-dz-TPW" kind="show" identifier="dataTypeChoice" id="on9-dF-e9b"/>
+                        <segue destination="31o-dz-TPW" kind="show" identifier="abioticDataTypeChoice" id="on9-dF-e9b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4de-aO-ddQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1115,6 +1115,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pL-74-pp5"/>
-        <segue reference="7ut-4V-UiD"/>
+        <segue reference="XUc-lV-PYy"/>
     </inferredMetricsTieBreakers>
 </document>

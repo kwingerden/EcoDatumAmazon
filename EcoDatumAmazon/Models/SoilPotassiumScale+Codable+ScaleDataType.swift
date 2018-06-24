@@ -8,11 +8,25 @@
 
 import Foundation
 
-enum SoilPotassiumScale {
+enum SoilPotassiumScale: Codable, ScaleDataType {
   
   case Low(index: Int, label: String)
   case Medium(index: Int, label: String)
   case High(index: Int, label: String)
+  
+  enum CodingKeys: String, CodingKey {
+    case soilPotassiumScale
+  }
+  
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    self = try container.decode(SoilPotassiumScale.self, forKey: .soilPotassiumScale)
+  }
+  
+  func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(self, forKey: .soilPotassiumScale)
+  }
   
   static func ==(_ lhs: SoilPotassiumScale, _ rhs: SoilPotassiumScale) -> Bool {
     
