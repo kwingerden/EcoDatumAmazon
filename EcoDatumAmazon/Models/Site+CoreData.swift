@@ -106,11 +106,6 @@ extension Site {
     return fetchedResultsController
   }
   
-  func save() throws -> Site {
-    try PersistenceUtil.shared.saveContext()
-    return self
-  }
-  
   func delete() throws {
     try PersistenceUtil.shared.delete(self)
   }

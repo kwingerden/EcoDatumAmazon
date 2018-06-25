@@ -11,7 +11,7 @@ import UIKit
 
 class AbioticDataDetailController: UIViewController {
   
-  var abioticData: AbioticData!
+  var ecoFactor: EcoFactor!
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -23,16 +23,16 @@ class AbioticDataDetailController: UIViewController {
     tableView.tableFooterView = UIView()
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.cancel,
+      barButtonSystemItem: UIBarButtonSystemItem.done,
       target: self,
-      action: #selector(cancelButtonPressed))
+      action: #selector(doneButtonPressed))
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
   }
   
-  @objc func cancelButtonPressed() {
+  @objc func doneButtonPressed() {
     let mainTabBarController = navigationController?.viewControllers.first {
       $0 is MainTabBarController
     }

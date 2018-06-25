@@ -59,8 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     do {
-      var site = try Site.load(url)
-      site = try site.save()
+      let site = try Site.load(url)
+      try PersistenceUtil.shared.saveContext()
       ViewContext.shared.selectedSite = site
     } catch {
       LOG.error("Failed to load site file: \(error)")

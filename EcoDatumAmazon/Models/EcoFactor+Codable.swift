@@ -8,23 +8,45 @@
 
 import Foundation
 
-enum EcoFactor: Codable {
+enum EcoFactor: Codable, CustomStringConvertible {
   
   case Abiotic(AbioticEcoData)
   case Biotic(BioticEcoData)
   
+  var description: String {
+    switch self {
+    case .Abiotic:
+      return "Abiotic"
+    case .Biotic:
+      return "Biotic"
+    }
+  }
+  
   enum CodingKeys: String, CodingKey {
-    case ecoFactor
+    case abioticFactor
+    case bioticFactor
   }
   
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    self = try container.decode(EcoFactor.self, forKey: .ecoFactor)
+    if container.contains(.abioticFactor) {
+      let abioticEcoData = try container.decode(AbioticEcoData.self, forKey: .abioticFactor)
+      self = EcoFactor.Abiotic(abioticEcoData)
+    } else if container.contains(.abioticFactor) {
+      let bioticEcoData = try container.decode(BioticEcoData.self, forKey: .bioticFactor)
+      self = EcoFactor.Biotic(bioticEcoData)
+    } else {
+      fatalError()
+    }
   }
   
   func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
-    try container.encode(self, forKey: .ecoFactor)
+    if let abioticEcoData = abioticEcoData {
+      try container.encode(abioticEcoData, forKey: .abioticFactor)
+    } else if let bioticEcoData = bioticEcoData {
+      try container.encode(bioticEcoData, forKey: .bioticFactor)
+    }
   }
   
   static let all: [EcoFactor] = [
@@ -40,8 +62,12 @@ enum EcoFactor: Codable {
     }
   }
   
-  var abioticDataType: AbioticDataType? {
-    return abioticEcoData?.dataType
+  var bioticEcoData: BioticEcoData? {
+    switch self {
+    case .Biotic(let bioticEcoData):
+      return bioticEcoData
+    default: return nil
+    }
   }
   
   func new(_ abioticEcoData: AbioticEcoData) -> EcoFactor {

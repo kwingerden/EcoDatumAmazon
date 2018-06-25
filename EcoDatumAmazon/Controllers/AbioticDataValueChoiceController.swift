@@ -11,7 +11,46 @@ import UIKit
 
 class AbioticDataValueChoiceController: UIViewController {
   
+  enum EmbeddedView {
+    case soilTextureDataValueView
+    case scaleDataValueView
+    case decimalDataValueView
+  }
+  
   var ecoFactor: EcoFactor!
+  
+  var embeddedViewToDisplay: EmbeddedView {
+    switch abioticDataUnit! {
+      
+    case ._Air_Ozone_Scale_,
+         ._Soil_Potassium_Scale_,
+         ._Water_Odor_Scale_,
+         ._Water_pH_Scale_,
+         ._Water_Turbidity_Scale_:
+      return .scaleDataValueView
+      
+    case ._Soil_Texture_Scale_:
+      return .soilTextureDataValueView
+      
+    case .DegreesCelsius,
+         .DegreesFahrenheit,
+         .FeetPerSecond,
+         .JacksonTurbidityUnits,
+         .Lux,
+         .MegawattsPerMeterSquared,
+         .MetersPerSecond,
+         .MicromolesPerMetersSquaredAndSeconds,
+         .MicrosiemensPerCentimeter,
+         .MilesPerHour,
+         .MilligramsPerLiter,
+         .NephelometricTurbidityUnits,
+         .PartsPerMillion,
+         .Percent,
+         .PhotosyntheticPhotonFluxDensity,
+         .PoundsPerAcre:
+      return .decimalDataValueView
+    }
+  }
   
   private var abioticDataUnit: AbioticDataUnit! {
     return ecoFactor.abioticEcoData!.dataUnit!
@@ -34,15 +73,9 @@ class AbioticDataValueChoiceController: UIViewController {
          ._Water_pH_Scale_,
          ._Water_Turbidity_Scale_:
       title = "Select Value"
-      scaleDataValueView.isHidden = false
-      soilTextureDataValueView.isHidden = true
-      decimalDataValueView.isHidden = true
       
     case ._Soil_Texture_Scale_:
       title = "Enter Values"
-      scaleDataValueView.isHidden = true
-      soilTextureDataValueView.isHidden = false
-      decimalDataValueView.isHidden = true
       
     case .DegreesCelsius,
          .DegreesFahrenheit,
@@ -61,10 +94,11 @@ class AbioticDataValueChoiceController: UIViewController {
          .PhotosyntheticPhotonFluxDensity,
          .PoundsPerAcre:
       title = "Enter Value"
-      scaleDataValueView.isHidden = true
-      soilTextureDataValueView.isHidden = true
-      decimalDataValueView.isHidden = false
     }
+    
+    scaleDataValueView.isHidden = !(embeddedViewToDisplay == .scaleDataValueView)
+    soilTextureDataValueView.isHidden = !(embeddedViewToDisplay == .soilTextureDataValueView)
+    decimalDataValueView.isHidden = !(embeddedViewToDisplay == .decimalDataValueView)
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       barButtonSystemItem: UIBarButtonSystemItem.cancel,
@@ -76,12 +110,18 @@ class AbioticDataValueChoiceController: UIViewController {
     switch segue.destination {
     case is SoilTextureDataValueChoiceController:
       let controller = segue.destination as! SoilTextureDataValueChoiceController
+      controller.embeddedViewToDisplay = embeddedViewToDisplay
       controller.ecoFactor = ecoFactor
     case is ScaleDataValueChoiceController:
       let controller = segue.destination as! ScaleDataValueChoiceController
+      controller.embeddedViewToDisplay = embeddedViewToDisplay
       controller.ecoFactor = ecoFactor
     case is DecimalDataValueChoiceController:
       let controller = segue.destination as! DecimalDataValueChoiceController
+      controller.embeddedViewToDisplay = embeddedViewToDisplay
+      controller.ecoFactor = ecoFactor
+    case is AbioticDataDetailController:
+      let controller = segue.destination as! AbioticDataDetailController
       controller.ecoFactor = ecoFactor
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")

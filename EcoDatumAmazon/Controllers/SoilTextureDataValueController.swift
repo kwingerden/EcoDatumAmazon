@@ -2,7 +2,9 @@ import Foundation
 import UIKit
 
 class SoilTextureDataValueChoiceController: UIViewController {
-    
+  
+  var embeddedViewToDisplay: AbioticDataValueChoiceController.EmbeddedView!
+  
   var ecoFactor: EcoFactor!
   
   private var abioticDataUnit: AbioticDataUnit! {
@@ -11,6 +13,10 @@ class SoilTextureDataValueChoiceController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    guard embeddedViewToDisplay == .soilTextureDataValueView else {
+      return
+    }
   }
   
 }

@@ -4,6 +4,8 @@ import UIKit
 
 class DecimalDataValueChoiceController: UIViewController {
   
+  var embeddedViewToDisplay: AbioticDataValueChoiceController.EmbeddedView!
+  
   var ecoFactor: EcoFactor!
   
   @IBOutlet weak var dataValueTextField: UITextField!
@@ -12,26 +14,47 @@ class DecimalDataValueChoiceController: UIViewController {
   
   private var dataUnitLabel: MTMathUILabel = MTMathUILabel()
   
-  private var isBackButtonPressed = false
+  private var abioticEcoData: AbioticEcoData! {
+    return ecoFactor.abioticEcoData!
+  }
   
   private var abioticDataUnit: AbioticDataUnit! {
-    return ecoFactor.abioticEcoData!.dataUnit!
+    return abioticEcoData!.dataUnit!
   }
+  
+  private var isViewDisappearing = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    guard embeddedViewToDisplay == .decimalDataValueView else {
+      return
+    }
     
     dataValueTextField.keyboardType = .decimalPad
     dataValueTextField.becomeFirstResponder()
     dataUnitLabel.latex = abioticDataUnit.rawValue
     
     dataValueTextField.delegate = self
-    dataValueTextField.keyboardToolbar.doneBarButton.setTarget(
-      self,
-      action: #selector(doneButtonClicked))
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    isViewDisappearing = false
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    isViewDisappearing = true
   }
   
   override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    
+    guard embeddedViewToDisplay == .decimalDataValueView else {
+      return
+    }
+    
     if dataUnitView.subviews.index(of: dataUnitLabel) == nil {
       dataUnitView.addSubview(dataUnitLabel)
       dataUnitLabel.textAlignment = .left
@@ -40,38 +63,38 @@ class DecimalDataValueChoiceController: UIViewController {
       dataUnitLabel.frame.size = dataUnitView.frame.size
     }
     
-    super.viewDidLayoutSubviews()
   }
-  
-  override func willMove(toParentViewController parent: UIViewController?) {
-    super.willMove(toParentViewController: parent)
-    isBackButtonPressed = parent == nil
-  }
-  
-  override func didMove(toParentViewController parent: UIViewController?) {
-    super.didMove(toParentViewController: parent)
-    isBackButtonPressed = parent == nil
-  }
-  
-  @objc private func doneButtonClicked() {
-    let _ = validateDecimalTextField()
-  }
-  
-  private func validateDecimalTextField() -> Bool {
-    guard !isBackButtonPressed && isValidDecimal() else {
-      displayInvalidDecimalAlert()
-      return false
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.destination {
+    case is AbioticDataDetailController:
+      let viewController = segue.destination as! AbioticDataDetailController
+      viewController.ecoFactor = ecoFactor
+    default:
+      LOG.error("Unrecognized segue destination \(segue.destination)")
     }
-    return true
+  }
+  private func validateDecimalTextField() -> Decimal? {
+    if let _ = toDouble(), let decimal = toDecimal() {
+      dataValueTextField.resignFirstResponder()
+      return decimal
+    }
+    displayInvalidDecimalAlert()
+    return nil
   }
   
-  private func isValidDecimal() -> Bool {
-    if let text = dataValueTextField.text,
-      let _ = Decimal(string: text) {
-      return true
-    } else {
-      return false
+  private func toDouble() -> Double? {
+    if let text = dataValueTextField.text {
+      return Double(text)
     }
+    return nil
+  }
+  
+  private func toDecimal() -> Decimal? {
+    if let text = dataValueTextField.text {
+      return Decimal(string: text)
+    }
+    return nil
   }
   
   private func displayInvalidDecimalAlert() {
@@ -83,22 +106,42 @@ class DecimalDataValueChoiceController: UIViewController {
     present(alert, animated: true)
   }
   
+  private func saveData(_ dataValue: Decimal) {
+    do {
+      let dataValue = AbioticDataValue.DecimalDataValue(dataValue)
+      let ecoFactor = self.ecoFactor.new(abioticEcoData.new(dataValue).new(Date()))
+      if let site = ViewContext.shared.selectedSite,
+        let abioticData = try AbioticData.create(ecoFactor) {
+        site.addToEcoData(abioticData)
+        try PersistenceUtil.shared.saveContext()
+      } else {
+        LOG.error("No selected site")
+      }
+    } catch {
+      LOG.error("Faield to create and save abiotic data: \(error)")
+    }
+  }
+  
 }
 
 extension DecimalDataValueChoiceController: UITextFieldDelegate {
   
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-    return validateDecimalTextField()
-  }
-
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    return validateDecimalTextField()
+    if isViewDisappearing {
+      return true
+    }
+    return validateDecimalTextField() != nil
   }
   
   func textFieldDidEndEditing(_ textField: UITextField,
                               reason: UITextFieldDidEndEditingReason) {
-    if reason == .committed {
-      let _ = validateDecimalTextField()
+    if isViewDisappearing {
+      return
+    }
+    if reason == .committed,
+      let dataValue = validateDecimalTextField() {
+      saveData(dataValue)
+      parent?.performSegue(withIdentifier: "abioticDataDetail", sender: nil)
     }
   }
   

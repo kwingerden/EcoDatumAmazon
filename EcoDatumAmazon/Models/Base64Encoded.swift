@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 typealias Base64Encoded = String
 
@@ -47,9 +48,6 @@ extension NSAttributedString {
   }
   
 }
-
-import Foundation
-import UIKit
 
 extension UIImage {
   

@@ -96,7 +96,9 @@ class SiteTableController: UIViewController {
       
     case addBarButtonItem:
       do {
-        ViewContext.shared.selectedSite = try Site.create().save()
+        let site = try Site.create()
+        try PersistenceUtil.shared.saveContext()
+        ViewContext.shared.selectedSite = site
       } catch let error as NSError {
         LOG.error("\(error), \(error.userInfo)")
       }

@@ -61,7 +61,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="siteDataCell" id="r9t-IX-wPG" customClass="SiteDataCell" customModule="EcoDatumAmazon" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="r9t-IX-wPG" customClass="SiteDataEcoFactorCell" customModule="EcoDatumAmazon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -81,7 +81,7 @@
                                             <constraint firstItem="Fia-8A-37R" firstAttribute="centerX" secondItem="r9t-IX-wPG" secondAttribute="centerX" id="wWV-hX-Laa"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="dateLabel" destination="Fia-8A-37R" id="0Xs-eg-SMH"/>
+                                            <outlet property="label" destination="Fia-8A-37R" id="gmq-F7-8aZ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -392,6 +392,7 @@
                         <outlet property="decimalDataValueView" destination="ixV-hb-yb0" id="mWp-hl-PuE"/>
                         <outlet property="scaleDataValueView" destination="KjX-5O-Tjm" id="SP8-c0-Sgh"/>
                         <outlet property="soilTextureDataValueView" destination="55w-vf-2iw" id="Z1y-bb-0fp"/>
+                        <segue destination="ote-HH-kig" kind="show" identifier="abioticDataDetail" id="nkc-0w-UaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhv-7B-7ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1180,7 +1181,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="50"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PcR-RT-vg6">
                                         <rect key="frame" x="8" y="60" width="342" height="60"/>
@@ -1205,6 +1206,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jmd-Km-x07" secondAttribute="trailing" constant="8" id="v6Q-Y0-Hof"/>
                             <constraint firstItem="jmd-Km-x07" firstAttribute="top" secondItem="rMm-AJ-mOP" secondAttribute="topMargin" constant="20" id="yzO-js-4Ta"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="kKn-l2-Btk"/>
                     </view>
                     <connections>
                         <outlet property="dataUnitView" destination="PcR-RT-vg6" id="IOS-Su-Ne2"/>
@@ -1227,5 +1229,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pL-74-pp5"/>
+        <segue reference="nkc-0w-UaN"/>
     </inferredMetricsTieBreakers>
 </document>

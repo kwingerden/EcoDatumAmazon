@@ -14,10 +14,7 @@ class SiteDataController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
-  private var abioticData: [AbioticData] = []
-  
-  private var selectedAbioticData: AbioticData?
-  
+  /*
   static private let airLogo: UIImage? = UIImage(named: "AirLogo")
   
   static private let animalLogo: UIImage? = UIImage(named: "AnimalLogo")
@@ -29,15 +26,9 @@ class SiteDataController: UIViewController {
   static private let soilLogo: UIImage? = UIImage(named: "SoilLogo")
   
   static private let waterLogo: UIImage? = UIImage(named: "WaterLogo")
+ */
   
-  private let logos: [UIImage?] = [
-    airLogo,
-    animalLogo,
-    bioticLogo,
-    fungiLogo,
-    soilLogo,
-    waterLogo
-  ]
+  private var ecoFactors: [EcoFactor] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,21 +47,20 @@ class SiteDataController: UIViewController {
     
     if let site = ViewContext.shared.selectedSite,
       let ecoData = site.ecoData {
-      abioticData = ecoData.map {
-        data in
-        data as! AbioticData
-        }.sorted {
-          (lhs: AbioticData, rhs: AbioticData) in
-          guard let lhsCollectionDate = lhs.collectionDate else {
-            return true
-          }
-          guard let rhsCollectionDate = rhs.collectionDate else {
-            return false
-          }
-          return lhsCollectionDate < rhsCollectionDate
+      let jsonDecoder = JSONDecoder()
+      do {
+        ecoFactors = try ecoData.map {
+          $0 as! EcoData
+        }.map {
+          ecoData in
+          let ecoFactor = try jsonDecoder.decode(
+            EcoFactor.self,
+            from: ecoData.jsonData!)
+          return ecoFactor
+        }
+      } catch {
+        LOG.error("Failed to load data: \(error)")
       }
-    } else {
-      abioticData = []
     }
     
     collectionView.reloadData()
@@ -84,6 +74,7 @@ class SiteDataController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
     
+    /*
     switch segue.destination {
     case is EcoFactorChoiceController:
       break // do nothing
@@ -96,6 +87,7 @@ class SiteDataController: UIViewController {
     default:
       LOG.error("Unexpected segue destination: \(segue.destination)")
     }
+  */
   }
   
   @objc func addButtonPressed() {
@@ -110,8 +102,8 @@ extension SiteDataController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView,
                       didSelectItemAt indexPath: IndexPath) {
-    selectedAbioticData = abioticData[indexPath.row]
-    performSegue(withIdentifier: "abioticDataDetail", sender: nil)
+    //selectedAbioticData = abioticData[indexPath.row]
+    //performSegue(withIdentifier: "abioticDataDetail", sender: nil)
   }
   
 }
@@ -120,25 +112,45 @@ extension SiteDataController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int {
-    return abioticData.count
+    return ecoFactors.count
   }
 
   func collectionView(_ collectionView: UICollectionView,
                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let siteDataCell = collectionView.dequeueReusableCell(
-      withReuseIdentifier: "siteDataCell",
-      for: indexPath) as! SiteDataCell
-    siteDataCell.dateLabel.text = abioticData[indexPath.row].collectionDate?.description ?? "??"
-    let index = Int(arc4random_uniform(UInt32(logos.count)))
-    siteDataCell.backgroundView = UIImageView(image: logos[index])
+      withReuseIdentifier: "cell",
+      for: indexPath) as! SiteDataEcoFactorCell
+    
+    let ecoFactor = ecoFactors[indexPath.row]
+    guard let dataType = ecoFactor.abioticEcoData?.dataType,
+      let dataValue = ecoFactor.abioticEcoData?.dataValue else {
+      return UICollectionViewCell()
+    }
+    
+    let backgrounImage: UIImage?
+    switch dataType {
+    case .Air:
+      backgrounImage = #imageLiteral(resourceName: "AirLogo")
+    case .Soil:
+      backgrounImage = #imageLiteral(resourceName: "SoilLogo")
+    case .Water:
+      backgrounImage = #imageLiteral(resourceName: "WaterLogo")
+    default:
+      LOG.error("Unexpected data type: \(dataType)")
+    }
+    
+    if let backgrounImage = backgrounImage {
+      siteDataCell.backgroundView = UIImageView(image: backgrounImage)
+    }
     siteDataCell.roundedAndDarkBordered()
+    
     return siteDataCell
   }
   
 }
 
-class SiteDataCell: UICollectionViewCell {
+class SiteDataEcoFactorCell: UICollectionViewCell {
   
-  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var label: UILabel!
   
 }

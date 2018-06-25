@@ -12,13 +12,17 @@ import UIKit
 
 extension AbioticData {
   
-  static func create(
-    id: UUID? = nil,
-    collectionDate: Date? = nil,
-    abioticFactor: String? = nil,
-    dataType: String? = nil,
-    dataUnit: String? = nil,
-    dataValue: Decimal? = nil) throws -> AbioticData {
+  static func create(_ ecoFactor: EcoFactor) throws -> AbioticData? {
+    let jsonData = try JSONEncoder().encode(ecoFactor)
+    if let jsonString = String(data: jsonData, encoding: .utf8) {
+      LOG.debug(jsonString)
+    }
+    guard let abioticEcoData = ecoFactor.abioticEcoData,
+      let abioticFactor = abioticEcoData.abioticFactor?.rawValue,
+      let collectionDate = abioticEcoData.collectionDate else {
+      return nil
+    }
+    
     let entity = NSEntityDescription.entity(
       forEntityName: "AbioticData",
       in: PersistenceUtil.shared.container.viewContext)!
@@ -27,34 +31,12 @@ extension AbioticData {
       entity: entity,
       insertInto: PersistenceUtil.shared.container.viewContext)
     
-    if let id = id {
-      abioticData.id = id
-    } else {
-      abioticData.id = UUID()
-    }
-    
-    if let collectionDate = collectionDate {
-      abioticData.collectionDate = collectionDate
-    } else {
-      abioticData.collectionDate = Date()
-    }
-    
-    if let abioticFactor = abioticFactor {
-      abioticData.abioticFactor = abioticFactor
-    } else {
-      abioticData.abioticFactor = nil
-    }
-    
+    abioticData.id = UUID()
+    abioticData.ecoFactor = ecoFactor.description
+    abioticData.collectionDate = collectionDate
     abioticData.abioticFactor = abioticFactor
-    abioticData.dataType = dataType
-    abioticData.dataUnit = dataUnit
-    
-    if let dataValue = dataValue {
-      abioticData.dataValue = NSDecimalNumber(decimal: dataValue)
-    } else {
-      abioticData.dataValue = nil
-    }
-
+    abioticData.jsonData = jsonData
+ 
     return abioticData
   }
   
@@ -72,11 +54,6 @@ extension AbioticData {
       cacheName: nil)
     try fetchedResultsController.performFetch()
     return fetchedResultsController
-  }
-  
-  func save() throws -> AbioticData {
-    try PersistenceUtil.shared.saveContext()
-    return self
   }
   
   func delete() throws {
