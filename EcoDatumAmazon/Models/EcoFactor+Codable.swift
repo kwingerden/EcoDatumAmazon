@@ -32,4 +32,32 @@ enum EcoFactor: Codable {
     .Biotic(BioticEcoData())
   ]
   
+  var abioticEcoData: AbioticEcoData? {
+    switch self {
+    case .Abiotic(let abioticEcoData):
+      return abioticEcoData
+    default: return nil
+    }
+  }
+  
+  var abioticDataType: AbioticDataType? {
+    return abioticEcoData?.dataType
+  }
+  
+  func new(_ abioticEcoData: AbioticEcoData) -> EcoFactor {
+    return EcoFactor.Abiotic(abioticEcoData)
+  }
+  
+  func new(_ abioticFactor: AbioticFactor) -> EcoFactor {
+    switch self {
+    case .Abiotic(let abioticEcoData):
+      return EcoFactor.Abiotic(abioticEcoData.new(abioticFactor))
+    default: fatalError()
+    }
+  }
+  
+  func new(_ bioticEcoData: BioticEcoData) -> EcoFactor {
+      return EcoFactor.Biotic(bioticEcoData)
+  }
+  
 }

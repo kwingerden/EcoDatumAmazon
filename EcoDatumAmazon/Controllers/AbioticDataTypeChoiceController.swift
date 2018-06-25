@@ -11,14 +11,23 @@ import UIKit
 
 class AbioticDataTypeChoiceController: UIViewController {
   
-  var abioticFactor: AbioticFactor!
+  var ecoFactor: EcoFactor!
   
   @IBOutlet weak var tableView: UITableView!
   
-  var selectedAbioticDataType: AbioticDataType!
+  private var abioticEcoData: AbioticEcoData! {
+    return ecoFactor.abioticEcoData!
+  }
+  
+  private var abioticFactor: AbioticFactor! {
+    return abioticEcoData.abioticFactor!
+  }
+  
+  private var selectedAbioticDataType: AbioticDataType!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     title = "\(abioticFactor.rawValue) Data Type Choice"
     
     tableView.delegate = self
@@ -34,8 +43,8 @@ class AbioticDataTypeChoiceController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
     case is AbitoicDataUnitChoiceController:
-      (segue.destination as! AbitoicDataUnitChoiceController).abioticDataType =
-      selectedAbioticDataType
+      let viewController = segue.destination as! AbitoicDataUnitChoiceController
+      viewController.ecoFactor = ecoFactor.new(abioticEcoData.new(selectedAbioticDataType))
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }
@@ -63,7 +72,7 @@ extension AbioticDataTypeChoiceController: UITableViewDelegate {
     case .Water:
       selectedAbioticDataType = .Water(WaterDataType.all[indexPath.row])
     }
-    performSegue(withIdentifier: "dataUnitChoice", sender: nil)
+    performSegue(withIdentifier: "abioticDataUnitChoice", sender: nil)
   }
   
 }

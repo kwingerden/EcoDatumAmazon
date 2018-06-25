@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -105,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCu-si-dfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4535" y="723"/>
+            <point key="canvasLocation" x="5068" y="675"/>
         </scene>
         <!--Abiotic Data Detail Controller-->
         <scene sceneID="Kpj-sy-5pE">
@@ -135,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMC-3v-1Hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5416" y="722"/>
+            <point key="canvasLocation" x="6232" y="702"/>
         </scene>
         <!--Eco Factor Choice Controller-->
         <scene sceneID="mX4-z3-dgy">
@@ -280,7 +281,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="VhV-5p-6Z0" id="A5m-mv-YqT"/>
-                        <segue destination="jup-Hq-Wei" kind="show" identifier="dataUnitChoice" id="G6b-wu-8B3"/>
+                        <segue destination="jup-Hq-Wei" kind="show" identifier="abioticDataUnitChoice" id="G6b-wu-8B3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tg3-1l-WOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,7 +337,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="aJQ-Z4-HMU" id="1d2-jp-7UB"/>
-                        <segue destination="ug8-mB-4nf" kind="show" identifier="dataValueChoice" id="PMH-fX-LCZ"/>
+                        <segue destination="ug8-mB-4nf" kind="show" identifier="abioticDataValueChoice" id="PMH-fX-LCZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrf-Th-oFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -351,38 +352,99 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09n-xk-Ec9">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55w-vf-2iw">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zIK-9i-Z0K">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zIK-9i-Z0K" id="SBN-hO-pSm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                <connections>
+                                    <segue destination="5Gh-IG-qbl" kind="embed" id="VjF-Sy-Wtb"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjX-5O-Tjm">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <connections>
+                                    <segue destination="kZq-dP-cye" kind="embed" id="3MW-xP-cf0"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixV-hb-yb0">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <connections>
+                                    <segue destination="UEr-NK-r0v" kind="embed" id="pd9-SS-sHL"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Vg4-JX-PcK" firstAttribute="trailing" secondItem="09n-xk-Ec9" secondAttribute="trailing" id="BYs-Go-TER"/>
-                            <constraint firstItem="09n-xk-Ec9" firstAttribute="leading" secondItem="Vg4-JX-PcK" secondAttribute="leading" id="Hxa-ig-OSL"/>
-                            <constraint firstItem="09n-xk-Ec9" firstAttribute="top" secondItem="Vg4-JX-PcK" secondAttribute="top" id="KYK-fC-lFG"/>
-                            <constraint firstItem="Vg4-JX-PcK" firstAttribute="bottom" secondItem="09n-xk-Ec9" secondAttribute="bottom" id="Rds-tA-aap"/>
+                            <constraint firstAttribute="trailing" secondItem="KjX-5O-Tjm" secondAttribute="trailing" id="4Yf-SY-k97"/>
+                            <constraint firstItem="ixV-hb-yb0" firstAttribute="leading" secondItem="Vg4-JX-PcK" secondAttribute="leading" id="DX8-SI-zFw"/>
+                            <constraint firstItem="KjX-5O-Tjm" firstAttribute="leading" secondItem="Vg4-JX-PcK" secondAttribute="leading" id="DxE-Yz-oFh"/>
+                            <constraint firstItem="ixV-hb-yb0" firstAttribute="top" secondItem="Vg4-JX-PcK" secondAttribute="top" id="Scm-se-pEV"/>
+                            <constraint firstItem="Vg4-JX-PcK" firstAttribute="bottom" secondItem="55w-vf-2iw" secondAttribute="bottom" id="aP6-iu-e72"/>
+                            <constraint firstItem="55w-vf-2iw" firstAttribute="top" secondItem="Vg4-JX-PcK" secondAttribute="top" id="ddA-FX-ONB"/>
+                            <constraint firstItem="Vg4-JX-PcK" firstAttribute="trailing" secondItem="55w-vf-2iw" secondAttribute="trailing" id="dn6-q1-EuO"/>
+                            <constraint firstItem="KjX-5O-Tjm" firstAttribute="top" secondItem="Vg4-JX-PcK" secondAttribute="top" id="gkP-Ii-dsD"/>
+                            <constraint firstAttribute="bottom" secondItem="KjX-5O-Tjm" secondAttribute="bottom" id="k6e-Ao-ejj"/>
+                            <constraint firstItem="55w-vf-2iw" firstAttribute="leading" secondItem="Vg4-JX-PcK" secondAttribute="leading" id="qSa-1R-XLp"/>
+                            <constraint firstAttribute="trailing" secondItem="ixV-hb-yb0" secondAttribute="trailing" id="rGQ-sy-jFi"/>
+                            <constraint firstAttribute="bottom" secondItem="ixV-hb-yb0" secondAttribute="bottom" id="y2t-Xe-ExX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vg4-JX-PcK"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="09n-xk-Ec9" id="aec-jV-GS4"/>
-                        <segue destination="ote-HH-kig" kind="show" identifier="abioticDataDetail" id="XUc-lV-PYy"/>
+                        <outlet property="decimalDataValueView" destination="ixV-hb-yb0" id="mWp-hl-PuE"/>
+                        <outlet property="scaleDataValueView" destination="KjX-5O-Tjm" id="SP8-c0-Sgh"/>
+                        <outlet property="soilTextureDataValueView" destination="55w-vf-2iw" id="Z1y-bb-0fp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhv-7B-7ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7919" y="1552"/>
+        </scene>
+        <!--Soil Texture Data Value Choice Controller-->
+        <scene sceneID="iAm-Z2-ZxG">
+            <objects>
+                <viewController id="5Gh-IG-qbl" customClass="SoilTextureDataValueChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ehe-8f-ikH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Soil Texture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rE-wb-0rs">
+                                <rect key="frame" x="223" y="298" width="89" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Q2P-rd-UJc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NsF-NR-4QR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8979.710144927536" y="1089.9456521739132"/>
+        </scene>
+        <!--Scale Data Value Choice Controller-->
+        <scene sceneID="oyD-56-SUz">
+            <objects>
+                <viewController id="kZq-dP-cye" customClass="ScaleDataValueChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ma6-Si-vLv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scale Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpN-EU-TWL">
+                                <rect key="frame" x="231" y="247" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Dfu-Hb-jaJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHP-0g-PTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9043" y="1855"/>
         </scene>
         <!--Notes-->
         <scene sceneID="Sdv-sX-dGx">
@@ -1103,6 +1165,56 @@
             </objects>
             <point key="canvasLocation" x="2053.5999999999999" y="-107.49625187406298"/>
         </scene>
+        <!--Decimal Data Value Choice Controller-->
+        <scene sceneID="QCD-Gg-Ll7">
+            <objects>
+                <viewController id="UEr-NK-r0v" customClass="DecimalDataValueChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rMm-AJ-mOP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jmd-Km-x07">
+                                <rect key="frame" x="28" y="40" width="358" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UPK-Gx-o5H">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PcR-RT-vg6">
+                                        <rect key="frame" x="8" y="60" width="342" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="8kx-Rc-1T9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UPK-Gx-o5H" secondAttribute="trailing" id="0W3-kS-yPa"/>
+                                    <constraint firstItem="UPK-Gx-o5H" firstAttribute="leading" secondItem="jmd-Km-x07" secondAttribute="leading" id="3t6-Aq-i05"/>
+                                    <constraint firstAttribute="trailing" secondItem="PcR-RT-vg6" secondAttribute="trailing" constant="8" id="h1J-Gl-f2u"/>
+                                    <constraint firstItem="PcR-RT-vg6" firstAttribute="leading" secondItem="jmd-Km-x07" secondAttribute="leading" constant="8" id="kfC-9n-XQx"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jmd-Km-x07" firstAttribute="centerX" secondItem="rMm-AJ-mOP" secondAttribute="centerX" id="SGf-T8-nAa"/>
+                            <constraint firstItem="jmd-Km-x07" firstAttribute="leading" secondItem="rMm-AJ-mOP" secondAttribute="leadingMargin" constant="8" id="XqX-nh-9b1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jmd-Km-x07" secondAttribute="trailing" constant="8" id="v6Q-Y0-Hof"/>
+                            <constraint firstItem="jmd-Km-x07" firstAttribute="top" secondItem="rMm-AJ-mOP" secondAttribute="topMargin" constant="20" id="yzO-js-4Ta"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dataUnitView" destination="PcR-RT-vg6" id="IOS-Su-Ne2"/>
+                        <outlet property="dataValueTextField" destination="UPK-Gx-o5H" id="uUi-1Z-q4u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v9g-Ax-wST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8067" y="2384"/>
+        </scene>
     </scenes>
     <resources>
         <image name="PlaceholderImage" width="1024" height="1024"/>
@@ -1115,6 +1227,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pL-74-pp5"/>
-        <segue reference="XUc-lV-PYy"/>
     </inferredMetricsTieBreakers>
 </document>

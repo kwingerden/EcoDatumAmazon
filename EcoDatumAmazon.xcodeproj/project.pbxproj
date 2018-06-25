@@ -24,6 +24,9 @@
 		BE19499C20E034FE00962DA0 /* ScaleDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19499B20E034FE00962DA0 /* ScaleDataType.swift */; };
 		BE1949A020E03D6B00962DA0 /* AbioticDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19499F20E03D6B00962DA0 /* AbioticDataType+Codable.swift */; };
 		BE1949A220E0404000962DA0 /* AbioticDataValue+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A120E0404000962DA0 /* AbioticDataValue+Codable.swift */; };
+		BE1949A420E0627100962DA0 /* SoilTextureDataValueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */; };
+		BE1949A620E062CF00962DA0 /* ScaleDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */; };
+		BE1949A820E062F000962DA0 /* DecimalDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */; };
 		BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6420D4449B002203E5 /* PersistenceUtil.swift */; };
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
@@ -55,7 +58,6 @@
 		BEF3C30020D3744500ED9A97 /* SoilDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2FF20D3744500ED9A97 /* SoilDataType+Codable.swift */; };
 		BEF3C30220D3745B00ED9A97 /* WaterDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30120D3745B00ED9A97 /* WaterDataType+Codable.swift */; };
 		BEF3C30420D374AA00ED9A97 /* AbioticDataUnit+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30320D374AA00ED9A97 /* AbioticDataUnit+Codable.swift */; };
-		BEF3C30A20D375C500ED9A97 /* DecimalDataValue+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30920D375C500ED9A97 /* DecimalDataValue+Codable.swift */; };
 		BEF3C30C20D3760000ED9A97 /* NumberSign+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30B20D3760000ED9A97 /* NumberSign+Codable.swift */; };
 		BEF3C30E20D3764C00ED9A97 /* AirOzoneScale+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30D20D3764C00ED9A97 /* AirOzoneScale+Codable.swift */; };
 		BEF3C31020D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30F20D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift */; };
@@ -95,6 +97,9 @@
 		BE19499B20E034FE00962DA0 /* ScaleDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDataType.swift; sourceTree = "<group>"; };
 		BE19499F20E03D6B00962DA0 /* AbioticDataType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AbioticDataType+Codable.swift"; sourceTree = "<group>"; };
 		BE1949A120E0404000962DA0 /* AbioticDataValue+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AbioticDataValue+Codable.swift"; sourceTree = "<group>"; };
+		BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilTextureDataValueController.swift; sourceTree = "<group>"; };
+		BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDataValueChoiceController.swift; sourceTree = "<group>"; };
+		BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDataValueChoiceController.swift; sourceTree = "<group>"; };
 		BE210A6420D4449B002203E5 /* PersistenceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceUtil.swift; sourceTree = "<group>"; };
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
@@ -130,7 +135,6 @@
 		BEF3C2FF20D3744500ED9A97 /* SoilDataType+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoilDataType+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30120D3745B00ED9A97 /* WaterDataType+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterDataType+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30320D374AA00ED9A97 /* AbioticDataUnit+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AbioticDataUnit+Codable.swift"; sourceTree = "<group>"; };
-		BEF3C30920D375C500ED9A97 /* DecimalDataValue+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DecimalDataValue+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30B20D3760000ED9A97 /* NumberSign+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberSign+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30D20D3764C00ED9A97 /* AirOzoneScale+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirOzoneScale+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30F20D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoilPotassiumScale+Codable+ScaleDataType.swift"; sourceTree = "<group>"; };
@@ -259,6 +263,9 @@
 				BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */,
 				BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */,
 				BE03920920DE0DDA0075B3CB /* AbioticDataDetailController.swift */,
+				BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */,
+				BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */,
+				BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -287,7 +294,6 @@
 				BE26543320DAF7F500844E4F /* Base64Encoded.swift */,
 				BE19499920E02FB600962DA0 /* BioticDataType+Codable.swift */,
 				BE10E86020DCA5D7006C680A /* BioticEcoData+Codable.swift */,
-				BEF3C30920D375C500ED9A97 /* DecimalDataValue+Codable.swift */,
 				BE10E86620DCAAC9006C680A /* EcoFactor+Codable.swift */,
 				BEF3C30B20D3760000ED9A97 /* NumberSign+Codable.swift */,
 				BE19499B20E034FE00962DA0 /* ScaleDataType.swift */,
@@ -483,7 +489,6 @@
 				BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */,
 				BE1949A220E0404000962DA0 /* AbioticDataValue+Codable.swift in Sources */,
 				BEF3C31620D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift in Sources */,
-				BEF3C30A20D375C500ED9A97 /* DecimalDataValue+Codable.swift in Sources */,
 				BE66905420DB194A00EA1492 /* SiteDataController.swift in Sources */,
 				BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */,
 				BEF3C31020D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift in Sources */,
@@ -493,6 +498,7 @@
 				BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */,
 				BEF3C30420D374AA00ED9A97 /* AbioticDataUnit+Codable.swift in Sources */,
 				BEF3C2FC20D3736300ED9A97 /* AbioticFactor+Codable.swift in Sources */,
+				BE1949A820E062F000962DA0 /* DecimalDataValueChoiceController.swift in Sources */,
 				BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */,
 				BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */,
 				BE9BC93120DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift in Sources */,
@@ -501,6 +507,7 @@
 				BEF3C30C20D3760000ED9A97 /* NumberSign+Codable.swift in Sources */,
 				BE03920A20DE0DDA0075B3CB /* AbioticDataDetailController.swift in Sources */,
 				BE66905820DB592B00EA1492 /* AbioticData+CoreData.swift in Sources */,
+				BE1949A620E062CF00962DA0 /* ScaleDataValueChoiceController.swift in Sources */,
 				BE19499A20E02FB600962DA0 /* BioticDataType+Codable.swift in Sources */,
 				BEF3C2EE20D35B3B00ED9A97 /* SiteTableController.swift in Sources */,
 				BE9BC92F20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift in Sources */,
@@ -514,6 +521,7 @@
 				BE10E85720DC9E3A006C680A /* AbioticFactorChoiceController.swift in Sources */,
 				BEF3C30020D3744500ED9A97 /* SoilDataType+Codable.swift in Sources */,
 				BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */,
+				BE1949A420E0627100962DA0 /* SoilTextureDataValueController.swift in Sources */,
 				BE10E86120DCA5D7006C680A /* BioticEcoData+Codable.swift in Sources */,
 				BEF3C30E20D3764C00ED9A97 /* AirOzoneScale+Codable.swift in Sources */,
 				BE210A8020D48E8D002203E5 /* Site+CoreData.swift in Sources */,

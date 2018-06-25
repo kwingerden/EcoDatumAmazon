@@ -10,7 +10,7 @@ import Foundation
 
 enum AbioticDataValue: Codable {
   
-  case DecimalDataValue(DecimalDataValue)
+  case DecimalDataValue(Decimal)
   case AirOzoneScale(AirOzoneScale)
   case SoilPotassiumScale(SoilPotassiumScale)
   case SoilTextureScale(SoilTextureScale)

@@ -11,25 +11,81 @@ import UIKit
 
 class AbioticDataValueChoiceController: UIViewController {
   
-  var abioticDataUnit: AbioticDataUnit!
+  var ecoFactor: EcoFactor!
   
-  @IBOutlet weak var tableView: UITableView!
+  private var abioticDataUnit: AbioticDataUnit! {
+    return ecoFactor.abioticEcoData!.dataUnit!
+  }
+  
+  @IBOutlet weak var soilTextureDataValueView: UIView!
+  
+  @IBOutlet weak var scaleDataValueView: UIView!
+  
+  @IBOutlet weak var decimalDataValueView: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView.delegate = self
-    tableView.dataSource = self
-    tableView.tableFooterView = UIView()
+    switch abioticDataUnit! {
+      
+    case ._Air_Ozone_Scale_,
+         ._Soil_Potassium_Scale_,
+         ._Water_Odor_Scale_,
+         ._Water_pH_Scale_,
+         ._Water_Turbidity_Scale_:
+      title = "Select Value"
+      scaleDataValueView.isHidden = false
+      soilTextureDataValueView.isHidden = true
+      decimalDataValueView.isHidden = true
+      
+    case ._Soil_Texture_Scale_:
+      title = "Enter Values"
+      scaleDataValueView.isHidden = true
+      soilTextureDataValueView.isHidden = false
+      decimalDataValueView.isHidden = true
+      
+    case .DegreesCelsius,
+         .DegreesFahrenheit,
+         .FeetPerSecond,
+         .JacksonTurbidityUnits,
+         .Lux,
+         .MegawattsPerMeterSquared,
+         .MetersPerSecond,
+         .MicromolesPerMetersSquaredAndSeconds,
+         .MicrosiemensPerCentimeter,
+         .MilesPerHour,
+         .MilligramsPerLiter,
+         .NephelometricTurbidityUnits,
+         .PartsPerMillion,
+         .Percent,
+         .PhotosyntheticPhotonFluxDensity,
+         .PoundsPerAcre:
+      title = "Enter Value"
+      scaleDataValueView.isHidden = true
+      soilTextureDataValueView.isHidden = true
+      decimalDataValueView.isHidden = false
+    }
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-        barButtonSystemItem: UIBarButtonSystemItem.cancel,
-        target: self,
-        action: #selector(cancelButtonPressed))
+      barButtonSystemItem: UIBarButtonSystemItem.cancel,
+      target: self,
+      action: #selector(cancelButtonPressed))
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
+    switch segue.destination {
+    case is SoilTextureDataValueChoiceController:
+      let controller = segue.destination as! SoilTextureDataValueChoiceController
+      controller.ecoFactor = ecoFactor
+    case is ScaleDataValueChoiceController:
+      let controller = segue.destination as! ScaleDataValueChoiceController
+      controller.ecoFactor = ecoFactor
+    case is DecimalDataValueChoiceController:
+      let controller = segue.destination as! DecimalDataValueChoiceController
+      controller.ecoFactor = ecoFactor
+    default:
+      LOG.error("Unknown segue destination: \(segue.destination)")
+    }
   }
   
   @objc func cancelButtonPressed() {
@@ -42,30 +98,3 @@ class AbioticDataValueChoiceController: UIViewController {
   }
   
 }
-
-extension AbioticDataValueChoiceController: UITableViewDelegate {
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-  }
-  
-}
-
-extension AbioticDataValueChoiceController: UITableViewDataSource {
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 80
-  }
-  
-  func tableView(_ tableView: UITableView,
-                 numberOfRowsInSection section: Int) -> Int {
-    return 0
-  }
-  
-  func tableView(_ tableView: UITableView,
-                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
-  }
-  
-}
-

@@ -157,7 +157,7 @@ struct AbioticEcoData: Codable {
       
     default:
       dataValue = AbioticDataValue.DecimalDataValue(
-        try container.decode(DecimalDataValue.self, forKey: .dataValue))
+        try container.decode(Decimal.self, forKey: .dataValue))
       
     }
   }
@@ -250,31 +250,31 @@ struct AbioticEcoData: Codable {
     
   }
   
-  func new(abioticFactor: AbioticFactor) -> AbioticEcoData {
-    return AbioticEcoData(
-      abioticFactor: abioticFactor,
-      dataType: nil,
-      dataUnit: nil,
-      dataValue: nil)
-  }
-  
-  func new(dataType: AbioticDataType) -> AbioticEcoData {
-    return AbioticEcoData(
-      abioticFactor: abioticFactor,
-      dataType: dataType,
-      dataUnit: nil,
-      dataValue: nil)
-  }
-  
-  func new(dataUnit: AbioticDataUnit) -> AbioticEcoData {
+  func new(_ abioticFactor: AbioticFactor) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
       dataType: dataType,
       dataUnit: dataUnit,
-      dataValue: nil)
+      dataValue: dataValue)
   }
   
-  func new(dataValue: AbioticDataValue?) -> AbioticEcoData {
+  func new(_ dataType: AbioticDataType) -> AbioticEcoData {
+    return AbioticEcoData(
+      abioticFactor: abioticFactor,
+      dataType: dataType,
+      dataUnit: dataUnit,
+      dataValue: dataValue)
+  }
+  
+  func new(_ dataUnit: AbioticDataUnit) -> AbioticEcoData {
+    return AbioticEcoData(
+      abioticFactor: abioticFactor,
+      dataType: dataType,
+      dataUnit: dataUnit,
+      dataValue: dataValue)
+  }
+  
+  func new(_ dataValue: AbioticDataValue?) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
       dataType: dataType,

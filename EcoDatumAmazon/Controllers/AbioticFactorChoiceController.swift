@@ -40,7 +40,8 @@ class AbioticFactorChoiceController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
     case is AbioticDataTypeChoiceController:
-      (segue.destination as! AbioticDataTypeChoiceController).abioticFactor = selectedAbioticFactor
+      let controller = segue.destination as! AbioticDataTypeChoiceController
+      controller.ecoFactor = ecoFactor.new(selectedAbioticFactor)
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }

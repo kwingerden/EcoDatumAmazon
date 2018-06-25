@@ -12,11 +12,19 @@ import UIKit
 
 class AbitoicDataUnitChoiceController: UIViewController {
   
-  var abioticDataType: AbioticDataType!
+  var ecoFactor: EcoFactor!
+  
+  private var abioticEcoData: AbioticEcoData! {
+    return ecoFactor.abioticEcoData!
+  }
+  
+  private var abioticDataType: AbioticDataType! {
+    return abioticEcoData!.dataType!
+  }
   
   @IBOutlet weak var tableView: UITableView!
   
-  var selectedAbioticDataUnit: AbioticDataUnit!
+  private var selectedAbioticDataUnit: AbioticDataUnit!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,8 +51,8 @@ class AbitoicDataUnitChoiceController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
     case is AbioticDataValueChoiceController:
-      (segue.destination as! AbioticDataValueChoiceController).abioticDataUnit =
-      selectedAbioticDataUnit
+      let viewController = segue.destination as! AbioticDataValueChoiceController
+      viewController.ecoFactor = ecoFactor.new(abioticEcoData.new(selectedAbioticDataUnit))
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }
@@ -72,7 +80,7 @@ extension AbitoicDataUnitChoiceController: UITableViewDelegate {
     case .Water(let waterDataType):
       selectedAbioticDataUnit = AbioticDataUnit.units(.Water(waterDataType))[indexPath.row]
     }
-    performSegue(withIdentifier: "dataValueChoice", sender: nil)
+    performSegue(withIdentifier: "abioticDataValueChoice", sender: nil)
   }
   
 }
@@ -137,9 +145,7 @@ class DataUnitChoiceTableViewCell: UITableViewCell {
   @IBOutlet weak var dataUnitView: UIView!
   
   var dataUnitLabel: MTMathUILabel = MTMathUILabel()
-  
-  var presentDataUnitChoice: (() -> Void)!
-  
+    
   override func layoutSubviews() {
     
     if dataUnitView.subviews.index(of: dataUnitLabel) == nil {
