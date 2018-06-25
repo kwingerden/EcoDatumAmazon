@@ -122,8 +122,7 @@ extension SiteDataController: UICollectionViewDataSource {
       for: indexPath) as! SiteDataEcoFactorCell
     
     let ecoFactor = ecoFactors[indexPath.row]
-    guard let dataType = ecoFactor.abioticEcoData?.dataType,
-      let dataValue = ecoFactor.abioticEcoData?.dataValue else {
+    guard let dataType = ecoFactor.abioticEcoData?.dataType else {
       return UICollectionViewCell()
     }
     

@@ -52,7 +52,11 @@ class AbitoicDataUnitChoiceController: UIViewController {
     switch segue.destination {
     case is AbioticDataValueChoiceController:
       let viewController = segue.destination as! AbioticDataValueChoiceController
-      viewController.ecoFactor = ecoFactor.new(abioticEcoData.new(selectedAbioticDataUnit))
+      let newAbioticEcoData = abioticEcoData.new(selectedAbioticDataUnit)
+      let newEcoFactor = EcoFactor(
+        collectionDate: ecoFactor.collectionDate,
+        ecoData: EcoFactor.EcoData.Abiotic(newAbioticEcoData))
+      viewController.ecoFactor = newEcoFactor
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }

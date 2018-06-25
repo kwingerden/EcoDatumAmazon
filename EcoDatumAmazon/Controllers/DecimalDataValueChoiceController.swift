@@ -109,10 +109,13 @@ class DecimalDataValueChoiceController: UIViewController {
   private func saveData(_ dataValue: Decimal) {
     do {
       let dataValue = AbioticDataValue.DecimalDataValue(dataValue)
-      let ecoFactor = self.ecoFactor.new(abioticEcoData.new(dataValue).new(Date()))
+      let newAbioticEcoData = abioticEcoData.new(dataValue)
+      let newEcoFactor = EcoFactor(
+        collectionDate: ecoFactor.collectionDate,
+        ecoData: EcoFactor.EcoData.Abiotic(newAbioticEcoData))
       if let site = ViewContext.shared.selectedSite,
-        let abioticData = try AbioticData.create(ecoFactor) {
-        site.addToEcoData(abioticData)
+        let newAbioticData = try AbioticData.create(newEcoFactor) {
+        site.addToEcoData(newAbioticData)
         try PersistenceUtil.shared.saveContext()
       } else {
         LOG.error("No selected site")

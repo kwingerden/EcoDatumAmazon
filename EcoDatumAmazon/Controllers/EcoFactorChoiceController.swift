@@ -11,9 +11,11 @@ import UIKit
 
 class EcoFactorChoiceController: UIViewController {
   
+  var ecoFactor: EcoFactor!
+  
   @IBOutlet weak var tableView: UITableView!
   
-  private var selectedEcoFactor: EcoFactor!
+  private var selectedEcoData: EcoFactor.EcoData!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,7 +35,11 @@ class EcoFactorChoiceController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
     case is AbioticFactorChoiceController:
-      (segue.destination as! AbioticFactorChoiceController).ecoFactor = selectedEcoFactor
+      let viewController = segue.destination as! AbioticFactorChoiceController
+      let newEcoFactor = EcoFactor(
+        collectionDate: ecoFactor.collectionDate,
+        ecoData: selectedEcoData)
+      viewController.ecoFactor = newEcoFactor
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }
@@ -53,8 +59,8 @@ class EcoFactorChoiceController: UIViewController {
 extension EcoFactorChoiceController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    selectedEcoFactor = EcoFactor.all[indexPath.row]
-    switch EcoFactor.all[indexPath.row] {
+    selectedEcoData = EcoFactor.EcoData.all[indexPath.row]
+    switch selectedEcoData! {
     case .Abiotic:
       performSegue(withIdentifier: "abioticFactorChoice", sender: nil)
     case .Biotic:
@@ -68,13 +74,13 @@ extension EcoFactorChoiceController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    return EcoFactor.all.count
+    return EcoFactor.EcoData.all.count
   }
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    switch EcoFactor.all[indexPath.row] {
+    switch EcoFactor.EcoData.all[indexPath.row] {
     case .Abiotic:
       cell.textLabel?.text = "Abiotic"
     case .Biotic:

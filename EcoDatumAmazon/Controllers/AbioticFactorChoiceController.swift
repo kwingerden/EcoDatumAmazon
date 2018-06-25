@@ -15,12 +15,16 @@ class AbioticFactorChoiceController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  private var abioticEcoData: AbioticEcoData! {
+    return ecoFactor.abioticEcoData!
+  }
+  
   private var selectedAbioticFactor: AbioticFactor!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    switch ecoFactor! {
+    switch ecoFactor.ecoData! {
     case .Abiotic:
       title = "Abiotic Factor Choice"
     default:
@@ -41,7 +45,11 @@ class AbioticFactorChoiceController: UIViewController {
     switch segue.destination {
     case is AbioticDataTypeChoiceController:
       let controller = segue.destination as! AbioticDataTypeChoiceController
-      controller.ecoFactor = ecoFactor.new(selectedAbioticFactor)
+      let newAbioticEcoData = abioticEcoData.new(selectedAbioticFactor)
+      let newEcoFactor = EcoFactor(
+        collectionDate: ecoFactor.collectionDate,
+        ecoData: EcoFactor.EcoData.Abiotic(newAbioticEcoData))
+      controller.ecoFactor = newEcoFactor
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }

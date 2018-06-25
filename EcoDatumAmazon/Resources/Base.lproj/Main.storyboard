@@ -41,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSs-U3-1vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3668" y="1391"/>
+            <point key="canvasLocation" x="1601" y="1726"/>
         </scene>
         <!--Data-->
         <scene sceneID="fA1-es-a2a">
@@ -101,7 +101,7 @@
                     <connections>
                         <outlet property="collectionView" destination="EnB-vX-nXJ" id="Pcj-Dr-8q9"/>
                         <segue destination="ote-HH-kig" kind="show" identifier="abioticDataDetail" id="7ut-4V-UiD"/>
-                        <segue destination="56f-Ne-oTZ" kind="show" identifier="newEcoFactor" id="JUP-cA-izV"/>
+                        <segue destination="nDY-gn-cRu" kind="show" identifier="newEcoFactor" id="cV2-Yh-Uco"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCu-si-dfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,12 +181,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Ual-6b-h6m" id="8Wx-iT-bag"/>
-                        <segue destination="fYm-s6-W36" kind="show" identifier="abioticFactorChoice" id="ooM-QY-QHJ"/>
+                        <segue destination="fYm-s6-W36" kind="show" identifier="abioticFactorChoice" id="MMh-vp-iMB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIB-fw-kr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4535" y="1529"/>
+            <point key="canvasLocation" x="4616" y="1551"/>
         </scene>
         <!--Abiotic Factor Choice Controller-->
         <scene sceneID="lzH-Zp-MTq">
@@ -237,6 +237,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4de-aO-ddQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5416" y="1548"/>
+        </scene>
+        <!--Collection Date Choice Controller-->
+        <scene sceneID="Cm6-vc-NJM">
+            <objects>
+                <viewController id="nDY-gn-cRu" customClass="CollectionDateChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KgV-Sd-VtV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="sbN-bp-XgS">
+                                <rect key="frame" x="0.0" y="84" width="414" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="tCO-f5-N4H"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="551650659.77515495">
+                                    <!--2018-06-25 20:17:39 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGf-Cf-y20">
+                                <rect key="frame" x="100" y="320" width="214" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="touchUpInside:" destination="nDY-gn-cRu" eventType="touchUpInside" id="iPL-24-wrU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sbN-bp-XgS" firstAttribute="trailing" secondItem="gWW-RI-byQ" secondAttribute="trailing" id="Adj-ee-TJK"/>
+                            <constraint firstItem="sbN-bp-XgS" firstAttribute="leading" secondItem="gWW-RI-byQ" secondAttribute="leading" id="Ep9-Of-Oea"/>
+                            <constraint firstItem="sbN-bp-XgS" firstAttribute="top" secondItem="gWW-RI-byQ" secondAttribute="top" constant="20" id="II3-09-9dI"/>
+                            <constraint firstItem="VGf-Cf-y20" firstAttribute="centerX" secondItem="KgV-Sd-VtV" secondAttribute="centerX" id="Psc-2w-PTm"/>
+                            <constraint firstItem="VGf-Cf-y20" firstAttribute="leading" relation="lessThanOrEqual" secondItem="gWW-RI-byQ" secondAttribute="leading" constant="100" id="Rim-kD-cTg"/>
+                            <constraint firstItem="gWW-RI-byQ" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="VGf-Cf-y20" secondAttribute="trailing" constant="100" id="ar6-aU-ccp"/>
+                            <constraint firstItem="VGf-Cf-y20" firstAttribute="top" secondItem="sbN-bp-XgS" secondAttribute="bottom" constant="20" id="jky-j7-I8a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gWW-RI-byQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="sbN-bp-XgS" id="1h1-zJ-Nhh"/>
+                        <outlet property="nextButton" destination="VGf-Cf-y20" id="2Yu-p9-dTq"/>
+                        <segue destination="56f-Ne-oTZ" kind="show" identifier="ecoFactorChoice" id="kdU-Fg-gTU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUh-9j-K6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3786" y="1546"/>
         </scene>
         <!--Abiotic Data Type Choice Controller-->
         <scene sceneID="yfe-ud-r5J">
@@ -1229,6 +1277,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pL-74-pp5"/>
-        <segue reference="nkc-0w-UaN"/>
+        <segue reference="7ut-4V-UiD"/>
     </inferredMetricsTieBreakers>
 </document>

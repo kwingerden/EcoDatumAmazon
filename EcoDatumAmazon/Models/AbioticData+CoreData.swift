@@ -17,9 +17,10 @@ extension AbioticData {
     if let jsonString = String(data: jsonData, encoding: .utf8) {
       LOG.debug(jsonString)
     }
-    guard let abioticEcoData = ecoFactor.abioticEcoData,
-      let abioticFactor = abioticEcoData.abioticFactor?.rawValue,
-      let collectionDate = abioticEcoData.collectionDate else {
+    guard let collectionDate = ecoFactor.collectionDate,
+      let abioticEcoData = ecoFactor.abioticEcoData,
+      let abioticFactor = abioticEcoData.abioticFactor?.rawValue else {
+      LOG.error("Failed to create new EcoFactor because necessary data not available.")
       return nil
     }
     

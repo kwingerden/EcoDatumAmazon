@@ -36,6 +36,7 @@
 		BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0A20D771150069513E /* SiteNotesController.swift */; };
 		BE66905420DB194A00EA1492 /* SiteDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66905320DB194A00EA1492 /* SiteDataController.swift */; };
 		BE66905820DB592B00EA1492 /* AbioticData+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66905720DB592B00EA1492 /* AbioticData+CoreData.swift */; };
+		BE735AFE20E185B90057DA32 /* CollectionDateChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE735AFD20E185B90057DA32 /* CollectionDateChoiceController.swift */; };
 		BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */; };
 		BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877120D4DC830083F349 /* ViewContext.swift */; };
 		BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */; };
@@ -109,6 +110,7 @@
 		BE4B9B0A20D771150069513E /* SiteNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteNotesController.swift; sourceTree = "<group>"; };
 		BE66905320DB194A00EA1492 /* SiteDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDataController.swift; sourceTree = "<group>"; };
 		BE66905720DB592B00EA1492 /* AbioticData+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AbioticData+CoreData.swift"; sourceTree = "<group>"; };
+		BE735AFD20E185B90057DA32 /* CollectionDateChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDateChoiceController.swift; sourceTree = "<group>"; };
 		BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailController.swift; sourceTree = "<group>"; };
 		BE7B877120D4DC830083F349 /* ViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContext.swift; sourceTree = "<group>"; };
 		BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */,
 				BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */,
 				BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */,
+				BE735AFD20E185B90057DA32 /* CollectionDateChoiceController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				BE1949A820E062F000962DA0 /* DecimalDataValueChoiceController.swift in Sources */,
 				BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */,
 				BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */,
+				BE735AFE20E185B90057DA32 /* CollectionDateChoiceController.swift in Sources */,
 				BE9BC93120DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift in Sources */,
 				BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */,
 				BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */,

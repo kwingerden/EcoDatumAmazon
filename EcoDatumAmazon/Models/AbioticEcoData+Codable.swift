@@ -11,26 +11,22 @@ import Foundation
 struct AbioticEcoData: Codable {
   
   let abioticFactor: AbioticFactor?
-  let collectionDate: Date?
   let dataType: AbioticDataType?
   let dataUnit: AbioticDataUnit?
   let dataValue: AbioticDataValue?
   
   enum CodingKeys: String, CodingKey {
     case abioticFactor
-    case collectionDate
     case dataType
     case dataUnit
     case dataValue
   }
   
   init(abioticFactor: AbioticFactor? = nil,
-       collectionDate: Date? = nil,
        dataType: AbioticDataType? = nil,
        dataUnit: AbioticDataUnit? = nil,
        dataValue: AbioticDataValue? = nil) {
     self.abioticFactor = abioticFactor
-    self.collectionDate = collectionDate
     self.dataType = dataType
     self.dataUnit = dataUnit
     self.dataValue = dataValue
@@ -40,8 +36,7 @@ struct AbioticEcoData: Codable {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     abioticFactor = try container.decode(AbioticFactor.self, forKey: .abioticFactor)
-    collectionDate = try container.decode(Date.self, forKey: .collectionDate)
-    
+
     switch abioticFactor {
     case .Air?:
       dataType = AbioticDataType.Air(
@@ -178,7 +173,6 @@ struct AbioticEcoData: Codable {
     var container = encoder.container(keyedBy: CodingKeys.self)
     
     try container.encode(abioticFactor, forKey: .abioticFactor)
-    try container.encode(collectionDate, forKey: .collectionDate)
     
     switch dataType {
     case .Air(let airDataType)?:
@@ -259,7 +253,6 @@ struct AbioticEcoData: Codable {
   func new(_ abioticFactor: AbioticFactor) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
-      collectionDate: collectionDate,
       dataType: dataType,
       dataUnit: dataUnit,
       dataValue: dataValue)
@@ -268,7 +261,6 @@ struct AbioticEcoData: Codable {
   func new(_ collectionDate: Date) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
-      collectionDate: collectionDate,
       dataType: dataType,
       dataUnit: dataUnit,
       dataValue: dataValue)
@@ -277,7 +269,6 @@ struct AbioticEcoData: Codable {
   func new(_ dataType: AbioticDataType) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
-      collectionDate: collectionDate,
       dataType: dataType,
       dataUnit: dataUnit,
       dataValue: dataValue)
@@ -286,7 +277,6 @@ struct AbioticEcoData: Codable {
   func new(_ dataUnit: AbioticDataUnit) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
-      collectionDate: collectionDate,
       dataType: dataType,
       dataUnit: dataUnit,
       dataValue: dataValue)
@@ -295,7 +285,6 @@ struct AbioticEcoData: Codable {
   func new(_ dataValue: AbioticDataValue?) -> AbioticEcoData {
     return AbioticEcoData(
       abioticFactor: abioticFactor,
-      collectionDate: collectionDate,
       dataType: dataType,
       dataUnit: dataUnit,
       dataValue: dataValue)
