@@ -3,6 +3,8 @@ import UIKit
 
 class SoilTextureDataValueChoiceController: UIViewController {
   
+  var parentController: AbioticDataValueChoiceController!
+  
   var embeddedViewToDisplay: AbioticDataValueChoiceController.EmbeddedView!
   
   var ecoFactor: EcoFactor!

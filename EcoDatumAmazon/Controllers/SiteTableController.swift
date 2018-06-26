@@ -97,7 +97,7 @@ class SiteTableController: UIViewController {
     case addBarButtonItem:
       do {
         let site = try Site.create()
-        try PersistenceUtil.shared.saveContext()
+        try site.save()
         ViewContext.shared.selectedSite = site
       } catch let error as NSError {
         LOG.error("\(error), \(error.userInfo)")
@@ -146,10 +146,7 @@ class SiteTableController: UIViewController {
   
     tableView.reloadData()
   
-    if let count = fetchedResultsController?.fetchedObjects?.count,
-      count == 0 {
-      ViewContext.shared.selectedSite = nil
-    } else if let sites = fetchedResultsController?.fetchedObjects {
+    if let sites = fetchedResultsController?.fetchedObjects, sites.count > 0 {
       var row = 0
       if let selectedSite = ViewContext.shared.selectedSite,
         let index = sites.index(of: selectedSite) {
@@ -191,10 +188,17 @@ extension SiteTableController: UITableViewDelegate {
           (action) in
           do {
             try site.delete()
+            try site.save()
+            try self.fetchedResultsController = Site.fetch()
           } catch let error as NSError {
             LOG.error("\(error), \(error.userInfo)")
           }
-          self.refresh()
+          if let count = self.fetchedResultsController?.fetchedObjects?.count,
+            count == 0 {
+            ViewContext.shared.selectedSite = nil
+          } else {
+            self.refresh()
+          }
       }
       let cancelAction = UIAlertAction(
         title: "Cancel",

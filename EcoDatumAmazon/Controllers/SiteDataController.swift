@@ -14,21 +14,9 @@ class SiteDataController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
-  /*
-  static private let airLogo: UIImage? = UIImage(named: "AirLogo")
-  
-  static private let animalLogo: UIImage? = UIImage(named: "AnimalLogo")
-  
-  static private let bioticLogo: UIImage? = UIImage(named: "BioticLogo")
-  
-  static private let fungiLogo: UIImage? = UIImage(named: "FungiLogo")
-  
-  static private let soilLogo: UIImage? = UIImage(named: "SoilLogo")
-  
-  static private let waterLogo: UIImage? = UIImage(named: "WaterLogo")
- */
-  
   private var ecoFactors: [EcoFactor] = []
+  
+  private var selectedEcoFactor: EcoFactor!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -73,21 +61,16 @@ class SiteDataController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
-    
-    /*
+  
     switch segue.destination {
     case is EcoFactorChoiceController:
       break // do nothing
     case is AbioticDataDetailController:
-      if let selectedAbioticData = selectedAbioticData {
-        (segue.destination as! AbioticDataDetailController).abioticData = selectedAbioticData
-      } else {
-        LOG.error("Seleted Abiotic Data was not set")
-      }
+      let viewController = segue.destination as! AbioticDataDetailController
+      viewController.ecoFactor = selectedEcoFactor
     default:
       LOG.error("Unexpected segue destination: \(segue.destination)")
     }
-  */
   }
   
   @objc func addButtonPressed() {
@@ -102,8 +85,8 @@ extension SiteDataController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView,
                       didSelectItemAt indexPath: IndexPath) {
-    //selectedAbioticData = abioticData[indexPath.row]
-    //performSegue(withIdentifier: "abioticDataDetail", sender: nil)
+    selectedEcoFactor = ecoFactors[indexPath.row]
+    performSegue(withIdentifier: "abioticDataDetail", sender: nil)
   }
   
 }
@@ -134,8 +117,6 @@ extension SiteDataController: UICollectionViewDataSource {
       backgrounImage = #imageLiteral(resourceName: "SoilLogo")
     case .Water:
       backgrounImage = #imageLiteral(resourceName: "WaterLogo")
-    default:
-      LOG.error("Unexpected data type: \(dataType)")
     }
     
     if let backgrounImage = backgrounImage {

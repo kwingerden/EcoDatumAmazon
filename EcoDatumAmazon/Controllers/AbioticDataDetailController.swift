@@ -15,12 +15,63 @@ class AbioticDataDetailController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  var collectionDate: Date {
+    return ecoFactor.collectionDate!
+  }
+  
+  var ecoData: EcoFactor.EcoData! {
+    return ecoFactor.ecoData!
+  }
+  
+  var abioticEcoData: AbioticEcoData! {
+    return ecoFactor.abioticEcoData!
+  }
+  
+  var abioticFactor: AbioticFactor! {
+    return abioticEcoData.abioticFactor!
+  }
+  
+  var abioticDataType: AbioticDataType! {
+    return abioticEcoData.dataType!
+  }
+  
+  var abioticDataUnit: AbioticDataUnit! {
+    return abioticEcoData.dataUnit!
+  }
+  
+  var abioticDataValue: AbioticDataValue! {
+    return abioticEcoData.dataValue!
+  }
+  
+  enum TableCellIndex: Int {
+    case CollectionDate
+    case AbioticFactor
+    case AbioticDataType
+    case AbioticDataUnit
+    case AbioticDataValue
+    
+    static let all: [TableCellIndex] = [
+      .CollectionDate,
+      .AbioticFactor,
+      .AbioticDataType,
+      .AbioticDataUnit,
+      .AbioticDataValue
+    ]
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.delegate = self
     tableView.dataSource = self
     tableView.tableFooterView = UIView()
+    
+    switch ecoData! {
+    case .Abiotic:
+      title = "Abiotic Eco-Data"
+    case .Biotic:
+      title = "Biotic Eco-Data"
+    }
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       barButtonSystemItem: UIBarButtonSystemItem.done,
@@ -29,10 +80,21 @@ class AbioticDataDetailController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.destination {
+      
+    case is CollectionDateChoiceController:
+      let viewController = segue.destination as! CollectionDateChoiceController
+      viewController.ecoFactor = ecoFactor
+      
+    default:
+      break
+      
+    }
     
   }
   
   @objc func doneButtonPressed() {
+    saveData()
     let mainTabBarController = navigationController?.viewControllers.first {
       $0 is MainTabBarController
     }
@@ -41,31 +103,119 @@ class AbioticDataDetailController: UIViewController {
     }
   }
   
+  private func saveData() {
+    if let site = ViewContext.shared.selectedSite {
+      do {
+          let newAbioticData = try AbioticData.create(ecoFactor)
+          site.addToEcoData(newAbioticData!)
+          try site.save()
+      } catch {
+        LOG.error("Faield to create and save abiotic data: \(error)")
+      }
+    } else {
+      LOG.error("No selected site")
+    }
+  }
+  
 }
 
 extension AbioticDataDetailController: UITableViewDelegate {
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+  func tableView(_ tableView: UITableView,
+                 didSelectRowAt indexPath: IndexPath) {
+    switch indexPath.row {
+      
+    case TableCellIndex.CollectionDate.rawValue:
+      performSegue(withIdentifier: "updateEcoFactor", sender: nil)
+      
+    case TableCellIndex.AbioticFactor.rawValue:
+      break
+      
+    case TableCellIndex.AbioticDataType.rawValue:
+      break
+      
+    case TableCellIndex.AbioticDataUnit.rawValue:
+      break
+      
+    case TableCellIndex.AbioticDataValue.rawValue:
+      break
+      
+    default:
+      LOG.error("Unexpected index path: \(indexPath)")
+      
+    }
   }
   
 }
 
 extension AbioticDataDetailController: UITableViewDataSource {
   
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 80
+  static let CELL_HEIGHT: CGFloat = 80
+  
+  func tableView(_ tableView: UITableView,
+                 heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return AbioticDataDetailController.CELL_HEIGHT
   }
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return TableCellIndex.all.count
   }
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    let cell = tableView.dequeueReusableCell(
+      withIdentifier: "dataValueCell",
+      for: indexPath) as! AbioticDataValueCell
+    switch indexPath.row {
+    
+    case TableCellIndex.CollectionDate.rawValue:
+      cell.dataTitleLabel.text = "Collection Date:"
+      cell.dataValueLabel.text = collectionDate.mediumFormattedDateString()
+    
+    case TableCellIndex.AbioticFactor.rawValue:
+      cell.dataTitleLabel.text = "Abiotic Factor:"
+      cell.dataValueLabel.text = abioticFactor.rawValue
+      
+    case TableCellIndex.AbioticDataType.rawValue:
+      cell.dataTitleLabel.text = "Data Type:"
+      switch abioticDataType! {
+      case .Air(let airDataType):
+        cell.dataValueLabel.text = airDataType.rawValue
+      case .Soil(let soilDataType):
+        cell.dataValueLabel.text = soilDataType.rawValue
+      case .Water(let waterDataType):
+        cell.dataValueLabel.text = waterDataType.rawValue
+      }
+      
+    case TableCellIndex.AbioticDataUnit.rawValue:
+      cell.dataTitleLabel.text = "Data Unit:"
+      cell.dataValueLabel.text = abioticDataUnit.rawValue
+      
+    case TableCellIndex.AbioticDataValue.rawValue:
+      cell.dataTitleLabel.text = "Data Value:"
+      switch abioticDataValue! {
+      case .DecimalDataValue(let decimal):
+        cell.dataValueLabel.text = decimal.description
+      default:
+        break
+      }
+      
+    default:
+      LOG.error("Unexpected index path: \(indexPath)")
+      
+    }
+    return cell
+  
   }
+  
+}
+
+class AbioticDataValueCell: UITableViewCell {
+  
+  @IBOutlet weak var dataTitleLabel: UILabel!
+  
+  @IBOutlet weak var dataValueLabel: UILabel!
   
 }
 

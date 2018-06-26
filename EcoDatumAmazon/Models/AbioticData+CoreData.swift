@@ -57,6 +57,10 @@ extension AbioticData {
     return fetchedResultsController
   }
   
+  func save() throws {
+    try PersistenceUtil.shared.saveContext()
+  }
+  
   func delete() throws {
     try PersistenceUtil.shared.delete(self)
   }

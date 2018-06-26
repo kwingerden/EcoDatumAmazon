@@ -288,7 +288,7 @@ class SiteDetailController: UIViewController {
       }
       
       do {
-        try PersistenceUtil.shared.saveContext()
+        try site.save()
       } catch let error as NSError {
         LOG.error("\(error), \(error.userInfo)")
       }

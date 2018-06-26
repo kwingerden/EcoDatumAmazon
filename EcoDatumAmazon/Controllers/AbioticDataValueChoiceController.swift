@@ -19,6 +19,8 @@ class AbioticDataValueChoiceController: UIViewController {
   
   var ecoFactor: EcoFactor!
   
+  var selectedDataValue: AbioticDataValue!
+  
   var embeddedViewToDisplay: EmbeddedView {
     switch abioticDataUnit! {
       
@@ -52,8 +54,12 @@ class AbioticDataValueChoiceController: UIViewController {
     }
   }
   
+  private var abioticEcoData: AbioticEcoData! {
+    return ecoFactor.abioticEcoData!
+  }
+  
   private var abioticDataUnit: AbioticDataUnit! {
-    return ecoFactor.abioticEcoData!.dataUnit!
+    return abioticEcoData!.dataUnit!
   }
   
   @IBOutlet weak var soilTextureDataValueView: UIView!
@@ -109,20 +115,30 @@ class AbioticDataValueChoiceController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
     case is SoilTextureDataValueChoiceController:
-      let controller = segue.destination as! SoilTextureDataValueChoiceController
-      controller.embeddedViewToDisplay = embeddedViewToDisplay
-      controller.ecoFactor = ecoFactor
+      let viewController = segue.destination as! SoilTextureDataValueChoiceController
+      viewController.parentController = self
+      viewController.embeddedViewToDisplay = embeddedViewToDisplay
+      viewController.ecoFactor = ecoFactor
+    
     case is ScaleDataValueChoiceController:
-      let controller = segue.destination as! ScaleDataValueChoiceController
-      controller.embeddedViewToDisplay = embeddedViewToDisplay
-      controller.ecoFactor = ecoFactor
+      let viewController = segue.destination as! ScaleDataValueChoiceController
+      viewController.parentController = self
+      viewController.embeddedViewToDisplay = embeddedViewToDisplay
+      viewController.ecoFactor = ecoFactor
+      
     case is DecimalDataValueChoiceController:
-      let controller = segue.destination as! DecimalDataValueChoiceController
-      controller.embeddedViewToDisplay = embeddedViewToDisplay
-      controller.ecoFactor = ecoFactor
+      let viewController = segue.destination as! DecimalDataValueChoiceController
+      viewController.parentController = self
+      viewController.embeddedViewToDisplay = embeddedViewToDisplay
+      viewController.ecoFactor = ecoFactor
+    
     case is AbioticDataDetailController:
-      let controller = segue.destination as! AbioticDataDetailController
-      controller.ecoFactor = ecoFactor
+      let viewController = segue.destination as! AbioticDataDetailController
+      let ecoData = EcoFactor.EcoData.Abiotic(abioticEcoData.new(selectedDataValue))
+      viewController.ecoFactor = EcoFactor.init(
+        collectionDate: ecoFactor.collectionDate,
+        ecoData: ecoData)
+    
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }
