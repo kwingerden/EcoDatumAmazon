@@ -14,9 +14,11 @@ class SiteDataController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
-  private var ecoFactors: [EcoFactor] = []
+  private var orderedEcoFactors: [EcoFactor] = []
   
-  private var selectedEcoFactor: EcoFactor!
+  private var orderedEcoData: [EcoData] = []
+  
+  private var selectedIndex: Int!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,11 +37,23 @@ class SiteDataController: UIViewController {
     
     if let site = ViewContext.shared.selectedSite,
       let ecoData = site.ecoData {
+    
+      orderedEcoData = ecoData.map {
+        $0 as! EcoData
+        }.sorted {
+          (lhs: EcoData, rhs: EcoData) in
+          if lhs.collectionDate == nil {
+            return false
+          }
+          if rhs.collectionDate == nil {
+            return false
+          }
+          return lhs.collectionDate! >= rhs.collectionDate! ? true : false
+      }
+      
       let jsonDecoder = JSONDecoder()
       do {
-        ecoFactors = try ecoData.map {
-          $0 as! EcoData
-        }.map {
+        orderedEcoFactors = try orderedEcoData.map {
           ecoData in
           let ecoFactor = try jsonDecoder.decode(
             EcoFactor.self,
@@ -67,7 +81,9 @@ class SiteDataController: UIViewController {
       break // do nothing
     case is AbioticDataDetailController:
       let viewController = segue.destination as! AbioticDataDetailController
-      viewController.ecoFactor = selectedEcoFactor
+      viewController.site = ViewContext.shared.selectedSite!
+      viewController.abioticData = orderedEcoData[selectedIndex] as! AbioticData
+      viewController.ecoFactor = orderedEcoFactors[selectedIndex]
     default:
       LOG.error("Unexpected segue destination: \(segue.destination)")
     }
@@ -85,7 +101,7 @@ extension SiteDataController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView,
                       didSelectItemAt indexPath: IndexPath) {
-    selectedEcoFactor = ecoFactors[indexPath.row]
+    selectedIndex = indexPath.row
     performSegue(withIdentifier: "abioticDataDetail", sender: nil)
   }
   
@@ -95,7 +111,7 @@ extension SiteDataController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int {
-    return ecoFactors.count
+    return orderedEcoFactors.count
   }
 
   func collectionView(_ collectionView: UICollectionView,
@@ -104,7 +120,7 @@ extension SiteDataController: UICollectionViewDataSource {
       withReuseIdentifier: "cell",
       for: indexPath) as! SiteDataEcoFactorCell
     
-    let ecoFactor = ecoFactors[indexPath.row]
+    let ecoFactor = orderedEcoFactors[indexPath.row]
     guard let dataType = ecoFactor.abioticEcoData?.dataType else {
       return UICollectionViewCell()
     }

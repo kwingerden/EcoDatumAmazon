@@ -11,6 +11,10 @@ import UIKit
 
 class AbioticDataDetailController: UIViewController {
   
+  var site: Site!
+  
+  var abioticData: AbioticData!
+  
   var ecoFactor: EcoFactor!
   
   @IBOutlet weak var tableView: UITableView!
@@ -76,16 +80,35 @@ class AbioticDataDetailController: UIViewController {
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       barButtonSystemItem: UIBarButtonSystemItem.trash,
       target: self,
-      action: #selector(doneButtonPressed))
+      action: #selector(trashButtonPressed))
   }
   
-  @objc func doneButtonPressed() {
-    let mainTabBarController = navigationController?.viewControllers.first {
-      $0 is MainTabBarController
+  @objc func trashButtonPressed() {
+    let alert = UIAlertController(
+      title: "Delete Data Confirmation",
+      message: "Are you sure you want to delete this data value?",
+      preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+      alertAction in
+      do {
+        try self.abioticData.delete()
+        try self.abioticData.save()
+      } catch {
+        LOG.error("Failed to delete abiotic data: \(error)")
+      }
+      let mainTabBarController = self.navigationController?.viewControllers.first {
+        $0 is MainTabBarController
+      }
+      if let mainTabBarController = mainTabBarController {
+        self.navigationController?.popToViewController(
+          mainTabBarController,
+          animated: true)
+      }
     }
-    if let mainTabBarController = mainTabBarController {
-      navigationController?.popToViewController(mainTabBarController, animated: true)
-    }
+    alert.addAction(cancelAction)
+    alert.addAction(deleteAction)
+    present(alert, animated: true)
   }
   
 }
