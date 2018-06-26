@@ -19,8 +19,6 @@ class AbioticDataValueChoiceController: UIViewController {
   
   var ecoFactor: EcoFactor!
   
-  var selectedDataValue: AbioticDataValue!
-  
   var embeddedViewToDisplay: EmbeddedView {
     switch abioticDataUnit! {
       
@@ -68,6 +66,12 @@ class AbioticDataValueChoiceController: UIViewController {
   
   @IBOutlet weak var decimalDataValueView: UIView!
   
+  private var soilTextureDataValueChoiceController: SoilTextureDataValueChoiceController!
+  
+  private var scaleDataValueChoiceController: ScaleDataValueChoiceController!
+  
+  private var decimalDataValueChoiceController: DecimalDataValueChoiceController!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -107,44 +111,57 @@ class AbioticDataValueChoiceController: UIViewController {
     decimalDataValueView.isHidden = !(embeddedViewToDisplay == .decimalDataValueView)
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.cancel,
+      barButtonSystemItem: UIBarButtonSystemItem.done,
       target: self,
-      action: #selector(cancelButtonPressed))
+      action: #selector(doneButtonPressed))
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
     case is SoilTextureDataValueChoiceController:
-      let viewController = segue.destination as! SoilTextureDataValueChoiceController
-      viewController.parentController = self
-      viewController.embeddedViewToDisplay = embeddedViewToDisplay
-      viewController.ecoFactor = ecoFactor
+      soilTextureDataValueChoiceController = segue.destination as! SoilTextureDataValueChoiceController
+      soilTextureDataValueChoiceController.parentController = self
+      soilTextureDataValueChoiceController.embeddedViewToDisplay = embeddedViewToDisplay
+      soilTextureDataValueChoiceController.ecoFactor = ecoFactor
     
     case is ScaleDataValueChoiceController:
-      let viewController = segue.destination as! ScaleDataValueChoiceController
-      viewController.parentController = self
-      viewController.embeddedViewToDisplay = embeddedViewToDisplay
-      viewController.ecoFactor = ecoFactor
+      scaleDataValueChoiceController = segue.destination as! ScaleDataValueChoiceController
+      scaleDataValueChoiceController.parentController = self
+      scaleDataValueChoiceController.embeddedViewToDisplay = embeddedViewToDisplay
+      scaleDataValueChoiceController.ecoFactor = ecoFactor
       
     case is DecimalDataValueChoiceController:
-      let viewController = segue.destination as! DecimalDataValueChoiceController
-      viewController.parentController = self
-      viewController.embeddedViewToDisplay = embeddedViewToDisplay
-      viewController.ecoFactor = ecoFactor
-    
-    case is AbioticDataDetailController:
-      let viewController = segue.destination as! AbioticDataDetailController
-      let ecoData = EcoFactor.EcoData.Abiotic(abioticEcoData.new(selectedDataValue))
-      viewController.ecoFactor = EcoFactor.init(
-        collectionDate: ecoFactor.collectionDate,
-        ecoData: ecoData)
+      decimalDataValueChoiceController = segue.destination as! DecimalDataValueChoiceController
+      decimalDataValueChoiceController.parentController = self
+      decimalDataValueChoiceController.embeddedViewToDisplay = embeddedViewToDisplay
+      decimalDataValueChoiceController.ecoFactor = ecoFactor
     
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
     }
   }
   
-  @objc func cancelButtonPressed() {
+  @objc func doneButtonPressed() {
+    soilTextureDataValueChoiceController.doneButtonPressed()
+    scaleDataValueChoiceController.doneButtonPressed()
+    decimalDataValueChoiceController.doneButtonPressed()
+  }
+  
+  func saveData() {
+    if let site = ViewContext.shared.selectedSite {
+      do {
+        let newAbioticData = try AbioticData.create(ecoFactor)
+        site.addToEcoData(newAbioticData!)
+        try site.save()
+      } catch {
+        LOG.error("Faield to create and save abiotic data: \(error)")
+      }
+    } else {
+      LOG.error("No selected site")
+    }
+  }
+  
+  func popToMainTabBarController() {
     let mainTabBarController = navigationController?.viewControllers.first {
       $0 is MainTabBarController
     }

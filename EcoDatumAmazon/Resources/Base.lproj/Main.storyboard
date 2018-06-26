@@ -120,24 +120,24 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataValueCell" rowHeight="80" id="1dp-xY-6Od" customClass="AbioticDataValueCell" customModule="EcoDatumAmazon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataValueCell" rowHeight="80" id="1dp-xY-6Od" customClass="AbioticDataValueCell" customModule="EcoDatumAmazon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1dp-xY-6Od" id="fug-6N-Mmp">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="79.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="evc-5P-q0J">
-                                                    <rect key="frame" x="28" y="19" width="332" height="42"/>
+                                                    <rect key="frame" x="28" y="19" width="358" height="42"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOm-P7-1bv">
-                                                            <rect key="frame" x="0.0" y="0.0" width="332" height="16.666666666666668"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="358" height="16.666666666666668"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="data value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQp-9x-xhx">
-                                                            <rect key="frame" x="0.0" y="21.666666666666664" width="332" height="20.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="21.666666666666664" width="358" height="20.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -171,7 +171,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="5tn-WI-Pav" id="4fo-3l-98L"/>
-                        <segue destination="nDY-gn-cRu" kind="show" identifier="updateEcoFactor" id="IBj-CJ-OJp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMC-3v-1Hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,7 +479,6 @@
                         <outlet property="decimalDataValueView" destination="ixV-hb-yb0" id="mWp-hl-PuE"/>
                         <outlet property="scaleDataValueView" destination="KjX-5O-Tjm" id="SP8-c0-Sgh"/>
                         <outlet property="soilTextureDataValueView" destination="55w-vf-2iw" id="Z1y-bb-0fp"/>
-                        <segue destination="ote-HH-kig" kind="show" identifier="abioticDataDetail" id="nkc-0w-UaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhv-7B-7ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1272,7 +1270,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jmd-Km-x07">
-                                <rect key="frame" x="28" y="40" width="358" height="169"/>
+                                <rect key="frame" x="28" y="40" width="358" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PcR-RT-vg6">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="60"/>
@@ -1285,22 +1283,12 @@
                                         <rect key="frame" x="0.0" y="70" width="358" height="50"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhC-Z3-6R4">
-                                        <rect key="frame" x="100" y="130" width="158" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Next"/>
-                                        <connections>
-                                            <action selector="touchUpInside:" destination="UEr-NK-r0v" eventType="touchUpInside" id="yUw-oT-kYq"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="PcR-RT-vg6" secondAttribute="trailing" id="4Np-cI-kA6"/>
                                     <constraint firstAttribute="trailing" secondItem="UPK-Gx-o5H" secondAttribute="trailing" id="6pX-a6-BZO"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="OhC-Z3-6R4" secondAttribute="trailing" constant="100" id="7RR-jY-I5F"/>
-                                    <constraint firstItem="OhC-Z3-6R4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="jmd-Km-x07" secondAttribute="leading" constant="100" id="Gwh-ax-hdS"/>
                                     <constraint firstItem="PcR-RT-vg6" firstAttribute="leading" secondItem="jmd-Km-x07" secondAttribute="leading" id="Luc-a1-fmg"/>
                                     <constraint firstAttribute="trailing" secondItem="PcR-RT-vg6" secondAttribute="trailing" id="P8c-mW-FEI"/>
                                     <constraint firstItem="PcR-RT-vg6" firstAttribute="leading" secondItem="jmd-Km-x07" secondAttribute="leading" id="QfE-EW-Ynb"/>
@@ -1320,7 +1308,6 @@
                     <connections>
                         <outlet property="dataUnitView" destination="PcR-RT-vg6" id="IOS-Su-Ne2"/>
                         <outlet property="dataValueTextField" destination="UPK-Gx-o5H" id="uUi-1Z-q4u"/>
-                        <outlet property="nextButton" destination="OhC-Z3-6R4" id="t2M-zl-2dH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9g-Ax-wST" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1339,7 +1326,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pL-74-pp5"/>
-        <segue reference="IBj-CJ-OJp"/>
-        <segue reference="7ut-4V-UiD"/>
     </inferredMetricsTieBreakers>
 </document>

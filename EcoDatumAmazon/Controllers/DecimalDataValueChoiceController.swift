@@ -14,8 +14,6 @@ class DecimalDataValueChoiceController: UIViewController {
   
   @IBOutlet weak var dataUnitView: UIView!
   
-  @IBOutlet weak var nextButton: UIButton!
-  
   private var dataUnitLabel: MTMathUILabel = MTMathUILabel()
   
   private var abioticEcoData: AbioticEcoData! {
@@ -69,13 +67,19 @@ class DecimalDataValueChoiceController: UIViewController {
     dataUnitLabel.frame.size = dataUnitView.frame.size
     
   }
-
-  @IBAction func touchUpInside(_ sender: UIButton) {
-    if sender == nextButton {
-      if let decimalValue = validateDecimalTextField() {
-        parentController.selectedDataValue = .DecimalDataValue(decimalValue)
-        parentController.performSegue(withIdentifier: "abioticDataDetail", sender: nil)
-      }
+  
+  func doneButtonPressed() {
+    guard embeddedViewToDisplay == .decimalDataValueView else {
+      return
+    }
+    
+    if let decimalValue = validateDecimalTextField() {
+      let ecoData = abioticEcoData.new(.DecimalDataValue(decimalValue))
+      parentController.ecoFactor = EcoFactor(
+        collectionDate: ecoFactor.collectionDate,
+        ecoData: EcoFactor.EcoData.Abiotic(ecoData))
+      parentController.saveData()
+      parentController.popToMainTabBarController()
     }
   }
   
@@ -126,10 +130,8 @@ extension DecimalDataValueChoiceController: UITextFieldDelegate {
     if isViewDisappearing {
       return
     }
-    if reason == .committed,
-      let decimalValue = validateDecimalTextField() {
-      parentController.selectedDataValue = .DecimalDataValue(decimalValue)
-      parentController.performSegue(withIdentifier: "abioticDataDetail", sender: nil)
+    if reason == .committed {
+      doneButtonPressed()
     }
   }
   

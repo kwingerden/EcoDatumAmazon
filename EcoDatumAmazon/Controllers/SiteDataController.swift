@@ -63,7 +63,7 @@ class SiteDataController: UIViewController {
     super.prepare(for: segue, sender: sender)
   
     switch segue.destination {
-    case is EcoFactorChoiceController:
+    case is CollectionDateChoiceController:
       break // do nothing
     case is AbioticDataDetailController:
       let viewController = segue.destination as! AbioticDataDetailController

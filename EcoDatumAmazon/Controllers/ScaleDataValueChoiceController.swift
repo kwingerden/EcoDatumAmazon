@@ -22,4 +22,8 @@ class ScaleDataValueChoiceController: UIViewController {
     
   }
   
+  func doneButtonPressed() {
+    
+  }
+  
 }

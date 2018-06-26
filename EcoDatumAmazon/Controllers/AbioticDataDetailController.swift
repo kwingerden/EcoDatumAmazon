@@ -74,27 +74,12 @@ class AbioticDataDetailController: UIViewController {
     }
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.done,
+      barButtonSystemItem: UIBarButtonSystemItem.trash,
       target: self,
       action: #selector(doneButtonPressed))
   }
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    switch segue.destination {
-      
-    case is CollectionDateChoiceController:
-      let viewController = segue.destination as! CollectionDateChoiceController
-      viewController.ecoFactor = ecoFactor
-      
-    default:
-      break
-      
-    }
-    
-  }
-  
   @objc func doneButtonPressed() {
-    saveData()
     let mainTabBarController = navigationController?.viewControllers.first {
       $0 is MainTabBarController
     }
@@ -103,48 +88,9 @@ class AbioticDataDetailController: UIViewController {
     }
   }
   
-  private func saveData() {
-    if let site = ViewContext.shared.selectedSite {
-      do {
-          let newAbioticData = try AbioticData.create(ecoFactor)
-          site.addToEcoData(newAbioticData!)
-          try site.save()
-      } catch {
-        LOG.error("Faield to create and save abiotic data: \(error)")
-      }
-    } else {
-      LOG.error("No selected site")
-    }
-  }
-  
 }
 
 extension AbioticDataDetailController: UITableViewDelegate {
-  
-  func tableView(_ tableView: UITableView,
-                 didSelectRowAt indexPath: IndexPath) {
-    switch indexPath.row {
-      
-    case TableCellIndex.CollectionDate.rawValue:
-      performSegue(withIdentifier: "updateEcoFactor", sender: nil)
-      
-    case TableCellIndex.AbioticFactor.rawValue:
-      break
-      
-    case TableCellIndex.AbioticDataType.rawValue:
-      break
-      
-    case TableCellIndex.AbioticDataUnit.rawValue:
-      break
-      
-    case TableCellIndex.AbioticDataValue.rawValue:
-      break
-      
-    default:
-      LOG.error("Unexpected index path: \(indexPath)")
-      
-    }
-  }
   
 }
 
