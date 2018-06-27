@@ -79,7 +79,7 @@ extension Site {
     } else {
       site.altitudeAccuracy = nil
     }
-  
+    
     site.photo = photo
     site.notes = notes
     site.place = place
@@ -147,6 +147,7 @@ fileprivate class SiteCodable: Codable {
     case state
     case postalCode
     case country
+    case ecoFactors
   }
   
   let site: Site
@@ -240,6 +241,19 @@ fileprivate class SiteCodable: Codable {
       state: state,
       postalCode: postalCode,
       country: country)
+    
+    let ecoFactors = try container.decodeIfPresent(
+      [EcoFactor].self,
+      forKey: CodingKeys.ecoFactors)
+    if let ecoFactors = ecoFactors {
+      try ecoFactors.forEach {
+        (ecoFactor: EcoFactor) in
+        if let abioticData = try AbioticData.create(ecoFactor) {
+          site.addToEcoData(abioticData)
+        }
+      }
+      try site.save()
+    }
   }
   
   func encode(to encoder: Encoder) throws {
@@ -295,6 +309,20 @@ fileprivate class SiteCodable: Codable {
     try container.encodeIfPresent(site.state, forKey: CodingKeys.state)
     try container.encodeIfPresent(site.postalCode, forKey: CodingKeys.postalCode)
     try container.encodeIfPresent(site.country, forKey: CodingKeys.country)
+    
+    if let ecoData = site.ecoData {
+      let jsonDecoder = JSONDecoder()
+      let ecoFactors = try ecoData.map {
+        $0 as! EcoData
+        }.map {
+          (ecoData: EcoData) -> EcoFactor in
+          let ecoFactor = try jsonDecoder.decode(
+            EcoFactor.self,
+            from: ecoData.jsonData!)
+          return ecoFactor
+      }
+      try container.encode(ecoFactors, forKey: CodingKeys.ecoFactors)
+    }
   }
   
 }

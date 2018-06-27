@@ -54,37 +54,62 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EnB-vX-nXJ">
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bb4-yP-N5M">
-                                    <size key="itemSize" width="200" height="200"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="headerReferenceSize" width="50" height="40"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="r9t-IX-wPG" customClass="SiteDataEcoFactorCell" customModule="EcoDatumAmazon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="10" y="50" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fia-8A-37R">
-                                                    <rect key="frame" x="79" y="90" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fia-8A-37R">
+                                                    <rect key="frame" x="8" y="8" width="104" height="84"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Fia-8A-37R" firstAttribute="centerY" secondItem="r9t-IX-wPG" secondAttribute="centerY" id="jZj-Le-YqF"/>
-                                            <constraint firstItem="Fia-8A-37R" firstAttribute="centerX" secondItem="r9t-IX-wPG" secondAttribute="centerX" id="wWV-hX-Laa"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Fia-8A-37R" secondAttribute="trailing" id="HNi-wc-tMW"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Fia-8A-37R" secondAttribute="bottom" id="HVY-Hm-wOR"/>
+                                            <constraint firstItem="Fia-8A-37R" firstAttribute="leading" secondItem="r9t-IX-wPG" secondAttribute="leadingMargin" id="Tpu-7E-7xn"/>
+                                            <constraint firstItem="Fia-8A-37R" firstAttribute="top" secondItem="r9t-IX-wPG" secondAttribute="topMargin" id="wej-pk-PD6"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="label" destination="Fia-8A-37R" id="gmq-F7-8aZ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionHeader" id="kNX-qj-OO2" customClass="SiteDataEcoFactorSectionHeader" customModule="EcoDatumAmazon" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29l-Ll-hAf">
+                                            <rect key="frame" x="10" y="0.0" width="404" height="40"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="29l-Ll-hAf" secondAttribute="bottom" id="9H5-ZM-wmO"/>
+                                        <constraint firstAttribute="trailing" secondItem="29l-Ll-hAf" secondAttribute="trailing" id="cMf-Ds-Xwn"/>
+                                        <constraint firstItem="29l-Ll-hAf" firstAttribute="leading" secondItem="kNX-qj-OO2" secondAttribute="leading" constant="10" id="uTw-or-LsN"/>
+                                        <constraint firstItem="29l-Ll-hAf" firstAttribute="top" secondItem="kNX-qj-OO2" secondAttribute="top" id="wIo-9v-1df"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="label" destination="29l-Ll-hAf" id="bJN-rv-aU3"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
