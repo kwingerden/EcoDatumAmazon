@@ -14,13 +14,9 @@ class AbitoicDataUnitChoiceController: UIViewController {
   
   var ecoFactor: EcoFactor!
   
-  private var abioticEcoData: AbioticEcoData! {
-    return ecoFactor.abioticEcoData!
-  }
+  private var abioticEcoData: AbioticEcoData!
   
-  private var abioticDataType: AbioticDataType! {
-    return abioticEcoData!.dataType!
-  }
+  private var abioticDataType: AbioticDataType!
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -28,6 +24,9 @@ class AbitoicDataUnitChoiceController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    abioticEcoData = ecoFactor.abioticEcoData!
+    abioticDataType = abioticEcoData!.dataType!
     
     switch abioticDataType! {
     case .Air(let airDataType):

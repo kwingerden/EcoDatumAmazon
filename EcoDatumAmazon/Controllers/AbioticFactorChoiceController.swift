@@ -15,14 +15,14 @@ class AbioticFactorChoiceController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  private var abioticEcoData: AbioticEcoData! {
-    return ecoFactor.abioticEcoData!
-  }
+  private var abioticEcoData: AbioticEcoData!
   
   private var selectedAbioticFactor: AbioticFactor!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    abioticEcoData = ecoFactor.abioticEcoData!
     
     switch ecoFactor.ecoData! {
     case .Abiotic:

@@ -164,7 +164,7 @@ struct AbioticEcoData: Codable {
       
     default:
       dataValue = AbioticDataValue.DecimalDataValue(
-        try container.decode(Decimal.self, forKey: .dataValue))
+        try container.decode(String.self, forKey: .dataValue))
       
     }
   }

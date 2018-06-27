@@ -42,11 +42,21 @@ class DecimalDataValueChoiceController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    guard embeddedViewToDisplay == .decimalDataValueView else {
+      return
+    }
+    
     isViewDisappearing = false
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    
+    guard embeddedViewToDisplay == .decimalDataValueView else {
+      return
+    }
+    
     isViewDisappearing = true
   }
   
@@ -83,9 +93,9 @@ class DecimalDataValueChoiceController: UIViewController {
     }
   }
   
-  private func validateDecimalTextField() -> Decimal? {
-    if let _ = toDouble(), let decimal = toDecimal() {
-      return decimal
+  private func validateDecimalTextField() -> String? {
+    if let _ = toDouble(), let _ = toDecimal() {
+      return dataValueTextField.text
     }
     displayInvalidDecimalAlert()
     return nil

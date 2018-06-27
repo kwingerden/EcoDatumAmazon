@@ -52,13 +52,9 @@ class AbioticDataValueChoiceController: UIViewController {
     }
   }
   
-  private var abioticEcoData: AbioticEcoData! {
-    return ecoFactor.abioticEcoData!
-  }
+  private var abioticEcoData: AbioticEcoData!
   
-  private var abioticDataUnit: AbioticDataUnit! {
-    return abioticEcoData!.dataUnit!
-  }
+  private var abioticDataUnit: AbioticDataUnit! 
   
   @IBOutlet weak var soilTextureDataValueView: UIView!
   
@@ -75,6 +71,9 @@ class AbioticDataValueChoiceController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    abioticEcoData = ecoFactor.abioticEcoData!
+    abioticDataUnit = abioticEcoData.dataUnit!
+    
     switch abioticDataUnit! {
       
     case ._Air_Ozone_Scale_,
@@ -85,7 +84,7 @@ class AbioticDataValueChoiceController: UIViewController {
       title = "Select Value"
       
     case ._Soil_Texture_Scale_:
-      title = "Enter Values"
+      title = "Select Values"
       
     case .DegreesCelsius,
          .DegreesFahrenheit,
@@ -109,6 +108,10 @@ class AbioticDataValueChoiceController: UIViewController {
     scaleDataValueView.isHidden = !(embeddedViewToDisplay == .scaleDataValueView)
     soilTextureDataValueView.isHidden = !(embeddedViewToDisplay == .soilTextureDataValueView)
     decimalDataValueView.isHidden = !(embeddedViewToDisplay == .decimalDataValueView)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       barButtonSystemItem: UIBarButtonSystemItem.done,
@@ -117,6 +120,9 @@ class AbioticDataValueChoiceController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    abioticEcoData = ecoFactor.abioticEcoData!
+    abioticDataUnit = abioticEcoData.dataUnit!
+    
     switch segue.destination {
     case is SoilTextureDataValueChoiceController:
       soilTextureDataValueChoiceController = segue.destination as! SoilTextureDataValueChoiceController

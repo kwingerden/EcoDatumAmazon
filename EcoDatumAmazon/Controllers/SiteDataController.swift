@@ -63,6 +63,7 @@ class SiteDataController: UIViewController {
       } catch {
         LOG.error("Failed to load data: \(error)")
       }
+      
     }
     
     collectionView.reloadData()

@@ -15,18 +15,17 @@ class AbioticDataTypeChoiceController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  private var abioticEcoData: AbioticEcoData! {
-    return ecoFactor.abioticEcoData!
-  }
+  private var abioticEcoData: AbioticEcoData!
   
-  private var abioticFactor: AbioticFactor! {
-    return abioticEcoData.abioticFactor!
-  }
+  private var abioticFactor: AbioticFactor!
   
   private var selectedAbioticDataType: AbioticDataType!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    abioticEcoData = ecoFactor.abioticEcoData!
+    abioticFactor = abioticEcoData.abioticFactor!
     
     title = "\(abioticFactor.rawValue) Data Type Choice"
     

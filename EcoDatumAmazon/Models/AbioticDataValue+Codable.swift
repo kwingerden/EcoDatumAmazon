@@ -10,7 +10,7 @@ import Foundation
 
 enum AbioticDataValue: Codable {
   
-  case DecimalDataValue(Decimal)
+  case DecimalDataValue(String)
   case AirOzoneScale(AirOzoneScale)
   case SoilPotassiumScale(SoilPotassiumScale)
   case SoilTextureScale(SoilTextureScale)
@@ -37,7 +37,7 @@ enum AbioticDataValue: Codable {
     case .DecimalDataValue(let lhsDecimalDataValue):
       switch rhs {
       case .DecimalDataValue(let rhsDecimalDataValue):
-        return lhsDecimalDataValue == rhsDecimalDataValue
+        return Decimal(string: lhsDecimalDataValue) == Decimal(string: rhsDecimalDataValue)
       default: break
       }
     case .AirOzoneScale(let lhsAirOzoneScale):
