@@ -99,6 +99,7 @@ class SiteTableController: UIViewController {
         let site = try Site.create()
         try site.save()
         ViewContext.shared.selectedSite = site
+        ViewContext.shared.isNewSite = NSObject()
       } catch let error as NSError {
         LOG.error("\(error), \(error.userInfo)")
       }
@@ -188,7 +189,7 @@ extension SiteTableController: UITableViewDelegate {
           (action) in
           do {
             try site.delete()
-            try site.save()
+            try PersistenceUtil.shared.saveContext()
             try self.fetchedResultsController = Site.fetch()
           } catch let error as NSError {
             LOG.error("\(error), \(error.userInfo)")

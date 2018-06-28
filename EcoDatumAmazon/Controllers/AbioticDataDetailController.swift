@@ -73,9 +73,10 @@ class AbioticDataDetailController: UIViewController {
     
     switch ecoData! {
     case .Abiotic:
-      title = "Abiotic EcoData"
+      title = "\(abioticFactor.rawValue) EcoData"
     case .Biotic:
-      title = "Biotic EcoData"
+      LOG.error("Unexpected Biotic ecodata")
+      return
     }
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(

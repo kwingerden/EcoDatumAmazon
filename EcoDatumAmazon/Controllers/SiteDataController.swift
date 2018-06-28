@@ -14,11 +14,13 @@ class SiteDataController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
-  private var selectedIndexPath: IndexPath? = nil
+  private var selectedEcoDataAndFactor: (EcoData, EcoFactor)? = nil
   
   private var sectionLabels: [YearMonthDay] = []
   
   private var sectionLabelEcoDataAndFactorsMap: [YearMonthDay: [(EcoData, EcoFactor)]] = [:]
+  
+  private var isObservingSelectedSiteKeyPath: Bool = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,6 +30,13 @@ class SiteDataController: UIViewController {
     
     let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
     layout.sectionHeadersPinToVisibleBounds = true
+    
+    ViewContext.shared.addObserver(
+      self,
+      forKeyPath: ViewContext.selectedSiteKeyPath,
+      options: [.initial, .new],
+      context: nil)
+    isObservingSelectedSiteKeyPath = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +47,10 @@ class SiteDataController: UIViewController {
       target: self,
       action: #selector(addButtonPressed))
     
+    refresh()
+  }
+  
+  private func refresh() {
     if let site = ViewContext.shared.selectedSite,
       let ecoData = site.ecoData {
       let orderedEcoData = ecoData.map {
@@ -93,13 +106,35 @@ class SiteDataController: UIViewController {
       
     } else {
       
-      selectedIndexPath = nil
+      selectedEcoDataAndFactor = nil
       sectionLabels = []
       sectionLabelEcoDataAndFactorsMap = [:]
       
     }
     
     collectionView.reloadData()
+  }
+  
+  deinit {
+    if isObservingSelectedSiteKeyPath {
+      ViewContext.shared.removeObserver(
+        self,
+        forKeyPath: ViewContext.selectedSiteKeyPath)
+    }
+  }
+  
+  override func observeValue(forKeyPath keyPath: String?,
+                             of object: Any?,
+                             change: [NSKeyValueChangeKey : Any]?,
+                             context: UnsafeMutableRawPointer?) {
+    if let keyPath = keyPath, keyPath == ViewContext.selectedSiteKeyPath {
+      if let _ = change?[NSKeyValueChangeKey.newKey] as? Site {
+        refresh()
+        collectionView.isHidden = false
+      } else {
+        collectionView.isHidden = true
+      }
+    }
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -116,10 +151,13 @@ class SiteDataController: UIViewController {
     case is AbioticDataDetailController:
       let viewController = segue.destination as! AbioticDataDetailController
       viewController.site = ViewContext.shared.selectedSite!
-      let sectionLabel = sectionLabels[selectedIndexPath!.section]
-      let ecoDataAndFactor = sectionLabelEcoDataAndFactorsMap[sectionLabel]![selectedIndexPath!.row]
-      viewController.abioticData = ecoDataAndFactor.0 as! AbioticData
-      viewController.ecoFactor = ecoDataAndFactor.1
+      viewController.abioticData = selectedEcoDataAndFactor!.0 as! AbioticData
+      viewController.ecoFactor = selectedEcoDataAndFactor!.1
+    case is BioticDataDetailController:
+      let viewController = segue.destination as! BioticDataDetailController
+      viewController.site = ViewContext.shared.selectedSite!
+      viewController.bioticData = selectedEcoDataAndFactor!.0 as! BioticData
+      viewController.ecoFactor = selectedEcoDataAndFactor!.1
     default:
       LOG.error("Unexpected segue destination: \(segue.destination)")
     }
@@ -171,8 +209,15 @@ extension SiteDataController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView,
                       didSelectItemAt indexPath: IndexPath) {
-    selectedIndexPath = indexPath
-    performSegue(withIdentifier: "abioticDataDetail", sender: nil)
+    let sectionYearMonthDay = sectionLabels[indexPath.section]
+    selectedEcoDataAndFactor = sectionLabelEcoDataAndFactorsMap[sectionYearMonthDay]![indexPath.row]
+    if let _ = selectedEcoDataAndFactor!.1.abioticEcoData {
+      performSegue(withIdentifier: "abioticDataDetail", sender: nil)
+    } else if let _ = selectedEcoDataAndFactor!.1.bioticEcoData {
+      performSegue(withIdentifier: "bioticDataDetail", sender: nil)
+    } else {
+      LOG.error("Cannot find abiotic or biotic ecodata")
+    }
   }
   
 }
@@ -210,22 +255,40 @@ extension SiteDataController: UICollectionViewDataSource {
     let sectionYearMonthDay = sectionLabels[indexPath.section]
     let ecoDataAndFactor = sectionLabelEcoDataAndFactorsMap[sectionYearMonthDay]![indexPath.row]
     
-    guard let dataType = ecoDataAndFactor.1.abioticEcoData?.dataType else {
-      return UICollectionViewCell()
-    }
-    
-    let labelText: String?
-    let backgrounImage: UIImage?
-    switch dataType {
-    case .Air(let airDataType):
-      labelText = airDataType.rawValue
-      backgrounImage = #imageLiteral(resourceName: "AirLogo")
-    case .Soil(let soilDataType):
-      labelText = soilDataType.rawValue
-      backgrounImage = #imageLiteral(resourceName: "SoilLogo")
-    case .Water(let waterDataType):
-      labelText = waterDataType.rawValue
-      backgrounImage = #imageLiteral(resourceName: "WaterLogo")
+    var labelText: String?
+    var backgrounImage: UIImage?
+    if let abioticEcoData = ecoDataAndFactor.1.abioticEcoData {
+      guard let dataType = abioticEcoData.dataType else {
+        return UICollectionViewCell()
+      }
+      
+      switch dataType {
+      case .Air(let airDataType):
+        labelText = airDataType.rawValue
+        backgrounImage = #imageLiteral(resourceName: "AirLogo")
+      case .Soil(let soilDataType):
+        labelText = soilDataType.rawValue
+        backgrounImage = #imageLiteral(resourceName: "SoilLogo")
+      case .Water(let waterDataType):
+        labelText = waterDataType.rawValue
+        backgrounImage = #imageLiteral(resourceName: "WaterLogo")
+      }
+    } else if let bioticEcoData = ecoDataAndFactor.1.bioticEcoData {
+      guard let bioticFactor = bioticEcoData.bioticFactor else {
+        return UICollectionViewCell()
+      }
+  
+      switch bioticFactor {
+      case .Animal:
+        labelText = BioticFactor.Animal.rawValue
+        backgrounImage = #imageLiteral(resourceName: "AnimalLogo")
+      case .Fungi:
+        labelText = BioticFactor.Fungi.rawValue
+        backgrounImage = #imageLiteral(resourceName: "FungiLogo")
+      case .Plant:
+        labelText = BioticFactor.Plant.rawValue
+        backgrounImage = #imageLiteral(resourceName: "BioticLogo")
+      }
     }
     
     if let labelText = labelText {

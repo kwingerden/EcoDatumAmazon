@@ -15,6 +15,9 @@ import Foundation
   static let selectedSiteKeyPath = "selectedSite"
   dynamic var selectedSite: Site?
   
+  static let isNewSiteKeyPath = "isNewSite"
+  dynamic var isNewSite: NSObject?
+  
   static let refreshSiteTableKeyPath = "refreshSiteTable"
   dynamic var refreshSiteTable: NSObject?
   

@@ -46,7 +46,7 @@ class DecimalDataValueChoiceController: UIViewController {
     guard embeddedViewToDisplay == .decimalDataValueView else {
       return
     }
-    
+    view.setNeedsLayout()
     isViewDisappearing = false
   }
   
@@ -75,7 +75,6 @@ class DecimalDataValueChoiceController: UIViewController {
     dataUnitLabel.textColor = .black
     dataUnitLabel.font = MTFontManager().latinModernFont(withSize: 25)
     dataUnitLabel.frame.size = dataUnitView.frame.size
-    
   }
   
   func doneButtonPressed() {

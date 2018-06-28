@@ -1,20 +1,20 @@
 //
-//  AbioticDataType.swift
+//  AbioticFactor.swift
 //  EcoDatumAmazon
 //
-//  Created by Kenneth Wingerden on 6/21/18.
+//  Created by Kenneth Wingerden on 6/14/18.
 //  Copyright © 2018 Kenneth Wingerden. All rights reserved.
 //
 
 import Foundation
 
-enum BioticDataType: String, Codable {
+enum BioticFactor: String, Codable {
   
   case Animal
   case Fungi
   case Plant
   
-  static let all: [BioticDataType] = [
+  static let all: [BioticFactor] = [
     .Animal,
     .Fungi,
     .Plant

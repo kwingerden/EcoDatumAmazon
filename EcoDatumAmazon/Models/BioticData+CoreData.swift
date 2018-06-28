@@ -10,42 +10,46 @@ import CoreData
 import Foundation
 import UIKit
 
-extension AbioticData {
+extension BioticData {
   
-  static func create(_ ecoFactor: EcoFactor) throws -> AbioticData? {
+  static func create(_ ecoFactor: EcoFactor) throws -> BioticData? {
     let jsonData = try JSONEncoder().encode(ecoFactor)
     if let jsonString = String(data: jsonData, encoding: .utf8) {
-      LOG.debug(jsonString)
+      if jsonString.count > 500 {
+        LOG.debug(jsonString[..<jsonString.index(jsonString.startIndex, offsetBy: 500)])
+      } else {
+        LOG.debug(jsonString)
+      }
     }
     guard let collectionDate = ecoFactor.collectionDate,
-      let abioticEcoData = ecoFactor.abioticEcoData,
-      let abioticFactor = abioticEcoData.abioticFactor?.rawValue else {
-      LOG.error("Failed to create new EcoFactor because necessary data not available.")
-      return nil
+      let bioticEcoData = ecoFactor.bioticEcoData,
+      let bioticFactor = bioticEcoData.bioticFactor?.rawValue else {
+        LOG.error("Failed to create new EcoFactor because necessary data not available.")
+        return nil
     }
     
     let entity = NSEntityDescription.entity(
-      forEntityName: "AbioticData",
+      forEntityName: "BioticData",
       in: PersistenceUtil.shared.container.viewContext)!
     
-    let abioticData = AbioticData(
+    let bioticData = BioticData(
       entity: entity,
       insertInto: PersistenceUtil.shared.container.viewContext)
     
-    abioticData.id = UUID()
-    abioticData.ecoFactor = ecoFactor.description
-    abioticData.collectionDate = collectionDate
-    abioticData.abioticFactor = abioticFactor
-    abioticData.jsonData = jsonData
- 
-    return abioticData
+    bioticData.id = UUID()
+    bioticData.ecoFactor = ecoFactor.description
+    bioticData.collectionDate = collectionDate
+    bioticData.bioticFactor = bioticFactor
+    bioticData.jsonData = jsonData
+    
+    return bioticData
   }
   
-  static func fetch() throws -> NSFetchedResultsController<AbioticData> {
-    let fetchRequest = AbioticData.fetchRequest() as NSFetchRequest<AbioticData>
+  static func fetch() throws -> NSFetchedResultsController<BioticData> {
+    let fetchRequest = BioticData.fetchRequest() as NSFetchRequest<BioticData>
     fetchRequest.sortDescriptors = [
       NSSortDescriptor(
-        key: #keyPath(AbioticData.collectionDate),
+        key: #keyPath(BioticData.collectionDate),
         ascending: true)
     ]
     let fetchedResultsController = NSFetchedResultsController(

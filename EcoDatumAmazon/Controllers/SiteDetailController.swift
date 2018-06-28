@@ -55,6 +55,8 @@ class SiteDetailController: UIViewController {
   
   private var isObservingSelectedSiteKeyPath: Bool = false
   
+  private var isObservingIsNewSiteKeyPath: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -107,6 +109,13 @@ class SiteDetailController: UIViewController {
       options: [.initial, .new],
       context: nil)
     isObservingSelectedSiteKeyPath = true
+    
+    ViewContext.shared.addObserver(
+      self,
+      forKeyPath: ViewContext.isNewSiteKeyPath,
+      options: [.new],
+      context: nil)
+    isObservingIsNewSiteKeyPath = true
   }
   
   deinit {
@@ -114,6 +123,11 @@ class SiteDetailController: UIViewController {
       ViewContext.shared.removeObserver(
         self,
         forKeyPath: ViewContext.selectedSiteKeyPath)
+    }
+    if isObservingIsNewSiteKeyPath {
+      ViewContext.shared.removeObserver(
+        self,
+        forKeyPath: ViewContext.isNewSiteKeyPath)
     }
   }
   
@@ -190,6 +204,8 @@ class SiteDetailController: UIViewController {
         stackView.isHidden = true
       
       }
+    } else if let keyPath = keyPath, keyPath == ViewContext.isNewSiteKeyPath {
+      siteNameTextField.becomeFirstResponder()
     }
   }
   

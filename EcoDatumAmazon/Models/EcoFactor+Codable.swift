@@ -56,7 +56,7 @@ struct EcoFactor: Codable, CustomStringConvertible {
     if container.contains(.abioticFactor) {
       let abioticEcoData = try container.decode(AbioticEcoData.self, forKey: .abioticFactor)
       ecoData = EcoData.Abiotic(abioticEcoData)
-    } else if container.contains(.abioticFactor) {
+    } else if container.contains(.bioticFactor) {
       let bioticEcoData = try container.decode(BioticEcoData.self, forKey: .bioticFactor)
       ecoData = EcoData.Biotic(bioticEcoData)
     } else {

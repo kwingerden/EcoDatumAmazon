@@ -248,8 +248,14 @@ fileprivate class SiteCodable: Codable {
     if let ecoFactors = ecoFactors {
       try ecoFactors.forEach {
         (ecoFactor: EcoFactor) in
-        if let abioticData = try AbioticData.create(ecoFactor) {
+        if ecoFactor.abioticEcoData != nil,
+          let abioticData = try AbioticData.create(ecoFactor) {
           site.addToEcoData(abioticData)
+        } else if ecoFactor.bioticEcoData != nil,
+          let bioticData = try BioticData.create(ecoFactor) {
+            site.addToEcoData(bioticData)
+        } else {
+          LOG.error("Failed to load EcoFactor: \(ecoFactor)")
         }
       }
       try site.save()

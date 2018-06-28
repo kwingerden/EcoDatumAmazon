@@ -15,9 +15,7 @@ class MainSplitViewController: UISplitViewController {
     super.viewDidLoad()
     
     delegate = self
-    if UIDevice.current.userInterfaceIdiom == .pad {
-      preferredDisplayMode = .primaryOverlay
-    }
+    preferredDisplayMode = .allVisible
   }
   
 }
