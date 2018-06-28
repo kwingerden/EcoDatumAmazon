@@ -32,7 +32,11 @@ class BioticNotesChoiceController: UIViewController {
     textView.roundedAndLightBordered()
     textView.allowsEditingTextAttributes = true
     textView.attributedText = nil
-    
+    textView.delegate = self
+    textView.becomeFirstResponder()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       barButtonSystemItem: UIBarButtonSystemItem.done,
       target: self,
@@ -56,12 +60,15 @@ class BioticNotesChoiceController: UIViewController {
       LOG.error("No selected site")
     }
 
-    let mainTabBarController = navigationController?.viewControllers.first {
-      $0 is MainTabBarController
-    }
-    if let mainTabBarController = mainTabBarController {
-      navigationController?.popToViewController(mainTabBarController, animated: true)
-    }
+    dismiss(animated: true, completion: nil)
+  }
+  
+}
+
+extension BioticNotesChoiceController: UITextViewDelegate {
+  
+  func textViewDidEndEditing(_ textView: UITextView) {
+    doneButtonPressed()
   }
   
 }

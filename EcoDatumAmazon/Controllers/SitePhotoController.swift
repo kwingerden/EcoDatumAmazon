@@ -31,6 +31,9 @@ class SitePhotoController: UIViewController {
     imageView.roundedAndLightBordered()
     stackView.isHidden = true
     
+    cameraButton.roundedAndLightBordered()
+    photoLibraryButton.roundedAndLightBordered()
+    
     ViewContext.shared.addObserver(
       self,
       forKeyPath: ViewContext.selectedSiteKeyPath,
@@ -85,6 +88,13 @@ class SitePhotoController: UIViewController {
       let image = imageView.image,
       let photo = UIImageJPEGRepresentation(image, 1) {
       site.photo = photo
+      do {
+        try site.save()
+      } catch {
+        LOG.error("Failed to save photo: \(error)")
+      }
+    } else {
+      LOG.error("Failed to save image")
     }
   }
   

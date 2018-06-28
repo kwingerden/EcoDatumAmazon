@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 class MainTabBarController: UITabBarController {
-    
+  
+  static var shared: MainTabBarController?
+  
   private var isObservingSelectedSiteKeyPath: Bool = false
   
   private var isObservingIsNewSiteKeyPath: Bool = false
@@ -18,9 +20,11 @@ class MainTabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    MainTabBarController.shared = self
+    
     navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
     navigationItem.leftItemsSupplementBackButton = true
-  
+    
     selectedIndex = ViewContext.shared.selectedTabIndex
     
     ViewContext.shared.addObserver(

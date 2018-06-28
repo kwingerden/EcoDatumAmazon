@@ -79,10 +79,18 @@ class AbioticDataDetailController: UIViewController {
       return
     }
     
+    navigationItem.leftBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: UIBarButtonSystemItem.done,
+      target: self,
+      action: #selector(doneButtonPressed))
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       barButtonSystemItem: UIBarButtonSystemItem.trash,
       target: self,
       action: #selector(trashButtonPressed))
+  }
+  
+  @objc func doneButtonPressed() {
+    dismiss(animated: true, completion: nil)
   }
   
   @objc func trashButtonPressed() {
@@ -99,14 +107,7 @@ class AbioticDataDetailController: UIViewController {
       } catch {
         LOG.error("Failed to delete abiotic data: \(error)")
       }
-      let mainTabBarController = self.navigationController?.viewControllers.first {
-        $0 is MainTabBarController
-      }
-      if let mainTabBarController = mainTabBarController {
-        self.navigationController?.popToViewController(
-          mainTabBarController,
-          animated: true)
-      }
+      self.dismiss(animated: true, completion: nil)
     }
     alert.addAction(cancelAction)
     alert.addAction(deleteAction)

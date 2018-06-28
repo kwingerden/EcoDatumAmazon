@@ -62,12 +62,7 @@ class AbitoicDataUnitChoiceController: UIViewController {
   }
   
   @objc func cancelButtonPressed() {
-    let mainTabBarController = navigationController?.viewControllers.first {
-      $0 is MainTabBarController
-    }
-    if let mainTabBarController = mainTabBarController {
-      navigationController?.popToViewController(mainTabBarController, animated: true)
-    }
+    dismiss(animated: true, completion: nil)
   }
   
 }

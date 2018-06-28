@@ -42,10 +42,12 @@ class SiteDataController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.add,
-      target: self,
-      action: #selector(addButtonPressed))
+    if let mainTabBarController = MainTabBarController.shared {
+      mainTabBarController.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        barButtonSystemItem: UIBarButtonSystemItem.add,
+        target: self,
+        action: #selector(addButtonPressed))
+    }
     
     refresh()
   }
@@ -146,20 +148,24 @@ class SiteDataController: UIViewController {
     super.prepare(for: segue, sender: sender)
   
     switch segue.destination {
-    case is CollectionDateChoiceController:
+    case is CollectionDateNavigationChoiceController:
       break // do nothing
-    case is AbioticDataDetailController:
-      let viewController = segue.destination as! AbioticDataDetailController
+    case is AbioticDataDetailNavigationController:
+      let viewController = segue.destination as! AbioticDataDetailNavigationController
       viewController.site = ViewContext.shared.selectedSite!
       viewController.abioticData = selectedEcoDataAndFactor!.0 as! AbioticData
       viewController.ecoFactor = selectedEcoDataAndFactor!.1
-    case is BioticDataDetailController:
-      let viewController = segue.destination as! BioticDataDetailController
+    case is BioticDataDetailNavigationController:
+      let viewController = segue.destination as! BioticDataDetailNavigationController
       viewController.site = ViewContext.shared.selectedSite!
       viewController.bioticData = selectedEcoDataAndFactor!.0 as! BioticData
       viewController.ecoFactor = selectedEcoDataAndFactor!.1
     default:
       LOG.error("Unexpected segue destination: \(segue.destination)")
+    }
+    
+    if let mainTabBarController = MainTabBarController.shared {
+      mainTabBarController.navigationItem.rightBarButtonItem = nil
     }
   }
   

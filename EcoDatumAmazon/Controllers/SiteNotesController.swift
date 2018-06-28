@@ -74,6 +74,11 @@ class SiteNotesController: UIViewController {
   private func save() {
     if let site = currrentlySelectedSite {
       site.notes = notesTextView.attributedText
+      do {
+        try site.save()
+      } catch {
+        LOG.error("Failed to save notes: \(error)")
+      }
     }
   }
 }

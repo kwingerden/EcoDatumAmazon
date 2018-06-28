@@ -36,26 +36,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>UTExportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.data</string>
-			</array>
-			<key>UTTypeIdentifier</key>
-			<string>org.ecodatum.EcoDatum.site</string>
-			<key>UTTypeDescription</key>
-			<string>EcoDatum Site</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.mime-type</key>
-				<string>application/ecodatum-site</string>
-				<key>public.filename-extension</key>
-				<string>site</string>
-			</dict>
-		</dict>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -76,10 +56,10 @@
 	<array>
 		<string>MKDirectionsModeOther</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>EcoDatum Amazon needs location information to accurately pin-point Sites on a map.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>EcoDatum Amazon needs access to the camera in order to take photos.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>EcoDatum Amazon needs location information to accurately pin-point Sites on a map.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>EcoDatum Amazon needs access to the photo library so that a photo can be chosen.</string>
 	<key>UILaunchStoryboardName</key>
@@ -93,6 +73,7 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
@@ -102,6 +83,26 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>EcoDatum Site</string>
+			<key>UTTypeIdentifier</key>
+			<string>org.ecodatum.EcoDatum.site</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>site</string>
+				<key>public.mime-type</key>
+				<string>application/ecodatum-site</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

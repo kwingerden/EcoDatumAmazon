@@ -30,6 +30,10 @@
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
 		BE210A8020D48E8D002203E5 /* Site+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A7F20D48E8D002203E5 /* Site+CoreData.swift */; };
+		BE2479D620E5692B003B3370 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2479D520E5692B003B3370 /* CloudKit.framework */; };
+		BE2479D820E58152003B3370 /* AbioticDataDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2479D720E58152003B3370 /* AbioticDataDetailNavigationController.swift */; };
+		BE2479DA20E58195003B3370 /* BioticDataDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2479D920E58195003B3370 /* BioticDataDetailNavigationController.swift */; };
+		BE2479DC20E58800003B3370 /* CollectionDateNavigationChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2479DB20E58800003B3370 /* CollectionDateNavigationChoiceController.swift */; };
 		BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26543320DAF7F500844E4F /* Base64Encoded.swift */; };
 		BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */; };
 		BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0A20D771150069513E /* SiteNotesController.swift */; };
@@ -111,6 +115,11 @@
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
 		BE210A7F20D48E8D002203E5 /* Site+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Site+CoreData.swift"; sourceTree = "<group>"; };
+		BE2479D420E56827003B3370 /* EcoDatumAmazon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EcoDatumAmazon.entitlements; sourceTree = "<group>"; };
+		BE2479D520E5692B003B3370 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		BE2479D720E58152003B3370 /* AbioticDataDetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataDetailNavigationController.swift; sourceTree = "<group>"; };
+		BE2479D920E58195003B3370 /* BioticDataDetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioticDataDetailNavigationController.swift; sourceTree = "<group>"; };
+		BE2479DB20E58800003B3370 /* CollectionDateNavigationChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDateNavigationChoiceController.swift; sourceTree = "<group>"; };
 		BE26543320DAF7F500844E4F /* Base64Encoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Encoded.swift; sourceTree = "<group>"; };
 		BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotoController.swift; sourceTree = "<group>"; };
 		BE4B9B0A20D771150069513E /* SiteNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteNotesController.swift; sourceTree = "<group>"; };
@@ -165,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE2479D620E5692B003B3370 /* CloudKit.framework in Frameworks */,
 				BEF3C2F520D35DE200ED9A97 /* MapKit.framework in Frameworks */,
 				855F43E7C86C72F8CDB7F7BD /* Pods_EcoDatumAmazon.framework in Frameworks */,
 			);
@@ -215,6 +225,7 @@
 		BEF3C2BF20D356FD00ED9A97 /* EcoDatumAmazon */ = {
 			isa = PBXGroup;
 			children = (
+				BE2479D420E56827003B3370 /* EcoDatumAmazon.entitlements */,
 				BEF3C2FA20D3734900ED9A97 /* Models */,
 				BEF3C2E520D3574F00ED9A97 /* Controllers */,
 				BEF3C2E420D3572D00ED9A97 /* Resources */,
@@ -289,6 +300,9 @@
 				BEEE5C0120E42BF50061A4DB /* BioticPhotoChoiceController.swift */,
 				BEEE5C0320E438CD0061A4DB /* BioticNotesChoiceController.swift */,
 				BEEE5C0520E44C290061A4DB /* BioticDataDetailController.swift */,
+				BE2479D720E58152003B3370 /* AbioticDataDetailNavigationController.swift */,
+				BE2479D920E58195003B3370 /* BioticDataDetailNavigationController.swift */,
+				BE2479DB20E58800003B3370 /* CollectionDateNavigationChoiceController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +310,7 @@
 		BEF3C2F320D35DE200ED9A97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE2479D520E5692B003B3370 /* CloudKit.framework */,
 				BEF3C2F420D35DE200ED9A97 /* MapKit.framework */,
 				B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */,
 				265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */,
@@ -387,6 +402,12 @@
 						CreatedOnToolsVersion = 9.4;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -511,6 +532,7 @@
 				BE19499C20E034FE00962DA0 /* ScaleDataType.swift in Sources */,
 				BEF3C31420D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift in Sources */,
 				BE10E86720DCAAC9006C680A /* EcoFactor+Codable.swift in Sources */,
+				BE2479DC20E58800003B3370 /* CollectionDateNavigationChoiceController.swift in Sources */,
 				BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */,
 				BE1949A220E0404000962DA0 /* AbioticDataValue+Codable.swift in Sources */,
 				BEF3C31620D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift in Sources */,
@@ -522,6 +544,7 @@
 				BEF3C30220D3745B00ED9A97 /* WaterDataType+Codable.swift in Sources */,
 				BEEE5C0620E44C290061A4DB /* BioticDataDetailController.swift in Sources */,
 				BEEE5BFE20E427630061A4DB /* BioticFactor+Codable.swift in Sources */,
+				BE2479DA20E58195003B3370 /* BioticDataDetailNavigationController.swift in Sources */,
 				BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */,
 				BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */,
 				BEF3C30420D374AA00ED9A97 /* AbioticDataUnit+Codable.swift in Sources */,
@@ -547,6 +570,7 @@
 				BE735B0020E1BD0D0057DA32 /* FormatterUtil.swift in Sources */,
 				BE1949A020E03D6B00962DA0 /* AbioticDataType+Codable.swift in Sources */,
 				BE10E85520DC9DE1006C680A /* EcoFactorChoiceController.swift in Sources */,
+				BE2479D820E58152003B3370 /* AbioticDataDetailNavigationController.swift in Sources */,
 				BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */,
 				BE10E85720DC9E3A006C680A /* AbioticFactorChoiceController.swift in Sources */,
 				BEEE5C0420E438CD0061A4DB /* BioticNotesChoiceController.swift in Sources */,
@@ -720,14 +744,15 @@
 			baseConfigurationReference = 428B4B510A287C49471D3AF1 /* Pods-EcoDatumAmazon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EcoDatumAmazon/EcoDatumAmazon.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9424XMB56D;
+				DEVELOPMENT_TEAM = 2T69Q77ERZ;
 				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazon;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EDAmazon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -739,14 +764,15 @@
 			baseConfigurationReference = 3A8CCA2762E6C5CC5495994F /* Pods-EcoDatumAmazon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EcoDatumAmazon/EcoDatumAmazon.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9424XMB56D;
+				DEVELOPMENT_TEAM = 2T69Q77ERZ;
 				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EcoDatumAmazon;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EDAmazon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

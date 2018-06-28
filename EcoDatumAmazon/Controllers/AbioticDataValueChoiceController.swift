@@ -113,10 +113,16 @@ class AbioticDataValueChoiceController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.done,
-      target: self,
-      action: #selector(doneButtonPressed))
+    navigationItem.rightBarButtonItems = [
+      UIBarButtonItem(
+        barButtonSystemItem: UIBarButtonSystemItem.done,
+        target: self,
+        action: #selector(doneButtonPressed)),
+      UIBarButtonItem(
+        barButtonSystemItem: UIBarButtonSystemItem.cancel,
+        target: self,
+        action: #selector(cancelButtonPressed))
+    ]
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -147,6 +153,10 @@ class AbioticDataValueChoiceController: UIViewController {
     }
   }
   
+  @objc func cancelButtonPressed() {
+    dismiss(animated: true, completion: nil)
+  }
+  
   @objc func doneButtonPressed() {
     soilTextureDataValueChoiceController.doneButtonPressed()
     scaleDataValueChoiceController.doneButtonPressed()
@@ -168,12 +178,7 @@ class AbioticDataValueChoiceController: UIViewController {
   }
   
   func popToMainTabBarController() {
-    let mainTabBarController = navigationController?.viewControllers.first {
-      $0 is MainTabBarController
-    }
-    if let mainTabBarController = mainTabBarController {
-      navigationController?.popToViewController(mainTabBarController, animated: true)
-    }
+    dismiss(animated: true, completion: nil)
   }
   
 }

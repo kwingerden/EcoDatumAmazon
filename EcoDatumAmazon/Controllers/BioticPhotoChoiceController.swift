@@ -37,6 +37,9 @@ class BioticPhotoChoiceController: UIViewController {
       LOG.error("Unexpected EcoFactor: \(ecoFactor)")
     }
     
+    cameraButton.roundedAndLightBordered()
+    photoLibraryButton.roundedAndLightBordered()
+    nextButton.roundedAndLightBordered()
     imageView.roundedAndLightBordered()
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -82,12 +85,7 @@ class BioticPhotoChoiceController: UIViewController {
   }
   
   @objc func cancelButtonPressed() {
-    let mainTabBarController = navigationController?.viewControllers.first {
-      $0 is MainTabBarController
-    }
-    if let mainTabBarController = mainTabBarController {
-      navigationController?.popToViewController(mainTabBarController, animated: true)
-    }
+    dismiss(animated: true, completion: nil)
   }
   
   private func showImagePickerController(_ sourceType: UIImagePickerControllerSourceType) {
