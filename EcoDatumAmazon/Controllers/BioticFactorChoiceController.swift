@@ -28,7 +28,7 @@ class BioticFactorChoiceController: UIViewController {
     case .Biotic:
       title = "Biotic Factor Choice"
     default:
-      LOG.error("Unexpected EcoFactor: \(ecoFactor)")
+      LOG.error("Unexpected EcoFactor: \(String(describing: ecoFactor))")
     }
     
     tableView.delegate = self
@@ -36,7 +36,7 @@ class BioticFactorChoiceController: UIViewController {
     tableView.tableFooterView = UIView()
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.cancel,
+      barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
       target: self,
       action: #selector(cancelButtonPressed))
   }

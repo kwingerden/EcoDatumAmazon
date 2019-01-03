@@ -52,7 +52,7 @@ extension NSAttributedString {
 extension UIImage {
   
   func base64Encode() -> Base64Encoded? {
-    if let jpeg = UIImageJPEGRepresentation(self, 1.0) {
+    if let jpeg = self.jpegData(compressionQuality: 1.0) {
       return jpeg.base64EncodedString()
     }
     return nil

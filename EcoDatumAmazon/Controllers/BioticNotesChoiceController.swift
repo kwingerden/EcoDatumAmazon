@@ -26,7 +26,7 @@ class BioticNotesChoiceController: UIViewController {
     case .Biotic(let bioticEcoData):
       title = "\(bioticEcoData.bioticFactor!.rawValue) Notes"
     default:
-      LOG.error("Unexpected EcoFactor: \(ecoFactor)")
+      LOG.error("Unexpected EcoFactor: \(String(describing: ecoFactor))")
     }
     
     textView.roundedAndLightBordered()
@@ -38,7 +38,7 @@ class BioticNotesChoiceController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.done,
+      barButtonSystemItem: UIBarButtonItem.SystemItem.done,
       target: self,
       action: #selector(doneButtonPressed))
   }

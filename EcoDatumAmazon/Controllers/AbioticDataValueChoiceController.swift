@@ -115,11 +115,11 @@ class AbioticDataValueChoiceController: UIViewController {
     
     navigationItem.rightBarButtonItems = [
       UIBarButtonItem(
-        barButtonSystemItem: UIBarButtonSystemItem.done,
+        barButtonSystemItem: UIBarButtonItem.SystemItem.done,
         target: self,
         action: #selector(doneButtonPressed)),
       UIBarButtonItem(
-        barButtonSystemItem: UIBarButtonSystemItem.cancel,
+        barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
         target: self,
         action: #selector(cancelButtonPressed))
     ]
@@ -131,19 +131,19 @@ class AbioticDataValueChoiceController: UIViewController {
     
     switch segue.destination {
     case is SoilTextureDataValueChoiceController:
-      soilTextureDataValueChoiceController = segue.destination as! SoilTextureDataValueChoiceController
+      soilTextureDataValueChoiceController = (segue.destination as! SoilTextureDataValueChoiceController)
       soilTextureDataValueChoiceController.parentController = self
       soilTextureDataValueChoiceController.embeddedViewToDisplay = embeddedViewToDisplay
       soilTextureDataValueChoiceController.ecoFactor = ecoFactor
     
     case is ScaleDataValueChoiceController:
-      scaleDataValueChoiceController = segue.destination as! ScaleDataValueChoiceController
+      scaleDataValueChoiceController = (segue.destination as! ScaleDataValueChoiceController)
       scaleDataValueChoiceController.parentController = self
       scaleDataValueChoiceController.embeddedViewToDisplay = embeddedViewToDisplay
       scaleDataValueChoiceController.ecoFactor = ecoFactor
       
     case is DecimalDataValueChoiceController:
-      decimalDataValueChoiceController = segue.destination as! DecimalDataValueChoiceController
+      decimalDataValueChoiceController = (segue.destination as! DecimalDataValueChoiceController)
       decimalDataValueChoiceController.parentController = self
       decimalDataValueChoiceController.embeddedViewToDisplay = embeddedViewToDisplay
       decimalDataValueChoiceController.ecoFactor = ecoFactor

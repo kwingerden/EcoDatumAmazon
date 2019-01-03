@@ -44,7 +44,7 @@ class SiteDataController: UIViewController {
     
     if let mainTabBarController = MainTabBarController.shared {
       mainTabBarController.navigationItem.rightBarButtonItem = UIBarButtonItem(
-        barButtonSystemItem: UIBarButtonSystemItem.add,
+        barButtonSystemItem: UIBarButtonItem.SystemItem.add,
         target: self,
         action: #selector(addButtonPressed))
     }
@@ -153,12 +153,12 @@ class SiteDataController: UIViewController {
     case is AbioticDataDetailNavigationController:
       let viewController = segue.destination as! AbioticDataDetailNavigationController
       viewController.site = ViewContext.shared.selectedSite!
-      viewController.abioticData = selectedEcoDataAndFactor!.0 as! AbioticData
+      viewController.abioticData = (selectedEcoDataAndFactor!.0 as! AbioticData)
       viewController.ecoFactor = selectedEcoDataAndFactor!.1
     case is BioticDataDetailNavigationController:
       let viewController = segue.destination as! BioticDataDetailNavigationController
       viewController.site = ViewContext.shared.selectedSite!
-      viewController.bioticData = selectedEcoDataAndFactor!.0 as! BioticData
+      viewController.bioticData = (selectedEcoDataAndFactor!.0 as! BioticData)
       viewController.ecoFactor = selectedEcoDataAndFactor!.1
     default:
       LOG.error("Unexpected segue destination: \(segue.destination)")

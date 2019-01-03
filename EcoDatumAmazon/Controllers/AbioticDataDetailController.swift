@@ -80,11 +80,11 @@ class AbioticDataDetailController: UIViewController {
     }
     
     navigationItem.leftBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.done,
+      barButtonSystemItem: UIBarButtonItem.SystemItem.done,
       target: self,
       action: #selector(doneButtonPressed))
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.trash,
+      barButtonSystemItem: UIBarButtonItem.SystemItem.trash,
       target: self,
       action: #selector(trashButtonPressed))
   }

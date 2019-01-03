@@ -148,6 +148,7 @@ class SiteTableController: UIViewController {
     tableView.reloadData()
   
     if let sites = fetchedResultsController?.fetchedObjects, sites.count > 0 {
+      editButtonItem.isEnabled = true
       var row = 0
       if let selectedSite = ViewContext.shared.selectedSite,
         let index = sites.index(of: selectedSite) {
@@ -159,6 +160,8 @@ class SiteTableController: UIViewController {
         at: IndexPath(row: row, section: 0),
         animated: true,
         scrollPosition: .none)
+    } else {
+      editButtonItem.isEnabled = false
     }
     
   }
@@ -175,7 +178,7 @@ extension SiteTableController: UITableViewDelegate {
   }
     
   func tableView(_ tableView: UITableView,
-                 commit editingStyle: UITableViewCellEditingStyle,
+                 commit editingStyle: UITableViewCell.EditingStyle,
                  forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
       

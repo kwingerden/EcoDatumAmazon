@@ -61,9 +61,9 @@ class SoilTextureDataValueChoiceController: UIViewController {
     }
     
     let font: [AnyHashable: Any] = [
-      NSAttributedStringKey.font: UIFont.systemFont(ofSize: 22)
+      NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
     ]
-    segmentedControl.setTitleTextAttributes(font, for: .normal)
+    segmentedControl.setTitleTextAttributes((font as! [NSAttributedString.Key : Any]), for: .normal)
     
     sandPercentPicker.dataSource = self
     siltPercentPicker.dataSource = self

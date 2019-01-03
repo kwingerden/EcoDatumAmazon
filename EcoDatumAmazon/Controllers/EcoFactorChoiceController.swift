@@ -27,7 +27,7 @@ class EcoFactorChoiceController: UIViewController {
     tableView.tableFooterView = UIView()
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: UIBarButtonSystemItem.cancel,
+      barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
       target: self,
       action: #selector(cancelButtonPressed))
   }

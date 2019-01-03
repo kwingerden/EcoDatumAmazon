@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+platform :ios, '12.1'
 
 target 'EcoDatumAmazon' do
 
@@ -6,8 +6,8 @@ target 'EcoDatumAmazon' do
 
   # Pods for EcoDatumAmazon
   pod 'iosMath' , '0.9.4'
-  pod 'IQKeyboardManagerSwift', '6.0.4'
-  pod 'SwiftyBeaver', '1.6.0'
+  pod 'IQKeyboardManagerSwift', '6.2.0'
+  pod 'SwiftyBeaver', '1.6.1'
   
   target 'EcoDatumAmazonTests' do
     inherit! :search_paths

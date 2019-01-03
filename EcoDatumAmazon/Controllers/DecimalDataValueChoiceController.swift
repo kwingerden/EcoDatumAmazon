@@ -135,7 +135,7 @@ extension DecimalDataValueChoiceController: UITextFieldDelegate {
   }
   
   func textFieldDidEndEditing(_ textField: UITextField,
-                              reason: UITextFieldDidEndEditingReason) {
+                              reason: UITextField.DidEndEditingReason) {
     if isViewDisappearing {
       return
     }

@@ -52,7 +52,7 @@ class ScaleDataValueChoiceController: UIViewController {
       case ._Water_Turbidity_Scale_:
         abioticDataValue = AbioticDataValue.WaterTurbidityScale(WaterTurbidityScale.all[index])
       default:
-        LOG.error("Unexpected data unit \(abioticDataUnit)")
+        LOG.error("Unexpected data unit \(String(describing: abioticDataUnit))")
       }
       
       if let abioticDataValue = abioticDataValue {
@@ -92,7 +92,7 @@ extension ScaleDataValueChoiceController: UITableViewDataSource {
     case ._Water_Turbidity_Scale_:
       return WaterTurbidityScale.all.count
     default:
-      LOG.error("Unexpected data unit \(abioticDataUnit)")
+      LOG.error("Unexpected data unit \(String(describing: abioticDataUnit))")
       return 0
     }
   }
@@ -139,7 +139,7 @@ extension ScaleDataValueChoiceController: UITableViewDataSource {
       }
     
     default:
-      LOG.error("Unexpected data unit \(abioticDataUnit)")
+      LOG.error("Unexpected data unit \(String(describing: abioticDataUnit))")
     }
     
     return cell

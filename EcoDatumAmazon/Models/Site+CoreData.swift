@@ -115,11 +115,15 @@ extension Site {
   }
   
   func encode() throws -> Data {
-    return try JSONEncoder().encode(SiteCodable(site: self))
+    let encoder = JSONEncoder()
+    encoder.dateEncodingStrategy = .iso8601
+    return try encoder.encode(SiteCodable(site: self))
   }
   
   static func decode(_ data: Data) throws -> Site {
-    return try JSONDecoder().decode(SiteCodable.self, from: data).site
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601
+    return try decoder.decode(SiteCodable.self, from: data).site
   }
   
   static func load(_ fileUrl: URL) throws -> Site {
