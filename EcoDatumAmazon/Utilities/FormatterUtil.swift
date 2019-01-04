@@ -10,12 +10,6 @@ import Foundation
 
 extension Formatter {
   
-  static let iso8601DateFormatter: ISO8601DateFormatter = {
-    let formatter = ISO8601DateFormatter()
-    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-    return formatter
-  }()
-  
   static let mediumDateStyleFormatter: DateFormatter =  {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium

@@ -43,7 +43,7 @@
 		BE735B0220E1C52C0057DA32 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE735B0120E1C52C0057DA32 /* DateUtil.swift */; };
 		BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */; };
 		BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877120D4DC830083F349 /* ViewContext.swift */; };
-		BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */; };
+		BE7B877420D5B2C80083F349 /* UIViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877320D5B2C80083F349 /* UIViewUtil.swift */; };
 		BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877520D729D50083F349 /* SiteMapController.swift */; };
 		BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */; };
 		BE9BC92F20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */; };
@@ -128,7 +128,7 @@
 		BE735B0120E1C52C0057DA32 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailController.swift; sourceTree = "<group>"; };
 		BE7B877120D4DC830083F349 /* ViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContext.swift; sourceTree = "<group>"; };
-		BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		BE7B877320D5B2C80083F349 /* UIViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtil.swift; sourceTree = "<group>"; };
 		BE7B877520D729D50083F349 /* SiteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteMapController.swift; sourceTree = "<group>"; };
 		BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbitoicDataUnitChoiceController.swift; sourceTree = "<group>"; };
 		BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataValueChoiceController.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				BE210A6420D4449B002203E5 /* PersistenceUtil.swift */,
-				BE7B877320D5B2C80083F349 /* UIViewExtensions.swift */,
+				BE7B877320D5B2C80083F349 /* UIViewUtil.swift */,
 				BE735AFF20E1BD0D0057DA32 /* FormatterUtil.swift */,
 				BE735B0120E1C52C0057DA32 /* DateUtil.swift */,
 			);
@@ -573,7 +573,7 @@
 				BE10E85720DC9E3A006C680A /* AbioticFactorChoiceController.swift in Sources */,
 				BEEE5C0420E438CD0061A4DB /* BioticNotesChoiceController.swift in Sources */,
 				BEF3C30020D3744500ED9A97 /* SoilDataType+Codable.swift in Sources */,
-				BE7B877420D5B2C80083F349 /* UIViewExtensions.swift in Sources */,
+				BE7B877420D5B2C80083F349 /* UIViewUtil.swift in Sources */,
 				BE735B0220E1C52C0057DA32 /* DateUtil.swift in Sources */,
 				BE1949A420E0627100962DA0 /* SoilTextureDataValueController.swift in Sources */,
 				BE10E86120DCA5D7006C680A /* BioticEcoData+Codable.swift in Sources */,
