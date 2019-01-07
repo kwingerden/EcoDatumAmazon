@@ -17,6 +17,8 @@ class BioticNotesChoiceController: UIViewController {
   
   private var bioticEcoData: BioticEcoData!
   
+  private var hasDoneButtonBeenPressed: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -44,6 +46,7 @@ class BioticNotesChoiceController: UIViewController {
   }
   
   @objc func doneButtonPressed() {
+    hasDoneButtonBeenPressed = true
     if let site = ViewContext.shared.selectedSite {
       do {
         let newBioticEcoData = bioticEcoData.new(textView.attributedText)
@@ -68,7 +71,9 @@ class BioticNotesChoiceController: UIViewController {
 extension BioticNotesChoiceController: UITextViewDelegate {
   
   func textViewDidEndEditing(_ textView: UITextView) {
-    doneButtonPressed()
+    if !hasDoneButtonBeenPressed {
+      doneButtonPressed()
+    }
   }
   
 }

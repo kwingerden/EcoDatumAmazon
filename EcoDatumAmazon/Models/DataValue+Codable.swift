@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AbioticDataValue: Codable {
+enum DataValue: Codable {
   
   case DecimalDataValue(String)
   case AirOzoneScale(AirOzoneScale)
@@ -23,7 +23,7 @@ enum AbioticDataValue: Codable {
   
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    self = try container.decode(AbioticDataValue.self, forKey: .abioticDataValue)
+    self = try container.decode(DataValue.self, forKey: .abioticDataValue)
   }
   
   func encode(to encoder: Encoder) throws {
@@ -31,7 +31,7 @@ enum AbioticDataValue: Codable {
     try container.encode(self, forKey: .abioticDataValue)
   }
   
-  static func ==(_ lhs: AbioticDataValue, _ rhs: AbioticDataValue) -> Bool {
+  static func ==(_ lhs: DataValue, _ rhs: DataValue) -> Bool {
     
     switch lhs {
     case .DecimalDataValue(let lhsDecimalDataValue):

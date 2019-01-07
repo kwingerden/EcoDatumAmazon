@@ -15,7 +15,7 @@ class ScaleDataValueChoiceController: UIViewController {
     return ecoFactor.abioticEcoData!
   }
   
-  private var abioticDataUnit: AbioticDataUnit! {
+  private var abioticDataUnit: DataUnit! {
     return abioticEcoData!.dataUnit!
   }
   
@@ -39,18 +39,18 @@ class ScaleDataValueChoiceController: UIViewController {
     }
     
     if let index = selectedIndex {
-      var abioticDataValue: AbioticDataValue?
+      var abioticDataValue: DataValue?
       switch abioticDataUnit! {
       case ._Air_Ozone_Scale_:
-        abioticDataValue = AbioticDataValue.AirOzoneScale(AirOzoneScale.all[index])
+        abioticDataValue = DataValue.AirOzoneScale(AirOzoneScale.all[index])
       case ._Soil_Potassium_Scale_:
-        abioticDataValue = AbioticDataValue.SoilPotassiumScale(SoilPotassiumScale.all[index])
+        abioticDataValue = DataValue.SoilPotassiumScale(SoilPotassiumScale.all[index])
       case ._Water_Odor_Scale_:
-        abioticDataValue = AbioticDataValue.WaterOdorScale(WaterOdorScale.all[index])
+        abioticDataValue = DataValue.WaterOdorScale(WaterOdorScale.all[index])
       case ._Water_pH_Scale_:
-        abioticDataValue = AbioticDataValue.DecimalDataValue("\(index + 1)")
+        abioticDataValue = DataValue.DecimalDataValue("\(index + 1)")
       case ._Water_Turbidity_Scale_:
-        abioticDataValue = AbioticDataValue.WaterTurbidityScale(WaterTurbidityScale.all[index])
+        abioticDataValue = DataValue.WaterTurbidityScale(WaterTurbidityScale.all[index])
       default:
         LOG.error("Unexpected data unit \(String(describing: abioticDataUnit))")
       }

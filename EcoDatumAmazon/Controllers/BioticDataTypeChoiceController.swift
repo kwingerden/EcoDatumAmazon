@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BioticFactorChoiceController: UIViewController {
+class BioticDataTypeChoiceController: UIViewController {
   
   var ecoFactor: EcoFactor!
   
@@ -17,19 +17,17 @@ class BioticFactorChoiceController: UIViewController {
   
   private var bioticEcoData: BioticEcoData!
   
-  private var selectedBioticFactor: BioticFactor!
+  private var bioticFactor: BioticFactor!
+  
+  private var selectedBioticDataType: BioticDataType!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     bioticEcoData = ecoFactor.bioticEcoData!
+    bioticFactor = bioticEcoData.bioticFactor!
     
-    switch ecoFactor.ecoData! {
-    case .Biotic:
-      title = "Biotic Factor Choice"
-    default:
-      LOG.error("Unexpected EcoFactor: \(String(describing: ecoFactor))")
-    }
+    title = "\(bioticFactor.rawValue) Data Type Choice"
     
     tableView.delegate = self
     tableView.dataSource = self
@@ -43,61 +41,70 @@ class BioticFactorChoiceController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-    let newBioticEcoData = bioticEcoData.new(selectedBioticFactor)
+    let newBioticEcoData = bioticEcoData.new(selectedBioticDataType)
     let newEcoFactor = EcoFactor(
       collectionDate: ecoFactor.collectionDate,
       ecoData: EcoFactor.EcoData.Biotic(newBioticEcoData))
 
     switch segue.destination {
 
-    case is AnimalDataTypeChoiceController:
-      let controller = segue.destination as! AnimalDataTypeChoiceController
-      controller.ecoFactor = newEcoFactor
-
-    case is BioticDataTypeChoiceController:
-      let controller = segue.destination as! BioticDataTypeChoiceController
-      controller.ecoFactor = newEcoFactor
+    case is BioticPhotoChoiceController:
+      let viewController = segue.destination as! BioticPhotoChoiceController
+      viewController.ecoFactor = newEcoFactor
 
     default:
       LOG.error("Unknown segue destination: \(segue.destination)")
-
     }
   }
   
   @objc func cancelButtonPressed() {
     dismiss(animated: true, completion: nil)
   }
-  
+
 }
 
-extension BioticFactorChoiceController: UITableViewDelegate {
+extension BioticDataTypeChoiceController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    selectedBioticFactor = BioticFactor.all[indexPath.row]
-    switch selectedBioticFactor {
-    case .Animal?:
-      performSegue(withIdentifier: "bioticAnimalDataTypeChoice", sender: nil)
+    switch bioticFactor! {
+    case .Fungi:
+      selectedBioticDataType = .Fungi(FungiDataType.all[indexPath.row])
+    case .Plant:
+      selectedBioticDataType = .Plant(PlantDataType.all[indexPath.row])
     default:
-      performSegue(withIdentifier: "bioticDataTypeChoice", sender: nil)
+      fatalError()
     }
-
+    performSegue(withIdentifier: "bioticPhotoChoice", sender: nil)
   }
   
 }
 
-extension BioticFactorChoiceController: UITableViewDataSource {
+extension BioticDataTypeChoiceController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    return BioticFactor.all.count
+    switch bioticFactor! {
+    case .Animal:
+      return AnimalFactor.all.count
+    case .Fungi:
+      return FungiDataType.all.count
+    case .Plant:
+      return PlantDataType.all.count
+    }
   }
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    cell.textLabel?.text = BioticFactor.all[indexPath.row].rawValue
+    switch bioticFactor! {
+    case .Animal:
+      cell.textLabel?.text = AnimalFactor.all[indexPath.row].rawValue
+    case .Fungi:
+      cell.textLabel?.text = FungiDataType.all[indexPath.row].rawValue
+    case .Plant:
+      cell.textLabel?.text = PlantDataType.all[indexPath.row].rawValue
+    }
     return cell
   }
   
 }
-

@@ -20,7 +20,7 @@ class AbitoicDataUnitChoiceController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  private var selectedAbioticDataUnit: AbioticDataUnit!
+  private var selectedAbioticDataUnit: DataUnit!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -72,11 +72,11 @@ extension AbitoicDataUnitChoiceController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch abioticDataType! {
     case .Air(let airDataType):
-      selectedAbioticDataUnit = AbioticDataUnit.units(.Air(airDataType))[indexPath.row]
+      selectedAbioticDataUnit = DataUnit.units(.Air(airDataType))[indexPath.row]
     case .Soil(let soilDataType):
-      selectedAbioticDataUnit = AbioticDataUnit.units(.Soil(soilDataType))[indexPath.row]
+      selectedAbioticDataUnit = DataUnit.units(.Soil(soilDataType))[indexPath.row]
     case .Water(let waterDataType):
-      selectedAbioticDataUnit = AbioticDataUnit.units(.Water(waterDataType))[indexPath.row]
+      selectedAbioticDataUnit = DataUnit.units(.Water(waterDataType))[indexPath.row]
     }
     performSegue(withIdentifier: "abioticDataValueChoice", sender: nil)
   }
@@ -93,11 +93,11 @@ extension AbitoicDataUnitChoiceController: UITableViewDataSource {
                  numberOfRowsInSection section: Int) -> Int {
     switch abioticDataType! {
     case .Air(let airDataType):
-      return AbioticDataUnit.units(.Air(airDataType)).count
+      return DataUnit.units(.Air(airDataType)).count
     case .Soil(let soilDataType):
-      return AbioticDataUnit.units(.Soil(soilDataType)).count
+      return DataUnit.units(.Soil(soilDataType)).count
     case .Water(let waterDataType):
-      return AbioticDataUnit.units(.Water(waterDataType)).count
+      return DataUnit.units(.Water(waterDataType)).count
     }
   }
   
@@ -117,19 +117,19 @@ extension AbitoicDataUnitChoiceController: UITableViewDataSource {
     return cell
   }
   
-  private func dataUnits(_ airDataType: AirDataType) -> [AbioticDataUnit] {
-    return AbioticDataUnit.units(.Air(airDataType))
+  private func dataUnits(_ airDataType: AirDataType) -> [DataUnit] {
+    return DataUnit.units(.Air(airDataType))
   }
   
-  private func dataUnits(_ soilDataType: SoilDataType) -> [AbioticDataUnit] {
-    return AbioticDataUnit.units(.Soil(soilDataType))
+  private func dataUnits(_ soilDataType: SoilDataType) -> [DataUnit] {
+    return DataUnit.units(.Soil(soilDataType))
   }
   
-  private func dataUnits(_ waterDataType: WaterDataType) -> [AbioticDataUnit] {
-    return AbioticDataUnit.units(.Water(waterDataType))
+  private func dataUnits(_ waterDataType: WaterDataType) -> [DataUnit] {
+    return DataUnit.units(.Water(waterDataType))
   }
   
-  private func dataUnitValue(_ dataUnitChoices: [AbioticDataUnit],
+  private func dataUnitValue(_ dataUnitChoices: [DataUnit],
                              _ indexPath: IndexPath) -> String {
     return dataUnitChoices[indexPath.row].rawValue
   }

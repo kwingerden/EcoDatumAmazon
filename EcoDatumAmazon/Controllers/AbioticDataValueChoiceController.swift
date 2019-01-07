@@ -49,12 +49,17 @@ class AbioticDataValueChoiceController: UIViewController {
          .PhotosyntheticPhotonFluxDensity,
          .PoundsPerAcre:
       return .decimalDataValueView
+      
+    default:
+      fatalError()
+      
     }
+    
   }
   
   private var abioticEcoData: AbioticEcoData!
   
-  private var abioticDataUnit: AbioticDataUnit! 
+  private var abioticDataUnit: DataUnit! 
   
   @IBOutlet weak var soilTextureDataValueView: UIView!
   
@@ -103,6 +108,10 @@ class AbioticDataValueChoiceController: UIViewController {
          .PhotosyntheticPhotonFluxDensity,
          .PoundsPerAcre:
       title = "Enter Value"
+      
+    default:
+      fatalError()
+      
     }
     
     scaleDataValueView.isHidden = !(embeddedViewToDisplay == .scaleDataValueView)

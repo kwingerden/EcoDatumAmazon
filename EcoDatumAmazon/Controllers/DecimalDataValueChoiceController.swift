@@ -20,7 +20,7 @@ class DecimalDataValueChoiceController: UIViewController {
     return ecoFactor.abioticEcoData!
   }
   
-  private var abioticDataUnit: AbioticDataUnit! {
+  private var abioticDataUnit: DataUnit! {
     return abioticEcoData!.dataUnit!
   }
   

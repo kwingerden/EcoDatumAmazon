@@ -40,11 +40,11 @@ class AbioticDataDetailController: UIViewController {
     return abioticEcoData.dataType!
   }
   
-  var abioticDataUnit: AbioticDataUnit! {
+  var abioticDataUnit: DataUnit! {
     return abioticEcoData.dataUnit!
   }
   
-  var abioticDataValue: AbioticDataValue! {
+  var abioticDataValue: DataValue! {
     return abioticEcoData.dataValue!
   }
   

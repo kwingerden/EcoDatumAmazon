@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AbioticDataUnit: String, Codable {
+enum DataUnit: String, Codable {
   
   // Latex Editor: http://www.hostmath.com
   
@@ -19,6 +19,7 @@ enum AbioticDataUnit: String, Codable {
   case Percent = "\\%"
   case DegreesCelsius = "^{\\circ}C"
   case DegreesFahrenheit = "^{\\circ}F"
+  case KilogramsOfCarbon = "kg \\ C"
   case MegawattsPerMeterSquared = "\\frac{mW}{m^{2}}"
   case MetersPerSecond = "\\frac{m}{s}"
   case MilesPerHour = "mph"
@@ -36,7 +37,7 @@ enum AbioticDataUnit: String, Codable {
   case _Water_pH_Scale_ = "Water \\ pH \\ Scale"
   case _Water_Turbidity_Scale_ = "Water \\ Turbidity \\ Scale"
   
-  static func units(_ dataType: AbioticDataType) -> [AbioticDataUnit] {
+  static func units(_ dataType: AbioticDataType) -> [DataUnit] {
     
     switch dataType {
       
@@ -181,5 +182,24 @@ enum AbioticDataUnit: String, Codable {
     }
     
   }
-  
+
+  static func units(_ dataType: BioticDataType) -> [DataUnit] {
+
+    switch dataType {
+
+    case .Plant(let plantDataType) where plantDataType == .Conifer:
+      return [
+        .KilogramsOfCarbon
+      ]
+
+    case .Plant(let plantDataType) where plantDataType == .Flower:
+      return [
+        .KilogramsOfCarbon
+      ]
+
+    default: return []
+
+    }
+  }
+
 }

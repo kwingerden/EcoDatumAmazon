@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19E5404FE1013960E251AF7E /* VertebrateDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E546EEF34A0B6465A946D8 /* VertebrateDataType+Codable.swift */; };
+		19E540B79271DCB6C9738756 /* FungiDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5497CB6B80EE53CAD377D /* FungiDataType+Codable.swift */; };
+		19E54170A7229995AB22860A /* InvertebrateDataTypeChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E547A5DA47E311963203DF /* InvertebrateDataTypeChoiceController.swift */; };
+		19E5426618D7F98D824B6D25 /* AnimalFactor+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E54484A0A8DD0F702A7953 /* AnimalFactor+Codable.swift */; };
+		19E544EF11D0173A94E11BF1 /* BioticDataTypeChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E547D3470502090D17DEBE /* BioticDataTypeChoiceController.swift */; };
+		19E547216178D26864AA96A9 /* VertebrateDataTypeChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E54CFC3D3AD83A64989A4E /* VertebrateDataTypeChoiceController.swift */; };
+		19E549978D0F5C751EE394C2 /* InvertebrateDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E54BCCD32A62829ABA3B6F /* InvertebrateDataType+Codable.swift */; };
+		19E549C6D52B63911B0F2A96 /* PlantDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E54DF1295E2390441F4841 /* PlantDataType+Codable.swift */; };
+		19E54A8458A2F5FDFF23CF8E /* AnimalDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E54B8E2556F3F19F9C2126 /* AnimalDataType+Codable.swift */; };
+		19E54CD00076BBCAF3B0E6E2 /* AnimalDataTypeChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E548B3DC7230C6B159593D /* AnimalDataTypeChoiceController.swift */; };
 		7C6EB6D2A49DC0BEA6E4E28F /* Pods_EcoDatumAmazonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */; };
 		855F43E7C86C72F8CDB7F7BD /* Pods_EcoDatumAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67FCE51DBE8081C166356D3 /* Pods_EcoDatumAmazon.framework */; };
 		BE03920A20DE0DDA0075B3CB /* AbioticDataDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE03920920DE0DDA0075B3CB /* AbioticDataDetailController.swift */; };
@@ -22,7 +32,7 @@
 		BE1868DC20DA1C93007E3EE8 /* EcoDatumIcon_320x320.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1868D820DA1C93007E3EE8 /* EcoDatumIcon_320x320.png */; };
 		BE19499C20E034FE00962DA0 /* ScaleDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19499B20E034FE00962DA0 /* ScaleDataType.swift */; };
 		BE1949A020E03D6B00962DA0 /* AbioticDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19499F20E03D6B00962DA0 /* AbioticDataType+Codable.swift */; };
-		BE1949A220E0404000962DA0 /* AbioticDataValue+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A120E0404000962DA0 /* AbioticDataValue+Codable.swift */; };
+		BE1949A220E0404000962DA0 /* DataValue+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A120E0404000962DA0 /* DataValue+Codable.swift */; };
 		BE1949A420E0627100962DA0 /* SoilTextureDataValueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */; };
 		BE1949A620E062CF00962DA0 /* ScaleDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */; };
 		BE1949A820E062F000962DA0 /* DecimalDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */; };
@@ -48,6 +58,7 @@
 		BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */; };
 		BE9BC92F20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */; };
 		BE9BC93120DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC93020DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift */; };
+		BEC7E21121E29E91009E785E /* BioticDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC7E21021E29E91009E785E /* BioticDataType+Codable.swift */; };
 		BEE57DCA20D8BDE700A1ECB6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */; };
 		BEEE5BFC20E426800061A4DB /* BioticFactorChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE5BFB20E426800061A4DB /* BioticFactorChoiceController.swift */; };
 		BEEE5BFE20E427630061A4DB /* BioticFactor+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE5BFD20E427630061A4DB /* BioticFactor+Codable.swift */; };
@@ -68,7 +79,7 @@
 		BEF3C2FE20D3742300ED9A97 /* AirDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2FD20D3742300ED9A97 /* AirDataType+Codable.swift */; };
 		BEF3C30020D3744500ED9A97 /* SoilDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C2FF20D3744500ED9A97 /* SoilDataType+Codable.swift */; };
 		BEF3C30220D3745B00ED9A97 /* WaterDataType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30120D3745B00ED9A97 /* WaterDataType+Codable.swift */; };
-		BEF3C30420D374AA00ED9A97 /* AbioticDataUnit+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30320D374AA00ED9A97 /* AbioticDataUnit+Codable.swift */; };
+		BEF3C30420D374AA00ED9A97 /* DataUnit+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30320D374AA00ED9A97 /* DataUnit+Codable.swift */; };
 		BEF3C30C20D3760000ED9A97 /* NumberSign+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30B20D3760000ED9A97 /* NumberSign+Codable.swift */; };
 		BEF3C30E20D3764C00ED9A97 /* AirOzoneScale+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30D20D3764C00ED9A97 /* AirOzoneScale+Codable.swift */; };
 		BEF3C31020D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C30F20D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift */; };
@@ -88,6 +99,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19E54484A0A8DD0F702A7953 /* AnimalFactor+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnimalFactor+Codable.swift"; sourceTree = "<group>"; };
+		19E546EEF34A0B6465A946D8 /* VertebrateDataType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VertebrateDataType+Codable.swift"; sourceTree = "<group>"; };
+		19E547A5DA47E311963203DF /* InvertebrateDataTypeChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertebrateDataTypeChoiceController.swift; sourceTree = "<group>"; };
+		19E547D3470502090D17DEBE /* BioticDataTypeChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioticDataTypeChoiceController.swift; sourceTree = "<group>"; };
+		19E548B3DC7230C6B159593D /* AnimalDataTypeChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalDataTypeChoiceController.swift; sourceTree = "<group>"; };
+		19E5497CB6B80EE53CAD377D /* FungiDataType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FungiDataType+Codable.swift"; sourceTree = "<group>"; };
+		19E54B8E2556F3F19F9C2126 /* AnimalDataType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnimalDataType+Codable.swift"; sourceTree = "<group>"; };
+		19E54BCCD32A62829ABA3B6F /* InvertebrateDataType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InvertebrateDataType+Codable.swift"; sourceTree = "<group>"; };
+		19E54CFC3D3AD83A64989A4E /* VertebrateDataTypeChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VertebrateDataTypeChoiceController.swift; sourceTree = "<group>"; };
+		19E54DF1295E2390441F4841 /* PlantDataType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlantDataType+Codable.swift"; sourceTree = "<group>"; };
 		23B35AE3844A8F421BF5BE1F /* Pods-EcoDatumAmazonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazonTests/Pods-EcoDatumAmazonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		265B60079CD38ADD949EA84A /* Pods_EcoDatumAmazonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoDatumAmazonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8CCA2762E6C5CC5495994F /* Pods-EcoDatumAmazon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazon.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazon/Pods-EcoDatumAmazon.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,7 +127,7 @@
 		BE1868D820DA1C93007E3EE8 /* EcoDatumIcon_320x320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EcoDatumIcon_320x320.png; sourceTree = "<group>"; };
 		BE19499B20E034FE00962DA0 /* ScaleDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDataType.swift; sourceTree = "<group>"; };
 		BE19499F20E03D6B00962DA0 /* AbioticDataType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AbioticDataType+Codable.swift"; sourceTree = "<group>"; };
-		BE1949A120E0404000962DA0 /* AbioticDataValue+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AbioticDataValue+Codable.swift"; sourceTree = "<group>"; };
+		BE1949A120E0404000962DA0 /* DataValue+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataValue+Codable.swift"; sourceTree = "<group>"; };
 		BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilTextureDataValueController.swift; sourceTree = "<group>"; };
 		BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDataValueChoiceController.swift; sourceTree = "<group>"; };
 		BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDataValueChoiceController.swift; sourceTree = "<group>"; };
@@ -133,6 +154,7 @@
 		BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbitoicDataUnitChoiceController.swift; sourceTree = "<group>"; };
 		BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataValueChoiceController.swift; sourceTree = "<group>"; };
 		BE9BC93020DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbioticDataTypeChoiceController.swift; sourceTree = "<group>"; };
+		BEC7E21021E29E91009E785E /* BioticDataType+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BioticDataType+Codable.swift"; sourceTree = "<group>"; };
 		BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		BEEE5BFB20E426800061A4DB /* BioticFactorChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioticFactorChoiceController.swift; sourceTree = "<group>"; };
 		BEEE5BFD20E427630061A4DB /* BioticFactor+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BioticFactor+Codable.swift"; sourceTree = "<group>"; };
@@ -157,7 +179,7 @@
 		BEF3C2FD20D3742300ED9A97 /* AirDataType+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirDataType+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C2FF20D3744500ED9A97 /* SoilDataType+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoilDataType+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30120D3745B00ED9A97 /* WaterDataType+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterDataType+Codable.swift"; sourceTree = "<group>"; };
-		BEF3C30320D374AA00ED9A97 /* AbioticDataUnit+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AbioticDataUnit+Codable.swift"; sourceTree = "<group>"; };
+		BEF3C30320D374AA00ED9A97 /* DataUnit+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataUnit+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30B20D3760000ED9A97 /* NumberSign+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberSign+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30D20D3764C00ED9A97 /* AirOzoneScale+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirOzoneScale+Codable.swift"; sourceTree = "<group>"; };
 		BEF3C30F20D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoilPotassiumScale+Codable+ScaleDataType.swift"; sourceTree = "<group>"; };
@@ -271,35 +293,39 @@
 		BEF3C2E520D3574F00ED9A97 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BE03920920DE0DDA0075B3CB /* AbioticDataDetailController.swift */,
+				BE2479D720E58152003B3370 /* AbioticDataDetailNavigationController.swift */,
 				BE9BC93020DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift */,
-				BE7B877520D729D50083F349 /* SiteMapController.swift */,
-				BE210A6620D450B4002203E5 /* SiteNavigationController.swift */,
-				BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */,
-				BEF3C2ED20D35B3B00ED9A97 /* SiteTableController.swift */,
-				BE210A6820D45124002203E5 /* DataNavigationController.swift */,
-				BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */,
-				BE7B877120D4DC830083F349 /* ViewContext.swift */,
-				BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */,
-				BE4B9B0A20D771150069513E /* SiteNotesController.swift */,
-				BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */,
-				BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */,
-				BE66905320DB194A00EA1492 /* SiteDataController.swift */,
-				BE10E85420DC9DE1006C680A /* EcoFactorChoiceController.swift */,
+				BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */,
 				BE10E85620DC9E3A006C680A /* AbioticFactorChoiceController.swift */,
 				BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */,
-				BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */,
-				BE03920920DE0DDA0075B3CB /* AbioticDataDetailController.swift */,
-				BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */,
-				BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */,
-				BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */,
-				BE735AFD20E185B90057DA32 /* CollectionDateChoiceController.swift */,
-				BEEE5BFB20E426800061A4DB /* BioticFactorChoiceController.swift */,
-				BEEE5C0120E42BF50061A4DB /* BioticPhotoChoiceController.swift */,
-				BEEE5C0320E438CD0061A4DB /* BioticNotesChoiceController.swift */,
 				BEEE5C0520E44C290061A4DB /* BioticDataDetailController.swift */,
-				BE2479D720E58152003B3370 /* AbioticDataDetailNavigationController.swift */,
 				BE2479D920E58195003B3370 /* BioticDataDetailNavigationController.swift */,
+				19E547D3470502090D17DEBE /* BioticDataTypeChoiceController.swift */,
+				BEEE5BFB20E426800061A4DB /* BioticFactorChoiceController.swift */,
+				BEEE5C0320E438CD0061A4DB /* BioticNotesChoiceController.swift */,
+				BEEE5C0120E42BF50061A4DB /* BioticPhotoChoiceController.swift */,
+				BE735AFD20E185B90057DA32 /* CollectionDateChoiceController.swift */,
 				BE2479DB20E58800003B3370 /* CollectionDateNavigationChoiceController.swift */,
+				BE210A6820D45124002203E5 /* DataNavigationController.swift */,
+				BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */,
+				BE10E85420DC9DE1006C680A /* EcoFactorChoiceController.swift */,
+				BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */,
+				BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */,
+				BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */,
+				BE66905320DB194A00EA1492 /* SiteDataController.swift */,
+				BE7B876F20D4D49C0083F349 /* SiteDetailController.swift */,
+				BE7B877520D729D50083F349 /* SiteMapController.swift */,
+				BE210A6620D450B4002203E5 /* SiteNavigationController.swift */,
+				BE4B9B0A20D771150069513E /* SiteNotesController.swift */,
+				BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */,
+				BE1868D320D9A49F007E3EE8 /* SitePlaceController.swift */,
+				BEF3C2ED20D35B3B00ED9A97 /* SiteTableController.swift */,
+				BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */,
+				BE7B877120D4DC830083F349 /* ViewContext.swift */,
+				19E548B3DC7230C6B159593D /* AnimalDataTypeChoiceController.swift */,
+				19E547A5DA47E311963203DF /* InvertebrateDataTypeChoiceController.swift */,
+				19E54CFC3D3AD83A64989A4E /* VertebrateDataTypeChoiceController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,16 +343,19 @@
 		BEF3C2FA20D3734900ED9A97 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BE1949A120E0404000962DA0 /* AbioticDataValue+Codable.swift */,
 				BE66905720DB592B00EA1492 /* AbioticData+CoreData.swift */,
 				BE19499F20E03D6B00962DA0 /* AbioticDataType+Codable.swift */,
-				BEF3C30320D374AA00ED9A97 /* AbioticDataUnit+Codable.swift */,
+				BEF3C30320D374AA00ED9A97 /* DataUnit+Codable.swift */,
+				BE1949A120E0404000962DA0 /* DataValue+Codable.swift */,
 				BE10E85C20DCA47A006C680A /* AbioticEcoData+Codable.swift */,
 				BEF3C2FB20D3736300ED9A97 /* AbioticFactor+Codable.swift */,
 				BEF3C2FD20D3742300ED9A97 /* AirDataType+Codable.swift */,
 				BEF3C30D20D3764C00ED9A97 /* AirOzoneScale+Codable.swift */,
 				BE26543320DAF7F500844E4F /* Base64Encoded.swift */,
+				BEEE5BFF20E429B70061A4DB /* BioticData+CoreData.swift */,
 				BE10E86020DCA5D7006C680A /* BioticEcoData+Codable.swift */,
+				BEEE5BFD20E427630061A4DB /* BioticFactor+Codable.swift */,
+				BEC7E21021E29E91009E785E /* BioticDataType+Codable.swift */,
 				BE10E86620DCAAC9006C680A /* EcoFactor+Codable.swift */,
 				BEF3C30B20D3760000ED9A97 /* NumberSign+Codable.swift */,
 				BE19499B20E034FE00962DA0 /* ScaleDataType.swift */,
@@ -337,8 +366,12 @@
 				BEF3C30120D3745B00ED9A97 /* WaterDataType+Codable.swift */,
 				BEF3C31320D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift */,
 				BEF3C31520D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift */,
-				BEEE5BFD20E427630061A4DB /* BioticFactor+Codable.swift */,
-				BEEE5BFF20E429B70061A4DB /* BioticData+CoreData.swift */,
+				19E54B8E2556F3F19F9C2126 /* AnimalDataType+Codable.swift */,
+				19E5497CB6B80EE53CAD377D /* FungiDataType+Codable.swift */,
+				19E54DF1295E2390441F4841 /* PlantDataType+Codable.swift */,
+				19E546EEF34A0B6465A946D8 /* VertebrateDataType+Codable.swift */,
+				19E54BCCD32A62829ABA3B6F /* InvertebrateDataType+Codable.swift */,
+				19E54484A0A8DD0F702A7953 /* AnimalFactor+Codable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -532,7 +565,8 @@
 				BE10E86720DCAAC9006C680A /* EcoFactor+Codable.swift in Sources */,
 				BE2479DC20E58800003B3370 /* CollectionDateNavigationChoiceController.swift in Sources */,
 				BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */,
-				BE1949A220E0404000962DA0 /* AbioticDataValue+Codable.swift in Sources */,
+				BE1949A220E0404000962DA0 /* DataValue+Codable.swift in Sources */,
+				BEC7E21121E29E91009E785E /* BioticDataType+Codable.swift in Sources */,
 				BEF3C31620D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift in Sources */,
 				BE66905420DB194A00EA1492 /* SiteDataController.swift in Sources */,
 				BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */,
@@ -545,7 +579,7 @@
 				BE2479DA20E58195003B3370 /* BioticDataDetailNavigationController.swift in Sources */,
 				BE7B877020D4D49C0083F349 /* SiteDetailController.swift in Sources */,
 				BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */,
-				BEF3C30420D374AA00ED9A97 /* AbioticDataUnit+Codable.swift in Sources */,
+				BEF3C30420D374AA00ED9A97 /* DataUnit+Codable.swift in Sources */,
 				BEF3C2FC20D3736300ED9A97 /* AbioticFactor+Codable.swift in Sources */,
 				BE1949A820E062F000962DA0 /* DecimalDataValueChoiceController.swift in Sources */,
 				BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */,
@@ -582,6 +616,16 @@
 				BEF3C2C920D356FD00ED9A97 /* EcoDatumAmazon.xcdatamodeld in Sources */,
 				BEF3C2C120D356FD00ED9A97 /* AppDelegate.swift in Sources */,
 				BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */,
+				19E54A8458A2F5FDFF23CF8E /* AnimalDataType+Codable.swift in Sources */,
+				19E540B79271DCB6C9738756 /* FungiDataType+Codable.swift in Sources */,
+				19E549C6D52B63911B0F2A96 /* PlantDataType+Codable.swift in Sources */,
+				19E5404FE1013960E251AF7E /* VertebrateDataType+Codable.swift in Sources */,
+				19E549978D0F5C751EE394C2 /* InvertebrateDataType+Codable.swift in Sources */,
+				19E544EF11D0173A94E11BF1 /* BioticDataTypeChoiceController.swift in Sources */,
+				19E5426618D7F98D824B6D25 /* AnimalFactor+Codable.swift in Sources */,
+				19E54CD00076BBCAF3B0E6E2 /* AnimalDataTypeChoiceController.swift in Sources */,
+				19E54170A7229995AB22860A /* InvertebrateDataTypeChoiceController.swift in Sources */,
+				19E547216178D26864AA96A9 /* VertebrateDataTypeChoiceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
