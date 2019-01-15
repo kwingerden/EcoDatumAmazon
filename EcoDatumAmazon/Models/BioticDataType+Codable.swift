@@ -10,7 +10,7 @@ import Foundation
 
 enum BioticDataType: Codable {
 
-  case Animal(AnimalDataType)
+  case Animal(AnimalData)
   case Fungi(FungiDataType)
   case Plant(PlantDataType)
 

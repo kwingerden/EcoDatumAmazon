@@ -48,7 +48,7 @@ struct BioticEcoData: Codable {
 
     switch bioticFactor {
     case .Animal?:
-      dataType = BioticDataType.Animal(try container.decode(AnimalDataType.self, forKey: .dataType))
+      dataType = BioticDataType.Animal(try container.decode(AnimalData.self, forKey: .dataType))
     case .Fungi?:
       dataType = BioticDataType.Fungi(try container.decode(FungiDataType.self, forKey: .dataType))
     case .Plant?:

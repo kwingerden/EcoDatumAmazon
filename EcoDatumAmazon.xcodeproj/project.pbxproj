@@ -36,6 +36,7 @@
 		BE1949A420E0627100962DA0 /* SoilTextureDataValueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */; };
 		BE1949A620E062CF00962DA0 /* ScaleDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */; };
 		BE1949A820E062F000962DA0 /* DecimalDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */; };
+		BE203CE921ED8FE800CCD26F /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE203CE821ED8FE800CCD26F /* AnimalData.swift */; };
 		BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6420D4449B002203E5 /* PersistenceUtil.swift */; };
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
 		BE210A6920D45124002203E5 /* DataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6820D45124002203E5 /* DataNavigationController.swift */; };
@@ -131,6 +132,7 @@
 		BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilTextureDataValueController.swift; sourceTree = "<group>"; };
 		BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDataValueChoiceController.swift; sourceTree = "<group>"; };
 		BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDataValueChoiceController.swift; sourceTree = "<group>"; };
+		BE203CE821ED8FE800CCD26F /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
 		BE210A6420D4449B002203E5 /* PersistenceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceUtil.swift; sourceTree = "<group>"; };
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
 		BE210A6820D45124002203E5 /* DataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationController.swift; sourceTree = "<group>"; };
@@ -345,33 +347,34 @@
 			children = (
 				BE66905720DB592B00EA1492 /* AbioticData+CoreData.swift */,
 				BE19499F20E03D6B00962DA0 /* AbioticDataType+Codable.swift */,
-				BEF3C30320D374AA00ED9A97 /* DataUnit+Codable.swift */,
-				BE1949A120E0404000962DA0 /* DataValue+Codable.swift */,
 				BE10E85C20DCA47A006C680A /* AbioticEcoData+Codable.swift */,
 				BEF3C2FB20D3736300ED9A97 /* AbioticFactor+Codable.swift */,
 				BEF3C2FD20D3742300ED9A97 /* AirDataType+Codable.swift */,
 				BEF3C30D20D3764C00ED9A97 /* AirOzoneScale+Codable.swift */,
+				19E54B8E2556F3F19F9C2126 /* AnimalDataType+Codable.swift */,
+				19E54484A0A8DD0F702A7953 /* AnimalFactor+Codable.swift */,
 				BE26543320DAF7F500844E4F /* Base64Encoded.swift */,
 				BEEE5BFF20E429B70061A4DB /* BioticData+CoreData.swift */,
+				BEC7E21021E29E91009E785E /* BioticDataType+Codable.swift */,
 				BE10E86020DCA5D7006C680A /* BioticEcoData+Codable.swift */,
 				BEEE5BFD20E427630061A4DB /* BioticFactor+Codable.swift */,
-				BEC7E21021E29E91009E785E /* BioticDataType+Codable.swift */,
+				BEF3C30320D374AA00ED9A97 /* DataUnit+Codable.swift */,
+				BE1949A120E0404000962DA0 /* DataValue+Codable.swift */,
 				BE10E86620DCAAC9006C680A /* EcoFactor+Codable.swift */,
+				19E5497CB6B80EE53CAD377D /* FungiDataType+Codable.swift */,
+				19E54BCCD32A62829ABA3B6F /* InvertebrateDataType+Codable.swift */,
 				BEF3C30B20D3760000ED9A97 /* NumberSign+Codable.swift */,
+				19E54DF1295E2390441F4841 /* PlantDataType+Codable.swift */,
 				BE19499B20E034FE00962DA0 /* ScaleDataType.swift */,
 				BE210A7F20D48E8D002203E5 /* Site+CoreData.swift */,
 				BEF3C2FF20D3744500ED9A97 /* SoilDataType+Codable.swift */,
 				BEF3C30F20D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift */,
 				BEF3C31120D376AC00ED9A97 /* SoilTextureScale+Codable+ScaleDataType.swift */,
+				19E546EEF34A0B6465A946D8 /* VertebrateDataType+Codable.swift */,
 				BEF3C30120D3745B00ED9A97 /* WaterDataType+Codable.swift */,
 				BEF3C31320D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift */,
 				BEF3C31520D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift */,
-				19E54B8E2556F3F19F9C2126 /* AnimalDataType+Codable.swift */,
-				19E5497CB6B80EE53CAD377D /* FungiDataType+Codable.swift */,
-				19E54DF1295E2390441F4841 /* PlantDataType+Codable.swift */,
-				19E546EEF34A0B6465A946D8 /* VertebrateDataType+Codable.swift */,
-				19E54BCCD32A62829ABA3B6F /* InvertebrateDataType+Codable.swift */,
-				19E54484A0A8DD0F702A7953 /* AnimalFactor+Codable.swift */,
+				BE203CE821ED8FE800CCD26F /* AnimalData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				BE7B877420D5B2C80083F349 /* UIViewUtil.swift in Sources */,
 				BE735B0220E1C52C0057DA32 /* DateUtil.swift in Sources */,
 				BE1949A420E0627100962DA0 /* SoilTextureDataValueController.swift in Sources */,
+				BE203CE921ED8FE800CCD26F /* AnimalData.swift in Sources */,
 				BE10E86120DCA5D7006C680A /* BioticEcoData+Codable.swift in Sources */,
 				BEF3C30E20D3764C00ED9A97 /* AirOzoneScale+Codable.swift in Sources */,
 				BE210A8020D48E8D002203E5 /* Site+CoreData.swift in Sources */,
@@ -786,7 +790,8 @@
 			baseConfigurationReference = 428B4B510A287C49471D3AF1 /* Pods-EcoDatumAmazon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T69Q77ERZ;
 				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -795,6 +800,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EDAmazon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Development org.ecodatum.EDAmazon";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -805,7 +811,8 @@
 			baseConfigurationReference = 3A8CCA2762E6C5CC5495994F /* Pods-EcoDatumAmazon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T69Q77ERZ;
 				INFOPLIST_FILE = EcoDatumAmazon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -814,6 +821,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ecodatum.EDAmazon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Development org.ecodatum.EDAmazon";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

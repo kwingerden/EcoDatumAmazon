@@ -10,27 +10,70 @@ import XCTest
 @testable import EcoDatumAmazon
 
 class EcoDatumAmazonTests: XCTestCase {
+  
+  override func setUp() {
+    super.setUp()
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+  }
+  
+  override func tearDown() {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    super.tearDown()
+  }
+  
+  struct Test: Codable {
+    let dataType: EcoFactor
+  }
+  
+  func test1() throws {
+    let ecoFactor = EcoFactor(
+      collectionDate: Date(),
+      ecoData: EcoFactor.EcoData.Abiotic(
+        AbioticEcoData(
+          abioticFactor: AbioticFactor.Air,
+          dataType: AbioticDataType.Air(.CarbonDioxide),
+          dataUnit: DataUnit.PartsPerMillion,
+          dataValue: DataValue.DecimalDataValue("34.3"))))
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    let test = Test(dataType: ecoFactor)
+    let encoder = JSONEncoder()
+    let data = try encoder.encode(test)
+    let string = String(data: data, encoding: .utf8)!
+    print(string)
+  }
+  
+  func test2() throws {
+    let ecoFactor = EcoFactor(
+      collectionDate: Date(),
+      ecoData: EcoFactor.EcoData.Biotic(
+        BioticEcoData(
+          bioticFactor: BioticFactor.Plant,
+          dataType: BioticDataType.Plant(.Algae),
+          dataUnit: DataUnit.PartsPerMillion,
+          dataValue: DataValue.DecimalDataValue("34.3"))))
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    let test = Test(dataType: ecoFactor)
+    let encoder = JSONEncoder()
+    let data = try encoder.encode(test)
+    let string = String(data: data, encoding: .utf8)!
+    print(string)
+  }
+  
+  func test3() throws {
+    let ecoFactor = EcoFactor(
+      collectionDate: Date(),
+      ecoData: EcoFactor.EcoData.Biotic(
+        BioticEcoData(
+          bioticFactor: BioticFactor.Animal,
+          dataType: BioticDataType.Animal(AnimalDataType.Invertebrate(.Arthropod)),
+          dataUnit: DataUnit.PartsPerMillion,
+          dataValue: DataValue.DecimalDataValue("34.3"))))
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+    let test = Test(dataType: ecoFactor)
+    let encoder = JSONEncoder()
+    let data = try encoder.encode(test)
+    let string = String(data: data, encoding: .utf8)!
+    print(string)
+  }
+  
 }

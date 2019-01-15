@@ -44,7 +44,10 @@ class VertebrateDataTypeChoiceController: UIViewController {
 
     case is BioticPhotoChoiceController:
       let viewController = segue.destination as! BioticPhotoChoiceController
-      let newBioticDataType = BioticDataType.Animal(.Vertebrate(selectedVertebrateDataType))
+      let animalData = AnimalData(
+        animalFactor: AnimalFactor.Vertebrate,
+        animalDataType: AnimalDataType.Vertebrate(selectedVertebrateDataType))
+      let newBioticDataType = BioticDataType.Animal(animalData)
       let newBioticEcoData = bioticEcoData.new(newBioticDataType)
       let newEcoFactor = EcoFactor(
         collectionDate: ecoFactor.collectionDate,
