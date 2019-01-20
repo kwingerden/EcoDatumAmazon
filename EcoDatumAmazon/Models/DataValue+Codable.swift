@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DataValue: Codable {
+enum DataValue: Codable, Equatable {
   
   case DecimalDataValue(String)
   case AirOzoneScale(AirOzoneScale)

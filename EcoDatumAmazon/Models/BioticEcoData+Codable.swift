@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct BioticEcoData: Codable {
+struct BioticEcoData: Codable, Equatable {
 
   let bioticFactor: BioticFactor?
   let dataType: BioticDataType?
@@ -170,6 +170,13 @@ struct BioticEcoData: Codable {
       dataValue: dataValue,
       image: image,
       notes: notes)
+  }
+  
+  static func ==(lhs: BioticEcoData, rhs: BioticEcoData) -> Bool {
+    return lhs.bioticFactor == rhs.bioticFactor &&
+      lhs.dataType == rhs.dataType &&
+      lhs.dataUnit == rhs.dataUnit &&
+      lhs.dataValue == rhs.dataValue
   }
 
 }

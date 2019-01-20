@@ -115,46 +115,12 @@ extension Site {
   }
   
   func encode() throws -> Data {
-    let encoder = JSONEncoder()
-    encoder.dateEncodingStrategy = .iso8601
+    let encoder = JSONEncoder.ecoDatumJSONEncoder()
     return try encoder.encode(SiteCodable(site: self))
   }
   
   static func decode(_ data: Data) throws -> Site {
-    let decoder = JSONDecoder()
-    let formatter = ISO8601DateFormatter()
-    
-    // A custom decoder function is needed since some of the older data was collected using date's
-    // default decoding strategy. The standard is now to use ISO 8601 date format. To accomodate
-    // this, test to see of the date is encoded in either the ISO 8601 date format or date's
-    // default encoding strategy.
-    func customDecoder(_ decoder: Decoder) throws -> Date {
-      var date: Date?
-      switch decoder.codingPath.last {
-      // Right now, the collectionDate is the only date that needs to be handled.
-      case EcoFactor.CodingKeys.collectionDate?:
-        let container = try decoder.singleValueContainer()
-        do {
-          let iso8601FormattedString = try container.decode(String.self)
-          date = formatter.date(from: iso8601FormattedString)
-        } catch {
-          let value = try container.decode(Double.self)
-          date = Date(timeIntervalSinceReferenceDate: value)
-        }
-      default:
-        break
-      }
-      if let date = date {
-        return date
-      } else {
-        let errorContext = DecodingError.Context(
-          codingPath: decoder.codingPath,
-          debugDescription: "Failed to convert date")
-        throw DecodingError.typeMismatch(Date.self, errorContext)
-      }
-    }
-    
-    decoder.dateDecodingStrategy = .custom(customDecoder)
+    let decoder = JSONDecoder.ecoDatumJSONDecoder()
     return try decoder.decode(SiteCodable.self, from: data).site
   }
   

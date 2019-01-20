@@ -10,9 +10,9 @@ import Foundation
 
 typealias CollectionDate = Date
 
-struct EcoFactor: Codable, CustomStringConvertible {
+struct EcoFactor: Codable, CustomStringConvertible, Equatable {
 
-  enum EcoData {
+  enum EcoData: Equatable {
     case Abiotic(AbioticEcoData)
     case Biotic(BioticEcoData)
   
@@ -107,6 +107,13 @@ struct EcoFactor: Codable, CustomStringConvertible {
         LOG.error("Error setting bioticEcoData variable")
       }
     }
+  }
+  
+  static func ==(lhs: EcoFactor, rhs: EcoFactor) -> Bool {
+    return lhs.abioticEcoData == rhs.abioticEcoData &&
+      lhs.bioticEcoData == rhs.bioticEcoData &&
+      lhs.collectionDate?.iso8601FormattedDateString() == rhs.collectionDate?.iso8601FormattedDateString() &&
+      lhs.ecoData == rhs.ecoData
   }
   
 }

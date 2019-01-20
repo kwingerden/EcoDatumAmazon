@@ -13,7 +13,8 @@ import UIKit
 extension BioticData {
   
   static func create(_ ecoFactor: EcoFactor) throws -> BioticData? {
-    let jsonData = try JSONEncoder().encode(ecoFactor)
+    let encoder = JSONEncoder.ecoDatumJSONEncoder()
+    let jsonData = try encoder.encode(ecoFactor)
     if let jsonString = String(data: jsonData, encoding: .utf8) {
       if jsonString.count > 500 {
         LOG.debug(jsonString[..<jsonString.index(jsonString.startIndex, offsetBy: 500)])

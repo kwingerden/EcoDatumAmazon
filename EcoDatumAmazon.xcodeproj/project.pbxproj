@@ -56,6 +56,7 @@
 		BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877120D4DC830083F349 /* ViewContext.swift */; };
 		BE7B877420D5B2C80083F349 /* UIViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877320D5B2C80083F349 /* UIViewUtil.swift */; };
 		BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877520D729D50083F349 /* SiteMapController.swift */; };
+		BE95AD3E21F40E8600D0B762 /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95AD3D21F40E8600D0B762 /* JSONUtil.swift */; };
 		BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */; };
 		BE9BC92F20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */; };
 		BE9BC93120DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC93020DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift */; };
@@ -153,6 +154,7 @@
 		BE7B877120D4DC830083F349 /* ViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContext.swift; sourceTree = "<group>"; };
 		BE7B877320D5B2C80083F349 /* UIViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtil.swift; sourceTree = "<group>"; };
 		BE7B877520D729D50083F349 /* SiteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteMapController.swift; sourceTree = "<group>"; };
+		BE95AD3D21F40E8600D0B762 /* JSONUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtil.swift; sourceTree = "<group>"; };
 		BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbitoicDataUnitChoiceController.swift; sourceTree = "<group>"; };
 		BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataValueChoiceController.swift; sourceTree = "<group>"; };
 		BE9BC93020DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbioticDataTypeChoiceController.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				BE7B877320D5B2C80083F349 /* UIViewUtil.swift */,
 				BE735AFF20E1BD0D0057DA32 /* FormatterUtil.swift */,
 				BE735B0120E1C52C0057DA32 /* DateUtil.swift */,
+				BE95AD3D21F40E8600D0B762 /* JSONUtil.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				BEF3C2FB20D3736300ED9A97 /* AbioticFactor+Codable.swift */,
 				BEF3C2FD20D3742300ED9A97 /* AirDataType+Codable.swift */,
 				BEF3C30D20D3764C00ED9A97 /* AirOzoneScale+Codable.swift */,
+				BE203CE821ED8FE800CCD26F /* AnimalData.swift */,
 				19E54B8E2556F3F19F9C2126 /* AnimalDataType+Codable.swift */,
 				19E54484A0A8DD0F702A7953 /* AnimalFactor+Codable.swift */,
 				BE26543320DAF7F500844E4F /* Base64Encoded.swift */,
@@ -374,7 +378,6 @@
 				BEF3C30120D3745B00ED9A97 /* WaterDataType+Codable.swift */,
 				BEF3C31320D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift */,
 				BEF3C31520D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift */,
-				BE203CE821ED8FE800CCD26F /* AnimalData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */,
 				BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */,
 				BE735AFE20E185B90057DA32 /* CollectionDateChoiceController.swift in Sources */,
+				BE95AD3E21F40E8600D0B762 /* JSONUtil.swift in Sources */,
 				BE9BC93120DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift in Sources */,
 				BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */,
 				BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */,

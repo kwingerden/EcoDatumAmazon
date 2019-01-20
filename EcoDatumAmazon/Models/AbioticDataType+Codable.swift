@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AbioticDataType: Codable {
+enum AbioticDataType: Codable, Equatable {
   
   case Air(AirDataType)
   case Soil(SoilDataType)

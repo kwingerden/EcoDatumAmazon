@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BioticDataType: Codable {
+enum BioticDataType: Codable, Equatable {
 
   case Animal(AnimalData)
   case Fungi(FungiDataType)

@@ -14,4 +14,8 @@ extension Date {
     return Formatter.mediumDateStyleFormatter.string(from: self)
   }
   
+  func iso8601FormattedDateString() -> String {
+    return ISO8601DateFormatter().string(from: self)
+  }
+  
 }

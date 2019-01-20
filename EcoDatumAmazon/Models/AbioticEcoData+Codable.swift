@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AbioticEcoData: Codable {
+struct AbioticEcoData: Codable, Equatable {
   
   let abioticFactor: AbioticFactor?
   let dataType: AbioticDataType?
@@ -280,6 +280,13 @@ struct AbioticEcoData: Codable {
       dataType: dataType,
       dataUnit: dataUnit,
       dataValue: dataValue)
+  }
+  
+  static func ==(lhs: AbioticEcoData, rhs: AbioticEcoData) -> Bool {
+    return lhs.abioticFactor == rhs.abioticFactor &&
+      lhs.dataType == rhs.dataType &&
+      lhs.dataUnit == rhs.dataUnit &&
+      lhs.dataValue == rhs.dataValue
   }
   
 }

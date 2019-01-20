@@ -10,18 +10,14 @@ enum AnimalDataType: Codable {
   case Invertebrate(InvertebrateDataType)
   case Vertebrate(VertebrateDataType)
 
-  enum CodingKeys: String, CodingKey {
-    case animalDataType
-  }
-
   init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let container = try decoder.singleValueContainer()
     
-    let invertebrateDataType = try container.decodeIfPresent(InvertebrateDataType.self, forKey: .animalDataType)
+    let invertebrateDataType = try? container.decode(InvertebrateDataType.self)
     if let invertebrateDataType = invertebrateDataType {
       self = .Invertebrate(invertebrateDataType)
     } else {
-      let vertebrateDataType = try container.decodeIfPresent(VertebrateDataType.self, forKey: .animalDataType)
+      let vertebrateDataType = try? container.decode(VertebrateDataType.self)
       if let vertebrateDataType = vertebrateDataType {
         self = .Vertebrate(vertebrateDataType)
       } else {
@@ -31,12 +27,12 @@ enum AnimalDataType: Codable {
   }
   
   func encode(to encoder: Encoder) throws {
-    var container = encoder.container(keyedBy: CodingKeys.self)
+    var container = encoder.singleValueContainer()
     switch self {
     case .Invertebrate(let dataType):
-      try container.encode(dataType, forKey: .animalDataType)
+      try container.encode(dataType)
     case .Vertebrate(let dataType):
-      try container.encode(dataType, forKey: .animalDataType)
+      try container.encode(dataType)
     }
   }
   
