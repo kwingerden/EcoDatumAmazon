@@ -319,7 +319,7 @@ fileprivate class SiteCodable: Codable {
     try container.encodeIfPresent(site.country, forKey: CodingKeys.country)
     
     if let ecoData = site.ecoData {
-      let jsonDecoder = JSONDecoder()
+      let jsonDecoder = JSONDecoder.ecoDatumJSONDecoder()
       let ecoFactors = try ecoData.map {
         $0 as! EcoData
         }.map {

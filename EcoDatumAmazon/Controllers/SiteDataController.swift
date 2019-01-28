@@ -69,7 +69,7 @@ class SiteDataController: UIViewController {
       }
     
       var orderedEcoFactors: [EcoFactor] = []
-      let jsonDecoder = JSONDecoder()
+      let jsonDecoder = JSONDecoder.ecoDatumJSONDecoder()
       do {
         orderedEcoFactors = try orderedEcoData.map {
           ecoData -> EcoFactor in

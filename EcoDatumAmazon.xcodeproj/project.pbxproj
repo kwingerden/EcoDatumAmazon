@@ -56,6 +56,7 @@
 		BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877120D4DC830083F349 /* ViewContext.swift */; };
 		BE7B877420D5B2C80083F349 /* UIViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877320D5B2C80083F349 /* UIViewUtil.swift */; };
 		BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B877520D729D50083F349 /* SiteMapController.swift */; };
+		BE86B17921FE8D5C009DC027 /* Site1.site in Resources */ = {isa = PBXBuildFile; fileRef = BE86B17821FE8D5B009DC027 /* Site1.site */; };
 		BE95AD3E21F40E8600D0B762 /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95AD3D21F40E8600D0B762 /* JSONUtil.swift */; };
 		BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */; };
 		BE9BC92F20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */; };
@@ -154,6 +155,7 @@
 		BE7B877120D4DC830083F349 /* ViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContext.swift; sourceTree = "<group>"; };
 		BE7B877320D5B2C80083F349 /* UIViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtil.swift; sourceTree = "<group>"; };
 		BE7B877520D729D50083F349 /* SiteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteMapController.swift; sourceTree = "<group>"; };
+		BE86B17821FE8D5B009DC027 /* Site1.site */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Site1.site; sourceTree = "<group>"; };
 		BE95AD3D21F40E8600D0B762 /* JSONUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtil.swift; sourceTree = "<group>"; };
 		BE9BC92C20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbitoicDataUnitChoiceController.swift; sourceTree = "<group>"; };
 		BE9BC92E20DE06FA0048FCF8 /* AbioticDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDataValueChoiceController.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		BEF3C2D720D356FF00ED9A97 /* EcoDatumAmazonTests */ = {
 			isa = PBXGroup;
 			children = (
+				BE86B17821FE8D5B009DC027 /* Site1.site */,
 				BEF3C2D820D356FF00ED9A97 /* EcoDatumAmazonTests.swift */,
 				BEF3C2DA20D356FF00ED9A97 /* Info.plist */,
 			);
@@ -493,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE86B17921FE8D5C009DC027 /* Site1.site in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
