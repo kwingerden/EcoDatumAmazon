@@ -199,14 +199,14 @@ class EcoDatumAmazonTests: XCTestCase {
     XCTAssert(dataValue2 == .SoilPotassiumScale(SoilPotassiumScale.all[1]))
     
     let abioticEcoData3 = ecoFactor3.abioticEcoData!
-    guard let abioticFactor3 = abioticEcoData3.abioticFactor,
+    guard let af3 = abioticEcoData3.abioticFactor,
       let dataType3 = abioticEcoData3.dataType,
       let dataUnit3 = abioticEcoData3.dataUnit,
       let dataValue3 = abioticEcoData3.dataValue else {
         XCTFail("Failed to parse Abiotic EcoData3")
         return
     }
-    XCTAssert(abioticFactor3 == .Air)
+    XCTAssert(af3 == .Air)
     XCTAssert(dataType3 == .Air(.RelativeHumidity))
     XCTAssert(dataUnit3 == .Percent)
     XCTAssert(dataValue3 == .DecimalDataValue("56"))

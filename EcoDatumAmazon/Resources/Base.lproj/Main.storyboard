@@ -1678,10 +1678,10 @@
             </objects>
             <point key="canvasLocation" x="2053.5999999999999" y="-107.49625187406298"/>
         </scene>
-        <!--Decimal Data Value Choice Controller-->
+        <!--Abiotic Decimal Data Value Choice Controller-->
         <scene sceneID="QCD-Gg-Ll7">
             <objects>
-                <viewController id="UEr-NK-r0v" customClass="DecimalDataValueChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UEr-NK-r0v" customClass="AbioticDecimalDataValueChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rMm-AJ-mOP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1729,7 +1729,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9g-Ax-wST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8971" y="2390"/>
+            <point key="canvasLocation" x="8875" y="2358"/>
         </scene>
         <!--Collection Date Navigation Choice Controller-->
         <scene sceneID="3fb-9C-4EK">
@@ -1829,6 +1829,7 @@
                     <connections>
                         <outlet property="tableView" destination="LgC-pC-7wi" id="2fr-3a-RAz"/>
                         <segue destination="Ny9-I5-Ctr" kind="show" identifier="bioticPhotoChoice" id="Yof-HN-BYM"/>
+                        <segue destination="zHp-yJ-1br" kind="show" identifier="bioticDataValueChoice" id="Df6-Ea-dht"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAM-EU-Ekd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1986,6 +1987,92 @@
             </objects>
             <point key="canvasLocation" x="5671" y="3174"/>
         </scene>
+        <!--Biotic Data Value Choice Controller-->
+        <scene sceneID="tcD-gV-UB8">
+            <objects>
+                <viewController id="zHp-yJ-1br" customClass="BioticDataValueChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Me6-uP-gHj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-nb-IEA">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <connections>
+                                    <segue destination="dLI-lR-vwC" kind="embed" id="ukb-PG-sOR"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YpT-nb-IEA" firstAttribute="leading" secondItem="WN7-wh-Tjy" secondAttribute="leading" id="9w9-Df-Xv7"/>
+                            <constraint firstItem="YpT-nb-IEA" firstAttribute="top" secondItem="WN7-wh-Tjy" secondAttribute="top" id="PV1-g0-7Ww"/>
+                            <constraint firstAttribute="bottom" secondItem="YpT-nb-IEA" secondAttribute="bottom" id="hK0-Pb-Jcq"/>
+                            <constraint firstAttribute="trailing" secondItem="YpT-nb-IEA" secondAttribute="trailing" id="oat-NZ-9LK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WN7-wh-Tjy"/>
+                    </view>
+                    <connections>
+                        <outlet property="decimalDataValueView" destination="YpT-nb-IEA" id="UiG-Do-oJh"/>
+                        <segue destination="Ny9-I5-Ctr" kind="show" identifier="bioticPhotoChoice" id="1CR-ju-srZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EzB-bF-1xZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4791" y="4763"/>
+        </scene>
+        <!--Biotic Decimal Data Value Choice Controller-->
+        <scene sceneID="DDZ-w6-j2z">
+            <objects>
+                <viewController id="dLI-lR-vwC" customClass="BioticDecimalDataValueChoiceController" customModule="EcoDatumAmazon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lwe-yR-qUW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Ft-jl-gC1">
+                                <rect key="frame" x="28" y="40" width="358" height="120"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nN0-w5-Tdf">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="pTv-xu-rsU"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IPa-hl-4ob">
+                                        <rect key="frame" x="0.0" y="70" width="358" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nN0-w5-Tdf" secondAttribute="trailing" id="7VB-J4-vqx"/>
+                                    <constraint firstItem="nN0-w5-Tdf" firstAttribute="leading" secondItem="5Ft-jl-gC1" secondAttribute="leading" id="LiP-RA-wae"/>
+                                    <constraint firstAttribute="trailing" secondItem="nN0-w5-Tdf" secondAttribute="trailing" id="Qob-2B-aGP"/>
+                                    <constraint firstItem="nN0-w5-Tdf" firstAttribute="leading" secondItem="5Ft-jl-gC1" secondAttribute="leading" id="bfh-b7-X74"/>
+                                    <constraint firstItem="IPa-hl-4ob" firstAttribute="leading" secondItem="5Ft-jl-gC1" secondAttribute="leading" id="c7Y-pC-Ghc"/>
+                                    <constraint firstAttribute="trailing" secondItem="IPa-hl-4ob" secondAttribute="trailing" id="hN3-U5-7nv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Ft-jl-gC1" firstAttribute="top" secondItem="lwe-yR-qUW" secondAttribute="topMargin" constant="20" id="4jG-bo-NZe"/>
+                            <constraint firstItem="5Ft-jl-gC1" firstAttribute="leading" secondItem="lwe-yR-qUW" secondAttribute="leadingMargin" constant="8" id="TB2-sq-ka1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Ft-jl-gC1" secondAttribute="trailing" constant="8" id="ez1-PW-9Uo"/>
+                            <constraint firstItem="5Ft-jl-gC1" firstAttribute="centerX" secondItem="lwe-yR-qUW" secondAttribute="centerX" id="oah-QD-CP5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UIK-X9-UWZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="dataUnitView" destination="nN0-w5-Tdf" id="a9x-yz-CBw"/>
+                        <outlet property="dataValueTextField" destination="IPa-hl-4ob" id="KoU-38-UdP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q96-9x-dOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6114" y="4763"/>
+        </scene>
     </scenes>
     <resources>
         <image name="PlaceholderImage" width="1024" height="1024"/>
@@ -1998,6 +2085,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pL-74-pp5"/>
-        <segue reference="4RJ-qR-YWV"/>
+        <segue reference="1CR-ju-srZ"/>
     </inferredMetricsTieBreakers>
 </document>

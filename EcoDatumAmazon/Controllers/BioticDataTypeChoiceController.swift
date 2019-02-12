@@ -41,13 +41,17 @@ class BioticDataTypeChoiceController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-    let newBioticEcoData = bioticEcoData.new(selectedBioticDataType)
+    let newBioticEcoData = bioticEcoData.new(selectedBioticDataType).new(.KilogramsOfCarbon)
     let newEcoFactor = EcoFactor(
       collectionDate: ecoFactor.collectionDate,
       ecoData: EcoFactor.EcoData.Biotic(newBioticEcoData))
 
     switch segue.destination {
 
+    case is BioticDataValueChoiceController:
+      let viewController = segue.destination as! BioticDataValueChoiceController
+      viewController.ecoFactor = newEcoFactor
+      
     case is BioticPhotoChoiceController:
       let viewController = segue.destination as! BioticPhotoChoiceController
       viewController.ecoFactor = newEcoFactor
@@ -69,12 +73,18 @@ extension BioticDataTypeChoiceController: UITableViewDelegate {
     switch bioticFactor! {
     case .Fungi:
       selectedBioticDataType = .Fungi(FungiDataType.all[indexPath.row])
+      performSegue(withIdentifier: "bioticPhotoChoice", sender: nil)
     case .Plant:
-      selectedBioticDataType = .Plant(PlantDataType.all[indexPath.row])
+      let plantDataType = PlantDataType.all[indexPath.row]
+      selectedBioticDataType = .Plant(plantDataType)
+      if plantDataType == .Conifer || plantDataType == .Flower {
+        performSegue(withIdentifier: "bioticDataValueChoice", sender: nil)
+      } else {
+        performSegue(withIdentifier: "bioticPhotoChoice", sender: nil)
+      }
     default:
       fatalError()
     }
-    performSegue(withIdentifier: "bioticPhotoChoice", sender: nil)
   }
   
 }

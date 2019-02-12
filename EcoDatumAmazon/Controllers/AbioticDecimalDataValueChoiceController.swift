@@ -2,7 +2,7 @@ import Foundation
 import iosMath
 import UIKit
 
-class DecimalDataValueChoiceController: UIViewController {
+class AbioticDecimalDataValueChoiceController: UIViewController {
   
   var parentController: AbioticDataValueChoiceController!
   
@@ -125,7 +125,7 @@ class DecimalDataValueChoiceController: UIViewController {
   
 }
 
-extension DecimalDataValueChoiceController: UITextFieldDelegate {
+extension AbioticDecimalDataValueChoiceController: UITextFieldDelegate {
   
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
     if isViewDisappearing {

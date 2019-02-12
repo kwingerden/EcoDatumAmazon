@@ -71,7 +71,7 @@ class AbioticDataValueChoiceController: UIViewController {
   
   private var scaleDataValueChoiceController: ScaleDataValueChoiceController!
   
-  private var decimalDataValueChoiceController: DecimalDataValueChoiceController!
+  private var decimalDataValueChoiceController: AbioticDecimalDataValueChoiceController!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -151,8 +151,8 @@ class AbioticDataValueChoiceController: UIViewController {
       scaleDataValueChoiceController.embeddedViewToDisplay = embeddedViewToDisplay
       scaleDataValueChoiceController.ecoFactor = ecoFactor
       
-    case is DecimalDataValueChoiceController:
-      decimalDataValueChoiceController = (segue.destination as! DecimalDataValueChoiceController)
+    case is AbioticDecimalDataValueChoiceController:
+      decimalDataValueChoiceController = (segue.destination as! AbioticDecimalDataValueChoiceController)
       decimalDataValueChoiceController.parentController = self
       decimalDataValueChoiceController.embeddedViewToDisplay = embeddedViewToDisplay
       decimalDataValueChoiceController.ecoFactor = ecoFactor

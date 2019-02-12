@@ -35,7 +35,7 @@
 		BE1949A220E0404000962DA0 /* DataValue+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A120E0404000962DA0 /* DataValue+Codable.swift */; };
 		BE1949A420E0627100962DA0 /* SoilTextureDataValueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */; };
 		BE1949A620E062CF00962DA0 /* ScaleDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */; };
-		BE1949A820E062F000962DA0 /* DecimalDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */; };
+		BE1949A820E062F000962DA0 /* AbioticDecimalDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1949A720E062F000962DA0 /* AbioticDecimalDataValueChoiceController.swift */; };
 		BE203CE921ED8FE800CCD26F /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE203CE821ED8FE800CCD26F /* AnimalData.swift */; };
 		BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6420D4449B002203E5 /* PersistenceUtil.swift */; };
 		BE210A6720D450B4002203E5 /* SiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE210A6620D450B4002203E5 /* SiteNavigationController.swift */; };
@@ -89,6 +89,8 @@
 		BEF3C31220D376AC00ED9A97 /* SoilTextureScale+Codable+ScaleDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C31120D376AC00ED9A97 /* SoilTextureScale+Codable+ScaleDataType.swift */; };
 		BEF3C31420D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C31320D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift */; };
 		BEF3C31620D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF3C31520D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift */; };
+		BEFD63EA22127D2900AC29D7 /* BioticDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD63E922127D2900AC29D7 /* BioticDataValueChoiceController.swift */; };
+		BEFD63EC22127EE000AC29D7 /* BioticDecimalDataValueChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD63EB22127EE000AC29D7 /* BioticDecimalDataValueChoiceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,7 +135,7 @@
 		BE1949A120E0404000962DA0 /* DataValue+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataValue+Codable.swift"; sourceTree = "<group>"; };
 		BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilTextureDataValueController.swift; sourceTree = "<group>"; };
 		BE1949A520E062CF00962DA0 /* ScaleDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDataValueChoiceController.swift; sourceTree = "<group>"; };
-		BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDataValueChoiceController.swift; sourceTree = "<group>"; };
+		BE1949A720E062F000962DA0 /* AbioticDecimalDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbioticDecimalDataValueChoiceController.swift; sourceTree = "<group>"; };
 		BE203CE821ED8FE800CCD26F /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
 		BE210A6420D4449B002203E5 /* PersistenceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceUtil.swift; sourceTree = "<group>"; };
 		BE210A6620D450B4002203E5 /* SiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNavigationController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,8 @@
 		BEF3C31120D376AC00ED9A97 /* SoilTextureScale+Codable+ScaleDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoilTextureScale+Codable+ScaleDataType.swift"; sourceTree = "<group>"; };
 		BEF3C31320D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterOdorScale+Codable+ScaleDataType.swift"; sourceTree = "<group>"; };
 		BEF3C31520D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterTurbidityScale+Codable+ScaleDataType.swift"; sourceTree = "<group>"; };
+		BEFD63E922127D2900AC29D7 /* BioticDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioticDataValueChoiceController.swift; sourceTree = "<group>"; };
+		BEFD63EB22127EE000AC29D7 /* BioticDecimalDataValueChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioticDecimalDataValueChoiceController.swift; sourceTree = "<group>"; };
 		D2F6901DCF01AC8EF3708488 /* Pods-EcoDatumAmazonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoDatumAmazonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoDatumAmazonTests/Pods-EcoDatumAmazonTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,7 +320,7 @@
 				BE735AFD20E185B90057DA32 /* CollectionDateChoiceController.swift */,
 				BE2479DB20E58800003B3370 /* CollectionDateNavigationChoiceController.swift */,
 				BE210A6820D45124002203E5 /* DataNavigationController.swift */,
-				BE1949A720E062F000962DA0 /* DecimalDataValueChoiceController.swift */,
+				BE1949A720E062F000962DA0 /* AbioticDecimalDataValueChoiceController.swift */,
 				BE10E85420DC9DE1006C680A /* EcoFactorChoiceController.swift */,
 				BEF3C2E920D358FC00ED9A97 /* MainSplitViewController.swift */,
 				BEE57DC920D8BDE700A1ECB6 /* MainTabBarController.swift */,
@@ -334,6 +338,8 @@
 				19E548B3DC7230C6B159593D /* AnimalDataTypeChoiceController.swift */,
 				19E547A5DA47E311963203DF /* InvertebrateDataTypeChoiceController.swift */,
 				19E54CFC3D3AD83A64989A4E /* VertebrateDataTypeChoiceController.swift */,
+				BEFD63E922127D2900AC29D7 /* BioticDataValueChoiceController.swift */,
+				BEFD63EB22127EE000AC29D7 /* BioticDecimalDataValueChoiceController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				BEF3C31620D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift in Sources */,
 				BE66905420DB194A00EA1492 /* SiteDataController.swift in Sources */,
 				BE7B877620D729D50083F349 /* SiteMapController.swift in Sources */,
+				BEFD63EA22127D2900AC29D7 /* BioticDataValueChoiceController.swift in Sources */,
 				BEF3C31020D3768900ED9A97 /* SoilPotassiumScale+Codable+ScaleDataType.swift in Sources */,
 				BEEE5C0020E429B70061A4DB /* BioticData+CoreData.swift in Sources */,
 				BE10E85D20DCA47A006C680A /* AbioticEcoData+Codable.swift in Sources */,
@@ -591,12 +598,13 @@
 				BE9BC92D20DDF46E0048FCF8 /* AbitoicDataUnitChoiceController.swift in Sources */,
 				BEF3C30420D374AA00ED9A97 /* DataUnit+Codable.swift in Sources */,
 				BEF3C2FC20D3736300ED9A97 /* AbioticFactor+Codable.swift in Sources */,
-				BE1949A820E062F000962DA0 /* DecimalDataValueChoiceController.swift in Sources */,
+				BE1949A820E062F000962DA0 /* AbioticDecimalDataValueChoiceController.swift in Sources */,
 				BE1868D420D9A49F007E3EE8 /* SitePlaceController.swift in Sources */,
 				BE210A6520D4449B002203E5 /* PersistenceUtil.swift in Sources */,
 				BE735AFE20E185B90057DA32 /* CollectionDateChoiceController.swift in Sources */,
 				BE95AD3E21F40E8600D0B762 /* JSONUtil.swift in Sources */,
 				BE9BC93120DE0C410048FCF8 /* AbioticDataTypeChoiceController.swift in Sources */,
+				BEFD63EC22127EE000AC29D7 /* BioticDecimalDataValueChoiceController.swift in Sources */,
 				BEF3C2EA20D358FC00ED9A97 /* MainSplitViewController.swift in Sources */,
 				BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */,
 				BEF3C30C20D3760000ED9A97 /* NumberSign+Codable.swift in Sources */,
