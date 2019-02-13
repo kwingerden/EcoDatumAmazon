@@ -48,8 +48,8 @@ class BioticDataTypeChoiceController: UIViewController {
 
     switch segue.destination {
 
-    case is BioticDataValueChoiceController:
-      let viewController = segue.destination as! BioticDataValueChoiceController
+    case is BioticDataUnitChoiceController:
+      let viewController = segue.destination as! BioticDataUnitChoiceController
       viewController.ecoFactor = newEcoFactor
       
     case is BioticPhotoChoiceController:
@@ -78,7 +78,7 @@ extension BioticDataTypeChoiceController: UITableViewDelegate {
       let plantDataType = PlantDataType.all[indexPath.row]
       selectedBioticDataType = .Plant(plantDataType)
       if plantDataType == .Conifer || plantDataType == .Flower {
-        performSegue(withIdentifier: "bioticDataValueChoice", sender: nil)
+        performSegue(withIdentifier: "bioticDataUnitChoice", sender: nil)
       } else {
         performSegue(withIdentifier: "bioticPhotoChoice", sender: nil)
       }

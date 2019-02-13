@@ -41,8 +41,8 @@ class AbioticDataTypeChoiceController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.destination {
-    case is AbitoicDataUnitChoiceController:
-      let viewController = segue.destination as! AbitoicDataUnitChoiceController
+    case is AbioticDataUnitChoiceController:
+      let viewController = segue.destination as! AbioticDataUnitChoiceController
       let newAbioticEcoData = abioticEcoData.new(selectedAbioticDataType)
       let newEcoFactor = EcoFactor(
         collectionDate: ecoFactor.collectionDate,

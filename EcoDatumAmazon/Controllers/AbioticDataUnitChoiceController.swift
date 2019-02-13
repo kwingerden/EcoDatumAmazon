@@ -10,7 +10,7 @@ import Foundation
 import iosMath
 import UIKit
 
-class AbitoicDataUnitChoiceController: UIViewController {
+class AbioticDataUnitChoiceController: UIViewController {
   
   var ecoFactor: EcoFactor!
   
@@ -67,53 +67,32 @@ class AbitoicDataUnitChoiceController: UIViewController {
   
 }
 
-extension AbitoicDataUnitChoiceController: UITableViewDelegate {
+extension AbioticDataUnitChoiceController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    switch abioticDataType! {
-    case .Air(let airDataType):
-      selectedAbioticDataUnit = DataUnit.units(.Air(airDataType))[indexPath.row]
-    case .Soil(let soilDataType):
-      selectedAbioticDataUnit = DataUnit.units(.Soil(soilDataType))[indexPath.row]
-    case .Water(let waterDataType):
-      selectedAbioticDataUnit = DataUnit.units(.Water(waterDataType))[indexPath.row]
-    }
+    selectedAbioticDataUnit = DataUnit.units(abioticDataType)[indexPath.row]
     performSegue(withIdentifier: "abioticDataValueChoice", sender: nil)
   }
   
 }
 
-extension AbitoicDataUnitChoiceController: UITableViewDataSource {
+extension AbioticDataUnitChoiceController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return DataUnitChoiceTableViewCell.CELL_HEIGHT
+    return AbioticDataUnitChoiceTableViewCell.CELL_HEIGHT
   }
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    switch abioticDataType! {
-    case .Air(let airDataType):
-      return DataUnit.units(.Air(airDataType)).count
-    case .Soil(let soilDataType):
-      return DataUnit.units(.Soil(soilDataType)).count
-    case .Water(let waterDataType):
-      return DataUnit.units(.Water(waterDataType)).count
-    }
+    return DataUnit.units(abioticDataType).count
   }
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(
       withIdentifier: "cell",
-      for: indexPath) as! DataUnitChoiceTableViewCell
-    switch abioticDataType! {
-    case .Air(let airDataType):
-      cell.dataUnitLabel.latex = dataUnitValue(dataUnits(airDataType), indexPath)
-    case .Soil(let soilDataType):
-      cell.dataUnitLabel.latex = dataUnitValue(dataUnits(soilDataType), indexPath)
-    case .Water(let waterDataType):
-      cell.dataUnitLabel.latex = dataUnitValue(dataUnits(waterDataType), indexPath)
-    }
+      for: indexPath) as! AbioticDataUnitChoiceTableViewCell
+    cell.dataUnitLabel.latex = DataUnit.units(abioticDataType)[indexPath.row].rawValue
     return cell
   }
   
@@ -136,7 +115,7 @@ extension AbitoicDataUnitChoiceController: UITableViewDataSource {
   
 }
 
-class DataUnitChoiceTableViewCell: UITableViewCell {
+class AbioticDataUnitChoiceTableViewCell: UITableViewCell {
   
   static let CELL_HEIGHT: CGFloat = 80
   
