@@ -45,6 +45,10 @@
 		BE2479DA20E58195003B3370 /* BioticDataDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2479D920E58195003B3370 /* BioticDataDetailNavigationController.swift */; };
 		BE2479DC20E58800003B3370 /* CollectionDateNavigationChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2479DB20E58800003B3370 /* CollectionDateNavigationChoiceController.swift */; };
 		BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26543320DAF7F500844E4F /* Base64Encoded.swift */; };
+		BE26DA4D221A1476001E42E6 /* SitePhoto+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26DA4C221A1476001E42E6 /* SitePhoto+CoreData.swift */; };
+		BE26DA4F221A1A6C001E42E6 /* SitePhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26DA4E221A1A6C001E42E6 /* SitePhotosController.swift */; };
+		BE26DA51221A4312001E42E6 /* SitePhotoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26DA50221A4312001E42E6 /* SitePhotoNavigationController.swift */; };
+		BE26DA53221A4374001E42E6 /* SitePhotoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26DA52221A4374001E42E6 /* SitePhotoDetailController.swift */; };
 		BE4B9B0720D76AAE0069513E /* SitePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */; };
 		BE4B9B0B20D771150069513E /* SiteNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B9B0A20D771150069513E /* SiteNotesController.swift */; };
 		BE66905420DB194A00EA1492 /* SiteDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66905320DB194A00EA1492 /* SiteDataController.swift */; };
@@ -147,6 +151,10 @@
 		BE2479D920E58195003B3370 /* BioticDataDetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioticDataDetailNavigationController.swift; sourceTree = "<group>"; };
 		BE2479DB20E58800003B3370 /* CollectionDateNavigationChoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDateNavigationChoiceController.swift; sourceTree = "<group>"; };
 		BE26543320DAF7F500844E4F /* Base64Encoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Encoded.swift; sourceTree = "<group>"; };
+		BE26DA4C221A1476001E42E6 /* SitePhoto+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SitePhoto+CoreData.swift"; sourceTree = "<group>"; };
+		BE26DA4E221A1A6C001E42E6 /* SitePhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotosController.swift; sourceTree = "<group>"; };
+		BE26DA50221A4312001E42E6 /* SitePhotoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotoNavigationController.swift; sourceTree = "<group>"; };
+		BE26DA52221A4374001E42E6 /* SitePhotoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotoDetailController.swift; sourceTree = "<group>"; };
 		BE4B9B0620D76AAE0069513E /* SitePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhotoController.swift; sourceTree = "<group>"; };
 		BE4B9B0A20D771150069513E /* SiteNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteNotesController.swift; sourceTree = "<group>"; };
 		BE66905320DB194A00EA1492 /* SiteDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDataController.swift; sourceTree = "<group>"; };
@@ -343,6 +351,9 @@
 				BE1949A320E0627100962DA0 /* SoilTextureDataValueController.swift */,
 				19E54CFC3D3AD83A64989A4E /* VertebrateDataTypeChoiceController.swift */,
 				BE7B877120D4DC830083F349 /* ViewContext.swift */,
+				BE26DA4E221A1A6C001E42E6 /* SitePhotosController.swift */,
+				BE26DA50221A4312001E42E6 /* SitePhotoNavigationController.swift */,
+				BE26DA52221A4374001E42E6 /* SitePhotoDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -390,6 +401,7 @@
 				BEF3C30120D3745B00ED9A97 /* WaterDataType+Codable.swift */,
 				BEF3C31320D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift */,
 				BEF3C31520D3771300ED9A97 /* WaterTurbidityScale+Codable+ScaleDataType.swift */,
+				BE26DA4C221A1476001E42E6 /* SitePhoto+CoreData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -578,9 +590,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEE57DCA20D8BDE700A1ECB6 /* MainTabBarController.swift in Sources */,
+				BE26DA51221A4312001E42E6 /* SitePhotoNavigationController.swift in Sources */,
 				BEEE5C0220E42BF50061A4DB /* BioticPhotoChoiceController.swift in Sources */,
 				BE19499C20E034FE00962DA0 /* ScaleDataType.swift in Sources */,
 				BEF3C31420D376E700ED9A97 /* WaterOdorScale+Codable+ScaleDataType.swift in Sources */,
+				BE26DA4D221A1476001E42E6 /* SitePhoto+CoreData.swift in Sources */,
 				BE10E86720DCAAC9006C680A /* EcoFactor+Codable.swift in Sources */,
 				BE2479DC20E58800003B3370 /* CollectionDateNavigationChoiceController.swift in Sources */,
 				BE26543420DAF7F500844E4F /* Base64Encoded.swift in Sources */,
@@ -625,6 +639,7 @@
 				BE1949A020E03D6B00962DA0 /* AbioticDataType+Codable.swift in Sources */,
 				BE10E85520DC9DE1006C680A /* EcoFactorChoiceController.swift in Sources */,
 				BE2479D820E58152003B3370 /* AbioticDataDetailNavigationController.swift in Sources */,
+				BE26DA4F221A1A6C001E42E6 /* SitePhotosController.swift in Sources */,
 				BE7B877220D4DC830083F349 /* ViewContext.swift in Sources */,
 				BE10E85720DC9E3A006C680A /* AbioticFactorChoiceController.swift in Sources */,
 				BEEE5C0420E438CD0061A4DB /* BioticNotesChoiceController.swift in Sources */,
@@ -647,6 +662,7 @@
 				19E549978D0F5C751EE394C2 /* InvertebrateDataType+Codable.swift in Sources */,
 				19E544EF11D0173A94E11BF1 /* BioticDataTypeChoiceController.swift in Sources */,
 				19E5426618D7F98D824B6D25 /* AnimalFactor+Codable.swift in Sources */,
+				BE26DA53221A4374001E42E6 /* SitePhotoDetailController.swift in Sources */,
 				19E54CD00076BBCAF3B0E6E2 /* AnimalDataTypeChoiceController.swift in Sources */,
 				19E54170A7229995AB22860A /* InvertebrateDataTypeChoiceController.swift in Sources */,
 				19E547216178D26864AA96A9 /* VertebrateDataTypeChoiceController.swift in Sources */,

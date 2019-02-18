@@ -27,8 +27,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let console = ConsoleDestination()
     LOG.addDestination(console)
     
+    do {
+      try updateSites()
+    } catch let error as NSError {
+      LOG.error("\(error), \(error.userInfo)")
+    }
+    
     return true
+  }
   
+  private func updateSites() throws {
+    let fetchedResultsController = try Site.fetch()
+    if let sites = fetchedResultsController.fetchedObjects, sites.count > 0 {
+      try sites.forEach {
+        try updateSite($0)
+      }
+    }
+  }
+  
+  private func updateSite(_ site: Site) throws {
+    if let photo = site.photo {
+      if let ecoData = site.ecoData,
+        ecoData.count > 0 {
+        let orderedEcoData = ecoData.map {
+          $0 as! EcoData
+          }.sorted {
+            (lhs: EcoData, rhs: EcoData) in
+            if lhs.collectionDate == nil {
+              return false
+            }
+            if rhs.collectionDate == nil {
+              return false
+            }
+            return lhs.collectionDate! >= rhs.collectionDate! ? true : false
+        }
+        let newSitePhoto = try SitePhoto.create(
+          site: site,
+          date: orderedEcoData[0].collectionDate,
+          photo: photo)
+        try newSitePhoto.save()
+        
+        site.photo = nil
+        try site.save()
+      }
+    }
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
@@ -60,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     do {
       let site = try Site.load(url)
+      try updateSite(site)
       try PersistenceUtil.shared.saveContext()
       ViewContext.shared.selectedSite = site
     } catch {

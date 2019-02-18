@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AbioticData" representedClassName=".AbioticData" parentEntity="EcoData" syncable="YES" codeGenerationType="class">
         <attribute name="abioticFactor" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -32,11 +32,18 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ecoData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EcoData" inverseName="site" inverseEntity="EcoData" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SitePhoto" inverseName="site" inverseEntity="SitePhoto" syncable="YES"/>
+    </entity>
+    <entity name="SitePhoto" representedClassName="SitePhoto" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="site" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Site" inverseName="photos" inverseEntity="Site" syncable="YES"/>
     </entity>
     <elements>
         <element name="AbioticData" positionX="-27" positionY="147" width="128" height="30"/>
         <element name="BioticData" positionX="169" positionY="126" width="128" height="30"/>
         <element name="EcoData" positionX="124" positionY="-99" width="128" height="30"/>
-        <element name="Site" positionX="-200" positionY="-270" width="128" height="30"/>
+        <element name="Site" positionX="-200" positionY="-270" width="128" height="300"/>
+        <element name="SitePhoto" positionX="-18" positionY="-117" width="128" height="90"/>
     </elements>
 </model>

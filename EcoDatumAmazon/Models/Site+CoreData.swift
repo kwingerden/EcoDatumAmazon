@@ -12,6 +12,8 @@ import UIKit
 
 let SITE_NAME_PLACEHOLDER = "<Site Name>"
 
+// NOTE: site.photo attribute is being replaced with array of SitePhoto instead, site.photos
+
 extension Site {
   
   static func create(

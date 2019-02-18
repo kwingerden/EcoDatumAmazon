@@ -19,9 +19,11 @@ class SitePhotoController: UIViewController {
   
   @IBOutlet weak var photoLibraryButton: UIButton!
   
+  @IBOutlet weak var button: UIButton!
+  
   @IBOutlet weak var stackView: UIStackView!
   
-  private var currrentlySelectedSite: Site?
+  private var currentlySelectedSite: Site?
   
   private var isObservingSelectedSiteKeyPath: Bool = false
   
@@ -33,6 +35,8 @@ class SitePhotoController: UIViewController {
     
     cameraButton.roundedAndLightBordered()
     photoLibraryButton.roundedAndLightBordered()
+    
+    button.roundedAndLightBordered()
     
     ViewContext.shared.addObserver(
       self,
@@ -55,7 +59,26 @@ class SitePhotoController: UIViewController {
       showImagePickerController(.camera)
     } else if sender == photoLibraryButton {
       showImagePickerController(.photoLibrary)
+    } else if sender == button {
+      performSegue(withIdentifier: "sitePhotos", sender: nil)
     }
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*
+    switch segue.destination {
+      
+    case is SitePhotosController:
+      let viewController = segue.destination as! SitePhotosController
+      if let site = currentlySelectedSite {
+        viewController.site = site
+      }
+      
+    default:
+      LOG.error("Unknown segue destination: \(segue.destination)")
+      
+    }
+ */
   }
   
   override func observeValue(forKeyPath keyPath: String?,
@@ -71,12 +94,12 @@ class SitePhotoController: UIViewController {
           imageView.image = UIImage(named: "PlaceholderImage")
         }
       
-        currrentlySelectedSite = site
+        currentlySelectedSite = site
         stackView.isHidden = false
         
       } else {
         
-        currrentlySelectedSite = nil
+        currentlySelectedSite = nil
         stackView.isHidden = true
         
       }
@@ -84,7 +107,7 @@ class SitePhotoController: UIViewController {
   }
   
   private func save() {
-    if let site = currrentlySelectedSite,
+    if let site = currentlySelectedSite,
       let image = imageView.image,
       let photo = image.jpegData(compressionQuality: 1) {
       site.photo = photo
@@ -118,14 +141,10 @@ extension SitePhotoController: UIImagePickerControllerDelegate {
  
   func imagePickerController(_ picker: UIImagePickerController,
                              didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
-    
     var image: UIImage = imageView.image!
-    if let editedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage {
+    if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
       image = editedImage
-    } else if let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
+    } else if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
       image = pickedImage
     }
     imageView.image = image
@@ -141,13 +160,3 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
   
 }
 
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-	return input.rawValue
-}
