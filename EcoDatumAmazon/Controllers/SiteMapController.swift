@@ -41,6 +41,12 @@ class SiteMapController: UIViewController {
     if let site = ViewContext.shared.selectedSite {
       setRegion(site)
     }
+    
+    DispatchQueue.main.async {
+      if let mainTabBarController = MainTabBarController.shared {
+        mainTabBarController.navigationItem.rightBarButtonItems = []
+      }
+    }
   }
   
   deinit {

@@ -18,8 +18,9 @@ extension SitePhoto {
     let entity = NSEntityDescription.entity(
       forEntityName: "SitePhoto",
       in: PersistenceUtil.shared.container.viewContext)!
-    let sitePhoto = SitePhoto(entity: entity,
-                              insertInto: PersistenceUtil.shared.container.viewContext)
+    let sitePhoto = SitePhoto(
+      entity: entity,
+      insertInto: PersistenceUtil.shared.container.viewContext)
     sitePhoto.site = site
     sitePhoto.date = date
     sitePhoto.photo = photo

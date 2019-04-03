@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AbioticData" representedClassName=".AbioticData" parentEntity="EcoData" syncable="YES" codeGenerationType="class">
-        <attribute name="abioticFactor" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="BioticData" representedClassName=".BioticData" parentEntity="EcoData" syncable="YES" codeGenerationType="class">
-        <attribute name="bioticFactor" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="notes" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-    </entity>
-    <entity name="EcoData" representedClassName=".EcoData" isAbstract="YES" syncable="YES" codeGenerationType="class">
+    <entity name="EcoData" representedClassName=".EcoDataEntity" parentEntity="Site" syncable="YES" codeGenerationType="class">
         <attribute name="collectionDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="ecoFactor" attributeType="String" syncable="YES"/>
+        <attribute name="created" attributeType="Date" defaultDateTimeInterval="572226600" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="jsonData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="updated" attributeType="Date" defaultDateTimeInterval="572226600" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="ecoFactor" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="EcoFactor" inverseName="ecoData" inverseEntity="EcoFactor" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Note" inverseName="ecoData" inverseEntity="Note" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Photo" inverseName="ecoData" inverseEntity="Photo" syncable="YES"/>
         <relationship name="site" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Site" inverseName="ecoData" inverseEntity="Site" syncable="YES"/>
     </entity>
-    <entity name="Site" representedClassName=".Site" syncable="YES" codeGenerationType="class" coreSpotlightDisplayNameExpression="@name">
+    <entity name="EcoFactor" representedClassName=".EcoFactorEntity" parentEntity="EcoData" syncable="YES" codeGenerationType="class">
+        <attribute name="created" attributeType="Date" defaultDateTimeInterval="572226540" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+        <attribute name="unit" attributeType="String" syncable="YES"/>
+        <attribute name="updated" attributeType="Date" defaultDateTimeInterval="572226600" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="value" attributeType="String" syncable="YES"/>
+        <relationship name="ecoData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EcoData" inverseName="ecoFactor" inverseEntity="EcoData" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName=".NoteEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="created" attributeType="Date" defaultDateTimeInterval="572226900" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="note" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="updated" attributeType="Date" defaultDateTimeInterval="572226900" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="ecoData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EcoData" inverseName="notes" inverseEntity="EcoData" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="note" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="site" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Site" inverseName="notes" inverseEntity="Site" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName=".PhotoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="created" attributeType="Date" defaultDateTimeInterval="572226840" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="photo" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="updated" attributeType="Date" defaultDateTimeInterval="572226840" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="ecoData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EcoData" inverseName="photos" inverseEntity="EcoData" syncable="YES"/>
+        <relationship name="note" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Note" inverseName="photo" inverseEntity="Note" syncable="YES"/>
+        <relationship name="site" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Site" inverseName="photos" inverseEntity="Site" syncable="YES"/>
+    </entity>
+    <entity name="Site" representedClassName=".SiteEntity" syncable="YES" codeGenerationType="class" coreSpotlightDisplayNameExpression="@name">
         <attribute name="altitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="altitudeAccuracy" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="coordinateAccuracy" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
-        <attribute name="notes" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="postalCode" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="ecoData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EcoData" inverseName="site" inverseEntity="EcoData" syncable="YES"/>
-        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SitePhoto" inverseName="site" inverseEntity="SitePhoto" syncable="YES"/>
-    </entity>
-    <entity name="SitePhoto" representedClassName="SitePhoto" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
-        <relationship name="site" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Site" inverseName="photos" inverseEntity="Site" syncable="YES"/>
+        <attribute name="name" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="ecoData" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="EcoData" inverseName="site" inverseEntity="EcoData" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Note" inverseName="site" inverseEntity="Note" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Photo" inverseName="site" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AbioticData" positionX="-27" positionY="147" width="128" height="30"/>
-        <element name="BioticData" positionX="169" positionY="126" width="128" height="30"/>
-        <element name="EcoData" positionX="124" positionY="-99" width="128" height="30"/>
-        <element name="Site" positionX="-200" positionY="-270" width="128" height="300"/>
-        <element name="SitePhoto" positionX="-18" positionY="-117" width="128" height="90"/>
+        <element name="EcoData" positionX="114" positionY="-198" width="128" height="165"/>
+        <element name="EcoFactor" positionX="326.5" positionY="-175.5" width="128" height="150"/>
+        <element name="Note" positionX="-26.31640625" positionY="-400.5625" width="128" height="150"/>
+        <element name="Photo" positionX="-340.5" positionY="-33.5" width="128" height="150"/>
+        <element name="Site" positionX="-338.578125" positionY="-430.1875" width="128" height="225"/>
     </elements>
 </model>

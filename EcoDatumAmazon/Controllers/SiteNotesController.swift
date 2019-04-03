@@ -38,6 +38,14 @@ class SiteNotesController: UIViewController {
     isObservingSelectedSiteKeyPath = true
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    DispatchQueue.main.async {
+      if let mainTabBarController = MainTabBarController.shared {
+        mainTabBarController.navigationItem.rightBarButtonItems = []
+      }
+    }
+  }
+  
   deinit {
     if isObservingSelectedSiteKeyPath {
       ViewContext.shared.removeObserver(

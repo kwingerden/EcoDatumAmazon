@@ -12,8 +12,6 @@ import UIKit
 
 let SITE_NAME_PLACEHOLDER = "<Site Name>"
 
-// NOTE: site.photo attribute is being replaced with array of SitePhoto instead, site.photos
-
 extension Site {
   
   static func create(
@@ -24,14 +22,8 @@ extension Site {
     coordinateAccuracy: Decimal? = nil,
     altitude: Decimal? = nil,
     altitudeAccuracy: Decimal? = nil,
-    photo: Data? = nil,
-    notes: NSAttributedString? = nil,
-    place: String? = nil,
-    street: String? = nil,
-    city: String? = nil,
-    state: String? = nil,
-    postalCode: String? = nil,
-    country: String? = nil) throws -> Site {
+    notes: NSAttributedString? = nil) throws -> Site {
+    
     let entity = NSEntityDescription.entity(
       forEntityName: "Site",
       in: PersistenceUtil.shared.container.viewContext)!
@@ -82,14 +74,7 @@ extension Site {
       site.altitudeAccuracy = nil
     }
     
-    site.photo = photo
     site.notes = notes
-    site.place = place
-    site.street = street
-    site.city = city
-    site.state = state
-    site.postalCode = postalCode
-    site.country = country
     
     return site
   }
@@ -144,13 +129,7 @@ fileprivate class SiteCodable: Codable {
     case altitude
     case altitudeAccuracy
     case notes
-    case photo
-    case place
-    case street
-    case city
-    case state
-    case postalCode
-    case country
+    case photos
     case ecoFactors
   }
   
@@ -198,37 +177,6 @@ fileprivate class SiteCodable: Codable {
       notes = try NSAttributedString.base64Decode(notesBase64Encoded)
     }
     
-    var photo: Data?
-    if let photoBase64Encoded = try container.decodeIfPresent(
-      Base64Encoded.self,
-      forKey: CodingKeys.photo) {
-      photo = photoBase64Encoded.base64Decode()
-    }
-    
-    let place = try container.decodeIfPresent(
-      String.self,
-      forKey: CodingKeys.place)
-    
-    let street = try container.decodeIfPresent(
-      String.self,
-      forKey: CodingKeys.street)
-    
-    let city = try container.decodeIfPresent(
-      String.self,
-      forKey: CodingKeys.city)
-    
-    let state = try container.decodeIfPresent(
-      String.self,
-      forKey: CodingKeys.state)
-    
-    let postalCode = try container.decodeIfPresent(
-      String.self,
-      forKey: CodingKeys.postalCode)
-    
-    let country = try container.decodeIfPresent(
-      String.self,
-      forKey: CodingKeys.country)
-    
     site = try Site.create(
       id: id,
       name: name,
@@ -237,14 +185,11 @@ fileprivate class SiteCodable: Codable {
       coordinateAccuracy: coordinateAccuracy,
       altitude: altitude,
       altitudeAccuracy: altitudeAccuracy,
-      photo: photo,
-      notes: notes,
-      place: place,
-      street: street,
-      city: city,
-      state: state,
-      postalCode: postalCode,
-      country: country)
+      notes: notes)
+    
+    let photos = try container.decodeIfPresent(
+      [SitePhoto].self,
+      forKey: CodingKeys.photos)
     
     let ecoFactors = try container.decodeIfPresent(
       [EcoFactor].self,
@@ -302,23 +247,12 @@ fileprivate class SiteCodable: Codable {
         forKey: CodingKeys.altitudeAccuracy)
     }
     
-    try container.encodeIfPresent(
-      site.photo?.base64EncodedString(),
-      forKey: CodingKeys.photo)
-    
     if let notes = site.notes as? NSAttributedString,
       let base64EncodedNotes = try? notes.base64Encode() {
       try container.encodeIfPresent(
         base64EncodedNotes,
         forKey: CodingKeys.notes)
     }
-    
-    try container.encodeIfPresent(site.place, forKey: CodingKeys.place)
-    try container.encodeIfPresent(site.street, forKey: CodingKeys.street)
-    try container.encodeIfPresent(site.city, forKey: CodingKeys.city)
-    try container.encodeIfPresent(site.state, forKey: CodingKeys.state)
-    try container.encodeIfPresent(site.postalCode, forKey: CodingKeys.postalCode)
-    try container.encodeIfPresent(site.country, forKey: CodingKeys.country)
     
     if let ecoData = site.ecoData {
       let jsonDecoder = JSONDecoder.ecoDatumJSONDecoder()
@@ -333,6 +267,11 @@ fileprivate class SiteCodable: Codable {
       }
       try container.encode(ecoFactors, forKey: CodingKeys.ecoFactors)
     }
+    
+    if let photos = site.photos {
+      try container.encode(photos, forKey: CodingKeys.photos)
+    }
+    
   }
   
 }

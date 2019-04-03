@@ -131,6 +131,14 @@ class SiteDetailController: UIViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    DispatchQueue.main.async {
+      if let mainTabBarController = MainTabBarController.shared {
+        mainTabBarController.navigationItem.rightBarButtonItems = []
+      }
+    }
+  }
+  
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     

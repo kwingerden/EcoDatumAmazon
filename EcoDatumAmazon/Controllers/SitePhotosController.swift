@@ -52,14 +52,36 @@ class SitePhotosController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    if let mainTabBarController = MainTabBarController.shared {
-      mainTabBarController.navigationItem.rightBarButtonItem = UIBarButtonItem(
-        barButtonSystemItem: UIBarButtonItem.SystemItem.add,
-        target: self,
-        action: #selector(addButtonPressed))
+    DispatchQueue.main.async {
+      if let mainTabBarController = MainTabBarController.shared {
+        mainTabBarController.navigationItem.rightBarButtonItems = [
+          UIBarButtonItem(
+            image: UIImage(named: "pho-camera-line"),
+            style: .plain,
+            target: self,
+            action: #selector(self.cameraButtonPressed)),
+          UIBarButtonItem(
+            image: UIImage(named: "ios-photos-line"),
+            style: .plain,
+            target: self,
+            action: #selector(self.photoLibraryButtonPressed))
+        ]
+      }
     }
     
     refresh()
+  }
+  
+  @objc func cameraButtonPressed() {
+    if let _ = ViewContext.shared.selectedSite {
+      showImagePickerController(.camera)
+    }
+  }
+  
+  @objc func photoLibraryButtonPressed() {
+    if let _ = ViewContext.shared.selectedSite {
+      showImagePickerController(.photoLibrary)
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,13 +96,17 @@ class SitePhotosController: UIViewController {
       
     }
   }
-  
-  @objc func addButtonPressed() {
-    if let _ = ViewContext.shared.selectedSite {
-      performSegue(withIdentifier: "newSitePhoto", sender: nil)
+
+  private func showImagePickerController(_ sourceType: UIImagePickerController.SourceType) {
+    if UIImagePickerController.isCameraDeviceAvailable(.rear) {
+      let imagePicker = UIImagePickerController()
+      imagePicker.delegate = self
+      imagePicker.sourceType = sourceType
+      imagePicker.allowsEditing = true
+      present(imagePicker, animated: true, completion: nil)
     }
   }
-  
+
   private func refresh() {
     if let site = ViewContext.shared.selectedSite {
       if let photos = site.photos {
@@ -216,6 +242,41 @@ class SitePhotoCell: UICollectionViewCell {
 class SitePhotoSectionHeader: UICollectionReusableView {
   
   @IBOutlet weak var label: UILabel!
+  
+}
+
+extension SitePhotosController: UINavigationControllerDelegate {
+  
+}
+
+extension SitePhotosController: UIImagePickerControllerDelegate {
+  
+  func imagePickerController(_ picker: UIImagePickerController,
+                             didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    var image: UIImage?
+    if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+      image = editedImage
+    } else if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+      image = pickedImage
+    }
+    
+    if let image = image {
+      let data = image.defaultJpegData()
+      do {
+        let newSitePhoto = try SitePhoto.create(site: selectedSite, date: Date(), photo: data)
+        try newSitePhoto.save()
+      } catch let error as NSError {
+        LOG.error("\(error), \(error.userInfo)")
+      }
+    }
+    
+    picker.dismiss(animated: true, completion: nil)
+  }
+  
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion: nil)
+  }
   
 }
 

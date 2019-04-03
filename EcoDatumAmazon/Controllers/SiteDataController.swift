@@ -42,11 +42,15 @@ class SiteDataController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    if let mainTabBarController = MainTabBarController.shared {
-      mainTabBarController.navigationItem.rightBarButtonItem = UIBarButtonItem(
-        barButtonSystemItem: UIBarButtonItem.SystemItem.add,
-        target: self,
-        action: #selector(addButtonPressed))
+    DispatchQueue.main.async {
+      if let mainTabBarController = MainTabBarController.shared {
+        mainTabBarController.navigationItem.rightBarButtonItems = [
+          UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonItem.SystemItem.add,
+            target: self,
+            action: #selector(self.addButtonPressed))
+        ]
+      }
     }
     
     refresh()
